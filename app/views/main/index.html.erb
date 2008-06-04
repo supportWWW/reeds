@@ -1,2 +1,12 @@
 <h1>Welcome!</h1>
 <p>This is the main page</p>
+
+<% unless @news_articles.blank? %>
+    <ul>
+        <% for news_article in @news_articles %>
+            <%= link_to news_article.title, news_article %>
+        <% end %>
+    </ul>
+<% else %>
+  <p>There are no news here yet</p>
+<% end %>

@@ -28,6 +28,7 @@ Rails::Initializer.run do |config|
 
   config.gem 'will_paginate', :version => '2.2.2'
   config.gem 'rspec', :lib => 'spec', :version => '1.1.4'
+  config.gem 'RedCloth', :version => '3.0.4', :lib => 'redcloth'
   
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.

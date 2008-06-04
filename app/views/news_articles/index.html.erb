@@ -1,0 +1,31 @@
+<h1>News</h1>
+
+<%= will_paginate @news_articles %>
+
+<% unless @news_articles.blank? %>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Category</th>
+      <th>Publish at</th>
+    </tr>
+  
+    <% for news_article in @news_articles %>
+      <tr>
+        <td><%= link_to news_article.title, news_article %></td>
+        <td><%= h news_article.category.name %></td>
+        <td><%= h news_article.publish_at %></td>
+        <td><%= link_to 'Edit', edit_news_article_path(news_article) %></td>
+        <td><%= link_to 'Destroy', news_article, :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <p>There are no news availabe yet.</p>
+<% end %>
+
+<%= will_paginate @news_articles %>
+
+<br />
+
+<%= link_to 'New news article', new_news_article_path %>

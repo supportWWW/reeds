@@ -14,4 +14,16 @@ class ApplicationController < ActionController::Base
   # Uncomment this to filter the contents of submitted sensitive data parameters
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
+  
+  protected
+  
+  def load_page
+    @page = params[:page] || '1'
+    @per_page = params[:per_page] || '10'
+  end
+  
+  def paginate( model, options = {} )
+    model.paginate( options.merge( {:page => @page, :per_page => @per_page} ) )
+  end
+  
 end

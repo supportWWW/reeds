@@ -73,6 +73,11 @@ module AuthenticatedSystem
       respond_to do |format|
         format.html do
           store_location
+          if logged_in?
+            flash[:error] = 'You do not have permission to access this page'
+          else
+            flash[:error] = 'You have to be logged in to access this page'
+          end
           redirect_to new_session_path
         end
         # format.any doesn't work in rails version < http://dev.rubyonrails.org/changeset/8987

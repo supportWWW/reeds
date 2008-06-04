@@ -56,3 +56,655 @@ Migrating to CreateAdminGuy (20080604040527)
   [4;35;1mSQL (0.000897)[0m   [0mSHOW FIELDS FROM `users`[0m
   [4;36;1mSQL (0.001058)[0m   [0;1mdescribe `users`[0m
   [4;35;1mSQL (0.000388)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.000060)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000032)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.018087)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000054)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000024)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20080604024949)
+  [4;35;1mSQL (0.000024)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateAdminGuy (20080604040527)
+  [4;36;1mSQL (0.000023)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateNewsArticles (20080604130146)
+  [4;35;1mSQL (0.000023)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.014832)[0m   [0;1mCREATE TABLE `news_articles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255) DEFAULT NULL NULL, `author` varchar(255) DEFAULT NULL NULL, `source_url` varchar(255) DEFAULT NULL NULL, `title_permalink` varchar(255) DEFAULT NULL NULL, `text` text DEFAULT NULL NULL, `publish_at` datetime DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.000302)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080604130146')[0m
+  [4;36;1mSQL (0.000118)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000107)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000555)[0m   [0;1mSHOW FIELDS FROM `news_articles`[0m
+  [4;35;1mSQL (0.000396)[0m   [0mdescribe `news_articles`[0m
+  [4;36;1mSQL (0.000120)[0m   [0;1mSHOW KEYS FROM `news_articles`[0m
+  [4;35;1mSQL (0.000449)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.000429)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.000164)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.000061)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000033)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000146)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000065)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000030)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000120)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000047)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000030)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateNewsArticles (20080604130146)
+  [4;36;1mSQL (0.000025)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.021747)[0m   [0mDROP TABLE `news_articles`[0m
+  [4;36;1mSQL (0.000558)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20080604130146'[0m
+  [4;35;1mSQL (0.000126)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000110)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000527)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.002794)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.000216)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.000097)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000063)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000025)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20080604024949)
+  [4;35;1mSQL (0.000023)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateAdminGuy (20080604040527)
+  [4;36;1mSQL (0.000023)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateNewsArticles (20080604130146)
+  [4;35;1mSQL (0.000023)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002308)[0m   [0;1mCREATE TABLE `news_articles` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255) DEFAULT NULL NULL, `author` varchar(255) DEFAULT NULL NULL, `source_url` varchar(255) DEFAULT NULL NULL, `title_permalink` varchar(255) DEFAULT NULL NULL, `text` text DEFAULT NULL NULL, `rendered_text` text DEFAULT NULL NULL, `publish_at` datetime DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.009775)[0m   [0mCREATE UNIQUE INDEX `index_news_articles_on_title_permalink` ON `news_articles` (`title_permalink`)[0m
+  [4;36;1mSQL (0.000273)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080604130146')[0m
+Migrating to CreateCategories (20080604170419)
+  [4;35;1mSQL (0.000128)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001632)[0m   [0;1mCREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.004626)[0m   [0mALTER TABLE `news_articles` ADD `category_id` int(11) DEFAULT NULL[0m
+  [4;36;1mSQL (0.000252)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080604170419')[0m
+
+
+Processing MainController#index (for 127.0.0.1 at 2008-06-04 14:48:13) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--f91e9d6b369072294e001af6121a48781558ce36
+  Parameters: {"action"=>"index", "controller"=>"main"}
+  [4;36;1mSQL (0.000105)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000047)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mNewsArticle Load (0.000338)[0m   [0;1mSELECT * FROM `news_articles` WHERE (publish_at < '2008-06-04 14:48:13') ORDER BY publish_at desc LIMIT 0, 10[0m
+Rendering template within layouts/application
+Rendering main/index
+Completed in 0.02321 (43 reqs/sec) | Rendering: 0.01237 (53%) | DB: 0.00049 (2%) | 200 OK [http://localhost/]
+
+
+Processing MainController#index (for 127.0.0.1 at 2008-06-04 14:51:29) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--f91e9d6b369072294e001af6121a48781558ce36
+  Parameters: {"action"=>"index", "controller"=>"main"}
+  [4;35;1mNewsArticle Load (0.000377)[0m   [0mSELECT * FROM `news_articles` WHERE (publish_at < '2008-06-04 14:51:29') ORDER BY publish_at desc LIMIT 0, 10[0m
+Rendering template within layouts/application
+Rendering main/index
+Completed in 0.01159 (86 reqs/sec) | Rendering: 0.00194 (16%) | DB: 0.00038 (3%) | 200 OK [http://localhost/]
+
+
+Processing NewsArticlesController#index (for 127.0.0.1 at 2008-06-04 14:51:30) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--f91e9d6b369072294e001af6121a48781558ce36
+  Parameters: {"action"=>"index", "controller"=>"news_articles"}
+Redirected to http://localhost:3000/session/new
+Filter chain halted as [:login_required] rendered_or_redirected.
+Completed in 0.00080 (1248 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/news_articles]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2008-06-04 14:51:31) [GET]
+  Session ID: BAh7BzoOcmV0dXJuX3RvIhMvbmV3c19hcnRpY2xlcyIKZmxhc2hJQzonQWN0
+aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--495b8fcb1d53779b99d23dfcb49303284717a69c
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 0.01729 (57 reqs/sec) | Rendering: 0.01360 (78%) | DB: 0.00000 (0%) | 200 OK [http://localhost/session/new]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2008-06-04 14:51:39) [POST]
+  Session ID: BAh7CDoMY3NyZl9pZCIlZThlYWE5ZWMxOTI4MjAxNzVlOGI1ZTE2MmUxZDZh
+Njc6DnJldHVybl90byITL25ld3NfYXJ0aWNsZXMiCmZsYXNoSUM6J0FjdGlv
+bkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7AAY6CkB1c2VkewA=--667205c1a86548a66806bb9b3b2cc575df50774f
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"deaa618c8207573f55ac97b6233f81c3d6a31a30", "action"=>"create", "controller"=>"sessions", "password"=>"codevader0admuin", "login"=>"codevader"}
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+  [4;36;1mUser Columns (0.000826)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000297)[0m   [0mSELECT * FROM `users` WHERE (`users`.`login` = 'codevader') LIMIT 1[0m
+Failed login for 'codevader' from 127.0.0.1 at Wed Jun 04 17:51:39 UTC 2008
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 0.04039 (24 reqs/sec) | Rendering: 0.00158 (3%) | DB: 0.00112 (2%) | 200 OK [http://localhost/session]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2008-06-04 14:51:46) [POST]
+  Session ID: BAh7CToMdXNlcl9pZDA6DGNzcmZfaWQiJWU4ZWFhOWVjMTkyODIwMTc1ZThi
+NWUxNjJlMWQ2YTY3Og5yZXR1cm5fdG8iEy9uZXdzX2FydGljbGVzIgpmbGFz
+aElDOidBY3Rpb25Db250cm9sbGVyOjpGbGFzaDo6Rmxhc2hIYXNoewY6CmVy
+cm9yIidDb3VsZG4ndCBsb2cgeW91IGluIGFzICdjb2RldmFkZXInBjoKQHVz
+ZWR7BjsJRg==--578519fab8def3edc3eff7554490fdf4d330354b
+  Parameters: {"commit"=>"Log in", "authenticity_token"=>"deaa618c8207573f55ac97b6233f81c3d6a31a30", "action"=>"create", "controller"=>"sessions", "password"=>"codevader-admin", "login"=>"codevader"}
+Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
+  [4;36;1mUser Columns (0.000643)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000042)[0m   [0mSELECT * FROM `users` WHERE (`users`.`login` = 'codevader') LIMIT 1[0m
+  [4;36;1mSQL (0.000041)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000031)[0m   [0mCOMMIT[0m
+Cookie set: auth_token=; path=/
+Redirected to http://localhost:3000/news_articles
+Completed in 0.01405 (71 reqs/sec) | DB: 0.00076 (5%) | 302 Found [http://localhost/session]
+
+
+Processing NewsArticlesController#index (for 127.0.0.1 at 2008-06-04 14:51:47) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiVlOGVhYTllYzE5MjgyMDE3NWU4
+YjVlMTYyZTFkNmE2NzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsHOgtub3RpY2UiG0xvZ2dlZCBp
+biBzdWNjZXNzZnVsbHk6CmVycm9yIidDb3VsZG4ndCBsb2cgeW91IGluIGFz
+ICdjb2RldmFkZXInBjoKQHVzZWR7BzsJRjsKVA==--99f970d6aba57bb950b7211a2726b14debf38d64
+  Parameters: {"action"=>"index", "controller"=>"news_articles"}
+  [4;36;1mUser Columns (0.000776)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000169)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mNewsArticle Load (0.000183)[0m   [0;1mSELECT * FROM `news_articles` ORDER BY publish_at desc LIMIT 0, 10[0m
+Rendering template within layouts/application
+Rendering news_articles/index
+Completed in 0.03512 (28 reqs/sec) | Rendering: 0.01505 (42%) | DB: 0.00113 (3%) | 200 OK [http://localhost/news_articles]
+
+
+Processing NewsArticlesController#index (for 127.0.0.1 at 2008-06-04 14:52:42) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiVlOGVhYTllYzE5MjgyMDE3NWU4
+YjVlMTYyZTFkNmE2NzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBp
+biBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwlU--c106c5832d3e11105a3f1cfda774a081ba9c4f22
+  Parameters: {"action"=>"index", "controller"=>"news_articles"}
+  [4;35;1mUser Columns (0.001348)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000135)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mNewsArticle Load (0.000089)[0m   [0mSELECT * FROM `news_articles` ORDER BY publish_at desc LIMIT 0, 10[0m
+Rendering template within layouts/application
+Rendering news_articles/index
+Completed in 0.03539 (28 reqs/sec) | Rendering: 0.00200 (5%) | DB: 0.00157 (4%) | 200 OK [http://localhost/news_articles]
+
+
+Processing NewsArticlesController#index (for 127.0.0.1 at 2008-06-04 14:52:52) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiVlOGVhYTllYzE5MjgyMDE3NWU4
+YjVlMTYyZTFkNmE2NzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--364876605b0b8872875ea0fdfaa923cee29dba95
+  Parameters: {"action"=>"index", "controller"=>"news_articles"}
+  [4;36;1mUser Columns (0.000806)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000068)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mNewsArticle Load (0.000095)[0m   [0;1mSELECT * FROM `news_articles` ORDER BY publish_at desc LIMIT 0, 10[0m
+Rendering template within layouts/application
+Rendering news_articles/index
+Completed in 0.02431 (41 reqs/sec) | Rendering: 0.00209 (8%) | DB: 0.00097 (3%) | 200 OK [http://localhost/news_articles]
+
+
+Processing NewsArticlesController#index (for 127.0.0.1 at 2008-06-04 15:09:55) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiVlOGVhYTllYzE5MjgyMDE3NWU4
+YjVlMTYyZTFkNmE2NzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--364876605b0b8872875ea0fdfaa923cee29dba95
+  Parameters: {"action"=>"index", "controller"=>"news_articles"}
+  [4;35;1mUser Columns (0.000669)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000041)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mNewsArticle Load (0.000055)[0m   [0mSELECT * FROM `news_articles` ORDER BY publish_at desc LIMIT 0, 10[0m
+Rendering template within layouts/application
+Rendering news_articles/index
+Completed in 0.02100 (47 reqs/sec) | Rendering: 0.00215 (10%) | DB: 0.00077 (3%) | 200 OK [http://localhost/news_articles]
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2008-06-04 15:10:01) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiVlOGVhYTllYzE5MjgyMDE3NWU4
+YjVlMTYyZTFkNmE2NzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--364876605b0b8872875ea0fdfaa923cee29dba95
+  Parameters: {"action"=>"index", "controller"=>"categories"}
+  [4;36;1mUser Columns (0.000855)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000068)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mCategory Load (0.000209)[0m   [0;1mSELECT * FROM `categories` [0m
+Rendering template within layouts/application
+Rendering categories/index
+Completed in 0.02311 (43 reqs/sec) | Rendering: 0.00193 (8%) | DB: 0.00113 (4%) | 200 OK [http://localhost/categories]
+
+
+Processing CategoriesController#new (for 127.0.0.1 at 2008-06-04 15:10:03) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiVlOGVhYTllYzE5MjgyMDE3NWU4
+YjVlMTYyZTFkNmE2NzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--364876605b0b8872875ea0fdfaa923cee29dba95
+  Parameters: {"action"=>"new", "controller"=>"categories"}
+  [4;35;1mUser Columns (0.000657)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000050)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mCategory Columns (0.000395)[0m   [0mSHOW FIELDS FROM `categories`[0m
+Rendering template within layouts/application
+Rendering categories/new
+Completed in 0.07190 (13 reqs/sec) | Rendering: 0.00326 (4%) | DB: 0.00110 (1%) | 200 OK [http://localhost/categories/new]
+
+
+Processing CategoriesController#create (for 127.0.0.1 at 2008-06-04 15:10:07) [POST]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiVlOGVhYTllYzE5MjgyMDE3NWU4
+YjVlMTYyZTFkNmE2NzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--364876605b0b8872875ea0fdfaa923cee29dba95
+  Parameters: {"commit"=>"Create", "category"=>{"name"=>"Reeds"}, "authenticity_token"=>"deaa618c8207573f55ac97b6233f81c3d6a31a30", "action"=>"create", "controller"=>"categories"}
+  [4;36;1mUser Columns (0.000990)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000042)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mCategory Columns (0.000382)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.000029)[0m   [0mBEGIN[0m
+  [4;36;1mCategory Create (0.000127)[0m   [0;1mINSERT INTO `categories` (`name`, `updated_at`, `created_at`) VALUES('Reeds', '2008-06-04 15:10:07', '2008-06-04 15:10:07')[0m
+  [4;35;1mSQL (0.007435)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/categories/1
+Completed in 0.02936 (34 reqs/sec) | DB: 0.00900 (30%) | 302 Found [http://localhost/categories]
+
+
+Processing CategoriesController#show (for 127.0.0.1 at 2008-06-04 15:10:07) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiVlOGVhYTllYzE5MjgyMDE3NWU4
+YjVlMTYyZTFkNmE2NzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiJ0NhdGVnb3J5
+IHdhcyBzdWNjZXNzZnVsbHkgY3JlYXRlZC4GOgpAdXNlZHsGOwlG--8c53c18fbf87417f6c4e0a608fab3739be6ba20e
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"categories"}
+  [4;36;1mUser Columns (0.000641)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000041)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mCategory Columns (0.000365)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mCategory Load (0.000125)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering categories/show
+Completed in 0.01783 (56 reqs/sec) | Rendering: 0.00202 (11%) | DB: 0.00117 (6%) | 200 OK [http://localhost/categories/1]
+
+
+Processing CategoriesController#index (for 127.0.0.1 at 2008-06-04 15:10:42) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiVlOGVhYTllYzE5MjgyMDE3NWU4
+YjVlMTYyZTFkNmE2NzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiJ0NhdGVnb3J5
+IHdhcyBzdWNjZXNzZnVsbHkgY3JlYXRlZC4GOgpAdXNlZHsGOwlU--b5ac6fdebdb34f4d27fc3bf63be761659c807599
+  Parameters: {"action"=>"index", "controller"=>"categories"}
+  [4;36;1mUser Columns (0.000660)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000052)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mCategory Load (0.000159)[0m   [0;1mSELECT * FROM `categories` [0m
+Rendering template within layouts/application
+Rendering categories/index
+  [4;35;1mCategory Columns (0.000362)[0m   [0mSHOW FIELDS FROM `categories`[0m
+Completed in 0.01866 (53 reqs/sec) | Rendering: 0.00214 (11%) | DB: 0.00123 (6%) | 200 OK [http://localhost/categories]
+
+
+Processing NewsArticlesController#index (for 127.0.0.1 at 2008-06-04 15:10:48) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiVlOGVhYTllYzE5MjgyMDE3NWU4
+YjVlMTYyZTFkNmE2NzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--364876605b0b8872875ea0fdfaa923cee29dba95
+  Parameters: {"action"=>"index", "controller"=>"news_articles"}
+  [4;36;1mUser Columns (0.000872)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000060)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mNewsArticle Load (0.000070)[0m   [0;1mSELECT * FROM `news_articles` ORDER BY publish_at desc LIMIT 0, 10[0m
+Rendering template within layouts/application
+Rendering news_articles/index
+Completed in 0.02810 (35 reqs/sec) | Rendering: 0.00141 (5%) | DB: 0.00100 (3%) | 200 OK [http://localhost/news_articles]
+
+
+Processing NewsArticlesController#new (for 127.0.0.1 at 2008-06-04 15:10:50) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiVlOGVhYTllYzE5MjgyMDE3NWU4
+YjVlMTYyZTFkNmE2NzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--364876605b0b8872875ea0fdfaa923cee29dba95
+  Parameters: {"action"=>"new", "controller"=>"news_articles"}
+  [4;35;1mUser Columns (0.000856)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000060)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mNewsArticle Columns (0.000775)[0m   [0mSHOW FIELDS FROM `news_articles`[0m
+Rendering template within layouts/application
+Rendering news_articles/new
+  [4;36;1mCategory Load (0.000113)[0m   [0;1mSELECT * FROM `categories` [0m
+  [4;35;1mCategory Columns (0.000411)[0m   [0mSHOW FIELDS FROM `categories`[0m
+Rendered news_articles/_form (0.06516)
+Completed in 0.10477 (9 reqs/sec) | Rendering: 0.07699 (73%) | DB: 0.00221 (2%) | 200 OK [http://localhost/news_articles/new]
+
+
+Processing NewsArticlesController#new (for 127.0.0.1 at 2008-06-04 15:11:42) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiVlOGVhYTllYzE5MjgyMDE3NWU4
+YjVlMTYyZTFkNmE2NzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--364876605b0b8872875ea0fdfaa923cee29dba95
+  Parameters: {"action"=>"new", "controller"=>"news_articles"}
+  [4;36;1mUser Columns (0.000942)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000070)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mNewsArticle Columns (0.000912)[0m   [0;1mSHOW FIELDS FROM `news_articles`[0m
+Rendering template within layouts/application
+Rendering news_articles/new
+  [4;35;1mCategory Load (0.000082)[0m   [0mSELECT * FROM `categories` [0m
+  [4;36;1mCategory Columns (0.000431)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+Rendered news_articles/_form (0.01302)
+Completed in 0.04645 (21 reqs/sec) | Rendering: 0.01683 (36%) | DB: 0.00244 (5%) | 200 OK [http://localhost/news_articles/new]
+
+
+Processing NewsArticlesController#new (for 127.0.0.1 at 2008-06-04 15:12:56) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiVlOGVhYTllYzE5MjgyMDE3NWU4
+YjVlMTYyZTFkNmE2NzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--364876605b0b8872875ea0fdfaa923cee29dba95
+  Parameters: {"action"=>"new", "controller"=>"news_articles"}
+  [4;35;1mUser Columns (0.000824)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000057)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mNewsArticle Columns (0.000602)[0m   [0mSHOW FIELDS FROM `news_articles`[0m
+Rendering template within layouts/application
+Rendering news_articles/new
+  [4;36;1mCategory Load (0.000082)[0m   [0;1mSELECT * FROM `categories` [0m
+  [4;35;1mCategory Columns (0.000449)[0m   [0mSHOW FIELDS FROM `categories`[0m
+Rendered news_articles/_form (0.01190)
+Completed in 0.03883 (25 reqs/sec) | Rendering: 0.01300 (33%) | DB: 0.00201 (5%) | 200 OK [http://localhost/news_articles/new]
+
+
+Processing NewsArticlesController#create (for 127.0.0.1 at 2008-06-04 15:14:20) [POST]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiVlOGVhYTllYzE5MjgyMDE3NWU4
+YjVlMTYyZTFkNmE2NzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--364876605b0b8872875ea0fdfaa923cee29dba95
+  Parameters: {"commit"=>"Send", "news_article"=>{"title"=>"This is a news article", "text"=>"This is a sample text.\r\n\r\nHey, that's another paragraph.", "author"=>"Maurício linhares", "source_url"=>"", "publish_at(1i)"=>"2008", "category_id"=>"1", "publish_at(2i)"=>"6", "publish_at(3i)"=>"4", "publish_at(4i)"=>"20", "publish_at(5i)"=>"12"}, "authenticity_token"=>"deaa618c8207573f55ac97b6233f81c3d6a31a30", "action"=>"create", "controller"=>"news_articles"}
+  [4;36;1mUser Columns (0.000673)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000049)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mNewsArticle Columns (0.000615)[0m   [0;1mSHOW FIELDS FROM `news_articles`[0m
+  [4;35;1mSQL (0.000037)[0m   [0mBEGIN[0m
+  [4;36;1mNewsArticle Exists (0.000144)[0m   [0;1mSELECT `news_articles`.id FROM `news_articles` WHERE (title_permalink = 'this-is-a-news-article') LIMIT 1[0m
+  [4;35;1mSQL (0.000093)[0m   [0mSELECT `title` FROM `news_articles` WHERE (`news_articles`.title = 'This is a news article') [0m
+  [4;36;1mNewsArticle Create (0.000167)[0m   [0;1mINSERT INTO `news_articles` (`rendered_text`, `updated_at`, `title`, `text`, `author`, `source_url`, `title_permalink`, `category_id`, `publish_at`, `created_at`) VALUES('<p>This is a sample text.</p>\n\n\n	<p>Hey, that&#8217;s another paragraph.</p>', '2008-06-04 15:14:20', 'This is a news article', 'This is a sample text.\r\n\r\nHey, that\'s another paragraph.', 'Maurício linhares', '', 'this-is-a-news-article', 1, '2008-06-04 20:12:00', '2008-06-04 15:14:20')[0m
+  [4;35;1mSQL (0.017661)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/news_articles/1
+Completed in 0.04260 (23 reqs/sec) | DB: 0.01944 (45%) | 302 Found [http://localhost/news_articles]
+
+
+Processing NewsArticlesController#show (for 127.0.0.1 at 2008-06-04 15:14:20) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiVlOGVhYTllYzE5MjgyMDE3NWU4
+YjVlMTYyZTFkNmE2NzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiKk5ld3NBcnRp
+Y2xlIHdhcyBzdWNjZXNzZnVsbHkgY3JlYXRlZC4GOgpAdXNlZHsGOwlG--690441b4c85278c724d333045bcaedc044b0f8dc
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"news_articles"}
+  [4;36;1mNewsArticle Columns (0.000701)[0m   [0;1mSHOW FIELDS FROM `news_articles`[0m
+  [4;35;1mNewsArticle Load (0.000163)[0m   [0mSELECT * FROM `news_articles` WHERE (`news_articles`.`title_permalink` = '1') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering news_articles/show
+
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+The error occurred while evaluating nil.title) on line #1 of news_articles/show.html.erb:
+1: <h2> <%=h @news_article.title %> - <%= @news_article.publish_at %> </h2>
+2: 
+3: <% unless @news_article.author.blank? %>
+4: <p>
+
+    app/views/news_articles/show.html.erb:1:in `_run_erb_47app47views47news_articles47show46html46erb'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:338:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:338:in `execute'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:35:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:22:in `render_template'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:245:in `render_file'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1108:in `render_for_file'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:865:in `render_with_no_layout'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:880:in `render_with_no_layout'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/layout.rb:251:in `render_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:131:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:131:in `custom'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:160:in `call'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:160:in `respond'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:154:in `each'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:154:in `respond'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/news_articles_controller.rb:19:in `show'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing NewsArticlesController#index (for 127.0.0.1 at 2008-06-04 15:15:18) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiVlOGVhYTllYzE5MjgyMDE3NWU4
+YjVlMTYyZTFkNmE2NzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiKk5ld3NBcnRp
+Y2xlIHdhcyBzdWNjZXNzZnVsbHkgY3JlYXRlZC4GOgpAdXNlZHsGOwlU--b4264223f5f23b8afa7f82568842f33136a0c3f6
+  Parameters: {"action"=>"index", "controller"=>"news_articles"}
+  [4;36;1mUser Columns (0.000733)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000045)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+
+
+ArgumentError (Unknown key(s): nclude):
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/core_ext/hash/keys.rb:47:in `assert_valid_keys'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/base.rb:2098:in `validate_find_options'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/base.rb:530:in `find'
+    /usr/lib/ruby/gems/1.8/gems/will_paginate-2.2.2/lib/will_paginate/finder.rb:82:in `send'
+    /usr/lib/ruby/gems/1.8/gems/will_paginate-2.2.2/lib/will_paginate/finder.rb:82:in `paginate'
+    /usr/lib/ruby/gems/1.8/gems/will_paginate-2.2.2/lib/will_paginate/collection.rb:87:in `create'
+    /usr/lib/ruby/gems/1.8/gems/will_paginate-2.2.2/lib/will_paginate/finder.rb:76:in `paginate'
+    /app/controllers/application.rb:26:in `paginate'
+    /app/controllers/news_articles_controller.rb:9:in `index'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:502:in `load'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-2.1.0/lib/active_support/dependencies.rb:509:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-2.1.0/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing NewsArticlesController#index (for 127.0.0.1 at 2008-06-04 15:15:32) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiVlOGVhYTllYzE5MjgyMDE3NWU4
+YjVlMTYyZTFkNmE2NzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--364876605b0b8872875ea0fdfaa923cee29dba95
+  Parameters: {"action"=>"index", "controller"=>"news_articles"}
+  [4;36;1mUser Columns (0.000649)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000041)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mNewsArticle Load (0.000214)[0m   [0;1mSELECT * FROM `news_articles` ORDER BY publish_at desc LIMIT 0, 10[0m
+  [4;35;1mNewsArticle Columns (0.000529)[0m   [0mSHOW FIELDS FROM `news_articles`[0m
+  [4;36;1mCategory Load (0.000146)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.id IN ('1')) [0m
+  [4;35;1mCategory Columns (0.000333)[0m   [0mSHOW FIELDS FROM `categories`[0m
+Rendering template within layouts/application
+Rendering news_articles/index
+Completed in 0.02608 (38 reqs/sec) | Rendering: 0.00155 (5%) | DB: 0.00269 (10%) | 200 OK [http://localhost/news_articles]
+
+
+Processing NewsArticlesController#index (for 127.0.0.1 at 2008-06-04 15:16:20) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiVlOGVhYTllYzE5MjgyMDE3NWU4
+YjVlMTYyZTFkNmE2NzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--364876605b0b8872875ea0fdfaa923cee29dba95
+  Parameters: {"action"=>"index", "controller"=>"news_articles"}
+  [4;36;1mUser Columns (0.000714)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000053)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mNewsArticle Load (0.000090)[0m   [0;1mSELECT * FROM `news_articles` ORDER BY publish_at desc LIMIT 0, 10[0m
+  [4;35;1mNewsArticle Columns (0.000650)[0m   [0mSHOW FIELDS FROM `news_articles`[0m
+  [4;36;1mCategory Load (0.000092)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.id IN ('1')) [0m
+  [4;35;1mCategory Columns (0.000406)[0m   [0mSHOW FIELDS FROM `categories`[0m
+Rendering template within layouts/application
+Rendering news_articles/index
+Completed in 0.02888 (34 reqs/sec) | Rendering: 0.00352 (12%) | DB: 0.00201 (6%) | 200 OK [http://localhost/news_articles]
+
+
+Processing NewsArticlesController#edit (for 127.0.0.1 at 2008-06-04 15:16:25) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiVlOGVhYTllYzE5MjgyMDE3NWU4
+YjVlMTYyZTFkNmE2NzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--364876605b0b8872875ea0fdfaa923cee29dba95
+  Parameters: {"action"=>"edit", "id"=>"this-is-a-news-article", "controller"=>"news_articles"}
+  [4;36;1mUser Columns (0.000667)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000044)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mNewsArticle Columns (0.000588)[0m   [0;1mSHOW FIELDS FROM `news_articles`[0m
+  [4;35;1mNewsArticle Load (0.000179)[0m   [0mSELECT * FROM `news_articles` WHERE (`news_articles`.`title_permalink` = 'this-is-a-news-article') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering news_articles/edit
+  [4;36;1mCategory Load (0.000051)[0m   [0;1mSELECT * FROM `categories` [0m
+  [4;35;1mCategory Columns (0.000372)[0m   [0mSHOW FIELDS FROM `categories`[0m
+Rendered news_articles/_form (0.01148)
+Completed in 0.03400 (29 reqs/sec) | Rendering: 0.01295 (38%) | DB: 0.00190 (5%) | 200 OK [http://localhost/news_articles/this-is-a-news-article/edit]
+
+
+Processing NewsArticlesController#show (for 127.0.0.1 at 2008-06-04 15:16:32) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiVlOGVhYTllYzE5MjgyMDE3NWU4
+YjVlMTYyZTFkNmE2NzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--364876605b0b8872875ea0fdfaa923cee29dba95
+  Parameters: {"action"=>"show", "id"=>"this-is-a-news-article", "controller"=>"news_articles"}
+  [4;36;1mNewsArticle Columns (0.000888)[0m   [0;1mSHOW FIELDS FROM `news_articles`[0m
+  [4;35;1mNewsArticle Load (0.000060)[0m   [0mSELECT * FROM `news_articles` WHERE (`news_articles`.`title_permalink` = 'this-is-a-news-article') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering news_articles/show
+  [4;36;1mUser Columns (0.000598)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000044)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.02477 (40 reqs/sec) | Rendering: 0.00989 (39%) | DB: 0.00159 (6%) | 200 OK [http://localhost/news_articles/this-is-a-news-article]
+
+
+Processing NewsArticlesController#show (for 127.0.0.1 at 2008-06-04 15:16:51) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiVlOGVhYTllYzE5MjgyMDE3NWU4
+YjVlMTYyZTFkNmE2NzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--364876605b0b8872875ea0fdfaa923cee29dba95
+  Parameters: {"action"=>"show", "id"=>"this-is-a-news-article", "controller"=>"news_articles"}
+  [4;36;1mNewsArticle Columns (0.001096)[0m   [0;1mSHOW FIELDS FROM `news_articles`[0m
+  [4;35;1mNewsArticle Load (0.000070)[0m   [0mSELECT * FROM `news_articles` WHERE (`news_articles`.`title_permalink` = 'this-is-a-news-article') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering news_articles/show
+  [4;36;1mUser Columns (0.000673)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000043)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.08554 (11 reqs/sec) | Rendering: 0.06867 (80%) | DB: 0.00188 (2%) | 200 OK [http://localhost/news_articles/this-is-a-news-article]
+
+
+Processing NewsArticlesController#show (for 127.0.0.1 at 2008-06-04 15:17:05) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiVlOGVhYTllYzE5MjgyMDE3NWU4
+YjVlMTYyZTFkNmE2NzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--364876605b0b8872875ea0fdfaa923cee29dba95
+  Parameters: {"action"=>"show", "id"=>"this-is-a-news-article", "controller"=>"news_articles"}
+  [4;36;1mNewsArticle Columns (0.001139)[0m   [0;1mSHOW FIELDS FROM `news_articles`[0m
+  [4;35;1mNewsArticle Load (0.000073)[0m   [0mSELECT * FROM `news_articles` WHERE (`news_articles`.`title_permalink` = 'this-is-a-news-article') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering news_articles/show
+  [4;36;1mUser Columns (0.000814)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000058)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.03338 (29 reqs/sec) | Rendering: 0.01575 (47%) | DB: 0.00208 (6%) | 200 OK [http://localhost/news_articles/this-is-a-news-article]
+
+
+Processing NewsArticlesController#show (for 127.0.0.1 at 2008-06-04 15:22:52) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiVlOGVhYTllYzE5MjgyMDE3NWU4
+YjVlMTYyZTFkNmE2NzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--364876605b0b8872875ea0fdfaa923cee29dba95
+  Parameters: {"action"=>"show", "id"=>"this-is-a-news-article", "controller"=>"news_articles"}
+  [4;36;1mSQL (0.000235)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000094)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mNewsArticle Columns (0.001041)[0m   [0;1mSHOW FIELDS FROM `news_articles`[0m
+  [4;35;1mNewsArticle Load (0.000063)[0m   [0mSELECT * FROM `news_articles` WHERE (`news_articles`.`title_permalink` = 'this-is-a-news-article') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering news_articles/show
+  [4;36;1mUser Columns (0.000608)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000096)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.03316 (30 reqs/sec) | Rendering: 0.01379 (41%) | DB: 0.00214 (6%) | 200 OK [http://localhost/news_articles/this-is-a-news-article]
+
+
+Processing NewsArticlesController#show (for 127.0.0.1 at 2008-06-04 15:23:32) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiVlOGVhYTllYzE5MjgyMDE3NWU4
+YjVlMTYyZTFkNmE2NzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--364876605b0b8872875ea0fdfaa923cee29dba95
+  Parameters: {"action"=>"show", "id"=>"this-is-a-news-article", "controller"=>"news_articles"}
+  [4;36;1mNewsArticle Columns (0.001365)[0m   [0;1mSHOW FIELDS FROM `news_articles`[0m
+  [4;35;1mNewsArticle Load (0.000078)[0m   [0mSELECT * FROM `news_articles` WHERE (`news_articles`.`title_permalink` = 'this-is-a-news-article') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering news_articles/show
+  [4;36;1mCategory Columns (0.000560)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mCategory Load (0.000046)[0m   [0mSELECT * FROM `categories` WHERE (`categories`.`id` = 1) [0m
+  [4;36;1mUser Columns (0.000808)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000058)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Completed in 0.04197 (23 reqs/sec) | Rendering: 0.02348 (55%) | DB: 0.00291 (6%) | 200 OK [http://localhost/news_articles/this-is-a-news-article]
+
+
+Processing NewsArticlesController#edit (for 127.0.0.1 at 2008-06-04 15:37:00) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiVlOGVhYTllYzE5MjgyMDE3NWU4
+YjVlMTYyZTFkNmE2NzoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--364876605b0b8872875ea0fdfaa923cee29dba95
+  Parameters: {"action"=>"edit", "id"=>"this-is-a-news-article", "controller"=>"news_articles"}
+  [4;36;1mUser Columns (0.000657)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000054)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mNewsArticle Columns (0.000605)[0m   [0;1mSHOW FIELDS FROM `news_articles`[0m
+  [4;35;1mNewsArticle Load (0.000057)[0m   [0mSELECT * FROM `news_articles` WHERE (`news_articles`.`title_permalink` = 'this-is-a-news-article') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering news_articles/edit
+  [4;36;1mCategory Load (0.000069)[0m   [0;1mSELECT * FROM `categories` [0m
+  [4;35;1mCategory Columns (0.000392)[0m   [0mSHOW FIELDS FROM `categories`[0m
+Rendered news_articles/_form (0.01210)
+Completed in 0.03694 (27 reqs/sec) | Rendering: 0.01528 (41%) | DB: 0.00183 (4%) | 200 OK [http://localhost/news_articles/this-is-a-news-article/edit]
