@@ -18,6 +18,14 @@ module AuthenticatedSystem
       @current_user = new_user || false
     end
 
+    def is_admin?
+      logged_in? && current_user.is_admin?
+    end
+    
+    def admin_required
+      is_admin? || non_admin_access_denied
+    end
+    
     # Check if the user is authorized
     #
     # Override this method in your controllers if you want to restrict access
@@ -75,6 +83,15 @@ module AuthenticatedSystem
       end
     end
 
+    def non_admin_access_denied
+      unless logged_in?
+        flash[:error] = 'You have to be an admin to access this page'
+        redirect_to '/'
+      else
+        access_denied
+      end
+    end
+    
     # Store the URI of the current request in the session.
     #
     # We can return to this location by calling #redirect_back_or_default.
@@ -94,7 +111,7 @@ module AuthenticatedSystem
     # Inclusion hook to make #current_user and #logged_in?
     # available as ActionView helper methods.
     def self.included(base)
-      base.send :helper_method, :current_user, :logged_in?, :authorized? if base.respond_to? :helper_method
+      base.send :helper_method, :current_user, :logged_in?, :authorized?, :is_admin? if base.respond_to? :helper_method
     end
 
     #
