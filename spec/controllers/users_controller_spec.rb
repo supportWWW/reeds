@@ -7,6 +7,11 @@ include AuthenticatedTestHelper
 describe UsersController do
   fixtures :users
 
+  before :each do
+    @user = mock_model( User, :login => 'test', :name => 'test', :is_admin? => true )
+    controller.stub!( :current_user ).and_return( @user )
+  end
+  
   it 'allows signup' do
     lambda do
       create_user

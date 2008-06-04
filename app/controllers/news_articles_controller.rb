@@ -81,7 +81,7 @@ class NewsArticlesController < ApplicationController
     if params[:id].blank?
       @news_article = NewsArticle.new
     else
-      @news_article = NewsArticle.find_by_title_permalink( params[:id] )
+      @news_article = NewsArticle.find( params[:id] )
     end
   end
   

@@ -1,6 +1,12 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe CategoriesController do
+  
+  before :each do
+    @user = mock_model( User, :login => 'test', :name => 'test', :is_admin? => true )
+    controller.stub!( :current_user ).and_return( @user )
+  end
+  
   describe "handling GET /categories" do
 
     before(:each) do
@@ -213,7 +219,7 @@ describe CategoriesController do
 
       it "should redirect to the new category" do
         do_post
-        response.should redirect_to(category_url("1"))
+        response.should redirect_to(categories_path)
       end
       
     end
@@ -264,7 +270,7 @@ describe CategoriesController do
 
       it "should redirect to the category" do
         do_put
-        response.should redirect_to(category_url("1"))
+        response.should redirect_to(categories_path)
       end
 
     end

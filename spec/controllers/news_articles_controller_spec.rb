@@ -1,6 +1,12 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe NewsArticlesController do
+  
+  before :each do
+    @user = mock_model( User, :login => 'test', :name => 'test', :is_admin? => true )
+    controller.stub!( :current_user ).and_return( @user )
+  end
+  
   describe "handling GET /news_articles" do
 
     before(:each) do
@@ -23,7 +29,7 @@ describe NewsArticlesController do
     end
   
     it "should find all news_articles" do
-      NewsArticle.should_receive(:find).with(:all).and_return([@news_article])
+      NewsArticle.should_receive(:find).and_return([@news_article])
       do_get
     end
   
@@ -37,7 +43,7 @@ describe NewsArticlesController do
 
     before(:each) do
       @news_articles = mock("Array of NewsArticles", :to_xml => "XML")
-      NewsArticle.stub!(:find).and_return(@news_articles)
+      NewsArticle.stub!(:paginate).and_return(@news_articles)
     end
   
     def do_get
@@ -51,7 +57,7 @@ describe NewsArticlesController do
     end
 
     it "should find all news_articles" do
-      NewsArticle.should_receive(:find).with(:all).and_return(@news_articles)
+      NewsArticle.should_receive(:paginate).and_return(@news_articles)
       do_get
     end
   
