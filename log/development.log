@@ -1,125 +1,448 @@
+  [4;36;1mSQL (0.000062)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000035)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000153)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000176)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000119)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000052)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to UpdatePositionOnMenuItems (20080605205832)
+  [4;36;1mSQL (0.000026)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.001946)[0m   [0mDELETE FROM schema_migrations WHERE version = '20080605205832'[0m
+  [4;36;1mSQL (0.000118)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000118)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000384)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.000333)[0m   [0mdescribe `categories`[0m
+  [4;36;1mSQL (0.000129)[0m   [0;1mSHOW KEYS FROM `categories`[0m
+  [4;35;1mSQL (0.000471)[0m   [0mSHOW FIELDS FROM `menu_items`[0m
+  [4;36;1mSQL (0.000452)[0m   [0;1mdescribe `menu_items`[0m
+  [4;35;1mSQL (0.000127)[0m   [0mSHOW KEYS FROM `menu_items`[0m
+  [4;36;1mSQL (0.000513)[0m   [0;1mSHOW FIELDS FROM `news_articles`[0m
+  [4;35;1mSQL (0.000504)[0m   [0mdescribe `news_articles`[0m
+  [4;36;1mSQL (0.000206)[0m   [0;1mSHOW KEYS FROM `news_articles`[0m
+  [4;35;1mSQL (0.000571)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mSQL (0.000521)[0m   [0;1mdescribe `pages`[0m
+  [4;35;1mSQL (0.000197)[0m   [0mSHOW KEYS FROM `pages`[0m
+  [4;36;1mSQL (0.000689)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.000544)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.000171)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.000107)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000064)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000025)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000024)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000024)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000025)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000024)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000024)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20080604024949)
+  [4;35;1mSQL (0.000026)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateAdminGuy (20080604040527)
+  [4;36;1mSQL (0.000025)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateNewsArticles (20080604130146)
+  [4;35;1mSQL (0.000025)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateCategories (20080604170419)
+  [4;36;1mSQL (0.000025)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreatePages (20080604195242)
+  [4;35;1mSQL (0.000024)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateMenuItems (20080605020537)
+  [4;36;1mSQL (0.000024)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to AddPositionToMenuItems (20080605205428)
+  [4;35;1mSQL (0.000025)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to UpdatePositionOnMenuItems (20080605205832)
+  [4;36;1mSQL (0.000024)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mMenuItem Load (0.000042)[0m   [0mSELECT * FROM `menu_items` [0m
+  [4;36;1mMenuItem Columns (0.000572)[0m   [0;1mSHOW FIELDS FROM `menu_items`[0m
+  [4;36;1mSQL (0.000062)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000034)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000154)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000062)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000025)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000130)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000045)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000026)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddPositionToMenuItems (20080605205428)
+  [4;36;1mSQL (0.000026)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000000)[0m   [0mMysql::Error: Can't DROP 'depht'; check that column/key exists: ALTER TABLE `menu_items` DROP `depht`[0m
+  [4;36;1mSQL (0.000063)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000032)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000152)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000067)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000027)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000139)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000052)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000025)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddPositionToMenuItems (20080605205428)
+  [4;36;1mSQL (0.000025)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.013323)[0m   [0mALTER TABLE `menu_items` DROP `depth`[0m
+  [4;36;1mSQL (0.000322)[0m   [0;1mDELETE FROM schema_migrations WHERE version = '20080605205428'[0m
+  [4;35;1mSQL (0.000127)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000124)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000398)[0m   [0mSHOW FIELDS FROM `categories`[0m
+  [4;36;1mSQL (0.000318)[0m   [0;1mdescribe `categories`[0m
+  [4;35;1mSQL (0.000126)[0m   [0mSHOW KEYS FROM `categories`[0m
+  [4;36;1mSQL (0.000509)[0m   [0;1mSHOW FIELDS FROM `menu_items`[0m
+  [4;35;1mSQL (0.000423)[0m   [0mdescribe `menu_items`[0m
+  [4;36;1mSQL (0.000132)[0m   [0;1mSHOW KEYS FROM `menu_items`[0m
+  [4;35;1mSQL (0.000521)[0m   [0mSHOW FIELDS FROM `news_articles`[0m
+  [4;36;1mSQL (0.000498)[0m   [0;1mdescribe `news_articles`[0m
+  [4;35;1mSQL (0.000189)[0m   [0mSHOW KEYS FROM `news_articles`[0m
+  [4;36;1mSQL (0.000560)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.000537)[0m   [0mdescribe `pages`[0m
+  [4;36;1mSQL (0.000182)[0m   [0;1mSHOW KEYS FROM `pages`[0m
+  [4;35;1mSQL (0.000787)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mSQL (0.000821)[0m   [0;1mdescribe `users`[0m
+  [4;35;1mSQL (0.000220)[0m   [0mSHOW KEYS FROM `users`[0m
+  [4;36;1mSQL (0.000138)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000090)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000043)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000030)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000024)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000024)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000024)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20080604024949)
+  [4;35;1mSQL (0.000025)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateAdminGuy (20080604040527)
+  [4;36;1mSQL (0.000031)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateNewsArticles (20080604130146)
+  [4;35;1mSQL (0.000026)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateCategories (20080604170419)
+  [4;36;1mSQL (0.000025)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreatePages (20080604195242)
+  [4;35;1mSQL (0.000025)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateMenuItems (20080605020537)
+  [4;36;1mSQL (0.000024)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to AddPositionToMenuItems (20080605205428)
+  [4;35;1mSQL (0.000025)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.004578)[0m   [0;1mALTER TABLE `menu_items` ADD `depth` int(11)[0m
+  [4;35;1mSQL (0.000296)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080605205428')[0m
+Migrating to UpdatePositionOnMenuItems (20080605205832)
+  [4;36;1mSQL (0.000135)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mMenuItem Load (0.000202)[0m   [0mSELECT * FROM `menu_items` [0m
+  [4;36;1mMenuItem Columns (0.000639)[0m   [0;1mSHOW FIELDS FROM `menu_items`[0m
+  [4;35;1mMenuItem Update (0.000627)[0m   [0mUPDATE `menu_items` SET `depth` = 0 WHERE (`menu_items`.`id` = 1) [0m
+  [4;36;1mMenuItem Update (0.000298)[0m   [0;1mUPDATE `menu_items` SET `depth` = 0 WHERE (`menu_items`.`id` = 2) [0m
+  [4;35;1mMenuItem Load (0.031960)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.`id` = 2) [0m
+  [4;36;1mMenuItem Update (0.001635)[0m   [0;1mUPDATE `menu_items` SET `depth` = 0 WHERE (`menu_items`.`id` = 3) [0m
+  [4;35;1mMenuItem Load (0.005401)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.`id` = 2) [0m
+  [4;36;1mMenuItem Update (0.000493)[0m   [0;1mUPDATE `menu_items` SET `depth` = 0 WHERE (`menu_items`.`id` = 4) [0m
+  [4;35;1mSQL (0.000331)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080605205832')[0m
+  [4;36;1mSQL (0.000106)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000063)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mMenuItem Load (0.000350)[0m   [0;1mSELECT * FROM `menu_items` [0m
+  [4;35;1mMenuItem Columns (0.000723)[0m   [0mSHOW FIELDS FROM `menu_items`[0m
+  [4;36;1mSQL (0.000069)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000035)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000172)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000176)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000123)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000054)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to UpdatePositionOnMenuItems (20080605205832)
+  [4;36;1mSQL (0.000028)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.002563)[0m   [0mDELETE FROM schema_migrations WHERE version = '20080605205832'[0m
+  [4;36;1mSQL (0.000124)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000121)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000394)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.000336)[0m   [0mdescribe `categories`[0m
+  [4;36;1mSQL (0.000132)[0m   [0;1mSHOW KEYS FROM `categories`[0m
+  [4;35;1mSQL (0.000542)[0m   [0mSHOW FIELDS FROM `menu_items`[0m
+  [4;36;1mSQL (0.000457)[0m   [0;1mdescribe `menu_items`[0m
+  [4;35;1mSQL (0.000125)[0m   [0mSHOW KEYS FROM `menu_items`[0m
+  [4;36;1mSQL (0.000553)[0m   [0;1mSHOW FIELDS FROM `news_articles`[0m
+  [4;35;1mSQL (0.000689)[0m   [0mdescribe `news_articles`[0m
+  [4;36;1mSQL (0.000194)[0m   [0;1mSHOW KEYS FROM `news_articles`[0m
+  [4;35;1mSQL (0.000604)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mSQL (0.000517)[0m   [0;1mdescribe `pages`[0m
+  [4;35;1mSQL (0.000139)[0m   [0mSHOW KEYS FROM `pages`[0m
+  [4;36;1mSQL (0.000538)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.000519)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.000164)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.000118)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000069)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000026)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000025)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000028)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000033)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000027)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000025)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20080604024949)
+  [4;35;1mSQL (0.000025)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateAdminGuy (20080604040527)
+  [4;36;1mSQL (0.000025)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateNewsArticles (20080604130146)
+  [4;35;1mSQL (0.000024)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateCategories (20080604170419)
+  [4;36;1mSQL (0.000025)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreatePages (20080604195242)
+  [4;35;1mSQL (0.000038)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateMenuItems (20080605020537)
+  [4;36;1mSQL (0.000025)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to AddPositionToMenuItems (20080605205428)
+  [4;35;1mSQL (0.000024)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to UpdatePositionOnMenuItems (20080605205832)
+  [4;36;1mSQL (0.000025)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mMenuItem Load (0.000044)[0m   [0mSELECT * FROM `menu_items` [0m
+  [4;36;1mMenuItem Columns (0.000599)[0m   [0;1mSHOW FIELDS FROM `menu_items`[0m
+  [4;35;1mMenuItem Update (0.000122)[0m   [0mUPDATE `menu_items` SET `depth` = 0 WHERE (`menu_items`.`id` = 1) [0m
+  [4;36;1mMenuItem Update (0.000058)[0m   [0;1mUPDATE `menu_items` SET `depth` = 0 WHERE (`menu_items`.`id` = 2) [0m
+  [4;35;1mMenuItem Load (0.033842)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.`id` = 2) [0m
+  [4;36;1mMenuItem Update (0.000176)[0m   [0;1mUPDATE `menu_items` SET `depth` = 0 WHERE (`menu_items`.`id` = 3) [0m
+  [4;35;1mMenuItem Load (0.006440)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.`id` = 2) [0m
+  [4;36;1mMenuItem Update (0.000177)[0m   [0;1mUPDATE `menu_items` SET `depth` = 0 WHERE (`menu_items`.`id` = 4) [0m
+  [4;35;1mSQL (0.000357)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080605205832')[0m
+  [4;36;1mSQL (0.000066)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000133)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000302)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000188)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000129)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000051)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to UpdatePositionOnMenuItems (20080605205832)
+  [4;36;1mSQL (0.000028)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.002274)[0m   [0mDELETE FROM schema_migrations WHERE version = '20080605205832'[0m
+  [4;36;1mSQL (0.000115)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000119)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000396)[0m   [0;1mSHOW FIELDS FROM `categories`[0m
+  [4;35;1mSQL (0.000336)[0m   [0mdescribe `categories`[0m
+  [4;36;1mSQL (0.000126)[0m   [0;1mSHOW KEYS FROM `categories`[0m
+  [4;35;1mSQL (0.000483)[0m   [0mSHOW FIELDS FROM `menu_items`[0m
+  [4;36;1mSQL (0.000453)[0m   [0;1mdescribe `menu_items`[0m
+  [4;35;1mSQL (0.000125)[0m   [0mSHOW KEYS FROM `menu_items`[0m
+  [4;36;1mSQL (0.000515)[0m   [0;1mSHOW FIELDS FROM `news_articles`[0m
+  [4;35;1mSQL (0.000688)[0m   [0mdescribe `news_articles`[0m
+  [4;36;1mSQL (0.000251)[0m   [0;1mSHOW KEYS FROM `news_articles`[0m
+  [4;35;1mSQL (0.000580)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mSQL (0.000443)[0m   [0;1mdescribe `pages`[0m
+  [4;35;1mSQL (0.000126)[0m   [0mSHOW KEYS FROM `pages`[0m
+  [4;36;1mSQL (0.000632)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mSQL (0.000531)[0m   [0mdescribe `users`[0m
+  [4;36;1mSQL (0.000166)[0m   [0;1mSHOW KEYS FROM `users`[0m
+  [4;35;1mSQL (0.000107)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000065)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000027)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000026)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000026)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000025)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000025)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000024)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20080604024949)
+  [4;35;1mSQL (0.000026)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateAdminGuy (20080604040527)
+  [4;36;1mSQL (0.000025)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateNewsArticles (20080604130146)
+  [4;35;1mSQL (0.000025)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateCategories (20080604170419)
+  [4;36;1mSQL (0.000035)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreatePages (20080604195242)
+  [4;35;1mSQL (0.000045)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateMenuItems (20080605020537)
+  [4;36;1mSQL (0.000025)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to AddPositionToMenuItems (20080605205428)
+  [4;35;1mSQL (0.000024)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to UpdatePositionOnMenuItems (20080605205832)
+  [4;36;1mSQL (0.000025)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mMenuItem Load (0.000042)[0m   [0mSELECT * FROM `menu_items` [0m
+  [4;36;1mMenuItem Columns (0.000771)[0m   [0;1mSHOW FIELDS FROM `menu_items`[0m
+  [4;35;1mMenuItem Update (0.000191)[0m   [0mUPDATE `menu_items` SET `depth` = 0 WHERE (`menu_items`.`id` = 1) [0m
+  [4;36;1mMenuItem Update (0.000080)[0m   [0;1mUPDATE `menu_items` SET `depth` = 0 WHERE (`menu_items`.`id` = 2) [0m
+  [4;35;1mMenuItem Load (0.035423)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.`id` = 2) [0m
+  [4;36;1mMenuItem Update (0.008768)[0m   [0;1mUPDATE `menu_items` SET `depth` = 1 WHERE (`menu_items`.`id` = 3) [0m
+  [4;35;1mMenuItem Load (0.007664)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.`id` = 2) [0m
+  [4;36;1mMenuItem Update (0.000489)[0m   [0;1mUPDATE `menu_items` SET `depth` = 1 WHERE (`menu_items`.`id` = 4) [0m
+  [4;35;1mSQL (0.000348)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080605205832')[0m
 
 
-Processing MainController#index (for 127.0.0.1 at 2008-06-05 16:08:34) [GET]
-  Session ID: 822238fb052b6622af3dc1867fc72d6c
+Processing MainController#index (for 127.0.0.1 at 2008-06-05 18:16:16) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiU4YWI3NWQwMzYwYjBjNDZiMTU2
+N2I5MmJjOTA3ZGQ2ZjoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--edf8811d50f29077489c7f224cabb62929bbd63d
   Parameters: {"action"=>"index", "controller"=>"main"}
-  [4;36;1mSQL (0.019449)[0m   [0;1mSET NAMES 'utf8'[0m
-  [4;35;1mSQL (0.000058)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
-  [4;36;1mNewsArticle Load (0.065122)[0m   [0;1mSELECT * FROM `news_articles` WHERE (publish_at < '2008-06-05 16:08:34') ORDER BY publish_at desc LIMIT 0, 10[0m
+  [4;36;1mSQL (0.000095)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000054)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mNewsArticle Load (0.000477)[0m   [0;1mSELECT * FROM `news_articles` WHERE (publish_at < '2008-06-05 18:16:16') ORDER BY publish_at desc LIMIT 0, 10[0m
 Rendering template within layouts/application
 Rendering main/index
-  [4;35;1mNewsArticle Columns (0.020143)[0m   [0mSHOW FIELDS FROM `news_articles`[0m
-  [4;36;1mMenuItem Load (0.006867)[0m   [0;1mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
-  [4;35;1mMenuItem Columns (0.000522)[0m   [0mSHOW FIELDS FROM `menu_items`[0m
-  [4;36;1mMenuItem Load (0.000157)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 2) [0m
-  [4;35;1mMenuItem Load (0.000101)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
-  [4;36;1mMenuItem Load (0.000084)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
-Rendered menu_items/_menu_list (0.00090)
-  [4;35;1mPage Columns (0.000880)[0m   [0mSHOW FIELDS FROM `pages`[0m
-  [4;36;1mPage Load (0.011371)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
-  [4;35;1mMenuItem Load (0.000156)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 1) [0m
-Rendered menu_items/_menu_list (0.02547)
-Rendered menu_items/_menu (0.04131)
-Completed in 0.17730 (5 reqs/sec) | Rendering: 0.06066 (34%) | DB: 0.12491 (70%) | 200 OK [http://localhost/]
-
-
-Processing NewsArticlesController#index (for 127.0.0.1 at 2008-06-05 16:08:36) [GET]
-  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
-SGFzaHsABjoKQHVzZWR7AA==--f91e9d6b369072294e001af6121a48781558ce36
-  Parameters: {"action"=>"index", "controller"=>"news_articles"}
-Redirected to http://localhost:3000/session/new
-Filter chain halted as [:login_required] rendered_or_redirected.
-Completed in 0.00059 (1695 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/news_articles]
-
-
-Processing SessionsController#new (for 127.0.0.1 at 2008-06-05 16:08:36) [GET]
-  Session ID: BAh7BzoOcmV0dXJuX3RvIhMvbmV3c19hcnRpY2xlcyIKZmxhc2hJQzonQWN0
-aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgplcnJvciIxWW91
-IGhhdmUgdG8gYmUgbG9nZ2VkIGluIHRvIGFjY2VzcyB0aGlzIHBhZ2UGOgpA
-dXNlZHsGOwdG--9702d76f5335e96d70e4d9f76bc99cfc2ad6e209
-  Parameters: {"action"=>"new", "controller"=>"sessions"}
-Rendering template within layouts/application
-Rendering sessions/new
-  [4;36;1mMenuItem Load (0.000076)[0m   [0;1mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
-  [4;35;1mMenuItem Columns (0.000548)[0m   [0mSHOW FIELDS FROM `menu_items`[0m
-  [4;36;1mMenuItem Load (0.000047)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 2) [0m
-  [4;35;1mMenuItem Load (0.000036)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
-  [4;36;1mMenuItem Load (0.000032)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
-Rendered menu_items/_menu_list (0.00073)
-  [4;35;1mPage Columns (0.000483)[0m   [0mSHOW FIELDS FROM `pages`[0m
-  [4;36;1mPage Load (0.000037)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
-  [4;35;1mMenuItem Load (0.000036)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 1) [0m
-Rendered menu_items/_menu_list (0.01177)
-Rendered menu_items/_menu (0.01932)
-Completed in 0.03478 (28 reqs/sec) | Rendering: 0.03091 (88%) | DB: 0.00129 (3%) | 200 OK [http://localhost/session/new]
-
-
-Processing SessionsController#create (for 127.0.0.1 at 2008-06-05 16:08:42) [POST]
-  Session ID: BAh7CDoMY3NyZl9pZCIlOGFiNzVkMDM2MGIwYzQ2YjE1NjdiOTJiYzkwN2Rk
-NmY6DnJldHVybl90byITL25ld3NfYXJ0aWNsZXMiCmZsYXNoSUM6J0FjdGlv
-bkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhhc2h7BjoKZXJyb3IiMVlvdSBo
-YXZlIHRvIGJlIGxvZ2dlZCBpbiB0byBhY2Nlc3MgdGhpcyBwYWdlBjoKQHVz
-ZWR7BjsIVA==--6d07ee2a4a5b58dc9637ced6a49d042d4f47b5d8
-  Parameters: {"commit"=>"Log in", "authenticity_token"=>"f46d79b517deb73a18eb6f8168614ef181b53f53", "action"=>"create", "controller"=>"sessions", "password"=>"codevader-admin", "login"=>"codevader"}
-Cookie set: auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT
-  [4;36;1mUser Columns (0.013129)[0m   [0;1mSHOW FIELDS FROM `users`[0m
-  [4;35;1mUser Load (0.000185)[0m   [0mSELECT * FROM `users` WHERE (`users`.`login` = 'codevader') LIMIT 1[0m
-  [4;36;1mSQL (0.000028)[0m   [0;1mBEGIN[0m
-  [4;35;1mSQL (0.000025)[0m   [0mCOMMIT[0m
-Cookie set: auth_token=; path=/
-Redirected to http://localhost:3000/news_articles
-Completed in 0.04093 (24 reqs/sec) | DB: 0.01337 (32%) | 302 Found [http://localhost/session]
-
-
-Processing NewsArticlesController#index (for 127.0.0.1 at 2008-06-05 16:08:42) [GET]
-  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiU4YWI3NWQwMzYwYjBjNDZiMTU2
-N2I5MmJjOTA3ZGQ2ZjoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
-dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBp
-biBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwlG--9897872ca514adab56f85b3e464addadefde3ec9
-  Parameters: {"action"=>"index", "controller"=>"news_articles"}
-  [4;36;1mUser Columns (0.000725)[0m   [0;1mSHOW FIELDS FROM `users`[0m
-  [4;35;1mUser Load (0.000181)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
-  [4;36;1mNewsArticle Load (0.000232)[0m   [0;1mSELECT * FROM `news_articles` ORDER BY publish_at desc LIMIT 0, 10[0m
-  [4;35;1mNewsArticle Columns (0.000628)[0m   [0mSHOW FIELDS FROM `news_articles`[0m
-  [4;36;1mCategory Load (0.011648)[0m   [0;1mSELECT * FROM `categories` WHERE (`categories`.id IN ('1')) [0m
-  [4;35;1mCategory Columns (0.000378)[0m   [0mSHOW FIELDS FROM `categories`[0m
-Rendering template within layouts/application
-Rendering news_articles/index
-  [4;36;1mMenuItem Load (0.000159)[0m   [0;1mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
-  [4;35;1mMenuItem Columns (0.001131)[0m   [0mSHOW FIELDS FROM `menu_items`[0m
-  [4;36;1mMenuItem Load (0.000046)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 2) [0m
-  [4;35;1mMenuItem Load (0.000041)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
-  [4;36;1mMenuItem Load (0.000042)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
-Rendered menu_items/_menu_list (0.00075)
-  [4;35;1mPage Columns (0.000525)[0m   [0mSHOW FIELDS FROM `pages`[0m
-  [4;36;1mPage Load (0.000036)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
-  [4;35;1mMenuItem Load (0.000034)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 1) [0m
-Rendered menu_items/_menu_list (0.01340)
-Rendered menu_items/_menu (0.02496)
-Completed in 0.07542 (13 reqs/sec) | Rendering: 0.03459 (45%) | DB: 0.01581 (20%) | 200 OK [http://localhost/news_articles]
-
-
-Processing CategoriesController#index (for 127.0.0.1 at 2008-06-05 16:08:45) [GET]
-  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiU4YWI3NWQwMzYwYjBjNDZiMTU2
-N2I5MmJjOTA3ZGQ2ZjoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
-dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiG0xvZ2dlZCBp
-biBzdWNjZXNzZnVsbHkGOgpAdXNlZHsGOwlU--cf8196348f9b64f33375142458a4e8f6ab08ba97
-  Parameters: {"action"=>"index", "controller"=>"categories"}
-  [4;36;1mUser Columns (0.000693)[0m   [0;1mSHOW FIELDS FROM `users`[0m
-  [4;35;1mUser Load (0.000043)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
-  [4;36;1mCategory Load (0.000149)[0m   [0;1mSELECT * FROM `categories` [0m
-Rendering template within layouts/application
-Rendering categories/index
-  [4;35;1mCategory Columns (0.000428)[0m   [0mSHOW FIELDS FROM `categories`[0m
-  [4;36;1mMenuItem Load (0.000079)[0m   [0;1mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
-  [4;35;1mMenuItem Columns (0.000566)[0m   [0mSHOW FIELDS FROM `menu_items`[0m
-  [4;36;1mMenuItem Load (0.000048)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 2) [0m
-  [4;35;1mMenuItem Load (0.000041)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
-  [4;36;1mMenuItem Load (0.000033)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
-Rendered menu_items/_menu_list (0.00076)
-  [4;35;1mPage Columns (0.000528)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mNewsArticle Columns (0.000863)[0m   [0mSHOW FIELDS FROM `news_articles`[0m
+  [4;36;1mMenuItem Load (0.000323)[0m   [0;1mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
+  [4;35;1mMenuItem Columns (0.000801)[0m   [0mSHOW FIELDS FROM `menu_items`[0m
+  [4;36;1mMenuItem Load (0.000236)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 2) [0m
+  [4;35;1mMenuItem Load (0.000133)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
+  [4;36;1mMenuItem Load (0.000110)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
+Rendered menu_items/_menu_list (0.00100)
+  [4;35;1mPage Columns (0.000578)[0m   [0mSHOW FIELDS FROM `pages`[0m
   [4;36;1mPage Load (0.000038)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
-  [4;35;1mMenuItem Load (0.000033)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 1) [0m
-Rendered menu_items/_menu_list (0.01239)
-Rendered menu_items/_menu (0.06864)
-Completed in 0.09519 (10 reqs/sec) | Rendering: 0.07733 (81%) | DB: 0.00268 (2%) | 200 OK [http://localhost/categories]
+  [4;35;1mMenuItem Load (0.000145)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 1) [0m
+Rendered menu_items/_menu_list (0.01404)
+Rendered menu_items/_menu (0.02265)
+Completed in 0.04108 (24 reqs/sec) | Rendering: 0.02558 (62%) | DB: 0.00385 (9%) | 200 OK [http://localhost/]
+
+
+Processing MenuItemsController#index (for 127.0.0.1 at 2008-06-05 18:16:19) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiU4YWI3NWQwMzYwYjBjNDZiMTU2
+N2I5MmJjOTA3ZGQ2ZjoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--edf8811d50f29077489c7f224cabb62929bbd63d
+  Parameters: {"action"=>"index", "controller"=>"menu_items"}
+  [4;36;1mUser Columns (0.000723)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000070)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mMenuItem Load (0.000364)[0m   [0;1mSELECT * FROM `menu_items` ORDER BY title[0m
+Rendering template within layouts/application
+Rendering menu_items/index
+  [4;35;1mMenuItem Columns (0.000636)[0m   [0mSHOW FIELDS FROM `menu_items`[0m
+  [4;36;1mPage Columns (0.000546)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mPage Load (0.000039)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;36;1mMenuItem Load (0.000158)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.`id` = 2) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.`id` = 2) [0m
+  [4;36;1mMenuItem Load (0.000049)[0m   [0;1mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
+  [4;35;1mMenuItem Load (0.000039)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 2) [0m
+  [4;36;1mMenuItem Load (0.000039)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
+  [4;35;1mMenuItem Load (0.000032)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
+Rendered menu_items/_menu_list (0.00078)
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;35;1mMenuItem Load (0.000034)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 1) [0m
+Rendered menu_items/_menu_list (0.00209)
+Rendered menu_items/_menu (0.00256)
+Completed in 0.09354 (10 reqs/sec) | Rendering: 0.02557 (27%) | DB: 0.00273 (2%) | 200 OK [http://localhost/menu_items]
+
+
+Processing MenuItemsController#edit (for 127.0.0.1 at 2008-06-05 18:16:21) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiU4YWI3NWQwMzYwYjBjNDZiMTU2
+N2I5MmJjOTA3ZGQ2ZjoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--edf8811d50f29077489c7f224cabb62929bbd63d
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"menu_items"}
+  [4;36;1mUser Columns (0.000704)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000044)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mMenuItem Columns (0.000567)[0m   [0;1mSHOW FIELDS FROM `menu_items`[0m
+  [4;35;1mMenuItem Load (0.000136)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering menu_items/edit
+  [4;36;1mPage Load (0.000164)[0m   [0;1mSELECT * FROM `pages` [0m
+  [4;35;1mPage Columns (0.000494)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mMenuItem Load (0.000194)[0m   [0;1mSELECT * FROM `menu_items` WHERE (id != 1) [0m
+
+
+ActionView::TemplateError (String can't be coerced into Fixnum) on line #22 of menu_items/_form.html.erb:
+19:   </p>
+20:   <p>
+21:     Parent menu<br />
+22:     <%= parents_select f %>
+23:   </p>
+24:   <p>
+25:     <%= f.submit "Send" %>
+
+    app/models/menu_item.rb:22:in `*'
+    app/models/menu_item.rb:22:in `title_with_depth'
+    app/helpers/menu_items_helper.rb:16:in `parents_select'
+    app/helpers/menu_items_helper.rb:16:in `collect'
+    app/helpers/menu_items_helper.rb:16:in `parents_select'
+    app/views/menu_items/_form.html.erb:22:in `_run_erb_47app47views47menu_items47_form46html46erb'
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:317:in `fields_for'
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:253:in `form_for'
+    app/views/menu_items/_form.html.erb:1:in `_run_erb_47app47views47menu_items47_form46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:338:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:338:in `execute'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    vendor/rails/actionpack/lib/action_view/partial_template.rb:20:in `render'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    vendor/rails/actionpack/lib/action_view/partial_template.rb:19:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:22:in `render_template'
+    vendor/rails/actionpack/lib/action_view/partials.rb:110:in `render_partial'
+    vendor/rails/actionpack/lib/action_view/base.rb:273:in `render'
+    app/helpers/application_helper.rb:5:in `partial'
+    app/views/menu_items/edit.html.erb:3:in `_run_erb_47app47views47menu_items47edit46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:338:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:338:in `execute'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:35:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:22:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:245:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1108:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:841:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:251:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1157:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1163:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:580:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:529:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:529:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:130:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:389:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:502:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:502:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:502:in `load'
+    vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:509:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:509:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /home/mauricio/NetBeansProjects/reeds/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing MenuItemsController#edit (for 127.0.0.1 at 2008-06-05 18:17:04) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiU4YWI3NWQwMzYwYjBjNDZiMTU2
+N2I5MmJjOTA3ZGQ2ZjoOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--edf8811d50f29077489c7f224cabb62929bbd63d
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"menu_items"}
+  [4;35;1mUser Columns (0.000898)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000048)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mMenuItem Columns (0.000763)[0m   [0mSHOW FIELDS FROM `menu_items`[0m
+  [4;36;1mMenuItem Load (0.000059)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering menu_items/edit
+  [4;35;1mPage Load (0.000078)[0m   [0mSELECT * FROM `pages` [0m
+  [4;36;1mPage Columns (0.000556)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mMenuItem Load (0.000051)[0m   [0mSELECT * FROM `menu_items` WHERE (id != 1) [0m
+Rendered menu_items/_form (0.01194)
+  [4;36;1mMenuItem Load (0.000041)[0m   [0;1mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
+  [4;35;1mMenuItem Load (0.000037)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 2) [0m
+  [4;36;1mMenuItem Load (0.000038)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
+  [4;35;1mMenuItem Load (0.000033)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
+Rendered menu_items/_menu_list (0.00073)
+  [4;36;1mPage Load (0.000034)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;35;1mMenuItem Load (0.000035)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 1) [0m
+Rendered menu_items/_menu_list (0.00217)
+Rendered menu_items/_menu (0.00263)
+Completed in 0.03594 (27 reqs/sec) | Rendering: 0.01552 (43%) | DB: 0.00352 (9%) | 200 OK [http://localhost/menu_items/1/edit]

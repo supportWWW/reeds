@@ -13,9 +13,9 @@ module MenuItemsHelper
   def parents_select( form_helper )
     items = [ [ '...', '' ] ]
     unless @menu_item.new_record?
-      items.push( *MenuItem.find( :all, :conditions => [ 'id != ?', @menu_item.id ] ).collect{ |p| [p.title, p.id] } )  
+      items.push( *MenuItem.find( :all, :conditions => [ 'id != ?', @menu_item.id ] ).collect{ |p| [p.title_with_depth, p.id] } )  
     else
-      items.push( *MenuItem.find( :all ).collect{ |p| [p.title, p.id] } )  
+      items.push( *MenuItem.find( :all ).collect{ |p| [p.title_with_depth, p.id] } )  
     end
     
     if items.size == 1
