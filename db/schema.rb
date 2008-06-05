@@ -9,12 +9,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080604170419) do
+ActiveRecord::Schema.define(:version => 20080605020537) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "menu_items", :force => true do |t|
+    t.string   "title"
+    t.integer  "page_id",    :limit => 11
+    t.string   "path"
+    t.integer  "parent_id",  :limit => 11
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "position",   :limit => 11
   end
 
   create_table "news_articles", :force => true do |t|
@@ -31,6 +41,15 @@ ActiveRecord::Schema.define(:version => 20080604170419) do
   end
 
   add_index "news_articles", ["title_permalink"], :name => "index_news_articles_on_title_permalink", :unique => true
+
+  create_table "pages", :force => true do |t|
+    t.string   "title"
+    t.string   "title_permalink"
+    t.text     "text"
+    t.text     "rendered_text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "login",                     :limit => 40

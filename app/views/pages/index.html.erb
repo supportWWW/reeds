@@ -1,0 +1,29 @@
+<h1>CMS Pages</h1>
+
+<%= will_paginate @pages %>
+
+<% unless @pages.blank? %>
+
+<table>
+  <tr>
+    <th>Title</th>
+  </tr>
+
+<% for page in @pages %>
+  <tr>
+    <td><%=link_to page.title, page %></td>
+    <td><%= link_to 'Edit', edit_page_path(page) %></td>
+    <td><%= link_to 'Destroy', page, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<% else  %>
+  <p>There are no pages available yet</p>
+<% end  %>
+
+<%= will_paginate @pages %>
+
+<br />
+
+<%= link_to 'New page', new_page_path %>

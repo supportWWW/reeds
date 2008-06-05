@@ -38,6 +38,10 @@ class UsersController < ApplicationController
     end
   end
   
+  def index
+    @users = User.find( :all, :order => 'login' )
+  end
+  
   protected
   
   def load_user

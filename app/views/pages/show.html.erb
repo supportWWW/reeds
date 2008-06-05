@@ -1,0 +1,10 @@
+<h2> <%=h @page.title %> </h2>
+
+<br/>
+  <%= @page.rendered_text %>
+<br/>
+
+<% if logged_in?  %>
+    <%= link_to 'Edit', edit_page_path(@page) %> |
+    <%= link_to 'Back', pages_path %>
+<% end  %>

@@ -1,0 +1,14 @@
+<% unless menu_items.blank?  %>
+
+    <ul>
+      <% for menu_item in menu_items %>
+        <li>
+            <%= link_for_menu menu_item %>
+            <% unless menu_item.children.blank? %>
+                    <%= partial 'menu_items/menu_list', :menu_items => menu_item.children %>
+            <% end  %>
+        </li>
+      <% end %>
+    </ul>
+
+<% end %>

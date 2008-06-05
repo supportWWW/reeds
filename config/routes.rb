@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :menu_items
+
+  map.resources :pages
+
   map.resources :categories
 
   map.resources :news_articles
