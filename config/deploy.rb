@@ -5,10 +5,12 @@ set :password, 'e30o96'
 set :domain, "weddid.com"
 
 set :application, "reeds"
-set :deploy_to, "var/www/apps/#{application}"
+set :deploy_to, "/var/www/apps/#{application}"
 
-set :repository, "/var/git/reeds"  #ivor@weddid.com: - the repo is on the same machine
+default_run_options[:pty] = true
+set :repository,  "ssh://mauricio@weddid.com/var/git/reeds"
 set :scm, "git"
+set :scm_passphrase, "mauricio" #This is your custom users password
 set :branch, :master
 
 set :mongrel, "/etc/init.d/mongrel_cluster"
@@ -45,13 +47,18 @@ task :start_mongrels do
 end
 
 task :copy_mongrel_config do
-  put IO.read( 'config/mongrel/cluster.yml' ), "#{shared_path}/mongrel/#{application}_mongrel.yml"
-  sudo "cp #{shared_path}/mongrel/#{application}_mongrel.yml /etc/mongrel_cluster/#{application}_mongrel.yml"
+  put IO.read( 'config/mongrel/cluster.yml' ), "/#{shared_path}/#{application}_mongrel.yml"
+  sudo "cp #{shared_path}/#{application}_mongrel.yml /etc/mongrel_cluster/#{application}_mongrel.yml"
 end
 
 task :copy_nginx_config do
-  put IO.read( 'config/nginx/rails_nginx_vhost.conf' ), "#{shared_path}/nginx/#{application}_nginx.conf"
-  sudo "cp #{shared_path}/nginx/#{application}_nginx.conf /usr/local/nginx/conf/vhosts/#{application}.conf"
+  put IO.read( 'config/nginx/rails_nginx_vhost.conf' ), "/#{shared_path}/#{application}_nginx.conf"
+  sudo "cp #{shared_path}/#{application}_nginx.conf /usr/local/nginx/conf/vhosts/#{application}.conf"
+end
+
+task :create_basic_dirs do
+  run "mkdir #{shared_path}/mongrel"
+  run "mkdir #{shared_path}/nginx"
 end
 
 task :copy_configs do
@@ -60,4 +67,5 @@ task :copy_configs do
 end
 
 after :deploy, :restart_mongrels
-after :setup, :copy_configs
+after 'deploy:setup', :create_basic_dirs
+after 'deploy:setup', :copy_configs
