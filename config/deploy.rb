@@ -34,25 +34,26 @@ role :db,  domain, :primary => true
 # your SCM below:
 # set :scm, :subversion
 
-task :restart_mongrels do
-  sudo "#{mongrel} restart"
-end
-
 task :stop_mongrels do
   sudo "#{mongrel} stop"
 end
 
 task :start_mongrels do
-  sudo "#{mongrel} restart"
+  sudo "#{mongrel} start"
+end
+
+task :restart_mongrels do
+  stop_mongrels
+  start_mongrels
 end
 
 task :copy_mongrel_config do
-  put IO.read( 'config/mongrel/cluster.yml' ), "/#{shared_path}/#{application}_mongrel.yml"
+  put IO.read( 'config/mongrel/cluster.yml' ), "#{shared_path}/#{application}_mongrel.yml"
   sudo "cp #{shared_path}/#{application}_mongrel.yml /etc/mongrel_cluster/#{application}_mongrel.yml"
 end
 
 task :copy_nginx_config do
-  put IO.read( 'config/nginx/rails_nginx_vhost.conf' ), "/#{shared_path}/#{application}_nginx.conf"
+  put IO.read( 'config/nginx/rails_nginx_vhost.conf' ), "#{shared_path}/#{application}_nginx.conf"
   sudo "cp #{shared_path}/#{application}_nginx.conf /usr/local/nginx/conf/vhosts/#{application}.conf"
 end
 

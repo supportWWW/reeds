@@ -1,6 +1,6 @@
 --- 
-user: mongrel_reeds
-group: app_reeds
+user: deploy
+group: users
 cwd: /var/www/apps/reeds/current
 log_file: /var/www/apps/reeds/shared/log/mongrel.log
 port: "8010"
