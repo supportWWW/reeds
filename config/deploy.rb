@@ -22,6 +22,7 @@ role :app, domain
 role :web, domain
 role :db,  domain, :primary => true
 
+
 # If you aren't deploying to /var/www/apps/#{application} on the target
 # servers (which is the deprec default), you can specify the actual location
 # via the :deploy_to variable:
