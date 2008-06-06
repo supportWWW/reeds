@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :referrals, :member => { :visit => :get }
+
   map.resources :menu_items
 
   map.resources :pages

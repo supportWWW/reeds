@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080605205428) do
+ActiveRecord::Schema.define(:version => 20080606024632) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -52,6 +52,16 @@ ActiveRecord::Schema.define(:version => 20080605205428) do
     t.datetime "updated_at"
   end
 
+  create_table "referrals", :force => true do |t|
+    t.string   "name"
+    t.string   "source"
+    t.text     "description"
+    t.integer  "visits_count", :limit => 11, :default => 0
+    t.string   "redirect_to",                :default => "/"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "login",                     :limit => 40
     t.string   "name",                      :limit => 100, :default => ""
@@ -67,5 +77,14 @@ ActiveRecord::Schema.define(:version => 20080605205428) do
 
   add_index "users", ["login"], :name => "index_users_on_login", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+
+  create_table "visits", :force => true do |t|
+    t.integer  "referral_id", :limit => 11
+    t.string   "referer"
+    t.string   "remote_ip"
+    t.string   "user_agent"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end

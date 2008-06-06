@@ -1,0 +1,32 @@
+<h1>Listing referrals</h1>
+
+<%= will_paginate @referrals %>
+
+<% unless @referrals.blank? %>
+
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Source</th>
+      <th>Link</th>
+    </tr>
+  
+    <% for referral in @referrals %>
+      <tr>
+        <td><%= link_to referral.name, referral %></td>
+        <td><%= h referral.name %></td>
+        <td><%= referral_link( referral ) %>  </td>
+        <td><%= link_to 'Edit', edit_referral_path(referral) %></td>
+      </tr>
+    <% end %>
+  </table>
+
+<% else %>
+  <p> There are no referral links available </p>
+<% end %>
+
+<%= will_paginate @referrals %>
+
+<br />
+
+<%= link_to 'New referral', new_referral_path %>

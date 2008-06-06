@@ -67,6 +67,7 @@ task :copy_configs do
   copy_mongrel_config
 end
 
+after :deploy, 'deploy:cleanup'
 after :deploy, :restart_mongrels
 after 'deploy:setup', :create_basic_dirs
 after 'deploy:setup', :copy_configs
