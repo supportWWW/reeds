@@ -14,7 +14,7 @@
     <% for referral in @referrals %>
       <tr>
         <td><%= link_to referral.name, referral %></td>
-        <td><%= h referral.name %></td>
+        <td><%= h referral.source %></td>
         <td><%= referral_link( referral ) %>  </td>
         <td><%= link_to 'Edit', edit_referral_path(referral) %></td>
       </tr>
