@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  branch_id: 1
+  salesperson_id: 1
+  enabled: false
+
+two:
+  branch_id: 1
+  salesperson_id: 1
+  enabled: false

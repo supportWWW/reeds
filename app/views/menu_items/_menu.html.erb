@@ -1,1 +1,1 @@
-<%= partial 'menu_items/menu_list', :menu_items => MenuItem.find( :all, :conditions => 'parent_id is null', :order => 'menu_items.position, menu_items.title' ) %>
+<%= partial 'menu_items/menu_list', :menu_items => MenuItem.find( :all, :conditions => 'parent_id is null', :order => 'menu_items.position, menu_items.title', :include => :children ) %>

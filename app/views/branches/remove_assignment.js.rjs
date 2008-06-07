@@ -1,0 +1,2 @@
+page.visual_effect( :fade, "assignment_#{@assignment.id}", :duration => 1 )
+page.replace_html 'salespeople_not_in_branch', :partial => 'salespeople_not_in_branch'

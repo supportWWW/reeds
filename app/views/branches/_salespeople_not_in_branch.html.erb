@@ -1,0 +1,16 @@
+<% unless @salespeople.blank? %>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+      </tr>
+    </thead>
+    <tbody id="salespeople">
+      <% for salesperson in @salespeople %>
+            <%= partial :salesperson_not_in_branch, :salesperson => salesperson %>
+      <% end %>
+    </tbody>
+  </table>
+<% else %>
+  <p> There are no other salespeople available.</p>
+<% end %>

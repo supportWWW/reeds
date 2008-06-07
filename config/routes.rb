@@ -1,4 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :salespeople
+
+  map.assign_to_branch 'branches/:branch_id/assign/:id', :controller => 'branches', :action => 'assign', :conditions => { :method => :post }
+  map.remove_assignment 'branches/:branch_id/remove_assignment/:id', :controller => 'branches', :action => 'remove_assignment', :conditions => { :method => :delete }
+  map.resources :branches
+  
+  
   map.resources :referrals, :member => { :visit => :get }
 
   map.resources :menu_items

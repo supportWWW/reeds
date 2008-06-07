@@ -9,10 +9,47 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080606124326) do
+ActiveRecord::Schema.define(:version => 20080607034217) do
+
+  create_table "assignments", :force => true do |t|
+    t.integer  "branch_id",      :limit => 11
+    t.integer  "salesperson_id", :limit => 11
+    t.boolean  "enabled",                      :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "attachments", :force => true do |t|
+    t.integer  "size",         :limit => 11
+    t.string   "filename"
+    t.string   "content_type"
+    t.integer  "owner_id",     :limit => 11
+    t.string   "owner_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "branches", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "categories", :force => true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "images", :force => true do |t|
+    t.string   "filename"
+    t.string   "content_type"
+    t.integer  "size",         :limit => 11
+    t.integer  "width",        :limit => 11
+    t.integer  "height",       :limit => 11
+    t.integer  "parent_id",    :limit => 11
+    t.integer  "owner_id",     :limit => 11
+    t.string   "owner_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -58,6 +95,14 @@ ActiveRecord::Schema.define(:version => 20080606124326) do
     t.text     "description"
     t.integer  "visits_count", :limit => 11, :default => 0
     t.string   "redirect_to",                :default => "/"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "salespeople", :force => true do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

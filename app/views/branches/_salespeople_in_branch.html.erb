@@ -1,0 +1,16 @@
+<% unless @branch.assignments.blank? %>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+        </tr>
+      </thead>
+      <tbody id="assignments">
+        <% for assignment in @branch.assignments %>
+            <%= partial :assignment, :assignment => assignment %>
+        <% end %>
+      </tbody>
+    </table>
+<% else  %>
+  <p>No salespeople have been assigned to this branch </p>
+<% end %>

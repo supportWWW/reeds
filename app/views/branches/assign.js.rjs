@@ -1,0 +1,3 @@
+@salesperson_id = "salesperson_#{@salesperson.id}"
+page.visual_effect( :fade, @salesperson_id, :duration => 1 )
+page.replace_html 'salespeople_in_branch', :partial => 'salespeople_in_branch'

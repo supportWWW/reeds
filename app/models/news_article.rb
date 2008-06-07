@@ -1,4 +1,7 @@
 class NewsArticle < ActiveRecord::Base
+  
+  include ImageHelper
+  
   has_permalink :title, :title_permalink
   
   validates_presence_of :title, :text

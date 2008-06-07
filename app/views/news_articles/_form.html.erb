@@ -1,4 +1,4 @@
-<% form_for(@news_article) do |f| %>
+<% form_for(@news_article, :html => { :multipart => true} ) do |f| %>
   <%= f.error_messages %>
 
   <p>
@@ -14,6 +14,11 @@
   <p>
     <%= f.label :category %><br />
     <%= categories_select( f ) %>
+  </p>
+
+  <p>
+    <%= f.label :image %><br />
+    <%= f.file_field :uploaded_data %>
   </p>
 
   <p>

@@ -5,6 +5,11 @@ require File.expand_path(File.dirname(__FILE__) + "/../config/environment")
 require 'spec'
 require 'spec/rails'
 
+def should_have_errors( model, attribute, quantity = 1 )
+  model[ attribute ] = nil
+  model.should have( quantity ).error_on( attribute )
+end
+
 Spec::Runner.configure do |config|
   # If you're not using ActiveRecord you should remove these
   # lines, delete config/database.yml and disable :active_record
