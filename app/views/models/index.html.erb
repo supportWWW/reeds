@@ -1,23 +1,30 @@
 <h1>Listing models</h1>
 
+<% unless @models.blank? %>
+
+<%= will_paginate @models %>
+
 <table>
   <tr>
     <th>Name</th>
-    <th>Common name</th>
     <th>Make</th>
   </tr>
 
 <% for model in @models %>
   <tr>
-    <td><%=h model.name %></td>
     <td><%=h model.common_name %></td>
-    <td><%=h model.make_id %></td>
-    <td><%= link_to 'Show', model %></td>
+    <td><%=h model.make.common_name %></td>
     <td><%= link_to 'Edit', edit_model_path(model) %></td>
     <td><%= link_to 'Destroy', model, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
+
+<%= will_paginate @models %>
+
+<% else  %>
+  <p>There are no models available yet</p>
+<% end  %>
 
 <br />
 

@@ -7,13 +7,12 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Common name</th>
     <th>Website</th>
   </tr>
 
 <% for make in @makes %>
   <tr>
-    <td><%= h make.common_name, make %></td>
+    <td><%= h make.common_name %></td>
     <td><%= link_to_unless make.website.blank?, make.website, make.website %></td>
     <td><%= link_to 'Edit', edit_make_path(make) %></td>
     <td><%= link_to 'Destroy', make, :confirm => 'Are you sure?', :method => :delete %></td>

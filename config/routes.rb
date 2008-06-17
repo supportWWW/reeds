@@ -1,26 +1,19 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :classifieds
-
+  map.resources :model_variants
   map.resources :models
-
   map.resources :makes
-
   map.resources :salespeople
-
+  map.resources :menu_items
+  map.resources :pages
+  map.resources :categories
+  map.resources :news_articles
+  
   map.assign_to_branch 'branches/:branch_id/assign/:id', :controller => 'branches', :action => 'assign', :conditions => { :method => :post }
   map.remove_assignment 'branches/:branch_id/remove_assignment/:id', :controller => 'branches', :action => 'remove_assignment', :conditions => { :method => :delete }
   map.resources :branches
   
-  
   map.resources :referrals, :member => { :visit => :get }
-
-  map.resources :menu_items
-
-  map.resources :pages
-
-  map.resources :categories
-
-  map.resources :news_articles
 
   map.logout '/logout', :controller => 'sessions', :action => 'destroy'
   map.login '/login', :controller => 'sessions', :action => 'new'

@@ -1,6 +1,8 @@
 <%= link_to 'Branches', branches_path %> |
 <%= link_to 'Classifieds', makes_path %> |
 <%= link_to 'Categories', categories_path %> | 
+<%= link_to 'Import Stock file', :controller => 'importer', :action => 'import_stock' %> |
+<%= link_to 'Import Mead McGrouther file', :controller => 'importer', :action => 'import_mm' %> |
 <%= link_to 'Makes', makes_path %> |
 <%= link_to 'Menu items', menu_items_path %> |
 <%= link_to 'Models', models_path %> |
@@ -9,7 +11,7 @@
 <%= link_to 'Pages', pages_path %> |
 <%= link_to 'Referrals', referrals_path %> |
 <%= link_to 'Salespeople', salespeople_path %> |
-<%= link_to 'Users', users_path %> |
+<%= link_to 'Users', users_path %> 
 <% if logged_in? %>
-    <%= link_to 'Logout', logout_path  %>
+    | <%= link_to 'Logout', logout_path  %>
 <% end %>

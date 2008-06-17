@@ -1,0 +1,15 @@
+<% form_for(@model) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :make_id %><br />
+    <%= model_make_select( f ) %>
+  </p>
+  <p>
+    <%= f.submit "Send" %>
+  </p>
+<% end %>

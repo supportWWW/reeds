@@ -1,5 +1,9 @@
 <h1>Listing model_variants</h1>
 
+<% unless @model_variants.blank?  %>
+
+<%= will_paginate @model_variants  %>
+
 <table>
   <tr>
     <th>Model</th>
@@ -9,7 +13,7 @@
 
 <% for model_variant in @model_variants %>
   <tr>
-    <td><%=h model_variant.model_id %></td>
+    <td><%=h model_variant.model.name %></td>
     <td><%=h model_variant.year %></td>
     <td><%=h model_variant.mead_mcgrouther_code %></td>
     <td><%= link_to 'Show', model_variant %></td>
@@ -18,6 +22,12 @@
   </tr>
 <% end %>
 </table>
+
+<%= will_paginate @model_variants  %>
+
+<% else %>
+  <p>There are no model variants available.</p>
+<% end  %>
 
 <br />
 

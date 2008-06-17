@@ -2,7 +2,7 @@ class ModelVariantsController < ApplicationController
   # GET /model_variants
   # GET /model_variants.xml
   def index
-    @model_variants = ModelVariant.find(:all)
+    @model_variants = paginate( ModelVariant, :include => :model, :order => 'models.name, model_variants.mead_mcgrouther_code' )
 
     respond_to do |format|
       format.html # index.html.erb

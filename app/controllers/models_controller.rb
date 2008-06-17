@@ -2,7 +2,7 @@ class ModelsController < ApplicationController
   # GET /models
   # GET /models.xml
   def index
-    @models = Model.find(:all)
+    @models = paginate( Model, :order => 'makes.name, models.common_name', :include => :make )
 
     respond_to do |format|
       format.html # index.html.erb
