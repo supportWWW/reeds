@@ -1,0 +1,83 @@
+<p>
+  <b>Stock code:</b>
+  <%=h @classified.stock_code %>
+</p>
+
+<p>
+  <b>Stock type:</b>
+  <%=h @classified.stock_type %>
+</p>
+
+<p>
+  <b>Model variant:</b>
+  <%=h @classified.model_variant_id %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%=h @classified.year %>
+</p>
+
+<p>
+  <b>Price in cents:</b>
+  <%=h @classified.price_in_cents %>
+</p>
+
+<p>
+  <b>Colour:</b>
+  <%=h @classified.colour %>
+</p>
+
+<p>
+  <b>Reg num:</b>
+  <%=h @classified.reg_num %>
+</p>
+
+<p>
+  <b>Mileage:</b>
+  <%=h @classified.mileage %>
+</p>
+
+<p>
+  <b>Features:</b>
+  <%=h @classified.features %>
+</p>
+
+<p>
+  <b>Img url:</b>
+  <%=h @classified.img_url %>
+</p>
+
+<p>
+  <b>Best buy:</b>
+  <%=h @classified.best_buy %>
+</p>
+
+<p>
+  <b>Days in stock:</b>
+  <%=h @classified.days_in_stock %>
+</p>
+
+<p>
+  <b>Removed at:</b>
+  <%=h @classified.removed_at %>
+</p>
+
+<p>
+  <b>Has service history:</b>
+  <%=h @classified.has_service_history %>
+</p>
+
+<p>
+  <b>Cyberstock:</b>
+  <%=h @classified.cyberstock %>
+</p>
+
+<p>
+  <b>Expires at:</b>
+  <%=h @classified.expires_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_classified_path(@classified) %> |
+<%= link_to 'Back', classifieds_path %>

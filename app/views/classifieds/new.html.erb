@@ -1,0 +1,75 @@
+<h1>New classified</h1>
+
+<% form_for(@classified) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :stock_code %><br />
+    <%= f.text_field :stock_code %>
+  </p>
+  <p>
+    <%= f.label :stock_type %><br />
+    <%= f.text_field :stock_type %>
+  </p>
+  <p>
+    <%= f.label :model_variant_id %><br />
+    <%= f.text_field :model_variant_id %>
+  </p>
+  <p>
+    <%= f.label :year %><br />
+    <%= f.text_field :year %>
+  </p>
+  <p>
+    <%= f.label :price_in_cents %><br />
+    <%= f.text_field :price_in_cents %>
+  </p>
+  <p>
+    <%= f.label :colour %><br />
+    <%= f.text_field :colour %>
+  </p>
+  <p>
+    <%= f.label :reg_num %><br />
+    <%= f.text_field :reg_num %>
+  </p>
+  <p>
+    <%= f.label :mileage %><br />
+    <%= f.text_field :mileage %>
+  </p>
+  <p>
+    <%= f.label :features %><br />
+    <%= f.text_area :features %>
+  </p>
+  <p>
+    <%= f.label :img_url %><br />
+    <%= f.text_field :img_url %>
+  </p>
+  <p>
+    <%= f.label :best_buy %><br />
+    <%= f.check_box :best_buy %>
+  </p>
+  <p>
+    <%= f.label :days_in_stock %><br />
+    <%= f.text_field :days_in_stock %>
+  </p>
+  <p>
+    <%= f.label :removed_at %><br />
+    <%= f.datetime_select :removed_at %>
+  </p>
+  <p>
+    <%= f.label :has_service_history %><br />
+    <%= f.check_box :has_service_history %>
+  </p>
+  <p>
+    <%= f.label :cyberstock %><br />
+    <%= f.check_box :cyberstock %>
+  </p>
+  <p>
+    <%= f.label :expires_at %><br />
+    <%= f.datetime_select :expires_at %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', classifieds_path %>

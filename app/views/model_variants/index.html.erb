@@ -1,0 +1,24 @@
+<h1>Listing model_variants</h1>
+
+<table>
+  <tr>
+    <th>Model</th>
+    <th>Year</th>
+    <th>Mead mcgrouther code</th>
+  </tr>
+
+<% for model_variant in @model_variants %>
+  <tr>
+    <td><%=h model_variant.model_id %></td>
+    <td><%=h model_variant.year %></td>
+    <td><%=h model_variant.mead_mcgrouther_code %></td>
+    <td><%= link_to 'Show', model_variant %></td>
+    <td><%= link_to 'Edit', edit_model_variant_path(model_variant) %></td>
+    <td><%= link_to 'Destroy', model_variant, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New model_variant', new_model_variant_path %>

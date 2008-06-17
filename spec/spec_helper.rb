@@ -50,3 +50,11 @@ Spec::Runner.configure do |config|
   # 
   # For more information take a look at Spec::Example::Configuration and Spec::Runner
 end
+
+module ReedsSpecHelper
+  
+  def read_file( name )
+    IO.read( File.dirname(__FILE__) + "/files/#{name}" )
+  end
+  
+end

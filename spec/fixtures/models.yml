@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  common_name: MyString
+  make_id: 1
+
+two:
+  name: MyString
+  common_name: MyString
+  make_id: 1

@@ -1,4 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :classifieds
+
+  map.resources :models
+
+  map.resources :makes
+
   map.resources :salespeople
 
   map.assign_to_branch 'branches/:branch_id/assign/:id', :controller => 'branches', :action => 'assign', :conditions => { :method => :post }

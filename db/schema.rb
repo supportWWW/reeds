@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080607034217) do
+ActiveRecord::Schema.define(:version => 20080616034717) do
 
   create_table "assignments", :force => true do |t|
     t.integer  "branch_id",      :limit => 11
@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(:version => 20080607034217) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "assignments", ["salesperson_id"], :name => "index_assignments_on_salesperson_id"
+  add_index "assignments", ["branch_id"], :name => "index_assignments_on_branch_id"
 
   create_table "attachments", :force => true do |t|
     t.integer  "size",         :limit => 11
@@ -28,6 +31,9 @@ ActiveRecord::Schema.define(:version => 20080607034217) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "attachments", ["owner_id"], :name => "index_attachments_on_owner_id"
+  add_index "attachments", ["owner_type"], :name => "index_attachments_on_owner_type"
 
   create_table "branches", :force => true do |t|
     t.string   "name"
@@ -40,6 +46,31 @@ ActiveRecord::Schema.define(:version => 20080607034217) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "classifieds", :force => true do |t|
+    t.string   "stock_code"
+    t.integer  "stock_type",          :limit => 11
+    t.integer  "model_variant_id",    :limit => 11
+    t.integer  "year",                :limit => 11
+    t.integer  "price_in_cents",      :limit => 11
+    t.string   "colour"
+    t.string   "reg_num"
+    t.integer  "mileage",             :limit => 11
+    t.text     "features"
+    t.string   "img_url"
+    t.boolean  "best_buy"
+    t.integer  "days_in_stock",       :limit => 11
+    t.datetime "removed_at"
+    t.boolean  "has_service_history"
+    t.boolean  "cyberstock"
+    t.datetime "expires_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "classifieds", ["stock_code"], :name => "index_classifieds_on_stock_code", :unique => true
+  add_index "classifieds", ["model_variant_id"], :name => "index_classifieds_on_model_variant_id"
+  add_index "classifieds", ["price_in_cents"], :name => "index_classifieds_on_price_in_cents"
 
   create_table "images", :force => true do |t|
     t.string   "filename"
@@ -54,6 +85,20 @@ ActiveRecord::Schema.define(:version => 20080607034217) do
     t.datetime "updated_at"
   end
 
+  add_index "images", ["owner_id"], :name => "index_images_on_owner_id"
+  add_index "images", ["owner_type"], :name => "index_images_on_owner_type"
+  add_index "images", ["parent_id"], :name => "index_images_on_parent_id"
+
+  create_table "makes", :force => true do |t|
+    t.string   "name"
+    t.string   "common_name"
+    t.string   "website"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "makes", ["name"], :name => "index_makes_on_name", :unique => true
+
   create_table "menu_items", :force => true do |t|
     t.string   "title"
     t.integer  "page_id",    :limit => 11
@@ -64,6 +109,32 @@ ActiveRecord::Schema.define(:version => 20080607034217) do
     t.integer  "position",   :limit => 11
     t.integer  "depth",      :limit => 11
   end
+
+  add_index "menu_items", ["page_id"], :name => "index_menu_items_on_page_id"
+  add_index "menu_items", ["parent_id"], :name => "index_menu_items_on_parent_id"
+
+  create_table "model_variants", :force => true do |t|
+    t.integer  "model_id",             :limit => 11
+    t.integer  "year",                 :limit => 11
+    t.string   "mead_mcgrouther_code"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "model_variants", ["model_id"], :name => "index_model_variants_on_model_id"
+  add_index "model_variants", ["year"], :name => "index_model_variants_on_year"
+  add_index "model_variants", ["mead_mcgrouther_code"], :name => "index_model_variants_on_mead_mcgrouther_code"
+
+  create_table "models", :force => true do |t|
+    t.string   "name"
+    t.string   "common_name"
+    t.integer  "make_id",     :limit => 11
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "models", ["make_id"], :name => "index_models_on_make_id"
+  add_index "models", ["name"], :name => "index_models_on_name"
 
   create_table "news_articles", :force => true do |t|
     t.string   "title"
@@ -79,6 +150,7 @@ ActiveRecord::Schema.define(:version => 20080607034217) do
   end
 
   add_index "news_articles", ["title_permalink"], :name => "index_news_articles_on_title_permalink", :unique => true
+  add_index "news_articles", ["category_id"], :name => "index_news_articles_on_category_id"
 
   create_table "pages", :force => true do |t|
     t.string   "title"
@@ -88,6 +160,8 @@ ActiveRecord::Schema.define(:version => 20080607034217) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "pages", ["title_permalink"], :name => "index_pages_on_title_permalink", :unique => true
 
   create_table "referrals", :force => true do |t|
     t.string   "name"
@@ -132,5 +206,7 @@ ActiveRecord::Schema.define(:version => 20080607034217) do
     t.datetime "updated_at"
     t.string   "referer_host"
   end
+
+  add_index "visits", ["referral_id"], :name => "index_visits_on_referral_id"
 
 end

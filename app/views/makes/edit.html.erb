@@ -1,0 +1,24 @@
+<h1>Editing make</h1>
+
+<% form_for(@make) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :common_name %><br />
+    <%= f.text_field :common_name %>
+  </p>
+  <p>
+    <%= f.label :website %><br />
+    <%= f.text_field :website %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @make %> |
+<%= link_to 'Back', makes_path %>

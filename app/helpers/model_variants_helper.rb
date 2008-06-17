@@ -1,0 +1,2 @@
+module ModelVariantsHelper
+end

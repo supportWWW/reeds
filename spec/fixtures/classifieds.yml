@@ -1,0 +1,37 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  stock_code: MyString
+  stock_type: 1
+  model_variant_id: 1
+  year: 1
+  price_in_cents: 1
+  colour: MyString
+  reg_num: MyString
+  mileage: 1
+  features: MyText
+  img_url: MyString
+  best_buy: false
+  days_in_stock: 1
+  removed_at: 2008-06-16 00:47:17
+  has_service_history: false
+  cyberstock: false
+  expires_at: 2008-06-16 00:47:17
+
+two:
+  stock_code: MyString
+  stock_type: 1
+  model_variant_id: 1
+  year: 1
+  price_in_cents: 1
+  colour: MyString
+  reg_num: MyString
+  mileage: 1
+  features: MyText
+  img_url: MyString
+  best_buy: false
+  days_in_stock: 1
+  removed_at: 2008-06-16 00:47:17
+  has_service_history: false
+  cyberstock: false
+  expires_at: 2008-06-16 00:47:17

@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @make.name %>
+</p>
+
+<p>
+  <b>Common name:</b>
+  <%=h @make.common_name %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%=h @make.website %>
+</p>
+
+
+<%= link_to 'Edit', edit_make_path(@make) %> |
+<%= link_to 'Back', makes_path %>

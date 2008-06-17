@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @model.name %>
+</p>
+
+<p>
+  <b>Common name:</b>
+  <%=h @model.common_name %>
+</p>
+
+<p>
+  <b>Make:</b>
+  <%=h @model.make_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_model_path(@model) %> |
+<%= link_to 'Back', models_path %>
