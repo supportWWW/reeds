@@ -5,8 +5,6 @@ class ModelVariant < ActiveRecord::Base
   
   validates_presence_of :year, :model_id, :mead_mcgrouther_code
   validates_uniqueness_of :year, :scope => :mead_mcgrouther_code
-
-
   
   class << self 
     

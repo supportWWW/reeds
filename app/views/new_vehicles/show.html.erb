@@ -1,0 +1,60 @@
+<p>
+  <b>Model:</b>
+  <%=h @new_vehicle.model_range.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @new_vehicle.description %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%=h @new_vehicle.year %>
+</p>
+
+<p>
+  <b>Enabled:</b>
+  <%= boolean_label  @new_vehicle.enabled %>
+</p>
+
+<h3>Model Version</h3>
+
+<% unless @new_vehicle.new_vehicle_variants.blank? %>
+
+    <% table_with_block 'Name', 'Price', 'Reference' do %>
+          <% for variant in @new_vehicle.new_vehicle_variants %>
+            <tr>
+              <td> <%= variant.name %>  </td>
+              <td> <%= variant.price %>  </td>
+              <td> <%= variant.model_reference %>  </td>
+            </tr>
+          <% end  %>
+    <% end  %>
+
+<% else  %>
+            <p>There are no accessories for this car yet.</p>
+<% end  %>
+
+<h3>Accessories</h3>
+
+<% unless @new_vehicle.accessories.blank? %>
+
+    <% table_with_block 'Name', 'Price', 'Reference' do %>
+          <% for accessory in @new_vehicle.accessories %>
+            <tr>
+              <td> <%= accessory.name %>  </td>
+              <td> <%= accessory.price %>  </td>
+              <td> <%= accessory.model_reference %>  </td>
+            </tr>
+          <% end  %>
+    <% end  %>
+
+<% else  %>
+            <p>There are no accessories for this car yet.</p>
+<% end  %>
+
+<h4>All prices include VAT</h4>
+
+<%= link_to 'Edit', edit_new_vehicle_path(@new_vehicle) %> |
+<%= link_to 'Back', new_vehicles_path %>

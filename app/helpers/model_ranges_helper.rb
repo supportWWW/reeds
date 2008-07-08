@@ -1,0 +1,2 @@
+module ModelRangesHelper
+end

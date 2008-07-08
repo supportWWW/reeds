@@ -1,0 +1,21 @@
+  <script>
+      //<!--
+      var accessoriesCount = <%= @new_vehicle.accessories.count %>;
+      var variantsCount = <%= @new_vehicle.new_vehicle_variants.count %>;
+      
+      function addNewAccessoryField(){
+          templateText = "\n<p>\nName: <input type='text' name='accessories[#{index}][name]'/>\n<br/> Price: <input type='text' name='accessories[#{index}][price]'/> \n<br/> Model Reference <input type='text' name='accessories[#{index}][model_reference]'/> </p> ";
+          template = new Template( templateText );
+          Element.insert( $( 'accessoriesPanel' ), template.evaluate( { index: accessoriesCount } ) );
+          accessoriesCount++;
+      }
+      
+      function addNewVariantField(){
+          templateText = "\n<p>\nName: <input type='text' name='new_vehicle_variants[#{index}][name]'/>\n<br/> Price: <input type='text' name='new_vehicle_variants[#{index}][price]'/> \n<br/> Model Reference: <input type='text' name='new_vehicle_variants[#{index}][model_reference]'/> </p> ";
+          template = new Template( templateText );
+          Element.insert( $( 'variantsPanel' ), template.evaluate( { index: variantsCount } ) );
+          variantsCount++;
+      }      
+      
+      //-->
+  </script>

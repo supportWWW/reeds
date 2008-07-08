@@ -1,0 +1,13 @@
+<p>
+  <b>Name:</b>
+  <%=h @model_range.name %>
+</p>
+
+<p>
+  <b>Make:</b>
+  <%=h @model_range.make_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_model_range_path(@model_range) %> |
+<%= link_to 'Back', model_ranges_path %>

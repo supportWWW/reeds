@@ -24,6 +24,10 @@ class Model < ActiveRecord::Base
   
   class << self
     
+    def models_for_select
+      find(:all, :order => 'makes.name, models.name', :include => :make).collect { |i| [ "#{i.make.name} - #{i.name}", i.id ] }
+    end
+    
     def find_or_create_by_name_and_make_id( name, make_id )
       find( :first, :conditions => [ 'name like binary ? and make_id = ?', name, make_id ] ) || Model.create( :name => name, :make_id => make_id )
     end

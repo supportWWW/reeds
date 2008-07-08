@@ -1,11 +1,13 @@
+require 'erb'
 
-set :user, 'deploy'
-set :runner, 'deploy'
-set :password, 'e30o96'
-set :domain, "weddid.com"
+set :user, 'mauricio'
+set :runner, 'mauricio'
+set :password, 'gphwty'
+set :domain, "reeds.dyndns.ws"
 
 set :application, "reeds"
 set :deploy_to, "/var/www/apps/#{application}"
+set :public_directory, "#{deploy_to}/current/public"
 
 default_run_options[:pty] = true
 set :repository,  "ssh://mauricio@weddid.com/var/git/reeds"
@@ -15,9 +17,10 @@ set :branch, :master
 
 set :mongrel, "/etc/init.d/mongrel_cluster"
 
-set :use_sudo, true
+#set :use_sudo, true
 
-# set :gems_for_project, %w(dr_nic_magic_models swiftiply) # list of gems to be installed
+# set :gems_for_project, %w(dr_nic_magic_models swiftiply) # list of gems to be
+# installed
 
 # Update these if you're not running everything on one host.
 role :app, domain
@@ -25,14 +28,12 @@ role :web, domain
 role :db,  domain, :primary => true
 
 
-# If you aren't deploying to /var/www/apps/#{application} on the target
-# servers (which is the deprec default), you can specify the actual location
-# via the :deploy_to variable:
-# set :deploy_to, "/var/www/#{application}"
+# If you aren't deploying to /var/www/apps/#{application} on the target servers
+# (which is the deprec default), you can specify the actual location via the
+# :deploy_to variable: set :deploy_to, "/var/www/#{application}"
 
-# If you aren't using Subversion to manage your source code, specify
-# your SCM below:
-# set :scm, :subversion
+# If you aren't using Subversion to manage your source code, specify your SCM
+# below: set :scm, :subversion
 
 task :stop_mongrels do
   sudo "#{mongrel} stop"
@@ -43,8 +44,7 @@ task :start_mongrels do
 end
 
 task :restart_mongrels do
-  stop_mongrels
-  start_mongrels
+  sudo "#{mongrel} restart"
 end
 
 task :copy_mongrel_config do
@@ -52,19 +52,39 @@ task :copy_mongrel_config do
   sudo "cp #{shared_path}/#{application}_mongrel.yml /etc/mongrel_cluster/#{application}_mongrel.yml"
 end
 
-task :copy_nginx_config do
-  put IO.read( 'config/nginx/rails_nginx_vhost.conf' ), "#{shared_path}/#{application}_nginx.conf"
-  sudo "cp #{shared_path}/#{application}_nginx.conf /usr/local/nginx/conf/vhosts/#{application}.conf"
+task :copy_apache_config do
+  template = File.read("config/apache/apache-vhost.erb")
+  buffer = ERB.new(template).result(binding)
+  put buffer, "#{shared_path}/#{application}_apache.conf"
+  sudo "cp #{shared_path}/#{application}_apache.conf /etc/apache2/sites-available/#{application}"
+  restart_apache
 end
 
 task :create_basic_dirs do
+  sudo "chown -R mauricio:www-data #{deploy_to}"
   run "mkdir #{shared_path}/mongrel"
-  run "mkdir #{shared_path}/nginx"
+  run "mkdir #{shared_path}/apache"
 end
 
 task :copy_configs do
-  copy_nginx_config
+  copy_apache_config
   copy_mongrel_config
+end
+
+task :restart_apache do
+  sudo 'apache2ctl restart'
+end
+
+namespace :deploy do
+  task :start do
+    start_mongrels
+  end
+  task :stop do
+    stop_mongrels
+  end  
+  task :restart do
+    restart_mongrels
+  end  
 end
 
 after :deploy, 'deploy:cleanup'

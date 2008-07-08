@@ -1,4 +1,9 @@
 ActionController::Routing::Routes.draw do |map|
+  
+  map.resources :new_vehicle_variants
+  map.resources :accessories
+  map.resources :model_ranges
+  map.resources :new_vehicles
   map.resources :classifieds
   map.resources :model_variants
   map.resources :models

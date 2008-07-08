@@ -6,14 +6,14 @@
 
 <table>
   <tr>
+    <th>Make</th>    
     <th>Name</th>
-    <th>Make</th>
   </tr>
 
 <% for model in @models %>
   <tr>
-    <td><%=h model.common_name %></td>
     <td><%=h model.make.common_name %></td>
+    <td><%=h model.common_name %></td>
     <td><%= link_to 'Edit', edit_model_path(model) %></td>
     <td><%= link_to 'Destroy', model, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

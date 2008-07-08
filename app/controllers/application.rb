@@ -37,4 +37,13 @@ class ApplicationController < ActionController::Base
     model.paginate( options.merge( {:page => @page, :per_page => @per_page} ) )
   end
   
+  def remove_with_fade( id, duration = 2, delay = 3 )
+    render :update do |page|
+      page.visual_effect( :fade, id, { :duration => duration } )
+      page.delay delay do
+        page.remove id
+      end
+    end    
+  end
+  
 end

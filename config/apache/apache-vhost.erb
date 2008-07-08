@@ -1,0 +1,28 @@
+<Proxy *>
+  Order allow,deny
+  Allow from all
+</Proxy>
+
+<VirtualHost *:80>
+    ServerName <%= domain %>
+    DocumentRoot <%= public_directory %>
+             
+    <Directory "<%= public_directory %>/">
+             Options FollowSymLinks
+             AllowOverride None
+             Order allow,deny
+             Allow from all
+    </Directory>
+  
+    <Proxy balancer://<%= application %>-mongrels>
+         BalancerMember http://127.0.0.1:8000
+         BalancerMember http://127.0.0.1:8001
+    </Proxy>
+  
+  ProxyPass /images !
+  ProxyPass /javascripts !
+  ProxyPass /stylesheets !
+  ProxyPass / balancer://<%= application %>-mongrels/
+  ProxyPassReverse / balancer://<%= application %>-mongrels/
+  ProxyPreserveHost On
+</VirtualHost>

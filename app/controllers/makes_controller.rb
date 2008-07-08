@@ -48,7 +48,7 @@ class MakesController < ApplicationController
     respond_to do |format|
       if @make.save
         flash[:notice] = 'Make was successfully created.'
-        format.html { redirect_to(@make) }
+        format.html { redirect_to(makes_path) }
         format.xml  { render :xml => @make, :status => :created, :location => @make }
       else
         format.html { render :action => "new" }
@@ -65,7 +65,7 @@ class MakesController < ApplicationController
     respond_to do |format|
       if @make.update_attributes(params[:make])
         flash[:notice] = 'Make was successfully updated.'
-        format.html { redirect_to(@make) }
+        format.html { redirect_to(makes_path) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

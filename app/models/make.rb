@@ -13,4 +13,12 @@ class Make < ActiveRecord::Base
     end
   end
   
+  class << self 
+    
+    def for_select
+      find( :all, :order => 'name' ).collect { |i| [ i.name, i.id ] }
+    end
+    
+  end
+  
 end

@@ -9,7 +9,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080616034717) do
+ActiveRecord::Schema.define(:version => 20080708170348) do
+
+  create_table "accessories", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "price_in_cents",  :limit => 11
+    t.integer  "new_vehicle_id",  :limit => 11, :null => false
+    t.string   "model_reference"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "assignments", :force => true do |t|
     t.integer  "branch_id",      :limit => 11
@@ -113,6 +123,13 @@ ActiveRecord::Schema.define(:version => 20080616034717) do
   add_index "menu_items", ["page_id"], :name => "index_menu_items_on_page_id"
   add_index "menu_items", ["parent_id"], :name => "index_menu_items_on_parent_id"
 
+  create_table "model_ranges", :force => true do |t|
+    t.string   "name"
+    t.integer  "make_id",    :limit => 11
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "model_variants", :force => true do |t|
     t.integer  "model_id",             :limit => 11
     t.integer  "year",                 :limit => 11
@@ -135,6 +152,25 @@ ActiveRecord::Schema.define(:version => 20080616034717) do
 
   add_index "models", ["make_id"], :name => "index_models_on_make_id"
   add_index "models", ["name"], :name => "index_models_on_name"
+
+  create_table "new_vehicle_variants", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.integer  "price_in_cents",  :limit => 11
+    t.string   "model_reference"
+    t.integer  "new_vehicle_id",  :limit => 11, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "new_vehicles", :force => true do |t|
+    t.integer  "model_range_id", :limit => 11
+    t.text     "description"
+    t.integer  "year",           :limit => 11
+    t.boolean  "enabled",                      :default => true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "news_articles", :force => true do |t|
     t.string   "title"
