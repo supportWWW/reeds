@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
 
   include AuthenticatedSystem
   
+  before_filter :use_prototype
+  
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery # :secret => '3f96b1c8af7699d99ad8ccabc18e6740'
@@ -19,6 +21,10 @@ class ApplicationController < ActionController::Base
   
   protected
 
+  def use_prototype
+    @use_prototype = true
+  end
+  
   def public_path
     if request.port == 80
       "http://#{request.domain}"

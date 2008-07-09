@@ -1,14 +1,7 @@
-<h3>Images</h3>
-
-<% unless @new_vehicle.images.blank? %>
-  <p>
-    <% for image in @new_vehicle.images %> 
-      <%= image_tag image.public_filename %>
-    <% end  %>
-  </p>
-<% else %>
-  <p>There are no images available yet.</p>
-<% end %>
+<% content_for :header do %>
+  <%= stylesheet_link_tag 'jd.gallery.css'  %>
+  <%= javascript_include_tag 'mootools.v1.11.js', 'jd.gallery.js'  %>
+<% end  %>
 
 <h3>Files</h3>
 
@@ -21,3 +14,35 @@
 <% else %>
   <p> There are no files available yet </p>
 <% end %>
+
+<h3>Images</h3>
+
+<% unless @new_vehicle.images.blank? %>
+
+  <div id="myGallery">
+    <% for image in @new_vehicle.images %>
+      <div class="imageElement">
+        <h3></h3>
+        <p></p>
+        <img src="<%= image.public_filename %>" class="full" />
+      </div>
+    <% end  %>
+  </div> 
+
+  <script type="text/javascript">
+      function startGallery() {
+          var myGallery = new gallery($('myGallery'), {
+              timed: true,
+              showArrows: true,
+              embedLinks: false,
+              showInfopane: false,
+              showCarousel: false
+          });
+      }
+      window.addEvent('domready', startGallery);
+  </script> 
+
+<% else %>
+  <p>There are no images available yet.</p>
+<% end %>
+

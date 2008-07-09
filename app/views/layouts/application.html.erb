@@ -5,8 +5,10 @@
   	<title>Reeds Motorgroup</title>
 
   	<%= stylesheet_link_tag "application" %>
-        <%= javascript_include_tag :defaults  %>
-
+        <% if @use_prototype %>
+            <%= javascript_include_tag :defaults  %>
+        <% end  %>
+        <%= yield :header %>
   </head>
 
   <body>

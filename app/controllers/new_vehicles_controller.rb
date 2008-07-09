@@ -3,6 +3,8 @@ class NewVehiclesController < ApplicationController
   before_filter :login_required
   before_filter :load_page, :only => :index
   
+  skip_before_filter :use_prototype, :only => :show
+  
   # GET /new_vehicles
   # GET /new_vehicles.xml
   def index
