@@ -19,6 +19,8 @@ set :mongrel, "/etc/init.d/mongrel_cluster"
 
 #set :use_sudo, true
 
+set :symlinked_dirs, [ 'uploaded_images', 'uploaded_files' ]
+
 # set :gems_for_project, %w(dr_nic_magic_models swiftiply) # list of gems to be
 # installed
 
@@ -34,6 +36,24 @@ role :db,  domain, :primary => true
 
 # If you aren't using Subversion to manage your source code, specify your SCM
 # below: set :scm, :subversion
+
+task :create_public_shared_dirs do
+  symlinked_dirs.each do |d|
+    run "mkdir -p #{shared_path}/public/#{d}"
+  end
+end
+
+desc 'Symlink the dirs where the files are stored to the shared path'
+task :symlink_public_dirs do
+  commands = []
+  
+  symlinked_dirs.each do |d|
+    commands << "rm -rf #{latest_release}/public/#{d};"
+    commands << "ln -s #{shared_path}/public/#{d} #{latest_release}/public/#{d};"
+  end
+  
+  run commands.join(' ')
+end
 
 task :stop_mongrels do
   sudo "#{mongrel} stop"
@@ -64,6 +84,7 @@ task :create_basic_dirs do
   sudo "chown -R mauricio:www-data #{deploy_to}"
   run "mkdir #{shared_path}/mongrel"
   run "mkdir #{shared_path}/apache"
+  create_public_shared_dirs
 end
 
 task :copy_configs do
@@ -89,5 +110,6 @@ end
 
 after :deploy, 'deploy:cleanup'
 after :deploy, :restart_mongrels
+after :deploy, :symlink_public_dirs
 after 'deploy:setup', :create_basic_dirs
 after 'deploy:setup', :copy_configs

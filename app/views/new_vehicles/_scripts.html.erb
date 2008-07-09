@@ -2,7 +2,8 @@
       //<!--
       var accessoriesCount = <%= @new_vehicle.accessories.count %>;
       var variantsCount = <%= @new_vehicle.new_vehicle_variants.count %>;
-      
+      var imagesCount = 1;
+      var attachmentsCount = 1;
       function addNewAccessoryField(){
           templateText = "\n<p>\nName: <input type='text' name='accessories[#{index}][name]'/>\n<br/> Price: <input type='text' name='accessories[#{index}][price]'/> \n<br/> Model Reference <input type='text' name='accessories[#{index}][model_reference]'/> </p> ";
           template = new Template( templateText );
@@ -15,7 +16,22 @@
           template = new Template( templateText );
           Element.insert( $( 'variantsPanel' ), template.evaluate( { index: variantsCount } ) );
           variantsCount++;
-      }      
+      }
       
+      function addNewImageField() {
+          addNewFileElement( 'imagesPanel' , imagesCount, 'uploaded_images');
+          imagesCount++;
+      }
+      
+      function addNewAttachmentField() {
+          addNewFileElement( 'attachmentsPanel' , attachmentsCount, 'uploaded_files');
+          attachmentsCount++;
+      }
+
+      function addNewFileElement( panel, count, name ){
+          template = new Template( "\n<p>File: <input type='file' name='#{itemName}[#{number}]'/></p>" );
+          Element.insert( $( panel ), template.evaluate( { number: count, itemName: name } ) );
+      }
+
       //-->
   </script>

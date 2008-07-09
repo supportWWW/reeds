@@ -96,6 +96,8 @@ class NewVehiclesController < ApplicationController
   def handle_nested
     handle_accessories
     handle_new_vehicle_variants
+    handle_uploaded_data Image, :uploaded_images
+    handle_uploaded_data Attachment, :uploaded_files
   end
   
   def handle_accessories
@@ -104,6 +106,17 @@ class NewVehiclesController < ApplicationController
   
   def handle_new_vehicle_variants
     handle_item :new_vehicle_variants
+  end
+  
+  def handle_uploaded_data( model_class, key )
+    if !params[key].blank? and !@new_vehicle.new_record?
+      params[key].each_value do |f|
+        unless f.blank?
+          p "Running the attachment code for '#{model_class.name}' and '#{key}'"
+          model_class.create!( :owner_id => @new_vehicle.id, :owner_type => @new_vehicle.class.name, :uploaded_data => f )
+        end
+      end
+    end
   end
   
   def handle_item( key )

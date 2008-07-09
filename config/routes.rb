@@ -1,5 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   
+  
+  map.resources :attachments
+  map.resources :images
   map.resources :new_vehicle_variants
   map.resources :accessories
   map.resources :model_ranges

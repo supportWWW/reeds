@@ -1,4 +1,4 @@
-<% form_for(@new_vehicle) do |f| %>
+<% form_for(@new_vehicle, :html => { :multipart => true } ) do |f| %>
   
   <%= f.error_messages %>
 
@@ -24,6 +24,10 @@
   <%= partial :variants %>
 
   <%= partial :accessories %>
+
+  <%= partial :images %>
+
+    <%= partial :attachments %>
 
   <p>
     <%= f.submit "Send" %>

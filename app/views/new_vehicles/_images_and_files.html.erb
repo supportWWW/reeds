@@ -1,0 +1,23 @@
+<h3>Images</h3>
+
+<% unless @new_vehicle.images.blank? %>
+  <p>
+    <% for image in @new_vehicle.images %> 
+      <%= image_tag image.public_filename %>
+    <% end  %>
+  </p>
+<% else %>
+  <p>There are no images available yet.</p>
+<% end %>
+
+<h3>Files</h3>
+
+<% unless @new_vehicle.attachments.blank? %>
+  <ul>
+    <% for file in @new_vehicle.attachments %>
+      <li> <%= link_to file.filename, file.public_filename %> </li>
+    <% end  %>
+  </ul>
+<% else %>
+  <p> There are no files available yet </p>
+<% end %>

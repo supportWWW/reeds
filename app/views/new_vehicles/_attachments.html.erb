@@ -1,0 +1,17 @@
+<h3>Attachments</h3>
+
+<div id="attachmentsPanel">
+  <% unless @new_vehicle.attachments.blank? %>
+    <ul>
+    <% for file in @new_vehicle.attachments %>
+        <li id="<%= "attachment_#{file.id}" %>"> 
+            <%= link_to file.filename, file.public_filename %> 
+            - <%= link_to_remote 'Remove this file', :url => attachment_path( file ), :method => :delete, :confirm => 'Are you sure?'  %>
+        </li>
+    <% end  %>
+    </ul>
+  <% end  %>
+    <p> File: <%= file_field_tag 'uploaded_files[0]'   %>  </p>
+</div>
+
+<a href="javascript:void( 0 )" onclick="addNewAttachmentField(); return false;"> New attachment </a>
