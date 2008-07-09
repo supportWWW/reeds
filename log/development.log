@@ -16460,3 +16460,345 @@ Rendered menu_items/_menu_list (0.01369)
 Rendered menu_items/_menu (0.02418)
 Rendered layouts/_menu (0.00052)
 Completed in 0.14287 (6 reqs/sec) | Rendering: 0.06237 (43%) | DB: 0.00581 (4%) | 200 OK [http://localhost/new_vehicles/1]
+
+
+Processing MainController#index (for 127.0.0.1 at 2008-07-09 15:02:49) [GET]
+  Session ID: BAh7CToMdXNlcl9pZGkGOgxjc3JmX2lkIiUzN2I5YWZhM2FjNDRhYmQ1YmQx
+ZDMxYWRmOWNkMTUyOToOcmV0dXJuX3RvMCIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--8bd02f673419a3f2d0db3b6354747cd89d43d254
+  Parameters: {"action"=>"index", "controller"=>"main"}
+  [4;36;1mSQL (0.000061)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000033)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mNewsArticle Load (0.000261)[0m   [0;1mSELECT * FROM `news_articles` WHERE (publish_at < '2008-07-09 15:02:49') ORDER BY publish_at desc LIMIT 0, 10[0m
+Rendering template within layouts/application
+Rendering main/index
+  [4;35;1mNewsArticle Columns (0.000632)[0m   [0mSHOW FIELDS FROM `news_articles`[0m
+  [4;36;1mMenuItem Load (0.000078)[0m   [0;1mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
+  [4;35;1mMenuItem Columns (0.000524)[0m   [0mSHOW FIELDS FROM `menu_items`[0m
+  [4;36;1mMenuItem Load (0.000053)[0m   [0;1mSELECT `menu_items`.* FROM `menu_items` WHERE (`menu_items`.parent_id IN (2,1)) [0m
+  [4;35;1mMenuItem Load (0.000061)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
+  [4;36;1mMenuItem Load (0.000036)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
+Rendered menu_items/_menu_list (0.00085)
+  [4;35;1mPage Columns (0.000524)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mPage Load (0.000038)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendered menu_items/_menu_list (0.01051)
+Rendered menu_items/_menu (0.03238)
+  [4;35;1mUser Columns (0.000627)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000046)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+Rendered layouts/_menu (0.01397)
+Completed in 0.11368 (8 reqs/sec) | Rendering: 0.08640 (76%) | DB: 0.00297 (2%) | 200 OK [http://localhost/]
+
+
+Processing NewVehiclesController#index (for 127.0.0.1 at 2008-07-09 15:02:51) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMY3NyZl9pZCIlMzdiOWFmYTNhYzQ0YWJkNWJk
+MWQzMWFkZjljZDE1Mjk6DHVzZXJfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--b5afa516c9a26a609b19320869394e1fc158e35f
+  Parameters: {"action"=>"index", "controller"=>"new_vehicles"}
+  [4;35;1mUser Columns (0.000731)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000040)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mNewVehicle Load (0.000043)[0m   [0mSELECT * FROM `new_vehicles` ORDER BY created_at desc LIMIT 0, 10[0m
+Rendering template within layouts/application
+Rendering new_vehicles/index
+  [4;36;1mNewVehicle Columns (0.000522)[0m   [0;1mSHOW FIELDS FROM `new_vehicles`[0m
+  [4;35;1mModelRange Columns (0.000360)[0m   [0mSHOW FIELDS FROM `model_ranges`[0m
+  [4;36;1mModelRange Load (0.000033)[0m   [0;1mSELECT * FROM `model_ranges` WHERE (`model_ranges`.`id` = 3) [0m
+  [4;35;1mMenuItem Load (0.000064)[0m   [0mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
+  [4;36;1mMenuItem Columns (0.000528)[0m   [0;1mSHOW FIELDS FROM `menu_items`[0m
+  [4;35;1mMenuItem Load (0.000040)[0m   [0mSELECT `menu_items`.* FROM `menu_items` WHERE (`menu_items`.parent_id IN (2,1)) [0m
+  [4;36;1mMenuItem Load (0.000039)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
+  [4;35;1mMenuItem Load (0.000030)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
+Rendered menu_items/_menu_list (0.00075)
+  [4;36;1mPage Columns (0.000727)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mPage Load (0.000069)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendered menu_items/_menu_list (0.01842)
+Rendered menu_items/_menu (0.02901)
+Rendered layouts/_menu (0.00075)
+Completed in 0.06356 (15 reqs/sec) | Rendering: 0.04139 (65%) | DB: 0.00323 (5%) | 200 OK [http://localhost/new_vehicles]
+
+
+Processing NewVehiclesController#show (for 127.0.0.1 at 2008-07-09 15:02:53) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMY3NyZl9pZCIlMzdiOWFmYTNhYzQ0YWJkNWJk
+MWQzMWFkZjljZDE1Mjk6DHVzZXJfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--b5afa516c9a26a609b19320869394e1fc158e35f
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"new_vehicles"}
+  [4;36;1mUser Columns (0.000659)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000053)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mNewVehicle Columns (0.000505)[0m   [0;1mSHOW FIELDS FROM `new_vehicles`[0m
+  [4;35;1mNewVehicle Load (0.000047)[0m   [0mSELECT * FROM `new_vehicles` WHERE (`new_vehicles`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering new_vehicles/show
+  [4;36;1mModelRange Columns (0.000497)[0m   [0;1mSHOW FIELDS FROM `model_ranges`[0m
+  [4;35;1mModelRange Load (0.000046)[0m   [0mSELECT * FROM `model_ranges` WHERE (`model_ranges`.`id` = 3) [0m
+  [4;36;1mNewVehicleVariant Load (0.000067)[0m   [0;1mSELECT * FROM `new_vehicle_variants` WHERE (`new_vehicle_variants`.new_vehicle_id = 1) [0m
+  [4;35;1mAccessory Load (0.000061)[0m   [0mSELECT * FROM `accessories` WHERE (`accessories`.new_vehicle_id = 1) [0m
+  [4;36;1mAccessory Columns (0.000553)[0m   [0;1mSHOW FIELDS FROM `accessories`[0m
+Rendered new_vehicles/_accessories_and_variants (0.01538)
+  [4;35;1mAttachment Load (0.000073)[0m   [0mSELECT * FROM `attachments` WHERE (`attachments`.owner_id = 1 AND `attachments`.owner_type = 'NewVehicle') [0m
+  [4;36;1mAttachment Columns (0.000519)[0m   [0;1mSHOW FIELDS FROM `attachments`[0m
+  [4;35;1mImage Load (0.000063)[0m   [0mSELECT * FROM `images` WHERE (`images`.owner_id = 1 AND `images`.owner_type = 'NewVehicle') [0m
+  [4;36;1mImage Columns (0.000582)[0m   [0;1mSHOW FIELDS FROM `images`[0m
+Rendered new_vehicles/_images_and_files (0.09910)
+  [4;35;1mMenuItem Load (0.000065)[0m   [0mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
+  [4;36;1mMenuItem Columns (0.000527)[0m   [0;1mSHOW FIELDS FROM `menu_items`[0m
+  [4;35;1mMenuItem Load (0.000041)[0m   [0mSELECT `menu_items`.* FROM `menu_items` WHERE (`menu_items`.parent_id IN (2,1)) [0m
+  [4;36;1mMenuItem Load (0.000035)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
+  [4;35;1mMenuItem Load (0.000030)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
+Rendered menu_items/_menu_list (0.00072)
+  [4;36;1mPage Columns (0.000538)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mPage Load (0.000044)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendered menu_items/_menu_list (0.01443)
+Rendered menu_items/_menu (0.02589)
+Rendered layouts/_menu (0.00052)
+Completed in 0.23880 (4 reqs/sec) | Rendering: 0.21478 (89%) | DB: 0.00501 (2%) | 200 OK [http://localhost/new_vehicles/1]
+
+
+Processing NewVehiclesController#edit (for 127.0.0.1 at 2008-07-09 15:05:31) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMY3NyZl9pZCIlMzdiOWFmYTNhYzQ0YWJkNWJk
+MWQzMWFkZjljZDE1Mjk6DHVzZXJfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--b5afa516c9a26a609b19320869394e1fc158e35f
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"new_vehicles"}
+  [4;36;1mUser Columns (0.000643)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000048)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mNewVehicle Columns (0.000567)[0m   [0;1mSHOW FIELDS FROM `new_vehicles`[0m
+  [4;35;1mNewVehicle Load (0.000053)[0m   [0mSELECT * FROM `new_vehicles` WHERE (`new_vehicles`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering new_vehicles/edit
+  [4;36;1mModelRange Columns (0.000477)[0m   [0;1mSHOW FIELDS FROM `model_ranges`[0m
+  [4;35;1mMake Columns (0.000348)[0m   [0mSHOW FIELDS FROM `makes`[0m
+  [4;36;1mModelRange Load Including Associations (0.000063)[0m   [0;1mSELECT `model_ranges`.`id` AS t0_r0, `model_ranges`.`name` AS t0_r1, `model_ranges`.`make_id` AS t0_r2, `model_ranges`.`created_at` AS t0_r3, `model_ranges`.`updated_at` AS t0_r4, `makes`.`id` AS t1_r0, `makes`.`name` AS t1_r1, `makes`.`common_name` AS t1_r2, `makes`.`website` AS t1_r3, `makes`.`created_at` AS t1_r4, `makes`.`updated_at` AS t1_r5 FROM `model_ranges` LEFT OUTER JOIN `makes` ON `makes`.id = `model_ranges`.make_id ORDER BY makes.name, model_ranges.name[0m
+  [4;35;1mAccessory Columns (0.000568)[0m   [0mSHOW FIELDS FROM `accessories`[0m
+  [4;36;1mSQL (0.000137)[0m   [0;1mSELECT count(*) AS count_all FROM `accessories` WHERE (`accessories`.new_vehicle_id = 1) [0m
+  [4;35;1mNewVehicleVariant Columns (0.000499)[0m   [0mSHOW FIELDS FROM `new_vehicle_variants`[0m
+  [4;36;1mSQL (0.000032)[0m   [0;1mSELECT count(*) AS count_all FROM `new_vehicle_variants` WHERE (`new_vehicle_variants`.new_vehicle_id = 1) [0m
+Rendered new_vehicles/_scripts (0.06365)
+  [4;35;1mNewVehicleVariant Load (0.000071)[0m   [0mSELECT * FROM `new_vehicle_variants` WHERE (`new_vehicle_variants`.new_vehicle_id = 1) [0m
+Rendered new_vehicles/_variants (0.00050)
+  [4;36;1mAccessory Load (0.000040)[0m   [0;1mSELECT * FROM `accessories` WHERE (`accessories`.new_vehicle_id = 1) [0m
+Rendered new_vehicles/_item (0.00252)
+Rendered new_vehicles/_accessories (0.00409)
+  [4;35;1mImage Load (0.000081)[0m   [0mSELECT * FROM `images` WHERE (`images`.owner_id = 1 AND `images`.owner_type = 'NewVehicle') [0m
+  [4;36;1mImage Columns (0.000565)[0m   [0;1mSHOW FIELDS FROM `images`[0m
+Rendered new_vehicles/_images (0.01245)
+  [4;35;1mAttachment Load (0.000081)[0m   [0mSELECT * FROM `attachments` WHERE (`attachments`.owner_id = 1 AND `attachments`.owner_type = 'NewVehicle') [0m
+  [4;36;1mAttachment Columns (0.000494)[0m   [0;1mSHOW FIELDS FROM `attachments`[0m
+Rendered new_vehicles/_attachments (0.01060)
+Rendered new_vehicles/_form (0.16366)
+  [4;35;1mMenuItem Load (0.000081)[0m   [0mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
+  [4;36;1mMenuItem Columns (0.000494)[0m   [0;1mSHOW FIELDS FROM `menu_items`[0m
+  [4;35;1mMenuItem Load (0.000048)[0m   [0mSELECT `menu_items`.* FROM `menu_items` WHERE (`menu_items`.parent_id IN (2,1)) [0m
+  [4;36;1mMenuItem Load (0.000041)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
+  [4;35;1mMenuItem Load (0.000036)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
+Rendered menu_items/_menu_list (0.00076)
+  [4;36;1mPage Columns (0.000519)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mPage Load (0.000044)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendered menu_items/_menu_list (0.01572)
+Rendered menu_items/_menu (0.02641)
+Rendered layouts/_menu (0.00052)
+Completed in 0.24035 (4 reqs/sec) | Rendering: 0.21412 (89%) | DB: 0.00603 (2%) | 200 OK [http://localhost/new_vehicles/1/edit]
+
+
+Processing ImagesController#destroy (for 127.0.0.1 at 2008-07-09 15:05:39) [DELETE]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMY3NyZl9pZCIlMzdiOWFmYTNhYzQ0YWJkNWJk
+MWQzMWFkZjljZDE1Mjk6DHVzZXJfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--b5afa516c9a26a609b19320869394e1fc158e35f
+  Parameters: {"_method"=>"delete", "authenticity_token"=>"a9e48c2e5794bb7d89270f72dc9f242d6ba45613", "action"=>"destroy", "id"=>"550", "controller"=>"images"}
+  [4;36;1mUser Columns (0.000728)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000058)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mImage Columns (0.000576)[0m   [0;1mSHOW FIELDS FROM `images`[0m
+  [4;35;1mImage Load (0.000160)[0m   [0mSELECT * FROM `images` WHERE (`images`.`id` = 550) [0m
+  [4;36;1mSQL (0.000029)[0m   [0;1mBEGIN[0m
+  [4;35;1mImage Load (0.000148)[0m   [0mSELECT * FROM `images` WHERE (`images`.parent_id = 550) [0m
+  [4;36;1mImage Destroy (0.000178)[0m   [0;1m DELETE FROM `images`
+ WHERE `id` = 550
+[0m
+  [4;35;1mSQL (0.025231)[0m   [0mCOMMIT[0m
+Completed in 0.05248 (19 reqs/sec) | Rendering: 0.00361 (6%) | DB: 0.02711 (51%) | 200 OK [http://localhost/images/550]
+
+
+Processing NewVehiclesController#update (for 127.0.0.1 at 2008-07-09 15:09:58) [PUT]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMY3NyZl9pZCIlMzdiOWFmYTNhYzQ0YWJkNWJk
+MWQzMWFkZjljZDE1Mjk6DHVzZXJfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--b5afa516c9a26a609b19320869394e1fc158e35f
+  Parameters: {"uploaded_images"=>{"0"=>#<File:/tmp/CGI28679-11>}, "commit"=>"Send", "uploaded_files"=>{"0"=>""}, "new_vehicle"=>{"enabled"=>"1", "description"=>"This is the description", "year"=>"2008", "model_range_id"=>"3"}, "authenticity_token"=>"a9e48c2e5794bb7d89270f72dc9f242d6ba45613", "_method"=>"put", "action"=>"update", "id"=>"1", "controller"=>"new_vehicles", "accessories"=>{"0"=>{"name"=>"DVD", "price"=>"5600.00", "id"=>"1", "model_reference"=>"DVC"}}}
+  [4;36;1mUser Columns (0.000655)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000040)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mNewVehicle Columns (0.000712)[0m   [0;1mSHOW FIELDS FROM `new_vehicles`[0m
+  [4;35;1mNewVehicle Load (0.000052)[0m   [0mSELECT * FROM `new_vehicles` WHERE (`new_vehicles`.`id` = 1) [0m
+  [4;36;1mSQL (0.000067)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000105)[0m   [0mCOMMIT[0m
+  [4;36;1mAccessory Columns (0.000732)[0m   [0;1mSHOW FIELDS FROM `accessories`[0m
+  [4;35;1mAccessory Load (0.000205)[0m   [0mSELECT * FROM `accessories` WHERE (`accessories`.`id` = 1 AND (`accessories`.new_vehicle_id = 1)) [0m
+  [4;36;1mSQL (0.000046)[0m   [0;1mBEGIN[0m
+  [4;35;1mAccessory Update (0.000192)[0m   [0mUPDATE `accessories` SET `updated_at` = '2008-07-09 15:09:58' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.010001)[0m   [0;1mCOMMIT[0m
+  [4;35;1mImage Columns (0.000844)[0m   [0mSHOW FIELDS FROM `images`[0m
+  [4;36;1mSQL (0.000040)[0m   [0;1mBEGIN[0m
+  [4;35;1mImage Create (0.000190)[0m   [0mINSERT INTO `images` (`content_type`, `size`, `updated_at`, `filename`, `height`, `owner_id`, `parent_id`, `width`, `owner_type`, `created_at`) VALUES('image/jpeg', 139219, '2008-07-09 15:09:59', 'foto_album_283_137_936.jpg', 236, 1, NULL, 354, 'NewVehicle', '2008-07-09 15:09:59')[0m
+  [4;36;1mSQL (0.002919)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/new_vehicles/1
+Completed in 0.11294 (8 reqs/sec) | DB: 0.01680 (14%) | 302 Found [http://localhost/new_vehicles/1]
+
+
+Processing NewVehiclesController#show (for 127.0.0.1 at 2008-07-09 15:09:59) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMY3NyZl9pZCIlMzdiOWFmYTNhYzQ0YWJkNWJk
+MWQzMWFkZjljZDE1Mjk6DHVzZXJfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiLlRoZSBuZXcg
+bmVoaWNsZSB3YXMgc3VjY2Vzc2Z1bGx5IHVwZGF0ZWQuBjoKQHVzZWR7BjsJ
+Rg==--9c14f93a74bbb12e4b1e8d02fc6eac0d68b78d4a
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"new_vehicles"}
+  [4;35;1mUser Columns (0.000654)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000049)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mNewVehicle Columns (0.000509)[0m   [0mSHOW FIELDS FROM `new_vehicles`[0m
+  [4;36;1mNewVehicle Load (0.000043)[0m   [0;1mSELECT * FROM `new_vehicles` WHERE (`new_vehicles`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering new_vehicles/show
+  [4;35;1mModelRange Columns (0.000669)[0m   [0mSHOW FIELDS FROM `model_ranges`[0m
+  [4;36;1mModelRange Load (0.000062)[0m   [0;1mSELECT * FROM `model_ranges` WHERE (`model_ranges`.`id` = 3) [0m
+  [4;35;1mNewVehicleVariant Load (0.000099)[0m   [0mSELECT * FROM `new_vehicle_variants` WHERE (`new_vehicle_variants`.new_vehicle_id = 1) [0m
+  [4;36;1mAccessory Load (0.000255)[0m   [0;1mSELECT * FROM `accessories` WHERE (`accessories`.new_vehicle_id = 1) [0m
+  [4;35;1mAccessory Columns (0.000676)[0m   [0mSHOW FIELDS FROM `accessories`[0m
+Rendered new_vehicles/_accessories_and_variants (0.02052)
+  [4;36;1mAttachment Load (0.000091)[0m   [0;1mSELECT * FROM `attachments` WHERE (`attachments`.owner_id = 1 AND `attachments`.owner_type = 'NewVehicle') [0m
+  [4;35;1mAttachment Columns (0.001067)[0m   [0mSHOW FIELDS FROM `attachments`[0m
+  [4;36;1mImage Load (0.000512)[0m   [0;1mSELECT * FROM `images` WHERE (`images`.owner_id = 1 AND `images`.owner_type = 'NewVehicle') [0m
+  [4;35;1mImage Columns (0.000892)[0m   [0mSHOW FIELDS FROM `images`[0m
+Rendered new_vehicles/_images_and_files (0.03072)
+  [4;36;1mMenuItem Load (0.000100)[0m   [0;1mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
+  [4;35;1mMenuItem Columns (0.000731)[0m   [0mSHOW FIELDS FROM `menu_items`[0m
+  [4;36;1mMenuItem Load (0.000086)[0m   [0;1mSELECT `menu_items`.* FROM `menu_items` WHERE (`menu_items`.parent_id IN (2,1)) [0m
+  [4;35;1mMenuItem Load (0.000061)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
+  [4;36;1mMenuItem Load (0.000046)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
+Rendered menu_items/_menu_list (0.00098)
+  [4;35;1mPage Columns (0.000526)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mPage Load (0.000045)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendered menu_items/_menu_list (0.01496)
+Rendered menu_items/_menu (0.03040)
+Rendered layouts/_menu (0.00052)
+Completed in 0.16740 (5 reqs/sec) | Rendering: 0.14055 (83%) | DB: 0.00717 (4%) | 200 OK [http://localhost/new_vehicles/1]
+
+
+Processing NewVehiclesController#edit (for 127.0.0.1 at 2008-07-09 15:10:07) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMY3NyZl9pZCIlMzdiOWFmYTNhYzQ0YWJkNWJk
+MWQzMWFkZjljZDE1Mjk6DHVzZXJfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiLlRoZSBuZXcg
+bmVoaWNsZSB3YXMgc3VjY2Vzc2Z1bGx5IHVwZGF0ZWQuBjoKQHVzZWR7BjsJ
+VA==--5e6c68ce05e5990d06a66f9c65fc2d06c71a6159
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"new_vehicles"}
+  [4;35;1mUser Columns (0.000929)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000080)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mNewVehicle Columns (0.000709)[0m   [0mSHOW FIELDS FROM `new_vehicles`[0m
+  [4;36;1mNewVehicle Load (0.000075)[0m   [0;1mSELECT * FROM `new_vehicles` WHERE (`new_vehicles`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering new_vehicles/edit
+  [4;35;1mModelRange Columns (0.000498)[0m   [0mSHOW FIELDS FROM `model_ranges`[0m
+  [4;36;1mMake Columns (0.001177)[0m   [0;1mSHOW FIELDS FROM `makes`[0m
+  [4;35;1mModelRange Load Including Associations (0.000065)[0m   [0mSELECT `model_ranges`.`id` AS t0_r0, `model_ranges`.`name` AS t0_r1, `model_ranges`.`make_id` AS t0_r2, `model_ranges`.`created_at` AS t0_r3, `model_ranges`.`updated_at` AS t0_r4, `makes`.`id` AS t1_r0, `makes`.`name` AS t1_r1, `makes`.`common_name` AS t1_r2, `makes`.`website` AS t1_r3, `makes`.`created_at` AS t1_r4, `makes`.`updated_at` AS t1_r5 FROM `model_ranges` LEFT OUTER JOIN `makes` ON `makes`.id = `model_ranges`.make_id ORDER BY makes.name, model_ranges.name[0m
+  [4;36;1mAccessory Columns (0.000562)[0m   [0;1mSHOW FIELDS FROM `accessories`[0m
+  [4;35;1mSQL (0.000136)[0m   [0mSELECT count(*) AS count_all FROM `accessories` WHERE (`accessories`.new_vehicle_id = 1) [0m
+  [4;36;1mNewVehicleVariant Columns (0.000516)[0m   [0;1mSHOW FIELDS FROM `new_vehicle_variants`[0m
+  [4;35;1mSQL (0.000055)[0m   [0mSELECT count(*) AS count_all FROM `new_vehicle_variants` WHERE (`new_vehicle_variants`.new_vehicle_id = 1) [0m
+Rendered new_vehicles/_scripts (0.01195)
+  [4;36;1mNewVehicleVariant Load (0.000051)[0m   [0;1mSELECT * FROM `new_vehicle_variants` WHERE (`new_vehicle_variants`.new_vehicle_id = 1) [0m
+Rendered new_vehicles/_variants (0.00038)
+  [4;35;1mAccessory Load (0.000039)[0m   [0mSELECT * FROM `accessories` WHERE (`accessories`.new_vehicle_id = 1) [0m
+Rendered new_vehicles/_item (0.00218)
+Rendered new_vehicles/_accessories (0.00377)
+  [4;36;1mImage Load (0.000073)[0m   [0;1mSELECT * FROM `images` WHERE (`images`.owner_id = 1 AND `images`.owner_type = 'NewVehicle') [0m
+  [4;35;1mImage Columns (0.000594)[0m   [0mSHOW FIELDS FROM `images`[0m
+Rendered new_vehicles/_images (0.01032)
+  [4;36;1mAttachment Load (0.000073)[0m   [0;1mSELECT * FROM `attachments` WHERE (`attachments`.owner_id = 1 AND `attachments`.owner_type = 'NewVehicle') [0m
+  [4;35;1mAttachment Columns (0.000501)[0m   [0mSHOW FIELDS FROM `attachments`[0m
+Rendered new_vehicles/_attachments (0.00877)
+Rendered new_vehicles/_form (0.05589)
+  [4;36;1mMenuItem Load (0.000086)[0m   [0;1mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
+  [4;35;1mMenuItem Columns (0.000551)[0m   [0mSHOW FIELDS FROM `menu_items`[0m
+  [4;36;1mMenuItem Load (0.000055)[0m   [0;1mSELECT `menu_items`.* FROM `menu_items` WHERE (`menu_items`.parent_id IN (2,1)) [0m
+  [4;35;1mMenuItem Load (0.000044)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
+  [4;36;1mMenuItem Load (0.000037)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
+Rendered menu_items/_menu_list (0.00080)
+  [4;35;1mPage Columns (0.000543)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mPage Load (0.000044)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendered menu_items/_menu_list (0.01604)
+Rendered menu_items/_menu (0.08109)
+Rendered layouts/_menu (0.00053)
+Completed in 0.17076 (5 reqs/sec) | Rendering: 0.13521 (79%) | DB: 0.00749 (4%) | 200 OK [http://localhost/new_vehicles/1/edit]
+
+
+Processing ImagesController#destroy (for 127.0.0.1 at 2008-07-09 15:10:11) [DELETE]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMY3NyZl9pZCIlMzdiOWFmYTNhYzQ0YWJkNWJk
+MWQzMWFkZjljZDE1Mjk6DHVzZXJfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--b5afa516c9a26a609b19320869394e1fc158e35f
+  Parameters: {"_method"=>"delete", "authenticity_token"=>"a9e48c2e5794bb7d89270f72dc9f242d6ba45613", "action"=>"destroy", "id"=>"548", "controller"=>"images"}
+  [4;35;1mUser Columns (0.000663)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000042)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mImage Columns (0.000596)[0m   [0mSHOW FIELDS FROM `images`[0m
+  [4;36;1mImage Load (0.000342)[0m   [0;1mSELECT * FROM `images` WHERE (`images`.`id` = 548) [0m
+  [4;35;1mSQL (0.000187)[0m   [0mBEGIN[0m
+  [4;36;1mImage Load (0.000171)[0m   [0;1mSELECT * FROM `images` WHERE (`images`.parent_id = 548) [0m
+  [4;35;1mImage Destroy (0.000107)[0m   [0m DELETE FROM `images`
+ WHERE `id` = 548
+[0m
+  [4;36;1mSQL (0.006482)[0m   [0;1mCOMMIT[0m
+Completed in 0.03450 (28 reqs/sec) | Rendering: 0.00362 (10%) | DB: 0.00859 (24%) | 200 OK [http://localhost/images/548]
+
+
+Processing NewVehiclesController#update (for 127.0.0.1 at 2008-07-09 15:10:20) [PUT]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMY3NyZl9pZCIlMzdiOWFmYTNhYzQ0YWJkNWJk
+MWQzMWFkZjljZDE1Mjk6DHVzZXJfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsABjoKQHVzZWR7AA==--b5afa516c9a26a609b19320869394e1fc158e35f
+  Parameters: {"uploaded_images"=>{"0"=>#<File:/tmp/CGI28679-11>}, "commit"=>"Send", "uploaded_files"=>{"0"=>""}, "new_vehicle"=>{"enabled"=>"1", "description"=>"This is the description", "year"=>"2008", "model_range_id"=>"3"}, "authenticity_token"=>"a9e48c2e5794bb7d89270f72dc9f242d6ba45613", "_method"=>"put", "action"=>"update", "id"=>"1", "controller"=>"new_vehicles", "accessories"=>{"0"=>{"name"=>"DVD", "price"=>"5600.00", "id"=>"1", "model_reference"=>"DVC"}}}
+  [4;35;1mUser Columns (0.000665)[0m   [0mSHOW FIELDS FROM `users`[0m
+  [4;36;1mUser Load (0.000043)[0m   [0;1mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;35;1mNewVehicle Columns (0.000529)[0m   [0mSHOW FIELDS FROM `new_vehicles`[0m
+  [4;36;1mNewVehicle Load (0.000037)[0m   [0;1mSELECT * FROM `new_vehicles` WHERE (`new_vehicles`.`id` = 1) [0m
+  [4;35;1mSQL (0.000037)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000054)[0m   [0;1mCOMMIT[0m
+  [4;35;1mAccessory Columns (0.000747)[0m   [0mSHOW FIELDS FROM `accessories`[0m
+  [4;36;1mAccessory Load (0.000191)[0m   [0;1mSELECT * FROM `accessories` WHERE (`accessories`.`id` = 1 AND (`accessories`.new_vehicle_id = 1)) [0m
+  [4;35;1mSQL (0.000039)[0m   [0mBEGIN[0m
+  [4;36;1mAccessory Update (0.000195)[0m   [0;1mUPDATE `accessories` SET `updated_at` = '2008-07-09 15:10:20' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.006649)[0m   [0mCOMMIT[0m
+  [4;36;1mImage Columns (0.000871)[0m   [0;1mSHOW FIELDS FROM `images`[0m
+  [4;35;1mSQL (0.000049)[0m   [0mBEGIN[0m
+  [4;36;1mImage Create (0.000233)[0m   [0;1mINSERT INTO `images` (`content_type`, `size`, `updated_at`, `filename`, `height`, `owner_id`, `parent_id`, `width`, `owner_type`, `created_at`) VALUES('image/jpeg', 137606, '2008-07-09 15:10:20', 'foto_album_283_137_934.jpg', 236, 1, NULL, 354, 'NewVehicle', '2008-07-09 15:10:20')[0m
+  [4;35;1mSQL (0.000397)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/new_vehicles/1
+Completed in 0.08317 (12 reqs/sec) | DB: 0.01074 (12%) | 302 Found [http://localhost/new_vehicles/1]
+
+
+Processing NewVehiclesController#show (for 127.0.0.1 at 2008-07-09 15:10:20) [GET]
+  Session ID: BAh7CToOcmV0dXJuX3RvMDoMY3NyZl9pZCIlMzdiOWFmYTNhYzQ0YWJkNWJk
+MWQzMWFkZjljZDE1Mjk6DHVzZXJfaWRpBiIKZmxhc2hJQzonQWN0aW9uQ29u
+dHJvbGxlcjo6Rmxhc2g6OkZsYXNoSGFzaHsGOgtub3RpY2UiLlRoZSBuZXcg
+bmVoaWNsZSB3YXMgc3VjY2Vzc2Z1bGx5IHVwZGF0ZWQuBjoKQHVzZWR7BjsJ
+Rg==--9c14f93a74bbb12e4b1e8d02fc6eac0d68b78d4a
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"new_vehicles"}
+  [4;36;1mUser Columns (0.000641)[0m   [0;1mSHOW FIELDS FROM `users`[0m
+  [4;35;1mUser Load (0.000042)[0m   [0mSELECT * FROM `users` WHERE (`users`.`id` = 1) LIMIT 1[0m
+  [4;36;1mNewVehicle Columns (0.000510)[0m   [0;1mSHOW FIELDS FROM `new_vehicles`[0m
+  [4;35;1mNewVehicle Load (0.000036)[0m   [0mSELECT * FROM `new_vehicles` WHERE (`new_vehicles`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering new_vehicles/show
+  [4;36;1mModelRange Columns (0.000437)[0m   [0;1mSHOW FIELDS FROM `model_ranges`[0m
+  [4;35;1mModelRange Load (0.000034)[0m   [0mSELECT * FROM `model_ranges` WHERE (`model_ranges`.`id` = 3) [0m
+  [4;36;1mNewVehicleVariant Load (0.000058)[0m   [0;1mSELECT * FROM `new_vehicle_variants` WHERE (`new_vehicle_variants`.new_vehicle_id = 1) [0m
+  [4;35;1mAccessory Load (0.000178)[0m   [0mSELECT * FROM `accessories` WHERE (`accessories`.new_vehicle_id = 1) [0m
+  [4;36;1mAccessory Columns (0.000461)[0m   [0;1mSHOW FIELDS FROM `accessories`[0m
+Rendered new_vehicles/_accessories_and_variants (0.01201)
+  [4;35;1mAttachment Load (0.000068)[0m   [0mSELECT * FROM `attachments` WHERE (`attachments`.owner_id = 1 AND `attachments`.owner_type = 'NewVehicle') [0m
+  [4;36;1mAttachment Columns (0.000520)[0m   [0;1mSHOW FIELDS FROM `attachments`[0m
+  [4;35;1mImage Load (0.000365)[0m   [0mSELECT * FROM `images` WHERE (`images`.owner_id = 1 AND `images`.owner_type = 'NewVehicle') [0m
+  [4;36;1mImage Columns (0.000531)[0m   [0;1mSHOW FIELDS FROM `images`[0m
+Rendered new_vehicles/_images_and_files (0.01833)
+  [4;35;1mMenuItem Load (0.000084)[0m   [0mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
+  [4;36;1mMenuItem Columns (0.000564)[0m   [0;1mSHOW FIELDS FROM `menu_items`[0m
+  [4;35;1mMenuItem Load (0.000045)[0m   [0mSELECT `menu_items`.* FROM `menu_items` WHERE (`menu_items`.parent_id IN (2,1)) [0m
+  [4;36;1mMenuItem Load (0.000037)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
+  [4;35;1mMenuItem Load (0.000031)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
+Rendered menu_items/_menu_list (0.00080)
+  [4;36;1mPage Columns (0.000558)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mPage Load (0.000576)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendered menu_items/_menu_list (0.01576)
+Rendered menu_items/_menu (0.07702)
+Rendered layouts/_menu (0.00054)
+Completed in 0.13802 (7 reqs/sec) | Rendering: 0.11292 (81%) | DB: 0.00578 (4%) | 200 OK [http://localhost/new_vehicles/1]

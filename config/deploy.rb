@@ -96,6 +96,12 @@ task :restart_apache do
   sudo 'apache2ctl restart'
 end
 
+task :cleanup_logs do
+  run "cp #{shared_path}/log/production.log #{shared_path}/log/production.log.backup;
+        rm #{shared_path}/log/production.log;
+        touch #{shared_path}/log/production.log;"  
+end
+
 namespace :deploy do
   task :start do
     start_mongrels
@@ -108,8 +114,10 @@ namespace :deploy do
   end  
 end
 
-after :deploy, 'deploy:cleanup'
-after :deploy, :restart_mongrels
-after :deploy, :symlink_public_dirs
+[ 'deploy:cleanup', :symlink_public_dirs, :cleanup_logs ].each do |t|
+  after :deploy, t
+  after 'deploy:migrations', t
+end
+
 after 'deploy:setup', :create_basic_dirs
 after 'deploy:setup', :copy_configs
