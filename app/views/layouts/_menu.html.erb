@@ -14,7 +14,8 @@
 <%= link_to 'Referrals', referrals_path %> |
 <%= link_to 'Salespeople', salespeople_path %> |
 <%= link_to 'Users', users_path %> |
-<%= link_to 'Sell your car', :controller => 'contact', :action => 'sell_your_car' %>
+<%= link_to 'Sell your car', :controller => 'contact', :action => 'sell_your_car' %> |
+<%= link_to 'Book a service to your car', :controller => 'service_and_parts', :action => 'book' %> 
 <% if logged_in? %>
     | <%= link_to 'Logout', logout_path  %>
 <% end %>

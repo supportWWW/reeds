@@ -1,0 +1,46 @@
+<% content_for :header do %>
+
+  <%= calendar_date_select_includes %>
+
+<% end  %>
+
+
+<% form_for :form, @form, :url => { :controller => 'service_and_parts', :action => 'book' }, :method => :post do |f| %>
+
+      <%= error_messages_for :form %>
+
+  <p>
+    <b>Name</b><br/>
+    <%= f.text_field :name %>
+  </p>
+
+  <p>
+    <b>Email</b><br/>
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <b>Cel phone number</b><br/>
+    <%= f.text_field :cel_phone_number %>
+  </p>
+
+  <p>
+    <b>Work phone number</b><br/>
+    <%= f.text_field :work_phone_number %>
+  </p>
+
+  <p>
+    <b>Booking date: </b>( Should be at least 3 days from now )<br/>
+    <%= f.calendar_date_select :booking_date, :time => false %>
+  </p>
+
+  <p>
+    <b>Problem description</b><br/>
+    <%= f.text_area :problem_description %>
+  </p>
+
+  <p>
+    <%= submit_tag 'Send' %>
+  </p>
+
+<% end  %>

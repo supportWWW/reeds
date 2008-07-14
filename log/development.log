@@ -3943,3 +3943,699 @@ Rendered menu_items/_menu_list (0.01371)
 Rendered menu_items/_menu (0.02372)
 Rendered layouts/_menu (0.00067)
 Completed in 0.04409 (22 reqs/sec) | Rendering: 0.03486 (79%) | DB: 0.00180 (4%) | 200 OK [http://localhost/contact/sell_your_car]
+
+
+Processing MainController#index (for 127.0.0.1 at 2008-07-14 10:39:05) [GET]
+  Session ID: be70a92d100aca7df9ff9cc75cfbc6ee
+  Parameters: {"action"=>"index", "controller"=>"main"}
+  [4;36;1mSQL (0.019595)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000077)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mNewsArticle Load (0.065644)[0m   [0;1mSELECT * FROM `news_articles` WHERE (publish_at < '2008-07-14 10:39:05') ORDER BY publish_at desc LIMIT 0, 10[0m
+Rendering template within layouts/application
+Rendering main/index
+  [4;35;1mNewsArticle Columns (0.037734)[0m   [0mSHOW FIELDS FROM `news_articles`[0m
+  [4;36;1mMenuItem Load (0.048216)[0m   [0;1mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
+  [4;35;1mMenuItem Columns (0.000731)[0m   [0mSHOW FIELDS FROM `menu_items`[0m
+  [4;36;1mMenuItem Load (0.000267)[0m   [0;1mSELECT `menu_items`.* FROM `menu_items` WHERE (`menu_items`.parent_id IN (2,1)) [0m
+  [4;35;1mMenuItem Load (0.000204)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
+  [4;36;1mMenuItem Load (0.000148)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
+Rendered menu_items/_menu_list (0.00141)
+  [4;35;1mPage Columns (0.001017)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mPage Load (0.006242)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendered menu_items/_menu_list (0.02905)
+Rendered menu_items/_menu (0.10973)
+Rendered layouts/_menu (0.00695)
+Completed in 0.30064 (3 reqs/sec) | Rendering: 0.11349 (37%) | DB: 0.17987 (59%) | 200 OK [http://localhost/]
+
+
+Processing ServiceAndPartsController#book (for 127.0.0.1 at 2008-07-14 10:39:14) [GET]
+  Session ID: BAh7BiIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7AA==--f91e9d6b369072294e001af6121a48781558ce36
+  Parameters: {"action"=>"book", "controller"=>"service_and_parts"}
+Rendering template within layouts/application
+Rendering service_and_parts/book
+
+
+ActionView::TemplateError (undefined method `date' for #<ServiceBookingForm:0xb656a9d0>) on line #25 of service_and_parts/_book_form.html.erb:
+22: 
+23:   <p>
+24:     <b>Date:</b><br/>
+25:     <%= f.date_select :date, :default => 3.days.from_now %>
+26:   </p>
+27: 
+28:   <p>
+
+    vendor/rails/activerecord/lib/active_record/attribute_methods.rb:256:in `method_missing'
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:617:in `send'
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:617:in `value'
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:608:in `value'
+    vendor/rails/actionpack/lib/action_view/helpers/date_helper.rb:617:in `date_or_time_select'
+    vendor/rails/actionpack/lib/action_view/helpers/date_helper.rb:602:in `to_date_select_tag_without_error_wrapping'
+    vendor/rails/actionpack/lib/action_view/helpers/active_record_helper.rb:239:in `to_date_select_tag'
+    vendor/rails/actionpack/lib/action_view/helpers/date_helper.rb:156:in `date_select'
+    vendor/rails/actionpack/lib/action_view/helpers/date_helper.rb:699:in `date_select'
+    app/views/service_and_parts/_book_form.html.erb:25:in `_run_erb_47app47views47service_and_parts47_book_form46html46erb'
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:317:in `fields_for'
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:253:in `form_for'
+    app/views/service_and_parts/_book_form.html.erb:1:in `_run_erb_47app47views47service_and_parts47_book_form46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:338:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:338:in `execute'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    vendor/rails/actionpack/lib/action_view/partial_template.rb:20:in `render'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    vendor/rails/actionpack/lib/action_view/partial_template.rb:19:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:22:in `render_template'
+    vendor/rails/actionpack/lib/action_view/partials.rb:110:in `render_partial'
+    vendor/rails/actionpack/lib/action_view/base.rb:273:in `render'
+    app/helpers/application_helper.rb:6:in `partial'
+    app/views/service_and_parts/book.html.erb:3:in `_run_erb_47app47views47service_and_parts47book46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:338:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:338:in `execute'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:35:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:22:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:245:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1108:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:841:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:251:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1157:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1163:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:580:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:529:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:529:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:130:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:389:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:502:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:502:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:502:in `load'
+    vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:509:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:509:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /home/mauricio/NetBeansProjects/reeds/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing ServiceAndPartsController#book (for 127.0.0.1 at 2008-07-14 10:40:03) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNDc4OTI4N2M1MGRiMzZkYzZiY2ZhOGYyNzRlZjQ3
+ZjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--e1779f337c8e9a533a041cf0629fd22033c81ec9
+  Parameters: {"action"=>"book", "controller"=>"service_and_parts"}
+Rendering template within layouts/application
+Rendering service_and_parts/book
+
+
+ActionView::TemplateError (undefined method `submit_form' for #<ActionView::Base:0xb677e140>) on line #34 of service_and_parts/_book_form.html.erb:
+31:   </p>
+32: 
+33:   <p>
+34:     <%= submit_form 'Send' %>
+35:   </p>
+36: 
+37: <% end  %>
+    app/views/service_and_parts/_book_form.html.erb:34:in `_run_erb_47app47views47service_and_parts47_book_form46html46erb'
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:317:in `fields_for'
+    vendor/rails/actionpack/lib/action_view/helpers/form_helper.rb:253:in `form_for'
+    app/views/service_and_parts/_book_form.html.erb:1:in `_run_erb_47app47views47service_and_parts47_book_form46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:338:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:338:in `execute'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    vendor/rails/actionpack/lib/action_view/partial_template.rb:20:in `render'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    vendor/rails/actionpack/lib/action_view/partial_template.rb:19:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:22:in `render_template'
+    vendor/rails/actionpack/lib/action_view/partials.rb:110:in `render_partial'
+    vendor/rails/actionpack/lib/action_view/base.rb:273:in `render'
+    app/helpers/application_helper.rb:6:in `partial'
+    app/views/service_and_parts/book.html.erb:3:in `_run_erb_47app47views47service_and_parts47book46html46erb'
+    vendor/rails/actionpack/lib/action_view/base.rb:338:in `send'
+    vendor/rails/actionpack/lib/action_view/base.rb:338:in `execute'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    vendor/rails/actionpack/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:35:in `render'
+    vendor/rails/actionpack/lib/action_view/template.rb:22:in `render_template'
+    vendor/rails/actionpack/lib/action_view/base.rb:245:in `render_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1108:in `render_for_file'
+    vendor/rails/actionpack/lib/action_controller/base.rb:841:in `render_with_no_layout'
+    vendor/rails/actionpack/lib/action_controller/layout.rb:251:in `render_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/activesupport/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:51:in `render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1157:in `default_render'
+    vendor/rails/actionpack/lib/action_controller/base.rb:1163:in `perform_action_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:580:in `call_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    vendor/rails/actionpack/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    vendor/rails/actionpack/lib/action_controller/base.rb:529:in `send'
+    vendor/rails/actionpack/lib/action_controller/base.rb:529:in `process_without_filters'
+    vendor/rails/actionpack/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    vendor/rails/actionpack/lib/action_controller/session_management.rb:130:in `process'
+    vendor/rails/actionpack/lib/action_controller/base.rb:389:in `process'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    vendor/rails/actionpack/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:502:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:502:in `load'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:502:in `load'
+    vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:509:in `require'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    vendor/rails/activesupport/lib/active_support/dependencies.rb:509:in `require'
+    vendor/rails/railties/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /home/mauricio/NetBeansProjects/reeds/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing ServiceAndPartsController#book (for 127.0.0.1 at 2008-07-14 10:40:16) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNDc4OTI4N2M1MGRiMzZkYzZiY2ZhOGYyNzRlZjQ3
+ZjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--e1779f337c8e9a533a041cf0629fd22033c81ec9
+  Parameters: {"action"=>"book", "controller"=>"service_and_parts"}
+Rendering template within layouts/application
+Rendering service_and_parts/book
+Rendered service_and_parts/_book_form (0.00415)
+  [4;35;1mMenuItem Load (0.000074)[0m   [0mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
+  [4;36;1mMenuItem Columns (0.000575)[0m   [0;1mSHOW FIELDS FROM `menu_items`[0m
+  [4;35;1mMenuItem Load (0.000045)[0m   [0mSELECT `menu_items`.* FROM `menu_items` WHERE (`menu_items`.parent_id IN (2,1)) [0m
+  [4;36;1mMenuItem Load (0.000041)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
+  [4;35;1mMenuItem Load (0.000034)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
+Rendered menu_items/_menu_list (0.00078)
+  [4;36;1mPage Columns (0.000523)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mPage Load (0.000036)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendered menu_items/_menu_list (0.01484)
+Rendered menu_items/_menu (0.07158)
+Rendered layouts/_menu (0.00081)
+Completed in 0.08782 (11 reqs/sec) | Rendering: 0.07962 (90%) | DB: 0.00133 (1%) | 200 OK [http://localhost/service_and_parts/book]
+
+
+Processing ServiceAndPartsController#book (for 127.0.0.1 at 2008-07-14 10:40:26) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNDc4OTI4N2M1MGRiMzZkYzZiY2ZhOGYyNzRlZjQ3
+ZjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--e1779f337c8e9a533a041cf0629fd22033c81ec9
+  Parameters: {"commit"=>"Send", "authenticity_token"=>"365c736cbaf2cef4ecf76f12c318ad55b899fa33", "action"=>"book", "controller"=>"service_and_parts", "form"=>{"name"=>"", "booking_date(1i)"=>"2008", "booking_date(2i)"=>"7", "booking_date(3i)"=>"11", "cel_phone_number"=>"", "problem_description"=>"", "work_phone_number"=>"", "email"=>""}}
+
+
+ArgumentError (comparison of Date with Time failed):
+    /app/form_models/service_booking_form.rb:14:in `<'
+    /app/form_models/service_booking_form.rb:14:in `validate_booking_date'
+    /vendor/rails/activesupport/lib/active_support/callbacks.rb:173:in `send'
+    /vendor/rails/activesupport/lib/active_support/callbacks.rb:173:in `evaluate_method'
+    /vendor/rails/activesupport/lib/active_support/callbacks.rb:161:in `call'
+    /vendor/rails/activesupport/lib/active_support/callbacks.rb:90:in `run'
+    /vendor/rails/activesupport/lib/active_support/callbacks.rb:90:in `each'
+    /vendor/rails/activesupport/lib/active_support/callbacks.rb:90:in `send'
+    /vendor/rails/activesupport/lib/active_support/callbacks.rb:90:in `run'
+    /vendor/rails/activesupport/lib/active_support/callbacks.rb:272:in `run_callbacks'
+    /vendor/rails/activerecord/lib/active_record/validations.rb:929:in `valid_without_callbacks?'
+    /vendor/rails/activerecord/lib/active_record/callbacks.rb:267:in `valid?'
+    /app/controllers/service_and_parts_controller.rb:5:in `book'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1162:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:1162:in `perform_action_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:580:in `call_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /vendor/rails/actionpack/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /vendor/rails/actionpack/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /vendor/rails/activerecord/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /vendor/rails/activerecord/lib/active_record/query_cache.rb:8:in `cache'
+    /vendor/rails/actionpack/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:529:in `send'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:529:in `process_without_filters'
+    /vendor/rails/actionpack/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    /vendor/rails/actionpack/lib/action_controller/session_management.rb:130:in `process'
+    /vendor/rails/actionpack/lib/action_controller/base.rb:389:in `process'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /vendor/rails/actionpack/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:282:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `each'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/configurator.rb:281:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel/command.rb:212:in `run'
+    /usr/lib/ruby/gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:502:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:502:in `load'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:502:in `load'
+    /vendor/rails/railties/lib/commands/servers/mongrel.rb:64
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:509:in `require'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:354:in `new_constants_in'
+    /vendor/rails/activesupport/lib/active_support/dependencies.rb:509:in `require'
+    /vendor/rails/railties/lib/commands/server.rb:39
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `gem_original_require'
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:27:in `require'
+    script/server:3
+
+Rendering /home/mauricio/NetBeansProjects/reeds/vendor/rails/actionpack/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing ServiceAndPartsController#book (for 127.0.0.1 at 2008-07-14 10:42:32) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNDc4OTI4N2M1MGRiMzZkYzZiY2ZhOGYyNzRlZjQ3
+ZjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--e1779f337c8e9a533a041cf0629fd22033c81ec9
+  Parameters: {"action"=>"book", "controller"=>"service_and_parts"}
+Rendering template within layouts/application
+Rendering service_and_parts/book
+Rendered service_and_parts/_book_form (0.00425)
+  [4;36;1mMenuItem Load (0.000076)[0m   [0;1mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
+  [4;35;1mMenuItem Columns (0.000551)[0m   [0mSHOW FIELDS FROM `menu_items`[0m
+  [4;36;1mMenuItem Load (0.000041)[0m   [0;1mSELECT `menu_items`.* FROM `menu_items` WHERE (`menu_items`.parent_id IN (2,1)) [0m
+  [4;35;1mMenuItem Load (0.000036)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
+  [4;36;1mMenuItem Load (0.000030)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
+Rendered menu_items/_menu_list (0.00073)
+  [4;35;1mPage Columns (0.000558)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mPage Load (0.000035)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendered menu_items/_menu_list (0.01358)
+Rendered menu_items/_menu (0.02379)
+Rendered layouts/_menu (0.00078)
+Completed in 0.03747 (26 reqs/sec) | Rendering: 0.02929 (78%) | DB: 0.00133 (3%) | 200 OK [http://localhost/service_and_parts/book]
+
+
+Processing ServiceAndPartsController#book (for 127.0.0.1 at 2008-07-14 10:42:36) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNDc4OTI4N2M1MGRiMzZkYzZiY2ZhOGYyNzRlZjQ3
+ZjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--e1779f337c8e9a533a041cf0629fd22033c81ec9
+  Parameters: {"commit"=>"Send", "authenticity_token"=>"365c736cbaf2cef4ecf76f12c318ad55b899fa33", "action"=>"book", "controller"=>"service_and_parts", "form"=>{"name"=>"", "booking_date(1i)"=>"2008", "booking_date(2i)"=>"7", "booking_date(3i)"=>"10", "cel_phone_number"=>"", "problem_description"=>"", "work_phone_number"=>"", "email"=>""}}
+Rendering template within layouts/application
+Rendering service_and_parts/book
+Rendered service_and_parts/_book_form (0.00364)
+  [4;35;1mMenuItem Load (0.000073)[0m   [0mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
+  [4;36;1mMenuItem Columns (0.000560)[0m   [0;1mSHOW FIELDS FROM `menu_items`[0m
+  [4;35;1mMenuItem Load (0.000046)[0m   [0mSELECT `menu_items`.* FROM `menu_items` WHERE (`menu_items`.parent_id IN (2,1)) [0m
+  [4;36;1mMenuItem Load (0.000040)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
+  [4;35;1mMenuItem Load (0.000030)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
+Rendered menu_items/_menu_list (0.00076)
+  [4;36;1mPage Columns (0.000507)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mPage Load (0.000035)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendered menu_items/_menu_list (0.01327)
+Rendered menu_items/_menu (0.02334)
+Rendered layouts/_menu (0.00078)
+Completed in 0.03839 (26 reqs/sec) | Rendering: 0.02828 (73%) | DB: 0.00129 (3%) | 200 OK [http://localhost/service_and_parts/book]
+
+
+Processing ServiceAndPartsController#book (for 127.0.0.1 at 2008-07-14 10:43:13) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNDc4OTI4N2M1MGRiMzZkYzZiY2ZhOGYyNzRlZjQ3
+ZjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--e1779f337c8e9a533a041cf0629fd22033c81ec9
+  Parameters: {"commit"=>"Send", "authenticity_token"=>"365c736cbaf2cef4ecf76f12c318ad55b899fa33", "action"=>"book", "controller"=>"service_and_parts", "form"=>{"name"=>"", "booking_date(1i)"=>"2008", "booking_date(2i)"=>"7", "booking_date(3i)"=>"10", "cel_phone_number"=>"", "problem_description"=>"", "work_phone_number"=>"", "email"=>""}}
+Rendering template within layouts/application
+Rendering service_and_parts/book
+Rendered service_and_parts/_book_form (0.00421)
+  [4;36;1mMenuItem Load (0.000082)[0m   [0;1mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
+  [4;35;1mMenuItem Columns (0.000553)[0m   [0mSHOW FIELDS FROM `menu_items`[0m
+  [4;36;1mMenuItem Load (0.000064)[0m   [0;1mSELECT `menu_items`.* FROM `menu_items` WHERE (`menu_items`.parent_id IN (2,1)) [0m
+  [4;35;1mMenuItem Load (0.000047)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
+  [4;36;1mMenuItem Load (0.000035)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
+Rendered menu_items/_menu_list (0.00081)
+  [4;35;1mPage Columns (0.000561)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mPage Load (0.000050)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendered menu_items/_menu_list (0.01615)
+Rendered menu_items/_menu (0.02757)
+Rendered layouts/_menu (0.00081)
+Completed in 0.09667 (10 reqs/sec) | Rendering: 0.03496 (36%) | DB: 0.00139 (1%) | 200 OK [http://localhost/service_and_parts/book]
+
+
+Processing ServiceAndPartsController#book (for 127.0.0.1 at 2008-07-14 10:46:15) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNDc4OTI4N2M1MGRiMzZkYzZiY2ZhOGYyNzRlZjQ3
+ZjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--e1779f337c8e9a533a041cf0629fd22033c81ec9
+  Parameters: {"action"=>"book", "controller"=>"service_and_parts"}
+Rendering template within layouts/application
+Rendering service_and_parts/book
+Rendered service_and_parts/_book_form (0.00649)
+  [4;35;1mMenuItem Load (0.000095)[0m   [0mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
+  [4;36;1mMenuItem Columns (0.000600)[0m   [0;1mSHOW FIELDS FROM `menu_items`[0m
+  [4;35;1mMenuItem Load (0.000056)[0m   [0mSELECT `menu_items`.* FROM `menu_items` WHERE (`menu_items`.parent_id IN (2,1)) [0m
+  [4;36;1mMenuItem Load (0.000044)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
+  [4;35;1mMenuItem Load (0.000034)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
+Rendered menu_items/_menu_list (0.00077)
+  [4;36;1mPage Columns (0.000531)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mPage Load (0.000044)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendered menu_items/_menu_list (0.01388)
+Rendered menu_items/_menu (0.02760)
+Rendered layouts/_menu (0.00080)
+Completed in 0.05004 (19 reqs/sec) | Rendering: 0.03819 (76%) | DB: 0.00140 (2%) | 200 OK [http://localhost/service_and_parts/book]
+
+
+Processing ServiceAndPartsController#book (for 127.0.0.1 at 2008-07-14 10:46:43) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNDc4OTI4N2M1MGRiMzZkYzZiY2ZhOGYyNzRlZjQ3
+ZjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--e1779f337c8e9a533a041cf0629fd22033c81ec9
+  Parameters: {"action"=>"book", "controller"=>"service_and_parts"}
+  [4;36;1mSQL (0.000091)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000041)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+Rendering template within layouts/application
+Rendering service_and_parts/book
+Rendered service_and_parts/_book_form (0.00839)
+  [4;36;1mMenuItem Load (0.000095)[0m   [0;1mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
+  [4;35;1mMenuItem Columns (0.000520)[0m   [0mSHOW FIELDS FROM `menu_items`[0m
+  [4;36;1mMenuItem Load (0.000072)[0m   [0;1mSELECT `menu_items`.* FROM `menu_items` WHERE (`menu_items`.parent_id IN (2,1)) [0m
+  [4;35;1mMenuItem Load (0.000064)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
+  [4;36;1mMenuItem Load (0.000034)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
+Rendered menu_items/_menu_list (0.00080)
+  [4;35;1mPage Columns (0.000512)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mPage Load (0.000062)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendered menu_items/_menu_list (0.01387)
+Rendered menu_items/_menu (0.02625)
+Rendered layouts/_menu (0.00283)
+Completed in 0.05350 (18 reqs/sec) | Rendering: 0.04295 (80%) | DB: 0.00149 (2%) | 200 OK [http://localhost/service_and_parts/book]
+
+
+Processing ServiceAndPartsController#book (for 127.0.0.1 at 2008-07-14 10:47:00) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNDc4OTI4N2M1MGRiMzZkYzZiY2ZhOGYyNzRlZjQ3
+ZjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--e1779f337c8e9a533a041cf0629fd22033c81ec9
+  Parameters: {"action"=>"book", "controller"=>"service_and_parts"}
+Rendering template within layouts/application
+Rendering service_and_parts/book
+Rendered service_and_parts/_book_form (0.00711)
+  [4;35;1mMenuItem Load (0.000249)[0m   [0mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
+  [4;36;1mMenuItem Columns (0.000540)[0m   [0;1mSHOW FIELDS FROM `menu_items`[0m
+  [4;35;1mMenuItem Load (0.000069)[0m   [0mSELECT `menu_items`.* FROM `menu_items` WHERE (`menu_items`.parent_id IN (2,1)) [0m
+  [4;36;1mMenuItem Load (0.000039)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
+  [4;35;1mMenuItem Load (0.000043)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
+Rendered menu_items/_menu_list (0.00085)
+  [4;36;1mPage Columns (0.000519)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mPage Load (0.000046)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendered menu_items/_menu_list (0.01571)
+Rendered menu_items/_menu (0.07808)
+Rendered layouts/_menu (0.00083)
+Completed in 0.10127 (9 reqs/sec) | Rendering: 0.08944 (88%) | DB: 0.00150 (1%) | 200 OK [http://localhost/service_and_parts/book]
+
+
+Processing ServiceAndPartsController#book (for 127.0.0.1 at 2008-07-14 10:51:42) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNDc4OTI4N2M1MGRiMzZkYzZiY2ZhOGYyNzRlZjQ3
+ZjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--e1779f337c8e9a533a041cf0629fd22033c81ec9
+  Parameters: {"action"=>"book", "controller"=>"service_and_parts"}
+Rendering template within layouts/application
+Rendering service_and_parts/book
+Rendered service_and_parts/_book_form (0.00327)
+  [4;36;1mMenuItem Load (0.000089)[0m   [0;1mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
+  [4;35;1mMenuItem Columns (0.000574)[0m   [0mSHOW FIELDS FROM `menu_items`[0m
+  [4;36;1mMenuItem Load (0.000052)[0m   [0;1mSELECT `menu_items`.* FROM `menu_items` WHERE (`menu_items`.parent_id IN (2,1)) [0m
+  [4;35;1mMenuItem Load (0.000044)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
+  [4;36;1mMenuItem Load (0.000044)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
+Rendered menu_items/_menu_list (0.00079)
+  [4;35;1mPage Columns (0.000523)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mPage Load (0.000035)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendered menu_items/_menu_list (0.01386)
+Rendered menu_items/_menu (0.02448)
+Rendered layouts/_menu (0.00079)
+Completed in 0.03898 (25 reqs/sec) | Rendering: 0.03052 (78%) | DB: 0.00136 (3%) | 200 OK [http://localhost/service_and_parts/book]
+
+
+Processing ServiceAndPartsController#book (for 127.0.0.1 at 2008-07-14 10:54:24) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNDc4OTI4N2M1MGRiMzZkYzZiY2ZhOGYyNzRlZjQ3
+ZjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--e1779f337c8e9a533a041cf0629fd22033c81ec9
+  Parameters: {"action"=>"book", "controller"=>"service_and_parts"}
+Rendering template within layouts/application
+Rendering service_and_parts/book
+Rendered service_and_parts/_book_form (0.00401)
+  [4;35;1mMenuItem Load (0.000065)[0m   [0mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
+  [4;36;1mMenuItem Columns (0.000764)[0m   [0;1mSHOW FIELDS FROM `menu_items`[0m
+  [4;35;1mMenuItem Load (0.000061)[0m   [0mSELECT `menu_items`.* FROM `menu_items` WHERE (`menu_items`.parent_id IN (2,1)) [0m
+  [4;36;1mMenuItem Load (0.000056)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
+  [4;35;1mMenuItem Load (0.000045)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
+Rendered menu_items/_menu_list (0.00108)
+  [4;36;1mPage Columns (0.000511)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mPage Load (0.000035)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendered menu_items/_menu_list (0.01698)
+Rendered menu_items/_menu (0.03197)
+Rendered layouts/_menu (0.00080)
+Completed in 0.05159 (19 reqs/sec) | Rendering: 0.03996 (77%) | DB: 0.00154 (2%) | 200 OK [http://localhost/service_and_parts/book]
+
+
+Processing ServiceAndPartsController#book (for 127.0.0.1 at 2008-07-14 10:54:35) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNDc4OTI4N2M1MGRiMzZkYzZiY2ZhOGYyNzRlZjQ3
+ZjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--e1779f337c8e9a533a041cf0629fd22033c81ec9
+  Parameters: {"commit"=>"Send", "authenticity_token"=>"365c736cbaf2cef4ecf76f12c318ad55b899fa33", "action"=>"book", "controller"=>"service_and_parts", "form"=>{"name"=>"", "cel_phone_number"=>"", "problem_description"=>"", "work_phone_number"=>"", "booking_date"=>"July 1, 2008", "email"=>""}}
+Rendering template within layouts/application
+Rendering service_and_parts/book
+Rendered service_and_parts/_book_form (0.00236)
+  [4;36;1mMenuItem Load (0.000082)[0m   [0;1mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
+  [4;35;1mMenuItem Columns (0.001423)[0m   [0mSHOW FIELDS FROM `menu_items`[0m
+  [4;36;1mMenuItem Load (0.000088)[0m   [0;1mSELECT `menu_items`.* FROM `menu_items` WHERE (`menu_items`.parent_id IN (2,1)) [0m
+  [4;35;1mMenuItem Load (0.000088)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
+  [4;36;1mMenuItem Load (0.000048)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
+Rendered menu_items/_menu_list (0.00114)
+  [4;35;1mPage Columns (0.000773)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mPage Load (0.000053)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendered menu_items/_menu_list (0.08525)
+Rendered menu_items/_menu (0.09771)
+Rendered layouts/_menu (0.00119)
+Completed in 0.11237 (8 reqs/sec) | Rendering: 0.10065 (89%) | DB: 0.00256 (2%) | 200 OK [http://localhost/service_and_parts/book]
+
+
+Processing ServiceAndPartsController#book (for 127.0.0.1 at 2008-07-14 10:54:58) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNDc4OTI4N2M1MGRiMzZkYzZiY2ZhOGYyNzRlZjQ3
+ZjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--e1779f337c8e9a533a041cf0629fd22033c81ec9
+  Parameters: {"action"=>"book", "controller"=>"service_and_parts"}
+Rendering template within layouts/application
+Rendering service_and_parts/book
+Rendered service_and_parts/_book_form (0.00286)
+  [4;35;1mMenuItem Load (0.000082)[0m   [0mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
+  [4;36;1mMenuItem Columns (0.000549)[0m   [0;1mSHOW FIELDS FROM `menu_items`[0m
+  [4;35;1mMenuItem Load (0.000044)[0m   [0mSELECT `menu_items`.* FROM `menu_items` WHERE (`menu_items`.parent_id IN (2,1)) [0m
+  [4;36;1mMenuItem Load (0.000042)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
+  [4;35;1mMenuItem Load (0.000031)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
+Rendered menu_items/_menu_list (0.00076)
+  [4;36;1mPage Columns (0.000498)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mPage Load (0.000039)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendered menu_items/_menu_list (0.01397)
+Rendered menu_items/_menu (0.02498)
+Rendered layouts/_menu (0.00079)
+Completed in 0.03793 (26 reqs/sec) | Rendering: 0.02915 (76%) | DB: 0.00128 (3%) | 200 OK [http://localhost/service_and_parts/book]
+
+
+Processing ServiceAndPartsController#book (for 127.0.0.1 at 2008-07-14 10:57:36) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNDc4OTI4N2M1MGRiMzZkYzZiY2ZhOGYyNzRlZjQ3
+ZjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--e1779f337c8e9a533a041cf0629fd22033c81ec9
+  Parameters: {"action"=>"book", "controller"=>"service_and_parts"}
+Rendering template within layouts/application
+Rendering service_and_parts/book
+Rendered service_and_parts/_book_form (0.00353)
+  [4;36;1mMenuItem Load (0.000086)[0m   [0;1mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
+  [4;35;1mMenuItem Columns (0.000535)[0m   [0mSHOW FIELDS FROM `menu_items`[0m
+  [4;36;1mMenuItem Load (0.000051)[0m   [0;1mSELECT `menu_items`.* FROM `menu_items` WHERE (`menu_items`.parent_id IN (2,1)) [0m
+  [4;35;1mMenuItem Load (0.000043)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
+  [4;36;1mMenuItem Load (0.000037)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
+Rendered menu_items/_menu_list (0.00074)
+  [4;35;1mPage Columns (0.000485)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mPage Load (0.000042)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendered menu_items/_menu_list (0.01354)
+Rendered menu_items/_menu (0.02384)
+Rendered layouts/_menu (0.00080)
+Completed in 0.03700 (27 reqs/sec) | Rendering: 0.02877 (77%) | DB: 0.00128 (3%) | 200 OK [http://localhost/service_and_parts/book]
+
+
+Processing MainController#index (for 127.0.0.1 at 2008-07-14 13:03:26) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNDc4OTI4N2M1MGRiMzZkYzZiY2ZhOGYyNzRlZjQ3
+ZjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--e1779f337c8e9a533a041cf0629fd22033c81ec9
+  Parameters: {"action"=>"index", "controller"=>"main"}
+  [4;36;1mSQL (0.000077)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000044)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mNewsArticle Load (0.000273)[0m   [0;1mSELECT * FROM `news_articles` WHERE (publish_at < '2008-07-14 13:03:27') ORDER BY publish_at desc LIMIT 0, 10[0m
+Rendering template within layouts/application
+Rendering main/index
+  [4;35;1mNewsArticle Columns (0.000585)[0m   [0mSHOW FIELDS FROM `news_articles`[0m
+  [4;36;1mMenuItem Load (0.000067)[0m   [0;1mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
+  [4;35;1mMenuItem Columns (0.000514)[0m   [0mSHOW FIELDS FROM `menu_items`[0m
+  [4;36;1mMenuItem Load (0.000059)[0m   [0;1mSELECT `menu_items`.* FROM `menu_items` WHERE (`menu_items`.parent_id IN (2,1)) [0m
+  [4;35;1mMenuItem Load (0.000045)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
+  [4;36;1mMenuItem Load (0.000029)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
+Rendered menu_items/_menu_list (0.00080)
+  [4;35;1mPage Columns (0.000480)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mPage Load (0.000039)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendered menu_items/_menu_list (0.01008)
+Rendered menu_items/_menu (0.02189)
+Rendered layouts/_menu (0.00479)
+Completed in 0.04960 (20 reqs/sec) | Rendering: 0.03169 (63%) | DB: 0.00221 (4%) | 200 OK [http://localhost/]
+
+
+Processing ServiceAndPartsController#book (for 127.0.0.1 at 2008-07-14 13:03:28) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNDc4OTI4N2M1MGRiMzZkYzZiY2ZhOGYyNzRlZjQ3
+ZjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--e1779f337c8e9a533a041cf0629fd22033c81ec9
+  Parameters: {"action"=>"book", "controller"=>"service_and_parts"}
+Rendering template within layouts/application
+Rendering service_and_parts/book
+Rendered service_and_parts/_book_form (0.00365)
+  [4;35;1mMenuItem Load (0.000074)[0m   [0mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
+  [4;36;1mMenuItem Columns (0.000561)[0m   [0;1mSHOW FIELDS FROM `menu_items`[0m
+  [4;35;1mMenuItem Load (0.000047)[0m   [0mSELECT `menu_items`.* FROM `menu_items` WHERE (`menu_items`.parent_id IN (2,1)) [0m
+  [4;36;1mMenuItem Load (0.000035)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
+  [4;35;1mMenuItem Load (0.000030)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
+Rendered menu_items/_menu_list (0.00071)
+  [4;36;1mPage Columns (0.000555)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mPage Load (0.000037)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendered menu_items/_menu_list (0.06108)
+Rendered menu_items/_menu (0.07132)
+Rendered layouts/_menu (0.00082)
+Completed in 0.08784 (11 reqs/sec) | Rendering: 0.07805 (88%) | DB: 0.00134 (1%) | 200 OK [http://localhost/service_and_parts/book]
+
+
+Processing ServiceAndPartsController#book (for 127.0.0.1 at 2008-07-14 13:03:46) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNDc4OTI4N2M1MGRiMzZkYzZiY2ZhOGYyNzRlZjQ3
+ZjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--e1779f337c8e9a533a041cf0629fd22033c81ec9
+  Parameters: {"commit"=>"Send", "authenticity_token"=>"365c736cbaf2cef4ecf76f12c318ad55b899fa33", "action"=>"book", "controller"=>"service_and_parts", "form"=>{"name"=>"Mauricio", "cel_phone_number"=>"888888", "problem_description"=>"Problem details\r\n", "work_phone_number"=>"111111", "booking_date"=>"July 17, 2008", "email"=>"mauricio.linhares@gmail.com"}}
+Sent mail to mauricio.linhares@gmail.com, mauricio.linhares@gmail.com
+
+Date: Mon, 14 Jul 2008 13:03:46 -0300
+From: no-reply@codevader.com
+To: mauricio.linhares@gmail.com, mauricio.linhares@gmail.com
+Subject: Reeds  - Service booking request
+Mime-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+
+Hello,
+
+The following client want's to book a service for it's vehicle:
+
+Name: Mauricio
+Email: mauricio.linhares@gmail.com
+Cel phone: 888888
+Work phone: 111111
+Date: 2008-07-17
+Problem description: Problem details
+
+
+The Reeds Team
+Redirected to http://localhost:3000/service_and_parts/book
+Completed in 6.87112 (0 reqs/sec) | DB: 0.00000 (0%) | 302 Found [http://localhost/service_and_parts/book]
+
+
+Processing ServiceAndPartsController#book (for 127.0.0.1 at 2008-07-14 13:03:53) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNDc4OTI4N2M1MGRiMzZkYzZiY2ZhOGYyNzRlZjQ3
+ZjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7BjoLbm90aWNlIitZb3VyIG1lc3NhZ2Ugd2FzIHN1Y2Nlc3NmdWxseSBy
+ZWNlaXZlZAY6CkB1c2VkewY7B0Y=--bc6fa4379396c3b2bf28cbd60aaf54395bc46baa
+  Parameters: {"action"=>"book", "controller"=>"service_and_parts"}
+Rendering template within layouts/application
+Rendering service_and_parts/book
+Rendered service_and_parts/_book_form (0.00357)
+  [4;36;1mMenuItem Load (0.000067)[0m   [0;1mSELECT * FROM `menu_items` WHERE (parent_id is null) ORDER BY menu_items.position, menu_items.title[0m
+  [4;35;1mMenuItem Columns (0.000534)[0m   [0mSHOW FIELDS FROM `menu_items`[0m
+  [4;36;1mMenuItem Load (0.000041)[0m   [0;1mSELECT `menu_items`.* FROM `menu_items` WHERE (`menu_items`.parent_id IN (2,1)) [0m
+  [4;35;1mMenuItem Load (0.000036)[0m   [0mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 3) [0m
+  [4;36;1mMenuItem Load (0.000029)[0m   [0;1mSELECT * FROM `menu_items` WHERE (`menu_items`.parent_id = 4) [0m
+Rendered menu_items/_menu_list (0.00074)
+  [4;35;1mPage Columns (0.000521)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mPage Load (0.000037)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendered menu_items/_menu_list (0.01400)
+Rendered menu_items/_menu (0.02456)
+Rendered layouts/_menu (0.00082)
+Completed in 0.03786 (26 reqs/sec) | Rendering: 0.02952 (77%) | DB: 0.00126 (3%) | 200 OK [http://localhost/service_and_parts/book]
