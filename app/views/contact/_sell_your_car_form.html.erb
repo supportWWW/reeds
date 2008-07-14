@@ -1,0 +1,76 @@
+<% form_for :sell_your_car_form, @form, :url => { :controller => 'contact', :action => 'sell_your_car' }, :method => :post do |f| %>
+
+    <%= error_messages_for :form %>
+
+  <script>
+    <!--
+        function updateModels() {
+           new Ajax.Request( '/contact/load_models', { method : 'get', parameters: { make_id: $F( 'make_id' ) } }  ) 
+           Element.show( 'models_spinner' )
+        }
+        
+        function updateModelVariants() {
+           new Ajax.Request( '/contact/load_model_variants', { method : 'get', parameters: { model_id: $F( 'model_id' ) } }  ) 
+           Element.show( 'model_variants_spinner' )
+        }
+
+-->
+  </script>
+
+  <p>
+    <b>Your name:</b><br/>
+    <%= f.text_field :your_name %>
+  </p>
+
+  <p>
+    <b>Your email:</b><br/>
+    <%= f.text_field :your_email %>
+  </p>
+
+  <p>
+    <b>Your contact phone number:</b><br/>
+    <%= f.text_field :your_contact_phone_number %>
+  </p>
+
+  <p>
+    <b>Make</b><br/>
+    <%= select_tag :make_id, makes_options, :onchange => 'updateModels();' %>
+  </p>
+
+  <p>
+    <b>Model</b><br/> 
+    <%= select_tag :model_id, '<option>Select a make first...</option>', :onchange => 'updateModelVariants()' %> <%= spinner 'models_spinner' %>
+  </p>
+
+  <p>
+    <b>Year</b><br/> 
+    <%= f.select :model_variant_id, [ ['Select a model first...', ''] ] %> <%= spinner 'model_variants_spinner' %>
+  </p>
+
+  <p>If your car is not included in these listings, please add it's information on the description field, including make, model and year.</p>
+
+  <p>
+    <b>Has full service history? </b> 
+     <%= f.check_box :has_full_service_history %>
+  </p>
+
+  <p>
+    <b>Are you interested in buying a new or pre-owned vehicle? </b>
+    <%= f.check_box :interested_in_buying  %>
+  </p>
+
+  <p>
+    <b>Color</b><br/>
+    <%= f.text_field :color %>
+  </p>
+
+  <p>
+      <b>Vehicle details (Accessories and description information):</b><br/>
+    <%= f.text_area :vehicle_details %>
+  </p>
+
+  <p>
+    <%= submit_tag 'Send' %>
+  </p>
+
+<% end  %>

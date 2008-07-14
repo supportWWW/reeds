@@ -6,7 +6,15 @@ class ModelVariant < ActiveRecord::Base
   validates_presence_of :year, :model_id, :mead_mcgrouther_code
   validates_uniqueness_of :year, :scope => :mead_mcgrouther_code
   
+  def to_s
+    "#{model.make.name} - #{model.name} - #{year}"
+  end
+  
   class << self 
+    
+    def find_with_model_and_make
+      find( :all, :conditions => 'model_variants.model_id = models.id and models.make_id = makes.id', :order => 'makes.name asc, models.name asc, model_variants.year desc', :include => [ :model => :author ]  )
+    end
     
     def find_or_create_for( make_name, model_name, mm_code, year )
       make  = Make.find_or_create_by_name( make_name.strip )

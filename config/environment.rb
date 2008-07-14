@@ -32,6 +32,7 @@ Rails::Initializer.run do |config|
   config.gem 'gchartrb', :version => '0.8', :lib => 'google_chart'
   config.gem 'fastercsv', :version => '1.2.3'
   config.gem 'money', :version => '1.7.1'
+  config.gem 'jcnetdev-active_record_without_table', :lib => 'active_record_without_table', :version => '1.1'
   
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
@@ -40,7 +41,7 @@ Rails::Initializer.run do |config|
 
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
-  config.load_paths += %W( #{RAILS_ROOT}/app/mailers #{RAILS_ROOT}/app/observers #{RAILS_ROOT}/app/services)
+  config.load_paths += %W( #{RAILS_ROOT}/app/mailers #{RAILS_ROOT}/app/observers #{RAILS_ROOT}/app/services #{RAILS_ROOT}/app/form_models)
   # Force all environments to use the same logger level
   # (by default production uses :info, the others :debug)
   # config.log_level = :debug

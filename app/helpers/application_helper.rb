@@ -14,6 +14,10 @@ module ApplicationHelper
     end
   end
   
+  def spinner( id = 'spinner' )
+    "<span id='#{id}' style='display:none;'>#{image_tag "spinner.gif"}</span>"
+  end
+  
   def boolean_label( value )
     value ? 'Yes' : 'No'
   end

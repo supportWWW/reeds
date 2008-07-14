@@ -8,7 +8,7 @@
 <% unless @new_vehicle.attachments.blank? %>
   <ul>
     <% for file in @new_vehicle.attachments %>
-      <li> <%= link_to file.filename, file.public_filename %> </li>
+      <li> <%= link_to file.name, file.public_filename %> </li>
     <% end  %>
   </ul>
 <% else %>
@@ -18,30 +18,11 @@
 <h3>Images</h3>
 
 <% unless @new_vehicle.images.blank? %>
-
-  <div id="myGallery">
+  <ul>
     <% for image in @new_vehicle.images %>
-      <div class="imageElement">
-        <h3></h3>
-        <p></p>
-        <img src="<%= image.public_filename %>" class="full" />
-      </div>
+      <li> <%= image_tag image.public_filename, :alt => image.name, :title => image.name %>  </li>
     <% end  %>
-  </div> 
-
-  <script type="text/javascript">
-      function startGallery() {
-          var myGallery = new gallery($('myGallery'), {
-              timed: true,
-              showArrows: true,
-              embedLinks: false,
-              showInfopane: false,
-              showCarousel: false
-          });
-      }
-      window.addEvent('domready', startGallery);
-  </script> 
-
+  </ul>
 <% else %>
   <p>There are no images available yet.</p>
 <% end %>

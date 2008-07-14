@@ -113,9 +113,8 @@ class NewVehiclesController < ApplicationController
   def handle_uploaded_data( model_class, key )
     if !params[key].blank? and !@new_vehicle.new_record?
       params[key].each_value do |f|
-        unless f.blank?
-          p "Running the attachment code for '#{model_class.name}' and '#{key}'"
-          model_class.create!( :owner_id => @new_vehicle.id, :owner_type => @new_vehicle.class.name, :uploaded_data => f )
+        if !f.blank? and !params[ f[:file_field] ].blank?
+          model_class.create!( :owner_id => @new_vehicle.id, :owner_type => @new_vehicle.class.name, :uploaded_data => params[ f[:file_field] ], :name => f[:name] )
         end
       end
     end

@@ -9,7 +9,11 @@
         </p>
     <% end  %>
   <% end  %>
-    <p> File: <%= file_field_tag 'uploaded_images[0]'   %>  </p>
+    <p id="uploaded_images_item_0">
+      Name: <%= text_field_tag 'uploaded_images[0][name]' %>  
+      File: <%= file_field_tag 'uploaded_images_0'   %> 
+      <a href='javascript:void(0)' onclick="Element.remove( 'uploaded_images_item_0' ); return false;">Remove</a>  
+      <%= hidden_field_tag 'uploaded_images[0][file_field]', 'uploaded_images_0' %>  </p>
 </div>
 
 <a href="javascript:void( 0 )" onclick="addNewImageField(); return false;"> New image </a>

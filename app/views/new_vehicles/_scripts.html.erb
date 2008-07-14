@@ -5,14 +5,14 @@
       var imagesCount = 1;
       var attachmentsCount = 1;
       function addNewAccessoryField(){
-          templateText = "\n<p>\nName: <input type='text' name='accessories[#{index}][name]'/>\n<br/> Price: <input type='text' name='accessories[#{index}][price]'/> \n<br/> Model Reference <input type='text' name='accessories[#{index}][model_reference]'/> </p> ";
+          templateText = "\n<p id='accessory_item_#{index}'>\nName: <input type='text' name='accessories[#{index}][name]'/>\n<br/> Price: <input type='text' name='accessories[#{index}][price]'/> \n<br/> Model Reference <input type='text' name='accessories[#{index}][model_reference]'/> \n <a href='javascript:void(0)' onclick='Element.remove( \"accessory_item_#{index}\" ); return false;'>Remove</a> </p> ";
           template = new Template( templateText );
           Element.insert( $( 'accessoriesPanel' ), template.evaluate( { index: accessoriesCount } ) );
           accessoriesCount++;
       }
       
       function addNewVariantField(){
-          templateText = "\n<p>\nName: <input type='text' name='new_vehicle_variants[#{index}][name]'/>\n<br/> Price: <input type='text' name='new_vehicle_variants[#{index}][price]'/> \n<br/> Model Reference: <input type='text' name='new_vehicle_variants[#{index}][model_reference]'/> </p> ";
+          templateText = "\n<p id='new_vehicle_variant_item_#{index}'>\nName: <input type='text' name='new_vehicle_variants[#{index}][name]'/>\n<br/> Price: <input type='text' name='new_vehicle_variants[#{index}][price]'/> \n<br/> Model Reference: <input type='text' name='new_vehicle_variants[#{index}][model_reference]'/> \n <a href='javascript:void(0)' onclick='Element.remove( \"new_vehicle_variant_item_#{index}\" ); return false;'>Remove</a> </p> ";
           template = new Template( templateText );
           Element.insert( $( 'variantsPanel' ), template.evaluate( { index: variantsCount } ) );
           variantsCount++;
@@ -29,8 +29,12 @@
       }
 
       function addNewFileElement( panel, count, name ){
-          template = new Template( "\n<p>File: <input type='file' name='#{itemName}[#{number}]'/></p>" );
+          template = new Template( "\n<p id='#{itemName}_item_#{number}'>\nName: <input type='text' name='#{itemName}[#{number}][name]' />\n File: <input type='file' name='#{itemName}_#{number}'/>\n <input type='hidden' name='#{itemName}[#{number}][file_field]' value='#{itemName}_#{number}' /> \n <a href='javascript:void(0)' onclick='Element.remove( \"#{itemName}_item_#{number}\" ); return false;'>Remove</a> </p>" );
           Element.insert( $( panel ), template.evaluate( { number: count, itemName: name } ) );
+      }
+
+      function removeNewFileElement( name, count ){
+          Element.remove( $( name + "_item_" + count ) )
       }
 
       //-->
