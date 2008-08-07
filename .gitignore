@@ -1,3 +1,7 @@
-public/uploaded_images
-public/uploaded_files
-
+.DS_Store
+tmp/*
+*.log
+public/javascripts/*_cached.js
+public/stylesheets/*_cached.css
+public/uploaded_images/*
+public/uploaded_files/*
