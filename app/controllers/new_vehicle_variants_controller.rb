@@ -1,5 +1,7 @@
 class NewVehicleVariantsController < ApplicationController
   
+  before_filter :login_required
+
   def destroy
     @new_vehicle_variant = NewVehicleVariant.find( params[:id] )
     @new_vehicle_variant.destroy

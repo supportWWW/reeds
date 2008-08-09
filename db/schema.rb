@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080708170348) do
+ActiveRecord::Schema.define(:version => 20080711122620) do
 
   create_table "accessories", :force => true do |t|
     t.string   "name"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(:version => 20080708170348) do
     t.string   "owner_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   add_index "attachments", ["owner_id"], :name => "index_attachments_on_owner_id"
@@ -93,6 +94,8 @@ ActiveRecord::Schema.define(:version => 20080708170348) do
     t.string   "owner_type"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.string   "thumbnail"
   end
 
   add_index "images", ["owner_id"], :name => "index_images_on_owner_id"
@@ -114,9 +117,9 @@ ActiveRecord::Schema.define(:version => 20080708170348) do
     t.integer  "page_id",    :limit => 11
     t.string   "path"
     t.integer  "parent_id",  :limit => 11
+    t.integer  "position",   :limit => 11
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "position",   :limit => 11
     t.integer  "depth",      :limit => 11
   end
 

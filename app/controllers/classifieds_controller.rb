@@ -1,4 +1,7 @@
 class ClassifiedsController < ApplicationController
+
+  before_filter :login_required
+
   # GET /classifieds
   # GET /classifieds.xml
   def index

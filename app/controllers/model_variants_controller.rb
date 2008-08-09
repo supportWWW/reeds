@@ -1,4 +1,7 @@
 class ModelVariantsController < ApplicationController
+
+  before_filter :login_required
+
   # GET /model_variants
   # GET /model_variants.xml
   def index

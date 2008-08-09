@@ -1,5 +1,7 @@
 class AccessoriesController < ApplicationController
   
+  before_filter :login_required
+
   def destroy
     @accessory = Accessory.find( params[:id] )
     @accessory.destroy

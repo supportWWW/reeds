@@ -18,7 +18,7 @@ Rails::Initializer.run do |config|
 
   # Skip frameworks you're not going to use. To use Rails without a database
   # you must remove the Active Record framework.
-  # config.frameworks -= [ :active_record, :active_resource, :action_mailer ]
+  config.frameworks -= [ :active_resource ]
 
   # Specify gems that this application depends on. 
   # They can then be installed with "rake gems:install" on new installations.
@@ -41,7 +41,11 @@ Rails::Initializer.run do |config|
 
   # Add additional load paths for your own custom dirs
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
-  config.load_paths += %W( #{RAILS_ROOT}/app/mailers #{RAILS_ROOT}/app/observers #{RAILS_ROOT}/app/services #{RAILS_ROOT}/app/form_models)
+  config.load_paths += %W(  #{RAILS_ROOT}/app/mailers
+                            #{RAILS_ROOT}/app/observers
+                            #{RAILS_ROOT}/app/services
+                            #{RAILS_ROOT}/app/form_models
+                          )
   # Force all environments to use the same logger level
   # (by default production uses :info, the others :debug)
   # config.log_level = :debug
@@ -72,4 +76,9 @@ Rails::Initializer.run do |config|
 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
+end
+
+# Needed for ImageScience
+if RAILS_ENV == "production" 
+  ENV['INLINEDIR'] = RAILS_ROOT + "/tmp" 
 end
