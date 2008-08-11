@@ -32,11 +32,11 @@
     <td><%=h classified.mileage %></td>
     <td><%=h classified.features %></td>
     <td><%=h classified.img_url %></td>
-    <td><%=h classified.best_buy %></td>
+    <td><%= boolean_label classified.best_buy %></td>
     <td><%=h classified.days_in_stock %></td>
     <td><%=h classified.removed_at %></td>
-    <td><%=h classified.has_service_history %></td>
-    <td><%=h classified.cyberstock %></td>
+    <td><%= boolean_label classified.has_service_history %></td>
+    <td><%= boolean_label classified.cyberstock %></td>
     <td><%=h classified.expires_at %></td>
     <td><%= link_to 'Show', classified %></td>
     <td><%= link_to 'Edit', edit_classified_path(classified) %></td>

@@ -2,16 +2,32 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe AccessoriesController do
 
-  #Delete these examples and add some real ones
-  it "should use AccessoriesController" do
-    controller.should be_an_instance_of(AccessoriesController)
+  before :each do
+    @user = mock_model( User, :login => 'test', :name => 'test', :is_admin? => true )
+    controller.stub!( :current_user ).and_return( @user )
   end
 
+  describe "handling DELETE /accessories/1" do
 
-  describe "GET 'destroy'" do
-    it "should be successful" do
-      get 'destroy'
-      response.should be_success
+    before(:each) do
+      @accessory = mock_model(Accessory, :destroy => true)
+      Accessory.stub!(:find).and_return(@accessory)
     end
+  
+    def do_delete
+      delete :destroy, :id => "1"
+    end
+
+    it "should find the accessory requested" do
+      Accessory.should_receive(:find).with("1").and_return(@accessory)
+      do_delete
+    end
+  
+    it "should call destroy on the found accessory" do
+      @accessory.should_receive(:destroy)
+      do_delete
+    end
+  
   end
+
 end

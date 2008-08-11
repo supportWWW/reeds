@@ -1,6 +1,12 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe NewVehiclesController do
+
+  before :each do
+    @user = mock_model( User, :login => 'test', :name => 'test', :is_admin? => true )
+    controller.stub!( :current_user ).and_return( @user )
+  end
+
   describe "handling GET /new_vehicles" do
 
     before(:each) do
@@ -23,7 +29,7 @@ describe NewVehiclesController do
     end
   
     it "should find all new_vehicles" do
-      NewVehicle.should_receive(:find).with(:all).and_return([@new_vehicle])
+      NewVehicle.should_receive(:find).with(:all, {:order=>"created_at desc", :limit=>10, :offset=>0}).and_return([@new_vehicle])
       do_get
     end
   
@@ -37,7 +43,7 @@ describe NewVehiclesController do
 
     before(:each) do
       @new_vehicles = mock("Array of NewVehicles", :to_xml => "XML")
-      NewVehicle.stub!(:find).and_return(@new_vehicles)
+      NewVehicle.stub!(:paginate).and_return(@new_vehicles)
     end
   
     def do_get
@@ -51,7 +57,7 @@ describe NewVehiclesController do
     end
 
     it "should find all new_vehicles" do
-      NewVehicle.should_receive(:find).with(:all).and_return(@new_vehicles)
+      NewVehicle.should_receive(:paginate).and_return(@new_vehicles)
       do_get
     end
   

@@ -6,7 +6,7 @@ describe "/importer/import_stock" do
   end
   
   #Delete this example and add some real ones or delete this file
-  it "should tell you where to find the file" do
-    response.should have_tag('p', %r[Find me in app/views/importer/import_stock])
+  it "should show heading" do
+    response.should have_tag('h1', %r[Import Stock List])
   end
 end

@@ -1,6 +1,12 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe MakesController do
+
+  before :each do
+    @user = mock_model( User, :login => 'test', :name => 'test', :is_admin? => true )
+    controller.stub!( :current_user ).and_return( @user )
+  end
+  
   describe "handling GET /makes" do
 
     before(:each) do
@@ -23,7 +29,7 @@ describe MakesController do
     end
   
     it "should find all makes" do
-      Make.should_receive(:find).with(:all).and_return([@make])
+      Make.should_receive(:find).with(:all, {:order=>"name", :limit=>10, :offset=>0}).and_return([@make])
       do_get
     end
   
@@ -37,7 +43,7 @@ describe MakesController do
 
     before(:each) do
       @makes = mock("Array of Makes", :to_xml => "XML")
-      Make.stub!(:find).and_return(@makes)
+      Make.stub!(:paginate).and_return(@makes)
     end
   
     def do_get
@@ -51,7 +57,7 @@ describe MakesController do
     end
 
     it "should find all makes" do
-      Make.should_receive(:find).with(:all).and_return(@makes)
+      Make.should_receive(:paginate).and_return(@makes)
       do_get
     end
   
@@ -213,7 +219,7 @@ describe MakesController do
 
       it "should redirect to the new make" do
         do_post
-        response.should redirect_to(make_url("1"))
+        response.should redirect_to(makes_url)
       end
       
     end
@@ -264,7 +270,7 @@ describe MakesController do
 
       it "should redirect to the make" do
         do_put
-        response.should redirect_to(make_url("1"))
+        response.should redirect_to(makes_url)
       end
 
     end

@@ -4,7 +4,8 @@ class ModelVariant < ActiveRecord::Base
   has_many :classifieds
   
   validates_presence_of :year, :model_id, :mead_mcgrouther_code
-  validates_uniqueness_of :year, :scope => :mead_mcgrouther_code
+
+#  validates_uniqueness_of :year, :scope => :mead_mcgrouther_code # imperfect, as sometimes a misspelling can occur, thereby stopping an import from happening.
   
   def to_s
     "#{model.make.name} - #{model.name} - #{year}"
@@ -17,11 +18,11 @@ class ModelVariant < ActiveRecord::Base
     end
     
     def find_or_create_for( make_name, model_name, mm_code, year )
-      make  = Make.find_or_create_by_name( make_name.strip )
+      make  = Make.find_or_create_by_name( make_name )
       raise ActiveRecord::RecordNotSaved, make.errors.inspect if make.new_record?
-      model = Model.find_or_create_by_name_and_make_id( model_name.strip, make.id )
+      model = Model.find_or_create_by_name_and_make_id( model_name, make.id )
       raise ActiveRecord::RecordNotSaved, model.errors.inspect if model.new_record?
-      model_variant = ModelVariant.find_or_create_by_year_and_model_id_and_mead_mcgrouther_code( year.strip, model.id, mm_code.strip )
+      model_variant = ModelVariant.find_or_create_by_year_and_model_id_and_mead_mcgrouther_code( year, model.id, mm_code )
       raise ActiveRecord::RecordNotSaved, model_variant.errors.inspect if model_variant.new_record?
       model_variant
     end

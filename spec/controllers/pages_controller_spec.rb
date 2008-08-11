@@ -2,7 +2,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe PagesController do
   
-      before :each do
+  before :each do
     @user = mock_model( User, :login => 'test', :name => 'test', :is_admin? => true )
     controller.stub!( :current_user ).and_return( @user )
   end

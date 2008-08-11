@@ -19,7 +19,7 @@ class ImporterController < ApplicationController
   def import_mm
     
     if request.post?
-      unless params[:find].blank?
+      unless params[:file].blank?
         MeadMcgroutherImporterService.instance.process( params[:file] )
         flash[:notice] = 'The file you provided has been imported'
         redirect_to :action => 'import_mm'

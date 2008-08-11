@@ -1,6 +1,12 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe ModelVariantsController do
+
+  before :each do
+    @user = mock_model( User, :login => 'test', :name => 'test', :is_admin? => true )
+    controller.stub!( :current_user ).and_return( @user )
+  end
+  
   describe "handling GET /model_variants" do
 
     before(:each) do
@@ -23,7 +29,7 @@ describe ModelVariantsController do
     end
   
     it "should find all model_variants" do
-      ModelVariant.should_receive(:find).with(:all).and_return([@model_variant])
+      ModelVariant.should_receive(:find).with(:all, {:order=>"models.name, model_variants.mead_mcgrouther_code", :limit=>10, :offset=>0, :include=>:model}).and_return([@model_variant])
       do_get
     end
   
@@ -37,7 +43,7 @@ describe ModelVariantsController do
 
     before(:each) do
       @model_variants = mock("Array of ModelVariants", :to_xml => "XML")
-      ModelVariant.stub!(:find).and_return(@model_variants)
+      ModelVariant.stub!(:paginate).and_return(@model_variants)
     end
   
     def do_get
@@ -51,7 +57,7 @@ describe ModelVariantsController do
     end
 
     it "should find all model_variants" do
-      ModelVariant.should_receive(:find).with(:all).and_return(@model_variants)
+      ModelVariant.should_receive(:paginate).and_return(@model_variants)
       do_get
     end
   

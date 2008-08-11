@@ -1,6 +1,12 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe ModelsController do
+
+  before :each do
+    @user = mock_model( User, :login => 'test', :name => 'test', :is_admin? => true )
+    controller.stub!( :current_user ).and_return( @user )
+  end
+
   describe "handling GET /models" do
 
     before(:each) do
@@ -23,7 +29,7 @@ describe ModelsController do
     end
   
     it "should find all models" do
-      Model.should_receive(:find).with(:all).and_return([@model])
+      Model.should_receive(:find).with(:all, {:order=>"makes.name, models.common_name", :limit=>10, :offset=>0, :include=>:make}).and_return([@model])
       do_get
     end
   
@@ -37,7 +43,7 @@ describe ModelsController do
 
     before(:each) do
       @models = mock("Array of Models", :to_xml => "XML")
-      Model.stub!(:find).and_return(@models)
+      Model.stub!(:paginate).and_return(@models)
     end
   
     def do_get
@@ -51,7 +57,7 @@ describe ModelsController do
     end
 
     it "should find all models" do
-      Model.should_receive(:find).with(:all).and_return(@models)
+      Model.should_receive(:paginate).and_return(@models)
       do_get
     end
   

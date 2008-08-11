@@ -12,6 +12,7 @@ describe "/news_articles/show.html.erb" do
     @news_article.stub!(:source_url).and_return("my source url")
     @news_article.stub!(:publish_at).and_return(Time.now)
     @news_article.stub!(:category).and_return( Category.new( :name => 'test' ) )
+    @news_article.stub!(:image).and_return(mock_model(Image, :public_filename => ""))
     
     assigns[:news_article] = @news_article
   end

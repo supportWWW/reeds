@@ -1,6 +1,12 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe ModelRangesController do
+
+  before :each do
+    @user = mock_model( User, :login => 'test', :name => 'test', :is_admin? => true )
+    controller.stub!( :current_user ).and_return( @user )
+  end
+  
   describe "handling GET /model_ranges" do
 
     before(:each) do
@@ -23,7 +29,7 @@ describe ModelRangesController do
     end
   
     it "should find all model_ranges" do
-      ModelRange.should_receive(:find).with(:all).and_return([@model_range])
+      ModelRange.should_receive(:find).with(:all, {:order=>"makes.name, model_ranges.name", :limit=>10, :offset=>0, :include=>:make}).and_return([@model_range])
       do_get
     end
   
@@ -37,7 +43,7 @@ describe ModelRangesController do
 
     before(:each) do
       @model_ranges = mock("Array of ModelRanges", :to_xml => "XML")
-      ModelRange.stub!(:find).and_return(@model_ranges)
+      ModelRange.stub!(:paginate).and_return(@model_ranges)
     end
   
     def do_get
@@ -51,7 +57,7 @@ describe ModelRangesController do
     end
 
     it "should find all model_ranges" do
-      ModelRange.should_receive(:find).with(:all).and_return(@model_ranges)
+      ModelRange.should_receive(:paginate).and_return(@model_ranges)
       do_get
     end
   
@@ -213,7 +219,7 @@ describe ModelRangesController do
 
       it "should redirect to the new model_range" do
         do_post
-        response.should redirect_to(model_range_url("1"))
+        response.should redirect_to(model_ranges_url)
       end
       
     end
@@ -264,7 +270,7 @@ describe ModelRangesController do
 
       it "should redirect to the model_range" do
         do_put
-        response.should redirect_to(model_range_url("1"))
+        response.should redirect_to(model_ranges_url)
       end
 
     end
