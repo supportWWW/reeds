@@ -1,4 +1,4 @@
-<h1>Listing New Vehicles</h1>
+<h2>Listing New Vehicles</h2>
 
 <% unless @new_vehicles.blank? %>
   
@@ -14,10 +14,8 @@
     <% for new_vehicle in @new_vehicles %>
       <tr>
         <td><%= link_to  new_vehicle.model_range.name, new_vehicle %></td>
-        <td><%=  h new_vehicle.year %></td>
+        <td><%=h new_vehicle.year %></td>
         <td><%= boolean_label new_vehicle.enabled %></td>
-        <td><%= link_to 'Edit', edit_new_vehicle_path(new_vehicle) %></td>
-        <td><%= link_to 'Destroy', new_vehicle, :confirm => 'Are you sure?', :method => :delete %></td>
       </tr>
     <% end %>
   </table>
@@ -29,5 +27,3 @@
 <% else  %>
   <p>There are no new vehicles available yet.</p>
 <% end  %>
-
-<%= link_to 'Create a new vehicle', new_new_vehicle_path %>

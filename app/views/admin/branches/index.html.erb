@@ -1,0 +1,25 @@
+<h2>Listing branches</h2>
+
+<% unless @branches.blank? %>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+
+<% for branch in @branches %>
+  <tr>
+    <td><%= link_to  branch.name, admin_branch_path(branch) %></td>
+    <td><%= link_to 'Edit', edit_admin_branch_path(branch) %></td>
+    <td><%= link_to 'Destroy', admin_branch_path(branch), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<% else  %>
+  <p>There are no branches available.</p>
+<% end  %>
+
+<br />
+
+<%= link_to 'New branch', new_admin_branch_path %>

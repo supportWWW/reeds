@@ -1,0 +1,12 @@
+<h2>Editing model variant</h2>
+
+<% form_for :model_variant, :url => admin_model_variant_path(@model_variant), :html => { :method => :put }  do |f| -%>
+	<%= render :partial =>  "form", :locals => { :f => f } %>
+
+	<p>
+	  <%= f.submit "Update" %>
+	</p>
+<% end %>
+
+<%= link_to 'Show', admin_model_variant_path(@model_variant) %> |
+<%= link_to 'Back', admin_model_variants_path %>

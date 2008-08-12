@@ -1,0 +1,50 @@
+<h2>Listing classifieds</h2>
+
+<table>
+  <tr>
+    <th>Stock code</th>
+    <th>Stock type</th>
+    <th>Model variant</th>
+    <th>Year</th>
+    <th>Price in cents</th>
+    <th>Colour</th>
+    <th>Reg num</th>
+    <th>Mileage</th>
+    <th>Features</th>
+    <th>Img url</th>
+    <th>Best buy</th>
+    <th>Days in stock</th>
+    <th>Removed at</th>
+    <th>Has service history</th>
+    <th>Cyberstock</th>
+    <th>Expires at</th>
+  </tr>
+
+<% for classified in @classifieds %>
+  <tr>
+    <td><%=h classified.stock_code %></td>
+    <td><%=h classified.stock_type %></td>
+    <td><%=h classified.model_variant_id %></td>
+    <td><%=h classified.year %></td>
+    <td><%=h classified.price_in_cents %></td>
+    <td><%=h classified.colour %></td>
+    <td><%=h classified.reg_num %></td>
+    <td><%=h classified.mileage %></td>
+    <td><%=h classified.features %></td>
+    <td><%=h classified.img_url %></td>
+    <td><%= boolean_label classified.best_buy %></td>
+    <td><%=h classified.days_in_stock %></td>
+    <td><%=h classified.removed_at %></td>
+    <td><%= boolean_label classified.has_service_history %></td>
+    <td><%= boolean_label classified.cyberstock %></td>
+    <td><%=h classified.expires_at %></td>
+    <td><%= link_to 'Show', admin_classified_path(classified) %></td>
+    <td><%= link_to 'Edit', edit_admin_classified_path(classified) %></td>
+    <td><%= link_to 'Destroy', admin_classified_path(classified), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New classified', new_admin_classified_path %>

@@ -13,7 +13,7 @@ describe "/categories/new.html.erb" do
   it "should render new form" do
     render "/categories/new.html.erb"
     
-    response.should have_tag("form[action=?][method=post]", categories_path) do
+    response.should have_tag("form[action=?][method=post]", admin_categories_path) do
       with_tag("input#category_name[name=?]", "category[name]")
     end
   end

@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe AccessoriesController do
+describe Admin::AccessoriesController do
 
   before :each do
     @user = mock_model( User, :login => 'test', :name => 'test', :is_admin? => true )

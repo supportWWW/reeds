@@ -313,7 +313,7 @@ describe BranchesController do
   
     it "should redirect to the branches list" do
       do_delete
-      response.should redirect_to(branches_url)
+      response.should redirect_to(admin_branches_path)
     end
   end
   

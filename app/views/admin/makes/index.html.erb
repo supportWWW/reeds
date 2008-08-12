@@ -1,0 +1,25 @@
+<h2>Listing makes</h2>
+
+<% unless @makes.blank? %>
+
+	<table>
+	  <tr>
+	    <th>Name</th>
+	  </tr>
+
+	<% for make in @makes %>
+	  <tr>
+	    <td><%= link_to make.common_name, admin_make_path(make) %></td>
+	    <td><%= link_to 'Edit', edit_admin_make_path(make) %></td>
+	    <td><%= link_to 'Destroy', admin_make_path(make), :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+
+<% else %>
+  <p> There are no makes available yet </p>
+<% end %>
+
+<br />
+
+<%= link_to 'New make', new_admin_make_path %>

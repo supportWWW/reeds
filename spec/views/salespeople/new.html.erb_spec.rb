@@ -15,7 +15,7 @@ describe "/salespeople/new.html.erb" do
   it "should render new form" do
     render "/salespeople/new.html.erb"
     
-    response.should have_tag("form[action=?][method=post]", salespeople_path) do
+    response.should have_tag("form[action=?][method=post]", admin_salespeople_path) do
       with_tag("input#salesperson_name[name=?]", "salesperson[name]")
       with_tag("input#salesperson_phone[name=?]", "salesperson[phone]")
       with_tag("input#salesperson_email[name=?]", "salesperson[email]")

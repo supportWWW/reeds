@@ -1,19 +1,7 @@
-<h2> Reeds - <%= @branch.name %>  </h2>
+<h2> Reeds - <%=h @branch.name %>  </h2>
 
 <h3>Salespeople at this branch</h3>
 
 <div id="salespeople_in_branch">
     <%= partial :salespeople_in_branch %>
 </div>
-
-<br/>
-
-<h3>Salespeople not at this branch</h3>
-
-<div id="salespeople_not_in_branch">
-    <%= partial :salespeople_not_in_branch %>
-</div>
-
-<br/>
-
-<%= link_to 'Edit', edit_branch_path(@branch) %>

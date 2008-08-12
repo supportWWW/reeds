@@ -219,7 +219,7 @@ describe MakesController do
 
       it "should redirect to the new make" do
         do_post
-        response.should redirect_to(makes_url)
+        response.should redirect_to(admin_makes_path)
       end
       
     end
@@ -270,7 +270,7 @@ describe MakesController do
 
       it "should redirect to the make" do
         do_put
-        response.should redirect_to(makes_url)
+        response.should redirect_to(admin_makes_path)
       end
 
     end
@@ -313,7 +313,7 @@ describe MakesController do
   
     it "should redirect to the makes list" do
       do_delete
-      response.should redirect_to(makes_url)
+      response.should redirect_to(admin_makes_path)
     end
   end
 end

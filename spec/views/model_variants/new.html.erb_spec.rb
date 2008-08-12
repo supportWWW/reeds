@@ -15,7 +15,7 @@ describe "/model_variants/new.html.erb" do
   it "should render new form" do
     render "/model_variants/new.html.erb"
     
-    response.should have_tag("form[action=?][method=post]", model_variants_path) do
+    response.should have_tag("form[action=?][method=post]", admin_model_variants_path) do
       with_tag("input#model_variant_year[name=?]", "model_variant[year]")
       with_tag("input#model_variant_mead_mcgrouther_code[name=?]", "model_variant[mead_mcgrouther_code]")
     end

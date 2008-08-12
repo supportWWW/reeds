@@ -1,4 +1,4 @@
-<h1>CMS Pages</h1>
+<h2>Pages</h2>
 
 <%= will_paginate @pages %>
 
@@ -11,9 +11,7 @@
 
 <% for page in @pages %>
   <tr>
-    <td><%=link_to page.title, page %></td>
-    <td><%= link_to 'Edit', edit_page_path(page) %></td>
-    <td><%= link_to 'Destroy', page, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to page.title, page %></td>
   </tr>
 <% end %>
 </table>
@@ -23,7 +21,3 @@
 <% end  %>
 
 <%= will_paginate @pages %>
-
-<br />
-
-<%= link_to 'New page', new_page_path %>

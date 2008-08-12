@@ -27,7 +27,7 @@ class AuthenticatedGenerator < Rails::Generator::NamedBase
                 :model_controller_class_name,
                 :model_controller_singular_name,
                 :model_controller_plural_name,
-                :model_controller_routing_name,           # new_user_path
+                :model_controller_routing_name,           # new_admin_user_path
                 :model_controller_routing_path,           # /users/new
                 :model_controller_controller_name         # users
   alias_method  :model_controller_file_name,  :model_controller_singular_name
@@ -424,7 +424,7 @@ protected
       :model_controller_class_name,
       :model_controller_singular_name,
       :model_controller_plural_name,
-      :model_controller_routing_name,           # new_user_path
+      :model_controller_routing_name,           # new_admin_user_path
       :model_controller_routing_path,           # /users/new
       :model_controller_controller_name,        # users
       :model_controller_file_name,  :model_controller_singular_name,

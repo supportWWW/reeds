@@ -6,8 +6,8 @@ module <%= model_controller_class_name %>Helper
   # You need to do all access control at the controller level.
   #
   # Example:
-  # <%%= if_authorized?(:index,   User)  do link_to('List all users', users_path) end %> |
-  # <%%= if_authorized?(:edit,    @user) do link_to('Edit this user', edit_user_path) end %> |
+  # <%%= if_authorized?(:index,   User)  do link_to('List all users', admin_users_path) end %> |
+  # <%%= if_authorized?(:edit,    @user) do link_to('Edit this user', edit_admin_user_path) end %> |
   # <%%= if_authorized?(:destroy, @user) do link_to 'Destroy', @user, :confirm => 'Are you sure?', :method => :delete end %> 
   #
   #

@@ -1,0 +1,12 @@
+<h2>New branch</h2>
+
+<% form_for :branch, :url => admin_branches_path do |f| -%>
+
+	<%= render :partial =>  "form", :locals => { :f => f } %>
+	<p>
+	  <%= f.submit "Create" %>
+	</p>
+
+<% end %>
+
+<%= link_to 'Back', admin_branches_path %>

@@ -1,0 +1,36 @@
+<h2>Listing model variants</h2>
+
+<% unless @model_variants.blank?  %>
+
+<%= will_paginate @model_variants  %>
+
+<table>
+  <tr>
+    <th>Make</th>
+    <th>Model</th>
+    <th>Year</th>
+    <th>Mead mcgrouther code</th>
+  </tr>
+
+<% for model_variant in @model_variants %>
+  <tr>
+    <td><%=h model_variant.model.make.name %></td>
+    <td><%=h model_variant.model.name %></td>
+    <td><%=h model_variant.year %></td>
+    <td><%=h model_variant.mead_mcgrouther_code %></td>
+    <td><%= link_to 'Show', admin_model_variant_path(model_variant) %></td>
+    <td><%= link_to 'Edit', edit_admin_model_variant_path(model_variant) %></td>
+    <td><%= link_to 'Destroy', admin_model_variant_path(model_variant), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= will_paginate @model_variants  %>
+
+<% else %>
+  <p>There are no model variants available.</p>
+<% end  %>
+
+<br />
+
+<%= link_to 'New model_variant', new_admin_model_variant_path %>

@@ -1,0 +1,11 @@
+<h2>Editing branch</h2>
+
+<% form_for :branch, :url => admin_branch_path(@branch), :html => { :method => :put }  do |f| -%>
+	<%= render :partial =>  "form", :locals => { :f => f } %>
+	<p>
+	  <%= f.submit "Update" %>
+	</p>
+<% end %>
+
+<%= link_to 'Show', admin_branch_path(@branch) %> |
+<%= link_to 'Back', admin_branches_path %>

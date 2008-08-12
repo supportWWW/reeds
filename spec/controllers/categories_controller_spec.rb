@@ -219,7 +219,7 @@ describe CategoriesController do
 
       it "should redirect to the new category" do
         do_post
-        response.should redirect_to(categories_path)
+        response.should redirect_to(admin_categories_path)
       end
       
     end
@@ -270,7 +270,7 @@ describe CategoriesController do
 
       it "should redirect to the category" do
         do_put
-        response.should redirect_to(categories_path)
+        response.should redirect_to(admin_categories_path)
       end
 
     end

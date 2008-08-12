@@ -1,0 +1,11 @@
+<h2>Editing referral</h2>
+
+<% form_for :referral, :url => admin_referral_path(@referral), :html => { :method => :put }  do |f| -%>
+	<%= render :partial =>  "form", :locals => { :f => f } %>
+	<p>
+	  <%= f.submit "Update" %>
+	</p>
+<% end %>
+
+<%= link_to 'Show', admin_referral_path(@referral) %> |
+<%= link_to 'Back', admin_referrals_path %>

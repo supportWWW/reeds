@@ -14,7 +14,7 @@ describe "/model_ranges/new.html.erb" do
   it "should render new form" do
     render "/model_ranges/new.html.erb"
     
-    response.should have_tag("form[action=?][method=post]", model_ranges_path) do
+    response.should have_tag("form[action=?][method=post]", admin_model_ranges_path) do
       with_tag("input#model_range_name[name=?]", "model_range[name]")
     end
   end

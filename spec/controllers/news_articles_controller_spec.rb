@@ -313,7 +313,7 @@ describe NewsArticlesController do
   
     it "should redirect to the news_articles list" do
       do_delete
-      response.should redirect_to(news_articles_url)
+      response.should redirect_to(admin_news_articles_path)
     end
   end
 end

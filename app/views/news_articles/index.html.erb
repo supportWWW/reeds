@@ -1,4 +1,4 @@
-<h1>News</h1>
+<h2>News</h2>
 
 <%= will_paginate @news_articles %>
 
@@ -13,10 +13,8 @@
     <% for news_article in @news_articles %>
       <tr>
         <td><%= link_to news_article.title, news_article %></td>
-        <td><%= h news_article.category.name %></td>
+        <td><%= h news_article.category.name if news_article.category %></td>
         <td><%= h news_article.publish_at %></td>
-        <td><%= link_to 'Edit', edit_news_article_path(news_article) %></td>
-        <td><%= link_to 'Destroy', news_article, :confirm => 'Are you sure?', :method => :delete %></td>
       </tr>
     <% end %>
   </table>
@@ -25,7 +23,3 @@
 <% end %>
 
 <%= will_paginate @news_articles %>
-
-<br />
-
-<%= link_to 'New news article', new_news_article_path %>

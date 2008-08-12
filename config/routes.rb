@@ -1,37 +1,52 @@
 ActionController::Routing::Routes.draw do |map|
   
-  
-  map.resources :attachments
-  map.resources :uploaded_images, :controller => 'images'
-  map.resources :new_vehicle_variants
-  map.resources :accessories
-  map.resources :model_ranges
-  map.resources :new_vehicles
-  map.resources :classifieds
-  map.resources :model_variants
-  map.resources :models
-  map.resources :makes
-  map.resources :salespeople
-  map.resources :menu_items
-  map.resources :pages
-  map.resources :categories
-  map.resources :news_articles
-  
-  map.assign_to_branch 'branches/:branch_id/assign/:id', :controller => 'branches', :action => 'assign', :conditions => { :method => :post }
-  map.remove_assignment 'branches/:branch_id/remove_assignment/:id', :controller => 'branches', :action => 'remove_assignment', :conditions => { :method => :delete }
-  map.resources :branches
-  
-  map.resources :referrals, :member => { :visit => :get }
-
-  map.logout '/logout', :controller => 'sessions', :action => 'destroy'
-  map.login '/login', :controller => 'sessions', :action => 'new'
-  map.register '/register', :controller => 'users', :action => 'create'
-  map.signup '/signup', :controller => 'users', :action => 'new'
-  map.resources :users
-
-  map.resource :session
-
   map.root :controller => 'main', :action => 'index'
+
+  map.resources :referrals, :member => { :visit => :get }
+  map.resources :news_articles
+  map.resources :branches
+  map.resources :classifieds
+  map.resources :pages
+
+  map.connect "/new_vehicles/:id", :controller => "new_vehicles", :action => "show" # Need this override 'cos of the name new_vehicles
+  map.resources :new_vehicles
+
+
+  map.namespace(:admin) do |admin|
+
+    admin.root :controller => 'dashboard', :action => 'index'
+    admin.resources :attachments
+    admin.resources :uploaded_images, :controller => 'images'
+    admin.resources :new_vehicle_variants
+    admin.resources :accessories
+    admin.resources :model_ranges
+    admin.resources :new_vehicles
+    admin.resources :classifieds
+    admin.resources :model_variants
+    admin.resources :models
+    admin.resources :makes
+    admin.resources :salespeople
+    admin.resources :menu_items
+    admin.resources :pages
+    admin.resources :categories
+    admin.resources :news_articles
+
+    admin.assign_to_branch 'branches/:branch_id/assign/:id', :controller => 'branches', :action => 'assign', :conditions => { :method => :post }
+    admin.remove_assignment 'branches/:branch_id/remove_assignment/:id', :controller => 'branches', :action => 'remove_assignment', :conditions => { :method => :delete }
+    admin.resources :branches
+
+    admin.resources :referrals
+
+    admin.logout '/logout', :controller => 'sessions', :action => 'destroy'
+    admin.login '/login', :controller => 'sessions', :action => 'new'
+    admin.register '/register', :controller => 'users', :action => 'create'
+    admin.signup '/signup', :controller => 'users', :action => 'new'
+    admin.resources :users
+
+    admin.resource :session
+    
+  end
+  
   
   # The priority is based upon order of creation: first created -> highest priority.
 

@@ -313,7 +313,7 @@ describe PagesController do
   
     it "should redirect to the pages list" do
       do_delete
-      response.should redirect_to(pages_url)
+      response.should redirect_to(admin_pages_path)
     end
   end
 end

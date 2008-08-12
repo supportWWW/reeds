@@ -16,7 +16,7 @@ describe "/pages/new.html.erb" do
   it "should render new form" do
     render "/pages/new.html.erb"
     
-    response.should have_tag("form[action=?][method=post]", pages_path) do
+    response.should have_tag("form[action=?][method=post]", admin_pages_path) do
       with_tag("input#page_title[name=?]", "page[title]")
       with_tag("textarea#page_text[name=?]", "page[text]")
     end

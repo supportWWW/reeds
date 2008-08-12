@@ -1,0 +1,12 @@
+<h2>Editing classified</h2>
+
+<% form_for :classified, :url => admin_classified_path(@classified), :html => { :method => :put }  do |f| -%>
+	<%= render :partial =>  "form", :locals => { :f => f } %>
+
+	<p>
+	  <%= f.submit "Update" %>
+	</p>
+<% end %>
+
+<%= link_to 'Show', admin_classified_path(@classified) %> |
+<%= link_to 'Back', admin_classifieds_path %>

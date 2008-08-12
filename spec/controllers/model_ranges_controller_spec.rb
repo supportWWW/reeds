@@ -219,7 +219,7 @@ describe ModelRangesController do
 
       it "should redirect to the new model_range" do
         do_post
-        response.should redirect_to(model_ranges_url)
+        response.should redirect_to(admin_model_ranges_path)
       end
       
     end
@@ -270,7 +270,7 @@ describe ModelRangesController do
 
       it "should redirect to the model_range" do
         do_put
-        response.should redirect_to(model_ranges_url)
+        response.should redirect_to(admin_model_ranges_path)
       end
 
     end
@@ -313,7 +313,7 @@ describe ModelRangesController do
   
     it "should redirect to the model_ranges list" do
       do_delete
-      response.should redirect_to(model_ranges_url)
+      response.should redirect_to(admin_model_ranges_path)
     end
   end
 end

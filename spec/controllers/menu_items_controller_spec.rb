@@ -219,7 +219,7 @@ describe MenuItemsController do
 
       it "should redirect to the new menu_item" do
         do_post
-        response.should redirect_to(menu_items_url)
+        response.should redirect_to(admin_menu_items_path)
       end
       
     end
@@ -270,7 +270,7 @@ describe MenuItemsController do
 
       it "should redirect to the menu_item" do
         do_put
-        response.should redirect_to(menu_items_url)
+        response.should redirect_to(admin_menu_items_path)
       end
 
     end
@@ -313,7 +313,7 @@ describe MenuItemsController do
   
     it "should redirect to the menu_items list" do
       do_delete
-      response.should redirect_to(menu_items_url)
+      response.should redirect_to(admin_menu_items_path)
     end
   end
 end

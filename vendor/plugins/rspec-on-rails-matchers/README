@@ -116,7 +116,7 @@ In your view spec:
     it "should render new form" do
         render "/users/new.html.erb"
 
-        response.should have_form_posting_to(users_path) do
+        response.should have_form_posting_to(admin_users_path) do
           with_text_field_for(:user_name)
           with_text_area_for(:user_address)
           with_text_field_for(:user_login)

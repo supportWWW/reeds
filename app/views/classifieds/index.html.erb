@@ -1,4 +1,4 @@
-<h1>Listing classifieds</h1>
+<h2>Listing classifieds</h2>
 
 <table>
   <tr>
@@ -38,13 +38,7 @@
     <td><%= boolean_label classified.has_service_history %></td>
     <td><%= boolean_label classified.cyberstock %></td>
     <td><%=h classified.expires_at %></td>
-    <td><%= link_to 'Show', classified %></td>
-    <td><%= link_to 'Edit', edit_classified_path(classified) %></td>
-    <td><%= link_to 'Destroy', classified, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', classified_path(classified) %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New classified', new_classified_path %>

@@ -1,0 +1,10 @@
+<%= f.error_messages %>
+
+<p>
+  <%= f.label :name %><br />
+  <%= f.text_field :name %>
+</p>
+<p>
+  <%= f.label :make_id %><br />
+  <%= f.select :make_id, Make.for_select %>
+</p>

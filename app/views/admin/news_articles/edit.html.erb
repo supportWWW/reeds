@@ -1,0 +1,12 @@
+<h2>Editing news article</h2>
+
+<% form_for :news_article, :url => admin_news_article_path(@news_article), :html => { :method => :put, :multipart => true }  do |f| -%>
+	<%= render :partial =>  "form", :locals => { :f => f } %>
+
+	<p>
+	  <%= f.submit "Update" %>
+	</p>
+<% end %>
+
+<%= link_to 'Show', admin_news_article_path(@news_article) %> |
+<%= link_to 'Back', admin_news_articles_path %>

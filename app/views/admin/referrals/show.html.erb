@@ -1,0 +1,34 @@
+<h2> <%=h @referral.name %> </h2>
+
+<p>Here is the link you should use: <%= referral_link %> ( <%= link_to 'Link', referral_link  %>   )</p>
+
+<p>
+  <b>Visits:</b>
+  <%=h @referral.visits_count %>
+</p>
+
+<p>
+  <b>Source:</b>
+  <%=h @referral.source %>
+</p>
+
+<p>
+  <%=h @referral.description %>
+</p>
+
+<h3> Code to add a link in a HTML document </h3>
+
+<p><textarea cols="50"><%= link_to @referral.name, referral_link  %></textarea></p>
+
+<h3> Code to add an image that links to this referral in a HTML document </h3>
+
+<p><textarea cols="50"><%= image_tag( referral_link + ".jpeg" ) %></textarea></p>
+
+<h3>Graph</h3>
+
+<p> <%= referral_graph  %>  </p>
+
+<br/>
+
+<%= link_to 'Edit', edit_admin_referral_path(@referral) %> |
+<%= link_to 'Back', admin_referrals_path %>

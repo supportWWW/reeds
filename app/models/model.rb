@@ -2,11 +2,11 @@ class Model < ActiveRecord::Base
   
   #validations
   validates_presence_of :name, :make_id
-  validate :validate_model_name
+  validates_uniqueness_of :name, :scope => :make_id
   
   #associations
   belongs_to :make
-  has_many :model_variants
+  has_many :model_variants, :dependent => :destroy
   
   before_save :set_common_name
   

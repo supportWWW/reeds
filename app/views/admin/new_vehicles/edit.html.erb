@@ -1,0 +1,12 @@
+<h2>Editing new vehicle</h2>
+
+<% form_for :new_vehicle, :url => admin_new_vehicle_path(@new_vehicle), :html => { :method => :put, :multipart => true }  do |f| -%>
+	<%= render :partial =>  "form", :locals => { :f => f } %>
+
+	<p>
+	  <%= f.submit "Update" %>
+	</p>
+<% end %>
+
+<%= link_to 'Show', admin_new_vehicle_path(@new_vehicle) %> |
+<%= link_to 'Back', admin_new_vehicles_path %>

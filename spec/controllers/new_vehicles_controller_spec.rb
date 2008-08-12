@@ -313,7 +313,7 @@ describe NewVehiclesController do
   
     it "should redirect to the new_vehicles list" do
       do_delete
-      response.should redirect_to(new_vehicles_url)
+      response.should redirect_to(admin_new_vehicles_path)
     end
   end
 end

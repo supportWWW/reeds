@@ -219,7 +219,7 @@ describe SalespeopleController do
 
       it "should redirect to the new salesperson" do
         do_post
-        response.should redirect_to( salespeople_url )
+        response.should redirect_to( admin_salespeople_path )
       end
       
     end
@@ -270,7 +270,7 @@ describe SalespeopleController do
 
       it "should redirect to the salesperson" do
         do_put
-        response.should redirect_to( salespeople_url )
+        response.should redirect_to( admin_salespeople_path )
       end
 
     end
@@ -313,7 +313,7 @@ describe SalespeopleController do
   
     it "should redirect to the salespeople list" do
       do_delete
-      response.should redirect_to(salespeople_url)
+      response.should redirect_to(admin_salespeople_path)
     end
   end
 end

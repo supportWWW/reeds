@@ -313,7 +313,7 @@ describe ModelsController do
   
     it "should redirect to the models list" do
       do_delete
-      response.should redirect_to(models_url)
+      response.should redirect_to(admin_models_path)
     end
   end
 end

@@ -78,7 +78,7 @@ module AuthenticatedSystem
           else
             flash[:error] = 'You have to be logged in to access this page'
           end
-          redirect_to new_session_path
+          redirect_to new_admin_session_path
         end
         # format.any doesn't work in rails version < http://dev.rubyonrails.org/changeset/8987
         # you may want to change format.any to e.g. format.any(:js, :xml)

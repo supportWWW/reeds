@@ -1,0 +1,11 @@
+<h2>Editing salesperson</h2>
+
+<% form_for :salesperson, :url => admin_salesperson_path(@salesperson), :html => { :method => :put }  do |f| -%>
+	<%= render :partial =>  "form", :locals => { :f => f } %>
+	<p>
+	  <%= f.submit "Update" %>
+	</p>
+<% end %>
+
+<%= link_to 'Show', admin_salesperson_path(@salesperson) %> |
+<%= link_to 'Back', admin_salespeople_path %>

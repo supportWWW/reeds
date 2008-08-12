@@ -140,16 +140,16 @@ describe UsersController do
       get :new
     end
     
-    it "should route users_path() to /users" do
-      users_path().should == "/users"
-      formatted_users_path(:format => 'xml').should == "/users.xml"
-      formatted_users_path(:format => 'json').should == "/users.json"
+    it "should route admin_users_path() to /users" do
+      admin_users_path().should == "/users"
+      formatted_admin_users_path(:format => 'xml').should == "/users.xml"
+      formatted_admin_users_path(:format => 'json').should == "/users.json"
     end
     
-    it "should route new_user_path() to /users/new" do
-      new_user_path().should == "/users/new"
-      formatted_new_user_path(:format => 'xml').should == "/users/new.xml"
-      formatted_new_user_path(:format => 'json').should == "/users/new.json"
+    it "should route new_admin_user_path() to /users/new" do
+      new_admin_user_path().should == "/users/new"
+      formatted_new_admin_user_path(:format => 'xml').should == "/users/new.xml"
+      formatted_new_admin_user_path(:format => 'json').should == "/users/new.json"
     end
     
     it "should route user_(:id => '1') to /users/1" do
@@ -158,8 +158,8 @@ describe UsersController do
       formatted_user_path(:id => '1', :format => 'json').should == "/users/1.json"
     end
     
-    it "should route edit_user_path(:id => '1') to /users/1/edit" do
-      edit_user_path(:id => '1').should == "/users/1/edit"
+    it "should route edit_admin_user_path(:id => '1') to /users/1/edit" do
+      edit_admin_user_path(:id => '1').should == "/users/1/edit"
     end
   end
   

@@ -19,7 +19,7 @@ describe "/news_articles/new.html.erb" do
   it "should render new form" do
     render "/news_articles/new.html.erb"
     
-    response.should have_tag("form[action=?][method=post]", news_articles_path) do
+    response.should have_tag("form[action=?][method=post]", admin_news_articles_path) do
       with_tag("input#news_article_title[name=?]", "news_article[title]")
       with_tag("textarea#news_article_text[name=?]", "news_article[text]")
     end

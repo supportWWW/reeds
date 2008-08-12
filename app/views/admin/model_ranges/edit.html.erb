@@ -1,0 +1,12 @@
+<h2>Editing <%=h @model_range.name %></h2>
+
+<% form_for :model_range, :url => admin_model_range_path(@model_range), :html => { :method => :put }  do |f| -%>
+	<%= render :partial =>  "form", :locals => { :f => f } %>
+
+	<p>
+	  <%= f.submit "Update" %>
+	</p>
+<% end %>
+
+<%= link_to 'Show', admin_model_range_path(@model_range) %> |
+<%= link_to 'Back', admin_model_ranges_path %>

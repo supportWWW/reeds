@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @salesperson.name %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%=h @salesperson.phone %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @salesperson.email %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_salesperson_path(@salesperson) %> |
+<%= link_to 'Back', admin_salespeople_path %>

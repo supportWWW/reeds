@@ -313,7 +313,7 @@ describe ReferralsController do
   
     it "should redirect to the referrals list" do
       do_delete
-      response.should redirect_to(referrals_url)
+      response.should redirect_to(admin_referrals_path)
     end
   end
   

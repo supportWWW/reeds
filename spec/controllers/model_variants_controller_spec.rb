@@ -313,7 +313,7 @@ describe ModelVariantsController do
   
     it "should redirect to the model_variants list" do
       do_delete
-      response.should redirect_to(model_variants_url)
+      response.should redirect_to(admin_model_variants_path)
     end
   end
 end

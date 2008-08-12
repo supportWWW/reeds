@@ -1,0 +1,29 @@
+<h2>Listing salespeople</h2>
+
+<% unless @salespeople.blank? %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Email</th>
+  </tr>
+
+<% for salesperson in @salespeople %>
+  <tr>
+    <td><%= link_to salesperson.name, admin_salesperson_path(salesperson) %></td>
+    <td><%= h salesperson.phone %></td>
+    <td><%= h salesperson.email %></td>
+    <td><%= link_to 'Edit', edit_admin_salesperson_path(salesperson) %></td>
+    <td><%= link_to 'Destroy', admin_salesperson_path(salesperson), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<% else %>
+  <p> There are no salespeople available yet. </p>
+<% end %>
+
+<br />
+
+<%= link_to 'New salesperson', new_admin_salesperson_path %>

@@ -1,0 +1,12 @@
+<h2>Editing model</h2>
+
+<% form_for :model, :url => admin_model_path(@model), :html => { :method => :put }  do |f| -%>
+	<%= render :partial =>  "form", :locals => { :f => f } %>
+
+	<p>
+	  <%= f.submit "Update" %>
+	</p>
+<% end %>
+
+<%= link_to 'Show', admin_model_path(@model) %> |
+<%= link_to 'Back', admin_models_path %>

@@ -1,4 +1,5 @@
 class ContactController < ApplicationController
+  helper :makes
   
   def sell_your_car
     @form = SellMyCarForm.new( params[:sell_your_car_form] )

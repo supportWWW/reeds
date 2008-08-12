@@ -1,0 +1,33 @@
+<h2>Listing New Vehicles</h2>
+
+<% unless @new_vehicles.blank? %>
+  
+    <%= will_paginate @new_vehicles %>
+
+    <table>
+    <tr>
+      <th>Model</th>
+      <th>Year</th>
+      <th>Enabled</th>
+    </tr>
+  
+    <% for new_vehicle in @new_vehicles %>
+      <tr>
+        <td><%= link_to  new_vehicle.model_range.name, admin_new_vehicle_path(new_vehicle) %></td>
+        <td><%=  h new_vehicle.year %></td>
+        <td><%= boolean_label new_vehicle.enabled %></td>
+        <td><%= link_to 'Edit', edit_admin_new_vehicle_path(new_vehicle) %></td>
+        <td><%= link_to 'Destroy', admin_new_vehicle_path(new_vehicle), :confirm => 'Are you sure?', :method => :delete %></td>
+      </tr>
+    <% end %>
+  </table>
+  
+  <%= will_paginate @new_vehicles %>
+  
+  <br />
+  
+<% else  %>
+  <p>There are no new vehicles available yet.</p>
+<% end  %>
+
+<%= link_to 'Create a new vehicle', new_admin_new_vehicle_path %>

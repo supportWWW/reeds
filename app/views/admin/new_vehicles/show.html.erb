@@ -1,0 +1,26 @@
+<p>
+  <b>Model:</b>
+  <%=h @new_vehicle.model_range.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%=h @new_vehicle.description %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%=h @new_vehicle.year %>
+</p>
+
+<p>
+  <b>Enabled:</b>
+  <%= boolean_label  @new_vehicle.enabled %>
+</p>
+
+<%= partial :accessories_and_variants %>
+
+<%= partial :images_and_files %>
+
+<%= link_to 'Edit', edit_admin_new_vehicle_path(@new_vehicle) %> |
+<%= link_to 'Back', admin_new_vehicles_path %>

@@ -13,7 +13,7 @@ describe "/branches/new.html.erb" do
   it "should render new form" do
     render "/branches/new.html.erb"
     
-    response.should have_tag("form[action=?][method=post]", branches_path) do
+    response.should have_tag("form[action=?][method=post]", admin_branches_path) do
       with_tag("input#branch_name[name=?]", "branch[name]")
     end
   end

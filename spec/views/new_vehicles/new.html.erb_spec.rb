@@ -21,7 +21,7 @@ describe "/new_vehicles/new.html.erb" do
   it "should render new form" do
     render "/new_vehicles/new.html.erb"
     
-    response.should have_tag("form[action=?][method=post]", new_vehicles_path) do
+    response.should have_tag("form[action=?][method=post]", admin_new_vehicles_path) do
       with_tag("textarea#new_vehicle_description[name=?]", "new_vehicle[description]")
       with_tag("input#new_vehicle_year[name=?]", "new_vehicle[year]")
       with_tag("input#new_vehicle_enabled[name=?]", "new_vehicle[enabled]")

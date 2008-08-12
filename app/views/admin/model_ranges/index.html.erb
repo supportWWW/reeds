@@ -1,0 +1,31 @@
+<h2>Model ranges list</h2>
+
+<% unless @model_ranges.blank? %>
+
+<%= will_paginate @model_ranges %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Make</th>
+  </tr>
+
+<% for model_range in @model_ranges %>
+  <tr>
+    <td><%= link_to  model_range.name, edit_admin_model_range_path(model_range) %></td>
+    <td><%= h model_range.make.name %></td>
+    <td><%= link_to 'Edit', edit_admin_model_range_path(model_range) %></td>
+    <td><%= link_to 'Destroy', admin_model_range_path(model_range), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= will_paginate @model_ranges %>
+
+<br />
+
+<% else  %>
+  <p> There are no model ranges available yet. </p>
+<% end %>
+
+<%= link_to 'New model range', new_admin_model_range_path %>

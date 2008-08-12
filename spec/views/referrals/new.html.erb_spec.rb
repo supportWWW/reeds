@@ -16,7 +16,7 @@ describe "/referrals/new.html.erb" do
   it "should render new form" do
     render "/referrals/new.html.erb"
     
-    response.should have_tag("form[action=?][method=post]", referrals_path) do
+    response.should have_tag("form[action=?][method=post]", admin_referrals_path) do
       with_tag("input#referral_name[name=?]", "referral[name]")
       with_tag("input#referral_redirect_to[name=?]", "referral[redirect_to]")
       with_tag("input#referral_source[name=?]", "referral[source]")

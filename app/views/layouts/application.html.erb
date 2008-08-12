@@ -14,8 +14,6 @@
   <body>
     <h1>Reeds Motorgroup</h1>
 
-    <h3>Menu</h3>
-
     <%= partial 'menu_items/menu'  %>
 
     <% unless flash.blank? %>
@@ -26,10 +24,5 @@
     
     <%= yield %>
     
-<br/>
-<br/>
-
-    <%= partial 'layouts/menu' %>
-
   </body>
 </html>

@@ -1,0 +1,12 @@
+<h2>Editing make</h2>
+
+<% form_for :make, :url => admin_make_path(@make), :html => { :method => :put }  do |f| -%>
+	<%= render :partial =>  "form", :locals => { :f => f } %>
+
+	<p>
+	  <%= f.submit "Update" %>
+	</p>
+<% end %>
+
+<%= link_to 'Show', admin_make_path(@make) %> |
+<%= link_to 'Back', admin_makes_path %>

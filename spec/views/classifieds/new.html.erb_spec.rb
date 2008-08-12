@@ -28,7 +28,7 @@ describe "/classifieds/new.html.erb" do
   it "should render new form" do
     render "/classifieds/new.html.erb"
     
-    response.should have_tag("form[action=?][method=post]", classifieds_path) do
+    response.should have_tag("form[action=?][method=post]", admin_classifieds_path) do
       with_tag("input#classified_stock_code[name=?]", "classified[stock_code]")
       with_tag("input#classified_stock_type[name=?]", "classified[stock_type]")
       with_tag("input#classified_year[name=?]", "classified[year]")
