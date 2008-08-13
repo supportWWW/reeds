@@ -8,12 +8,12 @@ describe "/news_articles/index.html.erb" do
     news_article_98 = mock_model(NewsArticle)
     news_article_98.should_receive(:title).and_return("MyString")
     news_article_98.should_receive(:publish_at).and_return(Time.now)
-    news_article_98.should_receive( :category ).and_return( @category )
+    news_article_98.should_receive(:category).twice.and_return( @category )
     
     news_article_99 = mock_model(NewsArticle)
     news_article_99.should_receive(:title).and_return("MyString")
     news_article_99.should_receive(:publish_at).and_return(Time.now)
-    news_article_99.should_receive( :category ).and_return( @category )
+    news_article_99.should_receive(:category).twice.and_return( @category )
     
     assigns[:news_articles] = [news_article_98, news_article_99]
     assigns[:news_articles].stub!( :total_pages ).and_return( 1 )

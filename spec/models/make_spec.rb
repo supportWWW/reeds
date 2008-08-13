@@ -5,7 +5,7 @@ describe Make do
     @make = Make.new
   end
 
-  it "should be valid" do
-    @make.should be_valid
+  it "should be a Make" do
+    @make.class.should == Make
   end
 end

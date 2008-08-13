@@ -5,7 +5,7 @@ describe ModelRange do
     @model_range = ModelRange.new
   end
 
-  it "should be valid" do
-    @model_range.should be_valid
+  it "should be ModelRange" do
+    @model_range.class.should == ModelRange
   end
 end

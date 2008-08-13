@@ -5,7 +5,7 @@ describe ModelVariant do
     @model_variant = ModelVariant.new
   end
 
-  it "should be valid" do
-    @model_variant.should be_valid
+  it "should be ModelVariant" do
+    @model_variant.class.should == ModelVariant
   end
 end

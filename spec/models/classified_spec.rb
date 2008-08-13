@@ -5,7 +5,7 @@ describe Classified do
     @classified = Classified.new
   end
 
-  it "should be valid" do
-    @classified.should be_valid
+  it "should be Classified" do
+    @classified.class.should == Classified
   end
 end

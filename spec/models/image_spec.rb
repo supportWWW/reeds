@@ -5,7 +5,7 @@ describe Image do
     @image = Image.new
   end
 
-  it "should be valid" do
-    @image.should be_valid
+  it "should be Image" do
+    @image.class.should == Image
   end
 end

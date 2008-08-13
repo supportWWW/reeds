@@ -79,7 +79,7 @@ class Admin::ClassifiedsController < Admin::ApplicationController
     @classified.destroy
 
     respond_to do |format|
-      format.html { redirect_to(admin_classifieds_url) }
+      format.html { redirect_to(admin_classifieds_path) }
       format.xml  { head :ok }
     end
   end

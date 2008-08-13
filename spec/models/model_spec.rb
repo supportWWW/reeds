@@ -5,7 +5,7 @@ describe Model do
     @model = Model.new
   end
 
-  it "should be valid" do
-    @model.should be_valid
+  it "should be Model" do
+    @model.class.should == Model
   end
 end

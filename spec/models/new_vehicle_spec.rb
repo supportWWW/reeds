@@ -5,7 +5,7 @@ describe NewVehicle do
     @new_vehicle = NewVehicle.new
   end
 
-  it "should be valid" do
-    @new_vehicle.should be_valid
+  it "should be NewVehicle" do
+    @new_vehicle.class.should == NewVehicle
   end
 end
