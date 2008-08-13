@@ -14,8 +14,7 @@
     <td><%= link_to salesperson.name, admin_salesperson_path(salesperson) %></td>
     <td><%= h salesperson.phone %></td>
     <td><%= h salesperson.email %></td>
-    <td><%= link_to 'Edit', edit_admin_salesperson_path(salesperson) %></td>
-    <td><%= link_to 'Destroy', admin_salesperson_path(salesperson), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Edit', edit_admin_salesperson_path(salesperson) %> | <%= link_to 'Destroy', admin_salesperson_path(salesperson), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

@@ -1,19 +1,31 @@
-<%= link_to 'Branches', admin_branches_path %> |
-<%= link_to 'Classifieds', admin_classifieds_path %> |
-<%= link_to 'Categories', admin_categories_path %> | 
-<%= link_to 'Import Stock file', :controller => 'admin/importer', :action => 'import_stock' %> |
-<%= link_to 'Import Mead & McGrouther file', :controller => 'admin/importer', :action => 'import_mm' %> |
-<%= link_to 'Makes', admin_makes_path %> |
-<%= link_to 'Menu items', admin_menu_items_path %> |
-<%= link_to 'Models', admin_models_path %> |
-<%= link_to 'Model ranges', admin_model_ranges_path %> |
-<%= link_to 'Model variants', admin_model_variants_path %> |
-<%= link_to 'New Vehicles', admin_new_vehicles_path %>  |
-<%= link_to 'News Articles', admin_news_articles_path %>  |
-<%= link_to 'Pages', admin_pages_path %> |
-<%= link_to 'Referrals', admin_referrals_path %> |
-<%= link_to 'Salespeople', admin_salespeople_path %> |
-<%= link_to 'Users', admin_users_path %> |
-<% if logged_in? %>
-    | <%= link_to 'Logout', admin_logout_path  %>
-<% end %>
+<span class="menu_header">Importing</span>
+<ul>
+	<li><%= link_to 'Import Stock file', :controller => 'admin/importer', :action => 'import_stock' %></li>
+	<li><%= link_to 'Import Mead & McGrouther file', :controller => 'admin/importer', :action => 'import_mm' %></li>
+</ul>
+
+<span class="menu_header">Vehicles</span>
+<ul>
+	<li><%= link_to 'Classifieds', admin_classifieds_path %></li>
+	<li><%= link_to 'Model ranges (new vehicles)', admin_model_ranges_path %></li>
+	<li><%= link_to 'New Vehicles', admin_new_vehicles_path %></li>
+</ul>
+
+<span class="menu_header">CMS</span>
+<ul>
+	<li><%= link_to 'News Categories', admin_categories_path %></li>
+	<li><%= link_to 'News Articles', admin_news_articles_path %></li>
+	<li><%= link_to 'Pages', admin_pages_path %></li>
+	<li><%= link_to 'Salespeople', admin_salespeople_path %></li>
+	<li><%= link_to 'Branches', admin_branches_path %></li>
+	<li><%= link_to 'Referrals', admin_referrals_path %></li>
+</ul>
+
+<span class="menu_header">Admin</span>
+<ul>
+	<li><%= link_to 'Menu items', admin_menu_items_path %></li>
+	<li><%= link_to 'Users', admin_users_path %></li>
+	<% if logged_in? %>
+		<li><%= link_to 'Logout', admin_logout_path %></li>
+	<% end %>
+</ul>

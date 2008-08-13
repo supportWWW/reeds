@@ -1,7 +1,7 @@
 class ModelVariant < ActiveRecord::Base
 
   belongs_to :model
-  has_many :classifieds
+  has_many :classifieds, :dependent => :destroy
   
   validates_presence_of :year, :model_id, :mead_mcgrouther_code
 

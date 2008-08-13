@@ -1,7 +1,7 @@
 <h2>New classified</h2>
 
 <% form_for :classified, :url => admin_classifieds_path do |f| -%>
-	<%= render :partial =>  "form", :locals => { :f => f } %>
+	<%= render :partial =>  "form", :locals => { :f => f, :classified => nil } %>
 
 	<p>
 	  <%= f.submit "Create" %>

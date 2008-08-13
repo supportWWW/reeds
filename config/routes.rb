@@ -21,7 +21,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :accessories
     admin.resources :model_ranges
     admin.resources :new_vehicles
-    admin.resources :classifieds
+    admin.resources :classifieds, :collection => { :load_models => :get, :load_model_variants => :get }
     admin.resources :model_variants
     admin.resources :models
     admin.resources :makes

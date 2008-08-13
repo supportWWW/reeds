@@ -5,7 +5,7 @@ class NewsArticlesController < ApplicationController
   before_filter :load_page, :only => :index
   
   def index
-    @news_articles = paginate( NewsArticle, :order => 'publish_at desc', :include => :category )
+    @news_articles = paginate( NewsArticle.live, :order => 'publish_at desc', :include => :category )
 
     respond_to do |format|
       format.html # index.html.erb

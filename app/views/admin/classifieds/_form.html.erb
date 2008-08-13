@@ -1,5 +1,20 @@
 <%= f.error_messages %>
 
+  <script>
+    <!--
+        function updateModels() {
+           new Ajax.Request( '/admin/classifieds/load_models', { method : 'get', parameters: { make_id: $F( 'make_id' ) } }  ) 
+           Element.show( 'models_spinner' )
+        }
+        
+        function updateModelVariants() {
+           new Ajax.Request( '/admin/classifieds/load_model_variants', { method : 'get', parameters: { model_id: $F( 'model_id' ) } }  ) 
+           Element.show( 'model_variants_spinner' )
+        }
+
+-->
+  </script>
+
 <p>
   <%= f.label :stock_code %><br />
   <%= f.text_field :stock_code %>
@@ -9,12 +24,24 @@
   <%= f.text_field :stock_type %>
 </p>
 <p>
-  <%= f.label :model_variant_id %><br />
-  <%= f.text_field :model_variant_id %>
+  <label>Make</label><br/>
+  <%= select_tag :make_id, makes_options(classified.nil? ? nil : classified.model_variant.model.make), :onchange => 'updateModels();' %>
 </p>
 <p>
-  <%= f.label :year %><br />
-  <%= f.text_field :year %>
+  <label>Model</label><br/>
+ 	<% if classified && classified.model_variant %>
+	  <%= select_tag :model_id, models_options(classified.model_variant.model), :onchange => 'updateModelVariants();' %>
+	<% else %>
+	  <%= select_tag :model_id, '<option>Select a make first...</option>', :onchange => 'updateModelVariants()' %> <%= spinner 'models_spinner' %>
+	<% end %>
+</p>
+<p>
+  <label>Year</label><br/> 
+	<% if classified && classified.model_variant %>
+		<%= model_variant_select(f, classified.model_variant.model) %>
+	<% else %>
+	  <%= f.select :model_variant_id, [ ['Select a model first...', ''] ] %> <%= spinner 'model_variants_spinner' %>
+	<% end %>
 </p>
 <p>
   <%= f.label :price_in_cents %><br />
@@ -47,10 +74,6 @@
 <p>
   <%= f.label :days_in_stock %><br />
   <%= f.text_field :days_in_stock %>
-</p>
-<p>
-  <%= f.label :removed_at %><br />
-  <%= f.datetime_select :removed_at %>
 </p>
 <p>
   <%= f.label :has_service_history %><br />

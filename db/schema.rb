@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080711122620) do
+ActiveRecord::Schema.define(:version => 20080813140628) do
 
   create_table "accessories", :force => true do |t|
     t.string   "name"
@@ -62,7 +62,6 @@ ActiveRecord::Schema.define(:version => 20080711122620) do
     t.string   "stock_code"
     t.integer  "stock_type",          :limit => 11
     t.integer  "model_variant_id",    :limit => 11
-    t.integer  "year",                :limit => 11
     t.integer  "price_in_cents",      :limit => 11
     t.string   "colour"
     t.string   "reg_num"

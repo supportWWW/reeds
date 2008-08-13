@@ -16,8 +16,7 @@
         <td><%= link_to  new_vehicle.model_range.name, admin_new_vehicle_path(new_vehicle) %></td>
         <td><%=  h new_vehicle.year %></td>
         <td><%= boolean_label new_vehicle.enabled %></td>
-        <td><%= link_to 'Edit', edit_admin_new_vehicle_path(new_vehicle) %></td>
-        <td><%= link_to 'Destroy', admin_new_vehicle_path(new_vehicle), :confirm => 'Are you sure?', :method => :delete %></td>
+        <td><%= link_to 'Edit', edit_admin_new_vehicle_path(new_vehicle) %> | <%= link_to 'Destroy', admin_new_vehicle_path(new_vehicle), :confirm => 'Are you sure?', :method => :delete %></td>
       </tr>
     <% end %>
   </table>

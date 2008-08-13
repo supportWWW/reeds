@@ -16,7 +16,7 @@
         <td><%= link_to referral.name, admin_referral_path(referral) %></td>
         <td><%= h referral.source %></td>
         <td><%= referral_link( referral ) %>  </td>
-        <td><%= link_to 'Edit', edit_admin_referral_path(referral) %></td>
+        <td><%= link_to 'Edit', edit_admin_referral_path(referral) %> | <%= link_to 'Destroy', admin_referral_path(referral), :confirm => 'Are you sure?', :method => :delete %></td>
       </tr>
     <% end %>
   </table>

@@ -14,8 +14,7 @@
   <tr>
     <td><%= link_to  model_range.name, edit_admin_model_range_path(model_range) %></td>
     <td><%= h model_range.make.name %></td>
-    <td><%= link_to 'Edit', edit_admin_model_range_path(model_range) %></td>
-    <td><%= link_to 'Destroy', admin_model_range_path(model_range), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Edit', edit_admin_model_range_path(model_range) %> | <%= link_to 'Destroy', admin_model_range_path(model_range), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

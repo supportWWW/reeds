@@ -1,0 +1,7 @@
+<% if logged_in? -%>
+  <div id="user-bar-greeting">Logged in as <strong><%= current_user.login %></strong></div>
+  <div id="user-bar-action"  >(<%= link_to "log out", admin_logout_path, { :title => "Log out" }    %>)</div>
+<% else -%>
+  <div id="user-bar-greeting"><span style="border: none;">Not logged in</span></div>
+  <div id="user-bar-action"  ><%= link_to "Log in",  admin_login_path,  { :title => "Log in" } %></div>
+<% end -%>

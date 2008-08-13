@@ -2,7 +2,7 @@ class Referral < ActiveRecord::Base
   
   validates_presence_of :name, :redirect_to
   
-  has_many :visits
+  has_many :visits, :dependent => :destroy
   
   class << self
     

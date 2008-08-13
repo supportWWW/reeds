@@ -1,7 +1,6 @@
 class MenuItem < ActiveRecord::Base
   
   validate :path_or_page
-  validates_uniqueness_of :position, :scope => :parent_id
   validates_presence_of :title, :position
   
   belongs_to :page

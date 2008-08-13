@@ -19,8 +19,7 @@
     <td><%=h menu_item.depth %></td>
     <td><%=h menu_item.path %></td>
     <td><%=h(menu_item.parent.title) if menu_item.parent %></td>
-    <td><%= link_to 'Edit', edit_admin_menu_item_path(menu_item) %></td>
-    <td><%= link_to 'Destroy', admin_menu_item_path(menu_item), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Edit', edit_admin_menu_item_path(menu_item) %> | <%= link_to 'Destroy', admin_menu_item_path(menu_item), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

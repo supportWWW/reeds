@@ -10,8 +10,7 @@
 <% for branch in @branches %>
   <tr>
     <td><%= link_to  branch.name, admin_branch_path(branch) %></td>
-    <td><%= link_to 'Edit', edit_admin_branch_path(branch) %></td>
-    <td><%= link_to 'Destroy', admin_branch_path(branch), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Edit', edit_admin_branch_path(branch) %> | <%= link_to 'Destroy', admin_branch_path(branch), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

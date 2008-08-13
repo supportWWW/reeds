@@ -8,8 +8,8 @@ describe "/admin/classifieds/new.html.erb" do
     @classified.stub!(:new_record?).and_return(true)
     @classified.stub!(:stock_code).and_return("MyString")
     @classified.stub!(:stock_type).and_return("1")
+    @classified.stub!(:model_variant).and_return(ModelVariant.new(:model => Model.new))
     @classified.stub!(:model_variant_id).and_return("1")
-    @classified.stub!(:year).and_return("1")
     @classified.stub!(:price_in_cents).and_return("1")
     @classified.stub!(:colour).and_return("MyString")
     @classified.stub!(:reg_num).and_return("MyString")
@@ -31,7 +31,6 @@ describe "/admin/classifieds/new.html.erb" do
     response.should have_tag("form[action=?][method=post]", admin_classifieds_path) do
       with_tag("input#classified_stock_code[name=?]", "classified[stock_code]")
       with_tag("input#classified_stock_type[name=?]", "classified[stock_type]")
-      with_tag("input#classified_year[name=?]", "classified[year]")
       with_tag("input#classified_price_in_cents[name=?]", "classified[price_in_cents]")
       with_tag("input#classified_colour[name=?]", "classified[colour]")
       with_tag("input#classified_reg_num[name=?]", "classified[reg_num]")

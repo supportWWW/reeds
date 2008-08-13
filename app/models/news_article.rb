@@ -13,6 +13,8 @@ class NewsArticle < ActiveRecord::Base
   
   belongs_to :category
   
+  named_scope :live, :conditions => ["publish_at >= ?", Date.today ]
+  
   def source_url=( url )
     unless "http://" == url
       write_attribute_with_dirty( :source_url, url )
