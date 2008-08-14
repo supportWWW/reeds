@@ -52,11 +52,8 @@ ActiveRecord::Schema.define(:version => 20080813140628) do
     t.datetime "updated_at"
   end
 
-  create_table "categories", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+# Could not dump table "categories" because of following ActiveRecord::StatementInvalid
+#   Interrupt: : SHOW KEYS FROM `categories`
 
   create_table "classifieds", :force => true do |t|
     t.string   "stock_code"
@@ -132,17 +129,8 @@ ActiveRecord::Schema.define(:version => 20080813140628) do
     t.datetime "updated_at"
   end
 
-  create_table "model_variants", :force => true do |t|
-    t.integer  "model_id",             :limit => 11
-    t.integer  "year",                 :limit => 11
-    t.string   "mead_mcgrouther_code"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "model_variants", ["model_id"], :name => "index_model_variants_on_model_id"
-  add_index "model_variants", ["year"], :name => "index_model_variants_on_year"
-  add_index "model_variants", ["mead_mcgrouther_code"], :name => "index_model_variants_on_mead_mcgrouther_code"
+# Could not dump table "model_variants" because of following ActiveRecord::StatementInvalid
+#   Interrupt: : SHOW KEYS FROM `model_variants`
 
   create_table "models", :force => true do |t|
     t.string   "name"
