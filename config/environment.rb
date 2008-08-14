@@ -45,6 +45,7 @@ Rails::Initializer.run do |config|
                             #{RAILS_ROOT}/app/observers
                             #{RAILS_ROOT}/app/services
                             #{RAILS_ROOT}/app/form_models
+                            #{RAILS_ROOT}/vendor/gems/mailbuild-1.0/lib
                           )
   # Force all environments to use the same logger level
   # (by default production uses :info, the others :debug)

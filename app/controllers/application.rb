@@ -3,6 +3,7 @@
 
 class ApplicationController < ActionController::Base
   include AuthenticatedSystem
+  include ExceptionNotifiable
   before_filter :use_prototype
   
   # See ActionController::RequestForgeryProtection for details

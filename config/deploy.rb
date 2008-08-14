@@ -4,7 +4,7 @@ require 'mongrel_cluster/recipes'
 set :user, "joergd"
 set :runner, "joergd"
 set :application, "reeds"
-set :domain, "reeds.webhop.net"
+set :domain, "reeds.theselovelydays.com"
 set :password, 'int3rn3t'
 
 # Update these if you're not running everything on one host.
@@ -33,7 +33,7 @@ set :branch, "master"
 set :deploy_via, :remote_cache
 set :git_enable_submodules, 1
 
-set :server_name, "reeds.webhop.net"
+set :server_name, "reeds.theselovelydays.com"
 #set :server_alias, "gnm7rcaa.joyent.us"
 
 #set :mongrel_config, "/etc/mongrel_cluster/mongrel_cluster.yml" 

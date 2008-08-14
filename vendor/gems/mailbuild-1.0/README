@@ -1,0 +1,39 @@
+== Mailbuild
+
+An implementation of the Mailbuild API, http://www.mailbuild.com/api
+
+
+== Install
+
+sudo gem install mailbuild
+
+
+== Usage
+
+There is a sample Rails application available demonstrating all API calls;
+
+svn co http://mailbuild.rubyforge.org/svn/rails_mailbuild_example/
+
+
+== Debugging
+
+Run Ruby with the debug switch (ruby -d) to see SOAP wiredumps.
+
+This lets you see the XML being sent/received.
+
+
+== License
+
+The Mailbuild gem is released under the MIT license. See MIT-LICENSE file.
+
+
+== Credit
+
+The cattr_accessor code is by Tobias Lutke.
+
+
+== Contact
+
+For bugs or support requests, http://rubyforge.org/projects/mailbuild/
+
+Anything else, drop me an email at cameron@cameronyule.com
