@@ -1,5 +1,20 @@
 <h2> Reeds - <%= @branch.name %>  </h2>
 
+<p>
+	<strong>Phone:</strong>
+	<%=h @branch.phone %>
+</p>
+
+<p>
+	<strong>Fax:</strong>
+	<%=h @branch.fax %>
+</p>
+
+<p>
+	<strong>Address:</strong>
+	<%= simple_format(sanitize(@branch.address)) %>
+</p>
+
 <h3>Salespeople at this branch</h3>
 
 <div id="salespeople_in_branch">

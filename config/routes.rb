@@ -11,6 +11,7 @@ ActionController::Routing::Routes.draw do |map|
   map.connect "/new_vehicles/:id", :controller => "new_vehicles", :action => "show" # Need this override 'cos of the name new_vehicles
   map.resources :new_vehicles
 
+  map.sell_your_car "contact/sell_your_car", :controller => "contact", :action => "sell_your_car"
 
   map.namespace(:admin) do |admin|
 

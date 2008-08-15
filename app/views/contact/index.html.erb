@@ -1,0 +1,22 @@
+<h2>Contact</h2>
+
+<ul class="non_list">
+	<% @branches.each do |branch| -%>
+		<li>
+			<h3><%= branch.name %></h3>
+			<strong>Phone: </strong><%=h branch.phone %>
+			<strong>Fax: </strong><%=h branch.fax %>
+			<%= simple_format(sanitize(branch.address)) %>
+			<h4>Salespeople</h4>
+			<table>
+				<% branch.salespeople.each do |salesperson| -%>
+					<tr>
+						<td><%=h salesperson.name %></td>
+						<td><%=h salesperson.phone %></td>
+						<td><%= enkode_mail salesperson.email, salesperson.email, "", "[REEDS WEBSITE]"  %></td>
+					</tr>
+				<% end -%>
+			</table>
+		</li>
+	<% end -%>
+</ul>

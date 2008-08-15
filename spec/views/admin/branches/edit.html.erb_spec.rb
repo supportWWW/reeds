@@ -6,6 +6,9 @@ describe "/admin/branches/edit.html.erb" do
   before do
     @branch = mock_model(Branch)
     @branch.stub!(:name).and_return("MyString")
+    @branch.stub!(:phone).and_return("MyString")
+    @branch.stub!(:fax).and_return("MyString")
+    @branch.stub!(:address).and_return("MyString")
     assigns[:branch] = @branch
   end
 

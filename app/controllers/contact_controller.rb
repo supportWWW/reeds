@@ -1,5 +1,8 @@
 class ContactController < ApplicationController
-  helper :makes
+
+  def index
+    @branches = Branch.find(:all, :order => "name", :include => [:salespeople])
+  end
   
   def sell_your_car
     @form = SellMyCarForm.new( params[:sell_your_car_form] )
@@ -33,5 +36,6 @@ class ContactController < ApplicationController
       end
     end
   end
+  
   
 end

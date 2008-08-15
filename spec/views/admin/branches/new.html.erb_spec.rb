@@ -7,6 +7,9 @@ describe "/admin/branches/new.html.erb" do
     @branch = mock_model(Branch)
     @branch.stub!(:new_record?).and_return(true)
     @branch.stub!(:name).and_return("MyString")
+    @branch.stub!(:phone).and_return("MyString")
+    @branch.stub!(:fax).and_return("MyString")
+    @branch.stub!(:address).and_return("MyString")
     assigns[:branch] = @branch
   end
 
