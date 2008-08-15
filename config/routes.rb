@@ -12,6 +12,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :new_vehicles
 
   map.sell_your_car "contact/sell_your_car", :controller => "contact", :action => "sell_your_car"
+  map.search "/search", :controller => "search", :action => "index"
 
   map.namespace(:admin) do |admin|
 
