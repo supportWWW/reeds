@@ -21,6 +21,11 @@
 	<li><%= link_to 'Referrals', admin_referrals_path %></li>
 </ul>
 
+<span class="menu_header">Newsletters</span>
+<ul>
+	<li><%= link_to "Newsletters", "#", :onclick => "$('newsletter_login_form').submit(); return false;" %></li>
+</ul>
+
 <span class="menu_header">Admin</span>
 <ul>
 	<li><%= link_to 'Menu items', admin_menu_items_path %></li>
@@ -29,3 +34,8 @@
 		<li><%= link_to 'Logout', admin_logout_path %></li>
 	<% end %>
 </ul>
+
+<form action="http://theselovelydays.createsend.com/login.aspx" method="post" id="newsletter_login_form" style="float: right; margin: 0; padding: 0; width: 0; height: 0;">
+	<%= hidden_field_tag "username", "reeds" %>
+	<%= hidden_field_tag "password", "r33d5" %>
+</form>
