@@ -4,7 +4,7 @@
 class ApplicationController < ActionController::Base
   include AuthenticatedSystem
   include ExceptionNotifiable
-  before_filter :use_prototype
+  before_filter :use_jquery
   
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
@@ -21,6 +21,10 @@ class ApplicationController < ActionController::Base
 
   def use_prototype
     @use_prototype = true
+  end
+
+  def use_jquery
+    @use_jquery = true
   end
   
   def public_path

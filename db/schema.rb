@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080815113536) do
+ActiveRecord::Schema.define(:version => 20080818110518) do
 
   create_table "accessories", :force => true do |t|
     t.string   "name"
@@ -79,6 +79,9 @@ ActiveRecord::Schema.define(:version => 20080815113536) do
     t.datetime "expires_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "year",                :limit => 11
+    t.integer  "make_id",             :limit => 11
+    t.integer  "model_id",            :limit => 11
   end
 
   add_index "classifieds", ["stock_code"], :name => "index_classifieds_on_stock_code", :unique => true

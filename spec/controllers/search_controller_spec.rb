@@ -13,5 +13,10 @@ describe SearchController do
       get 'index'
       response.should be_success
     end
+
+    it "should be successful with parameters" do
+      get 'index', :make_id => 1, :model_id => 1, :price_range => "100000|200000", :from => 1973, :to => 2000
+      response.should be_success
+    end
   end
 end

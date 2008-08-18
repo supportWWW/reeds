@@ -5,8 +5,8 @@
   	<title>Reeds Motorgroup</title>
 
   	<%= stylesheet_link_tag "application" %>
-        <% if @use_prototype %>
-            <%= javascript_include_tag :defaults  %>
+        <% if @use_jquery %>
+            <%= javascript_include_tag "jquery-1.2.6.pack.js", "jquery-form.js", "frontend", :cache => "cached_js"  %>
         <% end  %>
         <%= yield :header %>
   </head>

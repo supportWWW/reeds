@@ -3,16 +3,16 @@ Hello,
 A client is interested in selling it's car at Reeds, here are the details:
 
 <% if @form.model_variant_id -%>
-Make: <%= @form.model_variant.model.make.name %>
-Model: <%= @form.model_variant.model.name  %>
-Year: <%= @form.model_variant.year %>
+Make: <%=h @form.model_variant.model.make.name %>
+Model: <%=h @form.model_variant.model.name  %>
+Year: <%=h @form.model_variant.year %>
 <% end  -%>
-Name: <%= @form.your_name %>
-Email: <%= @form.your_email %>
-Contact phone: <%= @form.your_contact_phone_number %>
-Car color: <%= @form.color %>
-Vehicle details: <%= @form.vehicle_details %>
-Interested in buying a new or pre-owned car: <%= boolean_label @form.interested_in_buying %>
-Has full service history: <%= boolean_label @form.has_full_service_history %>
+Name: <%=h @form.your_name %>
+Email: <%=h @form.your_email %>
+Contact phone: <%=h @form.your_contact_phone_number %>
+Car color: <%=h @form.color %>
+Vehicle details: <%=h @form.vehicle_details %>
+Interested in buying a new or pre-owned car: <%=h boolean_label @form.interested_in_buying %>
+Has full service history: <%=h boolean_label @form.has_full_service_history %>
 
 The Reeds Team

@@ -15,6 +15,20 @@ class ContactController < ApplicationController
     end
   end
   
+  def find_car
+    @form = FindCarForm.new( params[:form] )
+    if request.post? and @form.valid?
+      flash[:notice] = 'We received your message and will get in contact shortly'
+      FindCarMailer.deliver_client_request @form
+      @success = true
+    elsif request.post?
+      @success = false
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
+  
   def load_models
     unless params[:make_id].blank?
       @models = Model.find_all_by_make_id( params[:make_id] ).collect { |m| [ m.name, m.id ] }
@@ -36,6 +50,5 @@ class ContactController < ApplicationController
       end
     end
   end
-  
-  
+
 end

@@ -1,25 +1,14 @@
-  <script>
-    <!--
-        function updateModels() {
-           new Ajax.Request( '/search/load_models', { method : 'get', parameters: { make_id: $F( 'make_id' ) } }  ) 
-           Element.show( 'models_spinner' )
-        }
-        
--->
-  </script>
-
-
 <div id="search">
 	<% form_tag( search_path, { :id => "search_form" } ) do -%>
 
 	  <p>
 	    Make:&nbsp;
-	    <%= select_tag :make_id, makes_options, :onchange => 'updateModels();' %>
+	    <%= select_tag :make_id, makes_options %>
 	  </p>
 
 	  <p>
 	    Model:&nbsp; 
-	    <%= select_tag :model_id, '<option>Any model</option>' %> <%= spinner 'models_spinner' %>
+	    <%= select_tag :model_id, "<option value=''>Any model</option>" %> <%= spinner 'models_spinner' %>
 	  </p>
 
 		<p>
@@ -55,3 +44,27 @@
 
 	<% end -%>
 </div>
+
+<script type="text/javascript">
+//<![CDATA[
+
+	$('#make_id').change(function(e){
+		$("#models_spinner").show();
+		$.ajax({
+			type: "GET",
+			url: "/search/load_models",
+			data: { make_id: this.value },
+			success: function(data, textStatus){
+				$("#models_spinner").hide();
+				eval(data);
+			},
+			error: function (XMLHttpRequest, textStatus, errorThrown) {
+				$("#models_spinner").hide();
+				eval(XMLHttpRequest.responseText);
+			}
+		});
+		return false;
+	});
+
+//]]>
+</script>

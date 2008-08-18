@@ -9,7 +9,7 @@ class StockFileImporterService
       classified = Classified.find_or_initialize_by_stock_code( row[0].strip )
       classified.model_variant_id = model_variant.id
       classified.stock_type = row[1].strip
-      #classified.year = row[4].strip
+      classified.year = row[4].strip # denormalization for search
       classified.price= row[5].strip
       classified.colour = row[7].strip
       classified.reg_num = row[8].strip

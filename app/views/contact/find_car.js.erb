@@ -1,0 +1,7 @@
+<% if @success -%>
+	$('#find_car_form_notice').html(<%= flash[:notice].to_json %>);
+	$('#find_car_form_notice').show();
+<% else -%>
+	$('#find_car_form_errors').html(<%= error_messages_for(:form).to_json %>);
+	$('#find_car_form_errors').show();
+<% end -%>

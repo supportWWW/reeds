@@ -36,5 +36,5 @@ module ApplicationHelper
     concat(content, block.binding)
     concat("\n</tbody>\n</table>", block.binding)
   end
-  
+
 end

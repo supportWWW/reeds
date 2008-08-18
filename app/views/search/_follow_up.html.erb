@@ -1,0 +1,48 @@
+<p>Would you like us to contact you if we find vehicles matching your criteria?</p>
+<h3>Let us find the vehicle you're looking for</h3>
+<% form_for :form, FindCarForm.new, :url => find_car_path, :html => { :method => :post, :id => "find_car_form" } do |f| -%>
+	<div id="find_car_form_notice" style="display: hidden;"></div>
+  <div id="find_car_form_errors" style="display: hidden;"></div>
+  <p>
+    <b>Name</b><br/>
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <b>Email</b><br/>
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <b>Phone number</b><br/>
+    <%= f.text_field :phone %>
+  </p>
+  <p>
+    <b>What are you looking for</b><br/>
+    <%= f.text_area :criteria %>
+  </p>
+  <p>
+    <%= submit_tag 'Please find for me' %><%= spinner("find_car_spinner") %>
+  </p>
+<% end -%>
+
+<p>You can also subscribe to our daily stock lists sent to you via email.</p>
+<h3>Subscribe to Stock List</h3>
+<%= partial "stocklists/form" %>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+ $('#find_car_form').ajaxForm({
+	dataType: 'script',
+	beforeSubmit: function(xhr){
+		$('#find_car_spinner').show();
+		$('#find_car_form_errors').hide();
+		$('#find_car_form_notice').hide();
+	},
+	success: function(data){
+		$('#find_car_spinner').hide();
+		eval(data);
+	}
+});
+//]]>
+</script>
