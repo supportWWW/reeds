@@ -3,12 +3,16 @@
 
 	  <p>
 	    Make:&nbsp;
-	    <%= select_tag :make_id, makes_options %>
+	    <%= select_tag :make_id, makes_options(params[:make_id]) %>
 	  </p>
 
 	  <p>
-	    Model:&nbsp; 
-	    <%= select_tag :model_id, "<option value=''>Any model</option>" %> <%= spinner 'models_spinner' %>
+	    Model:&nbsp;
+			<% if params[:model_id] && !params[:model_id].blank? %>
+				<%= select_tag :model_id, models_options(params[:model_id]) %>
+			<% else %>
+		    <%= select_tag :model_id, "<option value=''>Any model</option>" %> <%= spinner 'models_spinner' %>
+			<% end %>
 	  </p>
 
 		<p>

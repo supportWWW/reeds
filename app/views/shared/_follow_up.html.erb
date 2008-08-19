@@ -1,6 +1,6 @@
 <p>Would you like us to contact you if we find vehicles matching your criteria?</p>
 <h3>Let us find the vehicle you're looking for</h3>
-<% form_for :form, FindCarForm.new, :url => find_car_path, :html => { :method => :post, :id => "find_car_form" } do |f| -%>
+<% form_for :form, FindCarForm.new(:criteria => criteria_in_words), :url => find_car_path, :html => { :method => :post, :id => "find_car_form" } do |f| -%>
 	<div id="find_car_form_notice" style="display: hidden;"></div>
   <div id="find_car_form_errors" style="display: hidden;"></div>
   <p>
@@ -17,7 +17,7 @@
   </p>
   <p>
     <b>What are you looking for</b><br/>
-    <%= f.text_area :criteria %>
+    <%= f.text_area :criteria, :rows => 5, :cols => 50 %>
   </p>
   <p>
     <%= submit_tag 'Please find for me' %><%= spinner("find_car_spinner") %>

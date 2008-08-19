@@ -6,16 +6,20 @@ class SearchController < ApplicationController
     conditions = []
     criteria = []
     
+    @criteria_in_words = "" # Used for mailing find car requests
+    
     # MAKE
     unless params[:make_id].blank?
       conditions << "make_id = ?"
       criteria << params[:make_id].to_i
+      @criteria_in_words += "Make: #{Make.find(params[:make_id]).common_name}\n"
     end
     
     # MODEL
     unless params[:model_id].blank?
       conditions << "model_id = ?"
       criteria << params[:model_id]
+      @criteria_in_words += "Model: #{Model.find(params[:model_id]).common_name}\n"
     end
 
     # PRICE RANGE
@@ -25,9 +29,11 @@ class SearchController < ApplicationController
         conditions << "price_in_cents BETWEEN ? AND ?"
         criteria << price_range[0]
         criteria << price_range[1]
+        @criteria_in_words += "Price range: Between R#{price_range[0] / 100} and R#{price_range[1] / 100}\n"
       else
         conditions << "price_in_cents > ?"
         criteria << price_range[0]
+        @criteria_in_words += "Price range: From R#{price_range[0] / 100}\n"
       end
     end
 
@@ -38,9 +44,10 @@ class SearchController < ApplicationController
       conditions << "year BETWEEN ? AND ?"
       criteria << from.to_i
       criteria << to.to_i
+      @criteria_in_words += from == to ? "Year: #{from}\n"  : "Year: Between #{from} and #{to}\n"
     end
     
-    @results = Classified.paginate( :all,
+    @results = Classified.available.paginate( :all,
                                         :page => @page, :per_page => @per_page,
                                         :include => [:make, :model],
                                         :conditions => [conditions.join(" AND "), *criteria])
@@ -50,10 +57,11 @@ class SearchController < ApplicationController
     unless params[:make_id].blank?
       @models = Model.find_all_by_make_id( params[:make_id] ).collect { |m| [ m.name, m.id ] }
       @models.insert( 0, [ 'Any model', '' ] )
-
-      respond_to do |format|
-        format.js
-      end
+    else
+      @models = [[ 'Any model', '' ]]
+    end
+    respond_to do |format|
+      format.js
     end
   end
 

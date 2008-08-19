@@ -1,0 +1,10 @@
+<table>
+	<% results.each do |result| %>
+		<tr>
+			<td>
+				<%=h result.humanize %> <%=h result.year %> (<%=h result.mileage  %>km) <%= link_to "Show", classified_path(result.permalink) %><br/>
+				<%=h result.price.format(:no_cents) %>
+			</td>
+		</tr>
+	<% end %>
+</table>

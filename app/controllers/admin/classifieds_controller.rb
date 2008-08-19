@@ -3,7 +3,7 @@ class Admin::ClassifiedsController < Admin::ApplicationController
   # GET /classifieds
   # GET /classifieds.xml
   def index
-    @classifieds = Classified.find(:all)
+    @classifieds = Classified.cyberstock.find(:all)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -87,13 +87,15 @@ class Admin::ClassifiedsController < Admin::ApplicationController
   def load_models
     unless params[:make_id].blank?
       @models = Model.find_all_by_make_id( params[:make_id] ).collect { |m| [ m.name, m.id ] }
-      @models.insert( 0, [ 'Select a model...', '' ] )
-      render :update do |page|
-        page.replace_html( 'model_id', options_for_select( @models ) )
-        page.replace_html( 'classified_model_variant_id', '<option value="">Select a model first</option>' )
-        page.hide( 'models_spinner' )
-      end      
+      @models.insert( 0, ['Select a model...', ''] )
+    else
+      @models = [['Select a model...', '']]
     end
+    render :update do |page|
+      page.replace_html( 'model_id', options_for_select( @models ) )
+      page.replace_html( 'classified_model_variant_id', '<option value="">Select a model first</option>' )
+      page.hide( 'models_spinner' )
+    end      
   end
   
   def load_model_variants

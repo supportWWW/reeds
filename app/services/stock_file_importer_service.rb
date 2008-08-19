@@ -18,6 +18,7 @@ class StockFileImporterService
       classified.img_url = row[11].strip
       classified.best_buy = row[12] == '1'
       classified.days_in_stock = row[13].strip
+      classified.cyberstock = false
       classified.removed_at = nil
       if classified.save
         added << classified

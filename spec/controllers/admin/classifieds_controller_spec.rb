@@ -316,4 +316,18 @@ describe Admin::ClassifiedsController do
       response.should redirect_to(admin_classifieds_path)
     end
   end
+  
+  describe "loading models" do
+    it "should return a single model for no make" do
+      get 'load_models'
+      response.should be_success
+      assigns[:models].size.should == 1
+    end
+
+    it "should return models for passing in a make" do
+      get 'load_models', :make_id => 1
+      response.should be_success
+      assigns[:models].size.should > 0
+    end
+  end
 end

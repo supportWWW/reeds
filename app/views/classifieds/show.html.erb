@@ -1,16 +1,13 @@
-<p>
-  <b>Stock code:</b>
-  <%=h @classified.stock_code %>
-</p>
+<% if @classified.removed? %>
+	<p style="color: red;">	
+		Sorry, already sold.<br/>
+		<%= partial "shared/follow_up", { :criteria_in_words => "Make: #{@classified.make.common_name}\nModel: #{@classified.model.name}\nPrice range: \nYear: " } %>
+	</p>
+<% end -%>
 
 <p>
-  <b>Stock type:</b>
-  <%=h @classified.stock_type %>
-</p>
-
-<p>
-  <b>Model variant:</b>
-  <%=h @classified.model_variant_id %>
+  <b>Model:</b>
+  <%=h @classified.humanize %>
 </p>
 
 <p>
@@ -19,8 +16,13 @@
 </p>
 
 <p>
-  <b>Price in cents:</b>
-  <%=h @classified.price_in_cents %>
+  <b>Stock code:</b>
+  <%=h @classified.stock_code %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%=h @classified.price.format(:no_cents) %>
 </p>
 
 <p>
@@ -35,7 +37,7 @@
 
 <p>
   <b>Mileage:</b>
-  <%=h @classified.mileage %>
+  <%=h @classified.mileage %>km
 </p>
 
 <p>
@@ -59,21 +61,6 @@
 </p>
 
 <p>
-  <b>Removed at:</b>
-  <%=h @classified.removed_at %>
-</p>
-
-<p>
   <b>Has service history:</b>
   <%=h @classified.has_service_history %>
-</p>
-
-<p>
-  <b>Cyberstock:</b>
-  <%=h @classified.cyberstock %>
-</p>
-
-<p>
-  <b>Expires at:</b>
-  <%=h @classified.expires_at %>
 </p>

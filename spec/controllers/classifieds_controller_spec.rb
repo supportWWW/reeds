@@ -2,67 +2,6 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe ClassifiedsController do
 
-  describe "handling GET /classifieds" do
-
-    before(:each) do
-      @classified = mock_model(Classified)
-      Classified.stub!(:find).and_return([@classified])
-    end
-  
-    def do_get
-      get :index
-    end
-  
-    it "should be successful" do
-      do_get
-      response.should be_success
-    end
-
-    it "should render index template" do
-      do_get
-      response.should render_template('index')
-    end
-  
-    it "should find all classifieds" do
-      Classified.should_receive(:find).with(:all).and_return([@classified])
-      do_get
-    end
-  
-    it "should assign the found classifieds for the view" do
-      do_get
-      assigns[:classifieds].should == [@classified]
-    end
-  end
-
-  describe "handling GET /classifieds.xml" do
-
-    before(:each) do
-      @classifieds = mock("Array of Classifieds", :to_xml => "XML")
-      Classified.stub!(:find).and_return(@classifieds)
-    end
-  
-    def do_get
-      @request.env["HTTP_ACCEPT"] = "application/xml"
-      get :index
-    end
-  
-    it "should be successful" do
-      do_get
-      response.should be_success
-    end
-
-    it "should find all classifieds" do
-      Classified.should_receive(:find).with(:all).and_return(@classifieds)
-      do_get
-    end
-  
-    it "should render the found classifieds as xml" do
-      @classifieds.should_receive(:to_xml).and_return("XML")
-      do_get
-      response.body.should == "XML"
-    end
-  end
-
   describe "handling GET /classifieds/1" do
 
     before(:each) do

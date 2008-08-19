@@ -4,14 +4,14 @@ describe "/admin/classifieds/index.html.erb" do
   include Admin::ClassifiedsHelper
   
   before(:each) do
-    classified_98 = mock_model(Classified, :humanize_model => "MyString")
+    classified_98 = mock_model(Classified, :humanize => "MyString")
     classified_98.should_receive(:stock_code).and_return("MyString")
     classified_98.should_receive(:price).and_return(mock("Price", :format => "112"))
     classified_98.should_receive(:colour).and_return("MyString")
     classified_98.should_receive(:reg_num).and_return("MyString")
     classified_98.should_receive(:mileage).and_return("1")
     classified_98.should_receive(:days_in_stock).and_return("1")
-    classified_99 = mock_model(Classified, :humanize_model => "MyString")
+    classified_99 = mock_model(Classified, :humanize => "MyString")
     classified_99.should_receive(:stock_code).and_return("MyString")
     classified_99.should_receive(:price).and_return(mock("Price", :format => "112"))
     classified_99.should_receive(:colour).and_return("MyString")
