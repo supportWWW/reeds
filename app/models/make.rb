@@ -14,6 +14,15 @@ class Make < ActiveRecord::Base
   end
   
   class << self 
+  
+    def find_in_stock
+      Make.find_by_sql(%#
+                          SELECT DISTINCT m.* FROM classifieds c
+                          INNER JOIN makes m ON m.id = c.make_id
+                          WHERE c.removed_at IS NULL
+                          ORDER BY m.name
+                         #)
+    end
     
     def for_select
       find( :all, :order => 'name' ).collect { |i| [ i.name, i.id ] }

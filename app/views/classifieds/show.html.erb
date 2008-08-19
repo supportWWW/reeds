@@ -5,6 +5,13 @@
 	</p>
 <% end -%>
 
+<% if (request.env["HTTP_REFERER"] || "").include?(request.env["SERVER_NAME"]) %>
+	<%= link_to "Back to search results", "javascript:history.back();", :title => "Back to search results" %> | <%= link_to "Search again", search_path, :title => "Search for used motor vehicles" %>
+<% else %>
+	<%= link_to "Search for other used vehicles", search_path, :title => "Search for used motor vehicles" %>
+<% end -%>
+ | <%= link_to "View Vehicles in same price range", search_path(:price => @classified.price), :title => "Search for similarly priced vehicles" %>
+
 <p>
   <b>Model:</b>
   <%=h @classified.humanize %>
@@ -31,11 +38,6 @@
 </p>
 
 <p>
-  <b>Reg num:</b>
-  <%=h @classified.reg_num %>
-</p>
-
-<p>
   <b>Mileage:</b>
   <%=h @classified.mileage %>km
 </p>
@@ -48,16 +50,6 @@
 <p>
   <b>Img url:</b>
   <%=h @classified.img_url %>
-</p>
-
-<p>
-  <b>Best buy:</b>
-  <%=h @classified.best_buy %>
-</p>
-
-<p>
-  <b>Days in stock:</b>
-  <%=h @classified.days_in_stock %>
 </p>
 
 <p>

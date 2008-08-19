@@ -23,6 +23,8 @@ describe "/classifieds/show.html.erb" do
     @classified.stub!(:model).and_return(Model.new)
 
     assigns[:classified] = @classified
+    @request.env["HTTP_REFERER"] = "http://localhost/search"
+    @request.env["SERVER_NAME"] = "localhost"
   end
 
   it "should render attributes in <p>" do

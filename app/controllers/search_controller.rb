@@ -1,7 +1,7 @@
 class SearchController < ApplicationController
 
   before_filter :load_page, :only => :index
-
+  
   def index
     conditions = []
     criteria = []
@@ -22,29 +22,35 @@ class SearchController < ApplicationController
       @criteria_in_words += "Model: #{Model.find(params[:model_id]).common_name}\n"
     end
 
+    # Convert price to price range if there is only a price
+    # Price is in rands (not cents)
+    unless params[:price].blank?
+      params[:price_range] = convert_to_price_range(params[:price])
+    end
+    
     # PRICE RANGE
     unless params[:price_range].blank?
-      price_range = params[:price_range].split("|").map { |price| price.to_i * 100 }
-      if price_range.size == 2
+      range = params[:price_range].split("|").map { |price| price.to_i * 100 }
+      if range.size == 2
         conditions << "price_in_cents BETWEEN ? AND ?"
-        criteria << price_range[0]
-        criteria << price_range[1]
-        @criteria_in_words += "Price range: Between R#{price_range[0] / 100} and R#{price_range[1] / 100}\n"
+        criteria << range[0]
+        criteria << range[1]
+        @criteria_in_words += "Price range: Between R#{range[0] / 100} and R#{range[1] / 100}\n"
       else
         conditions << "price_in_cents > ?"
-        criteria << price_range[0]
-        @criteria_in_words += "Price range: From R#{price_range[0] / 100}\n"
+        criteria << range[0]
+        @criteria_in_words += "Price range: From R#{range[0] / 100}\n"
       end
     end
 
     # YEAR
     unless params[:from].blank? && params[:to].blank?
-      from = params[:from].blank? ? params[:to] : params[:from]
-      to = params[:to].blank? ? params[:from] : params[:to]
+      f = params[:from].blank? ? params[:to] : params[:from]
+      t = params[:to].blank? ? params[:from] : params[:to]
       conditions << "year BETWEEN ? AND ?"
-      criteria << from.to_i
-      criteria << to.to_i
-      @criteria_in_words += from == to ? "Year: #{from}\n"  : "Year: Between #{from} and #{to}\n"
+      criteria << f.to_i
+      criteria << t.to_i
+      @criteria_in_words += f == t ? "Year: #{f}\n"  : "Year: Between #{f} and #{t}\n"
     end
     
     @results = Classified.available.paginate( :all,
@@ -65,4 +71,10 @@ class SearchController < ApplicationController
     end
   end
 
+private
+
+  def convert_to_price_range(price)
+    p = price.to_i.roundup(10000)
+    return "#{p - 10000}|#{p + 10000}"
+  end
 end

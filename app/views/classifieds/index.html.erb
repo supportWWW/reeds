@@ -1,44 +1,4 @@
-<h2>Listing classifieds</h2>
+<h2>Used vehicles</h2>
 
-<table>
-  <tr>
-    <th>Stock code</th>
-    <th>Stock type</th>
-    <th>Model variant</th>
-    <th>Year</th>
-    <th>Price in cents</th>
-    <th>Colour</th>
-    <th>Reg num</th>
-    <th>Mileage</th>
-    <th>Features</th>
-    <th>Img url</th>
-    <th>Best buy</th>
-    <th>Days in stock</th>
-    <th>Removed at</th>
-    <th>Has service history</th>
-    <th>Cyberstock</th>
-    <th>Expires at</th>
-  </tr>
-
-<% for classified in @classifieds %>
-  <tr>
-    <td><%=h classified.stock_code %></td>
-    <td><%=h classified.stock_type %></td>
-    <td><%=h classified.model_variant_id %></td>
-    <td><%=h classified.year %></td>
-    <td><%=h classified.price_in_cents %></td>
-    <td><%=h classified.colour %></td>
-    <td><%=h classified.reg_num %></td>
-    <td><%=h classified.mileage %></td>
-    <td><%=h classified.features %></td>
-    <td><%=h classified.img_url %></td>
-    <td><%= boolean_label classified.best_buy %></td>
-    <td><%=h classified.days_in_stock %></td>
-    <td><%=h classified.removed_at %></td>
-    <td><%= boolean_label classified.has_service_history %></td>
-    <td><%= boolean_label classified.cyberstock %></td>
-    <td><%=h classified.expires_at %></td>
-    <td><%= link_to 'Show', classified_path(classified) %></td>
-  </tr>
-<% end %>
-</table>
+<p>Reeds Motor Group is proud to offer you the best selection of quality pre-owned vehicles in the Western Cape. Our stock is updated on a daily basis. All our vehicles undergo a stringent 60 point quality check at our Quality Inspection Centre.</p>
+<%= partial "search/form" %>

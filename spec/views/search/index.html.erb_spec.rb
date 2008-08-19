@@ -10,12 +10,16 @@ describe "/search/index" do
     result_98.should_receive(:mileage).and_return("MyString")
     result_98.should_receive(:price).and_return(Money.new(1))
     result_98.should_receive(:year).and_return(2007)
+    result_98.should_receive(:colour).and_return("MyString")
+    result_98.should_receive(:stock_code).and_return("MyString")
     result_98.should_receive(:permalink).and_return("MyString")
     result_99 = mock_model(Classified)
     result_99.should_receive(:humanize).and_return("MyString")
     result_99.should_receive(:mileage).and_return("MyString")
     result_99.should_receive(:price).and_return(Money.new(1))
     result_99.should_receive(:year).and_return(2007)
+    result_99.should_receive(:colour).and_return("MyString")
+    result_99.should_receive(:stock_code).and_return("MyString")
     result_99.should_receive(:permalink).and_return("MyString")
     
     assigns[:results] = [result_98, result_99]

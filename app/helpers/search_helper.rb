@@ -1,10 +1,11 @@
 module SearchHelper
   def makes_for_select
-    makes = Make.find(:all, :order => 'name').collect { |m| [m.name, m.id] }
+    makes = Make.find_in_stock.collect { |m| [m.name, m.id] }
     makes.insert(0, [ 'Any make', '' ])
   end
   
   def makes_options(selected=nil)
+    selected = nil if selected && selected.to_i == 0
     unless selected.nil?
       if selected.class != Make
         selected = Make.find(selected.to_i)
@@ -19,6 +20,7 @@ module SearchHelper
   end
 
   def models_options(selected=nil)
+    selected = nil if selected && selected.to_i == 0
     unless selected.nil?
       if selected.class != Model
         selected = Model.find(selected.to_i)

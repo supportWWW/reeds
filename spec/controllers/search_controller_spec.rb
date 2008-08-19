@@ -25,6 +25,19 @@ describe SearchController do
       get 'index', :make_id => 1, :model_id => 1, :price_range => "100000|200000", :from => 1973, :to => 2000
       response.should be_success
     end
+
+    it "should be successful with the price parameter" do
+      @make = mock_model(Make)
+      @model = mock_model(Model)
+      @make.stub!(:common_name).and_return("MyString")
+      @model.stub!(:common_name).and_return("MyString")
+      Make.stub!(:find).and_return(@make)
+      Model.stub!(:find).and_return(@model)
+      
+      get 'index', :make_id => 1, :model_id => 1, :price => "165000", :from => 1973, :to => 2000
+      response.should be_success
+      params[:price_range].should == "160000|180000"
+    end
   end
   
   describe "GET 'load_models'" do
