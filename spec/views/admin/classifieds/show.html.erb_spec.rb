@@ -8,6 +8,7 @@ describe "/admin/classifieds/show.html.erb" do
     @classified.stub!(:stock_code).and_return("MyString")
     @classified.stub!(:stock_type).and_return("1")
     @classified.stub!(:model_variant_id).and_return("1")
+    @classified.stub!(:physical).and_return(Classified.new)
     @classified.stub!(:year).and_return("1")
     @classified.stub!(:price_in_cents).and_return("1")
     @classified.stub!(:colour).and_return("MyString")
@@ -20,7 +21,7 @@ describe "/admin/classifieds/show.html.erb" do
     @classified.stub!(:removed_at).and_return(Time.now)
     @classified.stub!(:has_service_history).and_return(false)
     @classified.stub!(:cyberstock).and_return(false)
-    @classified.stub!(:expires_at).and_return(Time.now)
+    @classified.stub!(:expires_on).and_return(Date.today)
 
     assigns[:classified] = @classified
   end

@@ -7,6 +7,7 @@ describe "/admin/classifieds/new.html.erb" do
     @classified = mock_model(Classified)
     @classified.stub!(:new_record?).and_return(true)
     @classified.stub!(:stock_code).and_return("MyString")
+    @classified.stub!(:physical_id).and_return(1)
     @classified.stub!(:stock_type).and_return("1")
     @classified.stub!(:model_variant).and_return(ModelVariant.new(:model => Model.new))
     @classified.stub!(:model_variant_id).and_return("1")
@@ -18,10 +19,9 @@ describe "/admin/classifieds/new.html.erb" do
     @classified.stub!(:img_url).and_return("MyString")
     @classified.stub!(:best_buy).and_return(false)
     @classified.stub!(:days_in_stock).and_return("1")
-    @classified.stub!(:removed_at).and_return(Time.now)
     @classified.stub!(:has_service_history).and_return(false)
     @classified.stub!(:cyberstock).and_return(false)
-    @classified.stub!(:expires_at).and_return(Time.now)
+    @classified.stub!(:expires_on).and_return(Date.today)
     assigns[:classified] = @classified
   end
 
@@ -33,14 +33,13 @@ describe "/admin/classifieds/new.html.erb" do
       with_tag("input#classified_stock_type[name=?]", "classified[stock_type]")
       with_tag("input#classified_price_in_cents[name=?]", "classified[price_in_cents]")
       with_tag("input#classified_colour[name=?]", "classified[colour]")
-      with_tag("input#classified_reg_num[name=?]", "classified[reg_num]")
       with_tag("input#classified_mileage[name=?]", "classified[mileage]")
+      with_tag("select#classified_physical_id[name=?]", "classified[physical_id]")
       with_tag("textarea#classified_features[name=?]", "classified[features]")
       with_tag("input#classified_img_url[name=?]", "classified[img_url]")
       with_tag("input#classified_best_buy[name=?]", "classified[best_buy]")
       with_tag("input#classified_days_in_stock[name=?]", "classified[days_in_stock]")
       with_tag("input#classified_has_service_history[name=?]", "classified[has_service_history]")
-      with_tag("input#classified_cyberstock[name=?]", "classified[cyberstock]")
     end
   end
 end

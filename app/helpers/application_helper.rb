@@ -37,4 +37,16 @@ module ApplicationHelper
     concat("\n</tbody>\n</table>", block.binding)
   end
 
+  def link_to_section(name, html_opts={}, &block)
+    section_id = name.underscore.gsub(/\s+/,'_')
+    link_id = section_id + '_link'
+    # Link
+    concat(link_to_function(name, "$('##{section_id}').show(); $('##{link_id}').hide();return false;",
+        html_opts.update(:id => link_id)), block.binding)
+    # Hidden section
+    concat(tag('div', { :id => section_id, :style => 'display: none;' }, true), block.binding)
+    yield "$('##{section_id}').hide(); $('##{link_id}').show();return false;"
+    concat('</div>', block.binding)
+  end
+
 end

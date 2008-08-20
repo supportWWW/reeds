@@ -68,6 +68,38 @@ describe Admin::ClassifiedsController do
     end
   end
 
+  describe "handling GET /classifieds/expired" do
+
+    before(:each) do
+      @classified = mock_model(Classified)
+      Classified.stub!(:find).and_return([@classified])
+    end
+  
+    def do_get
+      get :expired
+    end
+  
+    it "should be successful" do
+      do_get
+      response.should be_success
+    end
+
+    it "should render index template" do
+      do_get
+      response.should render_template('expired')
+    end
+  
+    it "should find all classifieds" do
+      Classified.should_receive(:find).with(:all).and_return([@classified])
+      do_get
+    end
+  
+    it "should assign the found classifieds for the view" do
+      do_get
+      assigns[:classifieds].should == [@classified]
+    end
+  end
+
   describe "handling GET /classifieds/1" do
 
     before(:each) do
@@ -208,6 +240,7 @@ describe Admin::ClassifiedsController do
     describe "with successful save" do
   
       def do_post
+        @classified.should_receive(:cyberstock=).and_return(true)
         @classified.should_receive(:save).and_return(true)
         post :create, :classified => {}
       end
@@ -227,6 +260,7 @@ describe Admin::ClassifiedsController do
     describe "with failed save" do
 
       def do_post
+        @classified.should_receive(:cyberstock=).and_return(true)
         @classified.should_receive(:save).and_return(false)
         post :create, :classified => {}
       end

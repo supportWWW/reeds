@@ -4,11 +4,16 @@
 	<li><%= link_to 'Import Mead & McGrouther file', :controller => 'admin/importer', :action => 'import_mm' %></li>
 </ul>
 
-<span class="menu_header">Vehicles</span>
+<span class="menu_header">Cyber stock</span>
 <ul>
-	<li><%= link_to 'Ghost cars', admin_classifieds_path %></li>
-	<li><%= link_to 'Model ranges (new vehicles)', admin_model_ranges_path %></li>
-	<li><%= link_to 'New Vehicles', admin_new_vehicles_path %></li>
+	<li><%= link_to 'Live', admin_classifieds_path %></li>
+	<li><%= link_to 'Expired', expired_admin_classifieds_path %></li>
+</ul>
+
+<span class="menu_header">New Vehicles</span>
+<ul>
+	<li><%= link_to 'Model ranges', admin_model_ranges_path %></li>
+	<li><%= link_to 'Vehicles', admin_new_vehicles_path %></li>
 </ul>
 
 <span class="menu_header">CMS</span>

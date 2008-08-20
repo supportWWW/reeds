@@ -1,33 +1,38 @@
-<p>Would you like us to contact you if we find vehicles matching your criteria?</p>
-<h3>Let us find the vehicle you're looking for</h3>
-<% form_for :form, FindCarForm.new(:criteria => criteria_in_words), :url => find_car_path, :html => { :method => :post, :id => "find_car_form" } do |f| -%>
-	<div id="find_car_form_notice" style="display: hidden;"></div>
-  <div id="find_car_form_errors" style="display: hidden;"></div>
-  <p>
-    <b>Name</b><br/>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <b>Email</b><br/>
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <b>Phone number</b><br/>
-    <%= f.text_field :phone %>
-  </p>
-  <p>
-    <b>What are you looking for</b><br/>
-    <%= f.text_area :criteria, :rows => 5, :cols => 50 %>
-  </p>
-  <p>
-    <%= submit_tag 'Please find for me' %><%= spinner("find_car_spinner") %>
-  </p>
+<% link_to_section "Let us find the vehicle for you" do |cancel| %>	
+	<%= link_to_function("Hide Details", cancel) %>
+	<h3>Let us find the vehicle you're looking for</h3>
+	<p>Would you like us to contact you if we find vehicles matching your criteria?</p>
+	<% form_for :form, FindCarForm.new(:criteria => criteria_in_words), :url => find_car_path, :html => { :method => :post, :id => "find_car_form" } do |f| -%>
+		<div id="find_car_form_notice" style="display: hidden;"></div>
+	  <div id="find_car_form_errors" style="display: hidden;"></div>
+	  <p>
+	    <b>Name</b><br/>
+	    <%= f.text_field :name %>
+	  </p>
+	  <p>
+	    <b>Email</b><br/>
+	    <%= f.text_field :email %>
+	  </p>
+	  <p>
+	    <b>Phone number</b><br/>
+	    <%= f.text_field :phone %>
+	  </p>
+	  <p>
+	    <b>What are you looking for</b><br/>
+	    <%= f.text_area :criteria, :rows => 5, :cols => 50 %>
+	  </p>
+	  <p>
+	    <%= submit_tag 'Please find for me' %><%= spinner("find_car_spinner") %>
+	  </p>
+	<% end -%>
 <% end -%>
-
-<p>You can also subscribe to our daily stock lists sent to you via email.</p>
-<h3>Subscribe to Stock List</h3>
-<%= partial "stocklists/form" %>
-
+<br/>
+<% link_to_section "Subscribe to daily stock lists" do |cancel| %>	
+	<%= link_to_function("Hide Details", cancel) %>
+	<h3>Subscribe to Stock List</h3>
+	<p>You can also subscribe to our daily stock lists sent to you via email.</p>
+	<%= partial "stocklists/form" %>
+<% end -%>
 
 <script type="text/javascript">
 //<![CDATA[

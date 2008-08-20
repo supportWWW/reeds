@@ -1,6 +1,6 @@
 <% if @classified.removed? %>
 	<p style="color: red;">	
-		Sorry, already sold.<br/>
+		Sorry, it was a great vehicle, but we have already sold it.<br/>
 		<%= partial "shared/follow_up", { :criteria_in_words => "Make: #{@classified.make.common_name}\nModel: #{@classified.model.name}\nPrice range: \nYear: " } %>
 	</p>
 <% end -%>
@@ -56,3 +56,15 @@
   <b>Has service history:</b>
   <%=h @classified.has_service_history %>
 </p>
+
+<% link_to_section "Disclaimer" do |cancel| %>	
+	<%= link_to_function("Hide disclaimer", cancel) %>
+	<h3>Disclaimer</h3>
+	<p> RV to supply the disclaimer.</p>
+<% end -%>
+<br/>
+<% link_to_section "Warranty information" do |cancel| %>	
+	<%= link_to_function("Hide warranty", cancel) %>
+	<h3>Warranty  information</h3>
+	<p> RV to supply the warranty.</p>
+<% end -%>

@@ -4,9 +4,9 @@
   	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   	<title>Reeds Motorgroup</title>
 
-  	<%= stylesheet_link_tag "application" %>
+  	<%= stylesheet_link_tag "application", "ui.datepicker.css", :cache => "cached_all" %>
         <% if @use_jquery %>
-            <%= javascript_include_tag "jquery-1.2.6.pack.js", "jquery-form.js", "frontend", :cache => "cached_js"  %>
+            <%= javascript_include_tag "jquery-1.2.6.pack.js", "jquery-form.js", "jquery-ui-1.5rc1.min.js", "jquery.highlight.js", "frontend", :cache => "cached_js"  %>
         <% end  %>
         <%= yield :header %>
   </head>
@@ -24,5 +24,6 @@
     
     <%= yield %>
     
+		<%= partial "layouts/footer" %>
   </body>
 </html>

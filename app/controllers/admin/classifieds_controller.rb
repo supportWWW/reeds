@@ -3,7 +3,18 @@ class Admin::ClassifiedsController < Admin::ApplicationController
   # GET /classifieds
   # GET /classifieds.xml
   def index
-    @classifieds = Classified.cyberstock.find(:all)
+    @classifieds = Classified.live_cyberstock.find(:all)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @classifieds }
+    end
+  end
+
+  # GET /classifieds/expired
+  # GET /classifieds/expired.xml
+  def expired
+    @classifieds = Classified.expired_cyberstock.find(:all)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -42,10 +53,11 @@ class Admin::ClassifiedsController < Admin::ApplicationController
   # POST /classifieds.xml
   def create
     @classified = Classified.new(params[:classified])
-
+    @classified.cyberstock = true
+    
     respond_to do |format|
       if @classified.save
-        flash[:notice] = 'Classified was successfully created.'
+        flash[:notice] = 'Cyberstock was successfully created.'
         format.html { redirect_to(admin_classified_path(@classified)) }
         format.xml  { render :xml => @classified, :status => :created, :location => @classified }
       else
@@ -62,7 +74,7 @@ class Admin::ClassifiedsController < Admin::ApplicationController
 
     respond_to do |format|
       if @classified.update_attributes(params[:classified])
-        flash[:notice] = 'Classified was successfully updated.'
+        flash[:notice] = 'Cyberstock was successfully updated.'
         format.html { redirect_to(admin_classified_path(@classified)) }
         format.xml  { head :ok }
       else

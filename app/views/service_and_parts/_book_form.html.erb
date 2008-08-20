@@ -1,10 +1,3 @@
-<% content_for :header do %>
-
-  <%= calendar_date_select_includes %>
-
-<% end  %>
-
-
 <% form_for :form, @form, :url => { :controller => 'service_and_parts', :action => 'book' }, :method => :post do |f| %>
 
       <%= error_messages_for :form %>
@@ -31,12 +24,12 @@
 
   <p>
     <b>Booking date: </b>( Should be at least 3 days from now )<br/>
-    <%= f.calendar_date_select :booking_date, :time => false %>
+    <%= f.text_field :booking_date %>
   </p>
 
   <p>
     <b>Problem description</b><br/>
-    <%= f.text_area :problem_description %>
+    <%= f.text_area :problem_description, :rows => 5 %>
   </p>
 
   <p>
@@ -44,3 +37,14 @@
   </p>
 
 <% end  %>
+
+<script type="text/javascript">
+//<![CDATA[
+
+ $('#form_booking_date').datepicker({ dateFormat: 'yy-mm-dd',
+ 																			defaultDate: +3,
+																			minDate: +3
+ });
+
+//]]>
+</script>

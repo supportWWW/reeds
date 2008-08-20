@@ -9,6 +9,11 @@
 </p>
 
 <p>
+  <b>Physical used car:</b>
+  <%=h @classified.physical.stock_code %> - <%=h @classified.physical.humanize %> <%=h @classified.physical.year %>
+</p>
+
+<p>
   <b>Model variant:</b>
   <%=h @classified.model_variant_id %>
 </p>
@@ -59,11 +64,6 @@
 </p>
 
 <p>
-  <b>Removed at:</b>
-  <%=h @classified.removed_at %>
-</p>
-
-<p>
   <b>Has service history:</b>
   <%=h @classified.has_service_history %>
 </p>
@@ -74,8 +74,8 @@
 </p>
 
 <p>
-  <b>Expires at:</b>
-  <%=h @classified.expires_at %>
+  <b>Expires on:</b>
+  <%=h @classified.expires_on %>
 </p>
 
 

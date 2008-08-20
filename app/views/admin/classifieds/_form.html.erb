@@ -24,6 +24,10 @@
   <%= f.text_field :stock_type %>
 </p>
 <p>
+	<label>Used  - Real Stock Item</label><br/>
+	<%= f.select :physical_id, Classified.physical.find(:all).collect {|p| [ "#{p.stock_code} - #{p.humanize} #{p.year}", p.id ] }, :include_blank => true %>
+</p>
+<p>
   <label>Make</label><br/>
   <%= select_tag :make_id, makes_options(classified.nil? ? nil : classified.model_variant.model.make), :onchange => 'updateModels();' %>
 </p>
@@ -52,10 +56,6 @@
   <%= f.text_field :colour %>
 </p>
 <p>
-  <%= f.label :reg_num %><br />
-  <%= f.text_field :reg_num %>
-</p>
-<p>
   <%= f.label :mileage %><br />
   <%= f.text_field :mileage %>
 </p>
@@ -80,10 +80,6 @@
   <%= f.check_box :has_service_history %>
 </p>
 <p>
-  <%= f.label :cyberstock %><br />
-  <%= f.check_box :cyberstock %>
-</p>
-<p>
-  <%= f.label :expires_at %><br />
-  <%= f.datetime_select :expires_at %>
+  <%= f.label :expires_on %><br />
+  <%= f.date_select :expires_on %>
 </p>
