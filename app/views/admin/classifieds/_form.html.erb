@@ -27,6 +27,12 @@
 	<label>Used  - Real Stock Item</label><br/>
 	<%= f.select :physical_id, Classified.physical.find(:all).collect {|p| [ "#{p.stock_code} - #{p.humanize} #{p.year}", p.id ] }, :include_blank => true %>
 </p>
+
+<p>
+  <%= f.label :salesperson_id %><br />
+	<%= f.select :salesperson_id, Salesperson.find(:all).collect {|p| [ p.name, p.id ] }, :include_blank => true %>
+</p>
+
 <p>
   <label>Make</label><br/>
   <%= select_tag :make_id, makes_options(classified.nil? ? nil : classified.model_variant.model.make), :onchange => 'updateModels();' %>

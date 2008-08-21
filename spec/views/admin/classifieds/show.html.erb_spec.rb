@@ -9,6 +9,7 @@ describe "/admin/classifieds/show.html.erb" do
     @classified.stub!(:stock_type).and_return("1")
     @classified.stub!(:model_variant_id).and_return("1")
     @classified.stub!(:physical).and_return(Classified.new)
+    @classified.stub!(:salesperson).and_return(Salesperson.new)
     @classified.stub!(:year).and_return("1")
     @classified.stub!(:price_in_cents).and_return("1")
     @classified.stub!(:colour).and_return("MyString")

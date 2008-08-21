@@ -8,6 +8,7 @@ describe "/admin/classifieds/new.html.erb" do
     @classified.stub!(:new_record?).and_return(true)
     @classified.stub!(:stock_code).and_return("MyString")
     @classified.stub!(:physical_id).and_return(1)
+    @classified.stub!(:salesperson_id).and_return(1)
     @classified.stub!(:stock_type).and_return("1")
     @classified.stub!(:model_variant).and_return(ModelVariant.new(:model => Model.new))
     @classified.stub!(:model_variant_id).and_return("1")

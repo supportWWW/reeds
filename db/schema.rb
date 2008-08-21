@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080820171952) do
+ActiveRecord::Schema.define(:version => 20080821094202) do
 
   create_table "accessories", :force => true do |t|
     t.string   "name"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(:version => 20080820171952) do
     t.string   "permalink"
     t.integer  "physical_id",         :limit => 11
     t.date     "expires_on"
+    t.integer  "salesperson_id",      :limit => 11
   end
 
   add_index "classifieds", ["stock_code"], :name => "index_classifieds_on_stock_code", :unique => true

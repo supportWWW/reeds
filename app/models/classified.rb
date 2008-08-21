@@ -11,12 +11,13 @@ class Classified < ActiveRecord::Base
   belongs_to :make # denormalized for search
 
   belongs_to :physical, :class_name => 'Classified', :foreign_key => 'physical_id'
+  belongs_to :salesperson
   
   before_save :set_make_and_model
   
-  named_scope :available, :conditions => { :removed_at => nil }
-  named_scope :live_cyberstock, :conditions => ["removed_at is NULL AND cyberstock = 1 AND expires_on > ?", Date.today]
-  named_scope :expired_cyberstock, :conditions => ["removed_at is NULL AND cyberstock = 1 AND expires_on <= ?", Date.today]
+  named_scope :available, lambda { :conditions => ["removed_at is NULL AND expires_on > ?", Date.today] }
+  named_scope :live_cyberstock, lambda { :conditions => ["removed_at is NULL AND cyberstock = 1 AND expires_on > ?", Date.today] }
+  named_scope :expired_cyberstock, lambda { :conditions => ["removed_at is NULL AND cyberstock = 1 AND expires_on <= ?", Date.today] }
   named_scope :physical, :conditions => { :removed_at => nil, :cyberstock => false }, :order => "stock_code"
   
   def humanize

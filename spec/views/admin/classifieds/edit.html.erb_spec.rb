@@ -10,6 +10,7 @@ describe "/admin/classifieds/edit.html.erb" do
     @classified.stub!(:model_variant).and_return(ModelVariant.new(:model => Model.new))
     @classified.stub!(:model_variant_id).and_return("1")
     @classified.stub!(:physical_id).and_return(1)
+    @classified.stub!(:salesperson_id).and_return(1)
     @classified.stub!(:price_in_cents).and_return("1")
     @classified.stub!(:colour).and_return("MyString")
     @classified.stub!(:reg_num).and_return("MyString")
