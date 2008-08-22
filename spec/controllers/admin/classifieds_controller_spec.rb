@@ -100,6 +100,70 @@ describe Admin::ClassifiedsController do
     end
   end
 
+  describe "handling GET /classifieds/with_photo" do
+
+    before(:each) do
+      @classified = mock_model(Classified)
+      Classified.stub!(:find).and_return([@classified])
+    end
+  
+    def do_get
+      get :with_photo
+    end
+  
+    it "should be successful" do
+      do_get
+      response.should be_success
+    end
+
+    it "should render index template" do
+      do_get
+      response.should render_template('with_photo')
+    end
+  
+    it "should find all classifieds" do
+      Classified.should_receive(:find).with(:all).and_return([@classified])
+      do_get
+    end
+  
+    it "should assign the found classifieds for the view" do
+      do_get
+      assigns[:classifieds].should == [@classified]
+    end
+  end
+
+  describe "handling GET /classifieds/no_photo" do
+
+    before(:each) do
+      @classified = mock_model(Classified)
+      Classified.stub!(:find).and_return([@classified])
+    end
+  
+    def do_get
+      get :no_photo
+    end
+  
+    it "should be successful" do
+      do_get
+      response.should be_success
+    end
+
+    it "should render index template" do
+      do_get
+      response.should render_template('no_photo')
+    end
+  
+    it "should find all classifieds" do
+      Classified.should_receive(:find).with(:all).and_return([@classified])
+      do_get
+    end
+  
+    it "should assign the found classifieds for the view" do
+      do_get
+      assigns[:classifieds].should == [@classified]
+    end
+  end
+
   describe "handling GET /classifieds/1" do
 
     before(:each) do

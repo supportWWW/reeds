@@ -22,6 +22,28 @@ class Admin::ClassifiedsController < Admin::ApplicationController
     end
   end
 
+  # GET /classifieds/with_photo
+  # GET /classifieds/with_photo.xml
+  def with_photo
+    @classifieds = Classified.with_photos.find(:all)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @classifieds }
+    end
+  end
+
+  # GET /classifieds/no_photo
+  # GET /classifieds/no_photo.xml
+  def no_photo
+    @classifieds = Classified.no_photos.find(:all)
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @classifieds }
+    end
+  end
+
   # GET /classifieds/1
   # GET /classifieds/1.xml
   def show
