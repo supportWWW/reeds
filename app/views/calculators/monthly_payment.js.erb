@@ -1,0 +1,7 @@
+<% if @success %>
+	$('#approximate_monthly_payment').html(<%= @approximate_monthly_payment.to_json %>);
+<% else %>
+	$('#approximate_monthly_payment').html('');
+	$('#monthly_payment_form_errors').html(<%= error_messages_for(:form).to_json %>);
+	$('#monthly_payment_form_errors').show();
+<% end %>

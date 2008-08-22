@@ -1,0 +1,46 @@
+<div class="calculator">
+	<% form_for :form, MonthlyPaymentForm.new, :url => monthly_payment_path, :html => { :method => :post, :id => "monthly_payment_form" } do |f| -%>
+	  <div id="monthly_payment_form_errors" style="display: hidden;"></div>
+		<table>
+			<tr>
+				<td>Purchase price</td>
+				<td>R<%= f.text_field :purchase_price, :maxsize => 10, :size => 10 %></td>
+			</tr>
+			<tr>
+				<td>Deposit/Trade in value<br/>(No longer required by law)</td>
+				<td>R<%= f.text_field :deposit, :maxsize => 10, :size => 10 %></td>
+			</tr>
+			<tr>
+				<td>Repayment period</td>
+				<td><%= f.select :repayment_period, MonthlyPaymentForm::REPAYMENT_PERIODS.collect { |p| [p, p] } %>months</td>
+			</tr>
+			<tr>
+				<td>Interest rate</td>
+				<td><%= f.text_field :interest_rate, :maxsize => 10, :size => 10 %>%</td>
+			</tr>
+			<tr>
+				<td>Approximate monthly payment</td>
+				<td>R <span id="approximate_monthly_payment"></span></td>
+			</tr>
+		</table>
+		<p>This is an approximate amount and we do not accept responsibility for any errors that may occur.</p>
+		<%= submit_tag 'Calculate' %><%= spinner("monthly_payment_spinner") %>
+	<% end %>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+
+ $('#monthly_payment_form').ajaxForm({
+	dataType: 'script',
+	beforeSubmit: function(xhr){
+		$('#monthly_payment_spinner').show();
+		$('#monthly_payment_form_errors').hide();
+	},
+	success: function(data){
+		$('#monthly_payment_spinner').hide();
+		eval(data);
+	}
+});
+//]]>
+</script>
