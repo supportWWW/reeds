@@ -18,7 +18,7 @@
     <td><%=h classified.reg_num %></td>
     <td><%=h classified.mileage %></td>
     <td><%=h classified.days_in_stock %></td>
-    <td><%= link_to 'Show', admin_classified_path(classified) %> </td>
+    <td><%= link_to 'Show', admin_classified_path(classified) %> | <%= link_to 'Edit', edit_admin_classified_path(classified) %>%></td>
   </tr>
 <% end %>
 </table>

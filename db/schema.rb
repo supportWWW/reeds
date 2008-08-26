@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080821094202) do
+ActiveRecord::Schema.define(:version => 20080826115433) do
 
   create_table "accessories", :force => true do |t|
     t.string   "name"
@@ -63,7 +63,6 @@ ActiveRecord::Schema.define(:version => 20080821094202) do
 
   create_table "classifieds", :force => true do |t|
     t.string   "stock_code"
-    t.integer  "stock_type",          :limit => 11
     t.integer  "model_variant_id",    :limit => 11
     t.integer  "price_in_cents",      :limit => 11
     t.string   "colour"
@@ -71,7 +70,6 @@ ActiveRecord::Schema.define(:version => 20080821094202) do
     t.integer  "mileage",             :limit => 11
     t.text     "features"
     t.string   "img_url"
-    t.boolean  "best_buy"
     t.integer  "days_in_stock",       :limit => 11
     t.datetime "removed_at"
     t.boolean  "has_service_history"
@@ -82,9 +80,10 @@ ActiveRecord::Schema.define(:version => 20080821094202) do
     t.integer  "make_id",             :limit => 11
     t.integer  "model_id",            :limit => 11
     t.string   "permalink"
-    t.integer  "physical_id",         :limit => 11
     t.date     "expires_on"
-    t.integer  "salesperson_id",      :limit => 11
+    t.string   "type"
+    t.string   "physical_stock"
+    t.integer  "branch_id",           :limit => 11
   end
 
   add_index "classifieds", ["stock_code"], :name => "index_classifieds_on_stock_code", :unique => true
@@ -226,6 +225,7 @@ ActiveRecord::Schema.define(:version => 20080821094202) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "job_title"
   end
 
   create_table "users", :force => true do |t|

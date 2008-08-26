@@ -1,89 +1,12 @@
 <%= f.error_messages %>
 
-  <script>
-    <!--
-        function updateModels() {
-           new Ajax.Request( '/admin/classifieds/load_models', { method : 'get', parameters: { make_id: $F( 'make_id' ) } }  ) 
-           Element.show( 'models_spinner' )
-        }
-        
-        function updateModelVariants() {
-           new Ajax.Request( '/admin/classifieds/load_model_variants', { method : 'get', parameters: { model_id: $F( 'model_id' ) } }  ) 
-           Element.show( 'model_variants_spinner' )
-        }
-
--->
-  </script>
-
-<p>
-  <%= f.label :stock_code %><br />
-  <%= f.text_field :stock_code %>
-</p>
-<p>
-  <%= f.label :stock_type %><br />
-  <%= f.text_field :stock_type %>
-</p>
-<p>
-	<label>Used  - Real Stock Item</label><br/>
-	<%= f.select :physical_id, Classified.physical.find(:all).collect {|p| [ "#{p.stock_code} - #{p.humanize} #{p.year}", p.id ] }, :include_blank => true %>
-</p>
-
-<p>
-  <%= f.label :salesperson_id %><br />
-	<%= f.select :salesperson_id, Salesperson.find(:all).collect {|p| [ p.name, p.id ] }, :include_blank => true %>
-</p>
-
-<p>
-  <label>Make</label><br/>
-  <%= select_tag :make_id, makes_options(classified.nil? ? nil : classified.model_variant.model.make), :onchange => 'updateModels();' %>
-</p>
-<p>
-  <label>Model</label><br/>
- 	<% if classified && classified.model_variant %>
-	  <%= select_tag :model_id, models_options(classified.model_variant.model), :onchange => 'updateModelVariants();' %>
-	<% else %>
-	  <%= select_tag :model_id, '<option>Select a make first...</option>', :onchange => 'updateModelVariants()' %> <%= spinner 'models_spinner' %>
-	<% end %>
-</p>
-<p>
-  <label>Year</label><br/> 
-	<% if classified && classified.model_variant %>
-		<%= model_variant_select(f, classified.model_variant.model) %>
-	<% else %>
-	  <%= f.select :model_variant_id, [ ['Select a model first...', ''] ] %> <%= spinner 'model_variants_spinner' %>
-	<% end %>
-</p>
 <p>
   <%= f.label :price_in_cents %><br />
   <%= f.text_field :price_in_cents %>
 </p>
 <p>
-  <%= f.label :colour %><br />
-  <%= f.text_field :colour %>
-</p>
-<p>
   <%= f.label :mileage %><br />
   <%= f.text_field :mileage %>
-</p>
-<p>
-  <%= f.label :features %><br />
-  <%= f.text_area :features %>
-</p>
-<p>
-  <%= f.label :img_url %><br />
-  <%= f.text_field :img_url %>
-</p>
-<p>
-  <%= f.label :best_buy %><br />
-  <%= f.check_box :best_buy %>
-</p>
-<p>
-  <%= f.label :days_in_stock %><br />
-  <%= f.text_field :days_in_stock %>
-</p>
-<p>
-  <%= f.label :has_service_history %><br />
-  <%= f.check_box :has_service_history %>
 </p>
 <p>
   <%= f.label :expires_on %><br />

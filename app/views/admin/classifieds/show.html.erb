@@ -4,21 +4,6 @@
 </p>
 
 <p>
-  <b>Stock type:</b>
-  <%=h @classified.stock_type %>
-</p>
-
-<p>
-  <b>Physical used car:</b>
-  <%=h @classified.physical.stock_code %> - <%=h @classified.physical.humanize %> <%=h @classified.physical.year %>
-</p>
-
-<p>
-  <b>Salesperson:</b>
-  <%=h @classified.salesperson.name %>
-</p>
-
-<p>
   <b>Model variant:</b>
   <%=h @classified.model_variant_id %>
 </p>
@@ -59,11 +44,6 @@
 </p>
 
 <p>
-  <b>Best buy:</b>
-  <%=h @classified.best_buy %>
-</p>
-
-<p>
   <b>Days in stock:</b>
   <%=h @classified.days_in_stock %>
 </p>
@@ -75,14 +55,26 @@
 
 <p>
   <b>Cyberstock:</b>
-  <%=h @classified.cyberstock %>
+  <%= @classified.cyberstock? %>
 </p>
 
-<p>
-  <b>Expires on:</b>
-  <%=h @classified.expires_on %>
-</p>
+<% if @classified.cyberstock? %>
+	<p>
+	  <b>Expires on:</b>
+	  <%=h @classified.expires_on %>
+	</p>
 
+	<p>
+	  <b>Physical used car stock:</b>
+	  <%=h @classified.physical_stock %>
+	</p>
+
+	<p>
+	  <b>Branch:</b>
+	  <%=h @classified.branch.name %>
+	</p>
+
+<% end %>
 
 <%= link_to 'Edit', edit_admin_classified_path(@classified) %> |
 <%= link_to 'Back', admin_classifieds_path %>

@@ -1,6 +1,10 @@
 <%= f.error_messages %>
 
 <p>
+  <%= f.label :job_title %><br />
+	<%= f.select :job_title, Salesperson::JOB_TITLES.collect { |p| [p, p] } %>
+</p>
+<p>
   <%= f.label :name %><br />
   <%= f.text_field :name %>
 </p>

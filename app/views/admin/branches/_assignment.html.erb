@@ -1,6 +1,9 @@
 <tr id="assignment_<%= assignment.id  %>">
   <td>
-    <%= assignment.salesperson.name %>
+    <%=h assignment.salesperson.job_title %>
+  </td>
+  <td>
+    <%=h assignment.salesperson.name %>
   </td>
   <td>
     <%= link_to_remove_assignment( assignment ) %>

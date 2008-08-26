@@ -3,7 +3,7 @@
 	<li><%= link_to 'News Categories', admin_categories_path %></li>
 	<li><%= link_to 'News Articles', admin_news_articles_path %></li>
 	<li><%= link_to 'Pages', admin_pages_path %></li>
-	<li><%= link_to 'Salespeople', admin_salespeople_path %></li>
+	<li><%= link_to 'Salespeople &amp; Managers', admin_salespeople_path %></li>
 	<li><%= link_to 'Branches', admin_branches_path %></li>
 	<li><%= link_to 'Referrals', admin_referrals_path %></li>
 </ul>
@@ -11,13 +11,9 @@
 <span class="menu_header">Importing</span>
 <ul>
 	<li><%= link_to 'Import Stock file', :controller => 'admin/importer', :action => 'import_stock' %></li>
+	<li><%= link_to 'Import Cyber Stock file', :controller => 'admin/importer', :action => 'import_stock' %></li>
+	<li><%= link_to 'Import new vehicles', :controller => 'admin/importer', :action => 'import_stock' %></li>
 	<li><%= link_to 'Import Mead & McGrouther file', :controller => 'admin/importer', :action => 'import_mm' %></li>
-</ul>
-
-<span class="menu_header">Cyber stock</span>
-<ul>
-	<li><%= link_to 'Live', admin_classifieds_path %></li>
-	<li><%= link_to 'Expired', expired_admin_classifieds_path %></li>
 </ul>
 
 <span class="menu_header">New Vehicles</span>
@@ -30,6 +26,7 @@
 <ul>
 	<li><%= link_to 'With photo', with_photo_admin_classifieds_path %></li>
 	<li><%= link_to 'No photo', no_photo_admin_classifieds_path %></li>
+	<li><%= link_to 'Expired cyberstock', expired_admin_classifieds_path %></li>
 </ul>
 
 <span class="menu_header">Newsletters</span>

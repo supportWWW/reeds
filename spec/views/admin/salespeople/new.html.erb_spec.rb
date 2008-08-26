@@ -9,6 +9,7 @@ describe "/admin/salespeople/new.html.erb" do
     @salesperson.stub!(:name).and_return("MyString")
     @salesperson.stub!(:phone).and_return("MyString")
     @salesperson.stub!(:email).and_return("MyString")
+    @salesperson.stub!(:job_title).and_return("MyString")
     assigns[:salesperson] = @salesperson
   end
 

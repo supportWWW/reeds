@@ -2,7 +2,11 @@ class Salesperson < ActiveRecord::Base
   has_many :assignments
   has_many :branches, :through => :assignments
   
-  validates_presence_of :name, :phone, :email
+  validates_presence_of :name, :phone, :email, :job_title
+
+  JOB_TITLES = ["Salesperson", "Dealer Principal", "Service Manager", "New Vehicle Manager", "Used Vehicle Manager", "Parts Manager"]
+  
+  named_scope :managers, :conditions => ["job_title != ?", "Salesperson"]
   
   class << self
     

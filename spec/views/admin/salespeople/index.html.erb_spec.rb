@@ -8,10 +8,12 @@ describe "/admin/salespeople/index.html.erb" do
     salesperson_98.should_receive(:name).and_return("MyString")
     salesperson_98.should_receive(:phone).and_return("MyString")
     salesperson_98.should_receive(:email).and_return("MyString")
+    salesperson_98.should_receive(:job_title).and_return("MyString")
     salesperson_99 = mock_model(Salesperson)
     salesperson_99.should_receive(:name).and_return("MyString")
     salesperson_99.should_receive(:phone).and_return("MyString")
     salesperson_99.should_receive(:email).and_return("MyString")
+    salesperson_99.should_receive(:job_title).and_return("MyString")
 
     assigns[:salespeople] = [salesperson_98, salesperson_99]
   end

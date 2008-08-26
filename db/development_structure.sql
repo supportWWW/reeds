@@ -8,7 +8,7 @@ CREATE TABLE `accessories` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `assignments` (
   `id` int(11) NOT NULL auto_increment,
@@ -20,7 +20,7 @@ CREATE TABLE `assignments` (
   PRIMARY KEY  (`id`),
   KEY `index_assignments_on_salesperson_id` (`salesperson_id`),
   KEY `index_assignments_on_branch_id` (`branch_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `attachments` (
   `id` int(11) NOT NULL auto_increment,
@@ -35,15 +35,18 @@ CREATE TABLE `attachments` (
   PRIMARY KEY  (`id`),
   KEY `index_attachments_on_owner_id` (`owner_id`),
   KEY `index_attachments_on_owner_type` (`owner_type`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `branches` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(255) default NULL,
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
+  `address` varchar(255) default NULL,
+  `phone` varchar(255) default NULL,
+  `fax` varchar(255) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL auto_increment,
@@ -51,33 +54,37 @@ CREATE TABLE `categories` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `classifieds` (
   `id` int(11) NOT NULL auto_increment,
   `stock_code` varchar(255) default NULL,
-  `stock_type` int(11) default NULL,
   `model_variant_id` int(11) default NULL,
-  `year` int(11) default NULL,
   `price_in_cents` int(11) default NULL,
   `colour` varchar(255) default NULL,
   `reg_num` varchar(255) default NULL,
   `mileage` int(11) default NULL,
   `features` text,
   `img_url` varchar(255) default NULL,
-  `best_buy` tinyint(1) default NULL,
   `days_in_stock` int(11) default NULL,
   `removed_at` datetime default NULL,
   `has_service_history` tinyint(1) default NULL,
   `cyberstock` tinyint(1) default NULL,
-  `expires_at` datetime default NULL,
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
+  `year` int(11) default NULL,
+  `make_id` int(11) default NULL,
+  `model_id` int(11) default NULL,
+  `permalink` varchar(255) default NULL,
+  `expires_on` date default NULL,
+  `type` varchar(255) default NULL,
+  `physical_stock` varchar(255) default NULL,
+  `branch_id` int(11) default NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `index_classifieds_on_stock_code` (`stock_code`),
   KEY `index_classifieds_on_model_variant_id` (`model_variant_id`),
   KEY `index_classifieds_on_price_in_cents` (`price_in_cents`)
-) ENGINE=InnoDB AUTO_INCREMENT=166 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=168 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `images` (
   `id` int(11) NOT NULL auto_increment,
@@ -97,7 +104,7 @@ CREATE TABLE `images` (
   KEY `index_images_on_owner_id` (`owner_id`),
   KEY `index_images_on_owner_type` (`owner_type`),
   KEY `index_images_on_parent_id` (`parent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `makes` (
   `id` int(11) NOT NULL auto_increment,
@@ -123,7 +130,7 @@ CREATE TABLE `menu_items` (
   PRIMARY KEY  (`id`),
   KEY `index_menu_items_on_page_id` (`page_id`),
   KEY `index_menu_items_on_parent_id` (`parent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `model_ranges` (
   `id` int(11) NOT NULL auto_increment,
@@ -132,7 +139,7 @@ CREATE TABLE `model_ranges` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `model_variants` (
   `id` int(11) NOT NULL auto_increment,
@@ -157,7 +164,7 @@ CREATE TABLE `models` (
   PRIMARY KEY  (`id`),
   KEY `index_models_on_make_id` (`make_id`),
   KEY `index_models_on_name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=313 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=312 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `new_vehicle_variants` (
   `id` int(11) NOT NULL auto_increment,
@@ -169,7 +176,7 @@ CREATE TABLE `new_vehicle_variants` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `new_vehicles` (
   `id` int(11) NOT NULL auto_increment,
@@ -221,7 +228,7 @@ CREATE TABLE `referrals` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `salespeople` (
   `id` int(11) NOT NULL auto_increment,
@@ -230,8 +237,9 @@ CREATE TABLE `salespeople` (
   `email` varchar(255) default NULL,
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
+  `job_title` varchar(255) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `schema_migrations` (
   `version` varchar(255) NOT NULL,
@@ -319,3 +327,27 @@ INSERT INTO schema_migrations (version) VALUES ('20080708164703');
 INSERT INTO schema_migrations (version) VALUES ('20080708170348');
 
 INSERT INTO schema_migrations (version) VALUES ('20080711122620');
+
+INSERT INTO schema_migrations (version) VALUES ('20080813140628');
+
+INSERT INTO schema_migrations (version) VALUES ('20080815113536');
+
+INSERT INTO schema_migrations (version) VALUES ('20080818105654');
+
+INSERT INTO schema_migrations (version) VALUES ('20080818110518');
+
+INSERT INTO schema_migrations (version) VALUES ('20080819130236');
+
+INSERT INTO schema_migrations (version) VALUES ('20080820150612');
+
+INSERT INTO schema_migrations (version) VALUES ('20080820171952');
+
+INSERT INTO schema_migrations (version) VALUES ('20080821094202');
+
+INSERT INTO schema_migrations (version) VALUES ('20080826101745');
+
+INSERT INTO schema_migrations (version) VALUES ('20080826105821');
+
+INSERT INTO schema_migrations (version) VALUES ('20080826111401');
+
+INSERT INTO schema_migrations (version) VALUES ('20080826115433');

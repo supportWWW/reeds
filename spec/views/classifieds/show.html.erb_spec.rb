@@ -6,7 +6,6 @@ describe "/classifieds/show.html.erb" do
   before(:each) do
     @classified = mock_model(Classified)
     @classified.stub!(:stock_code).and_return("MyString")
-    @classified.stub!(:stock_type).and_return("1")
     @classified.stub!(:humanize).and_return("MyString")
     @classified.stub!(:year).and_return("1")
     @classified.stub!(:price).and_return(Money.new(1))
@@ -15,7 +14,6 @@ describe "/classifieds/show.html.erb" do
     @classified.stub!(:mileage).and_return("1")
     @classified.stub!(:features).and_return("MyText")
     @classified.stub!(:img_url).and_return("MyString")
-    @classified.stub!(:best_buy).and_return(false)
     @classified.stub!(:days_in_stock).and_return("1")
     @classified.stub!(:has_service_history).and_return(false)
     @classified.stub!(:removed?).and_return(false)

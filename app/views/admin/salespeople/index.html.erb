@@ -4,6 +4,7 @@
 
 	<table>
 	  <tr>
+	    <th>Job title</th>
 	    <th>Name</th>
 	    <th>Phone</th>
 	    <th>Email</th>
@@ -11,6 +12,7 @@
 
 	<% for salesperson in @salespeople %>
 	  <tr>
+	    <td><%= h salesperson.job_title %></td>
 	    <td><%= link_to salesperson.name, admin_salesperson_path(salesperson) %></td>
 	    <td><%= h salesperson.phone %></td>
 	    <td><%= h salesperson.email %></td>

@@ -6,7 +6,6 @@ describe "/admin/classifieds/show.html.erb" do
   before(:each) do
     @classified = mock_model(Classified)
     @classified.stub!(:stock_code).and_return("MyString")
-    @classified.stub!(:stock_type).and_return("1")
     @classified.stub!(:model_variant_id).and_return("1")
     @classified.stub!(:physical).and_return(Classified.new)
     @classified.stub!(:salesperson).and_return(Salesperson.new)
@@ -17,11 +16,10 @@ describe "/admin/classifieds/show.html.erb" do
     @classified.stub!(:mileage).and_return("1")
     @classified.stub!(:features).and_return("MyText")
     @classified.stub!(:img_url).and_return("MyString")
-    @classified.stub!(:best_buy).and_return(false)
     @classified.stub!(:days_in_stock).and_return("1")
     @classified.stub!(:removed_at).and_return(Time.now)
     @classified.stub!(:has_service_history).and_return(false)
-    @classified.stub!(:cyberstock).and_return(false)
+    @classified.stub!("cyberstock?").and_return(false)
     @classified.stub!(:expires_on).and_return(Date.today)
 
     assigns[:classified] = @classified
