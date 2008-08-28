@@ -9,6 +9,7 @@ describe "/classifieds/show.html.erb" do
     @classified.stub!(:humanize).and_return("MyString")
     @classified.stub!(:year).and_return("1")
     @classified.stub!(:price).and_return(Money.new(1))
+    @classified.stub!(:price_in_cents).and_return(1)
     @classified.stub!(:colour).and_return("MyString")
     @classified.stub!(:reg_num).and_return("MyString")
     @classified.stub!(:mileage).and_return("1")

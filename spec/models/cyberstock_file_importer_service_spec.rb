@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
-describe StockFileImporterService do
+describe CyberstockFileImporterService do
 
   include ReedsSpecHelper
   
@@ -16,7 +16,7 @@ describe StockFileImporterService do
     end
   
   def perform
-    StockFileImporterService.instance.process( @stock )
+    CyberstockFileImporterService.instance.process( @stock )
   end
   
   describe 'performing imports' do
@@ -28,7 +28,7 @@ describe StockFileImporterService do
     
     it 'Should add 165 classifieds' do
       perform
-      UsedVehicle.count.should == 165
+      Cyberstock.count.should == 165
     end
 
     it 'Should add 88 models' do
@@ -52,7 +52,7 @@ describe StockFileImporterService do
     
     it 'Should add 165 classifieds' do
       do_double_add
-      UsedVehicle.count.should == 165
+      Cyberstock.count.should == 165
     end
 
     it 'Should add 88 models' do
@@ -62,4 +62,4 @@ describe StockFileImporterService do
     
   end
   
-end 
+end

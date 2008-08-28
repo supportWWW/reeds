@@ -20,6 +20,13 @@ describe Admin::ImporterController do
     end
   end
 
+  describe "GET 'import_cyberstock'" do
+    it "should be successful" do
+      get 'import_cyberstock'
+      response.should be_success
+    end
+  end
+
   describe "GET 'import_mm'" do
     it "should be successful" do
       get 'import_mm'

@@ -1,0 +1,28 @@
+<h1>Import Cyberstock List</h1>
+
+<p><b>Important:</b></p>
+<ol>
+  <li>The stock list must be saved from Microsoft Excel as a tab-delimited text file.</li>
+  <li>Make and Model fields must correspond to entries on the Mead & McGrouther list.</li>
+  <li>Remove the first line of column headings from the file.</li>
+  <li>The document must contain <b>all</b> the columns listed below, any other columns will be ignored.</li>
+  <li>The columns <b>must</b> be in this exact order.</li>
+</ol>
+
+<p><b>Columns:</b>
+  stock_code, stock_type, make, model, year, price, colour, reg_num, mileage, features, img_url, best_buy, days_in_stock
+</p>
+
+<p>
+<b>Example (We have used '|' to indicate the separation between columns.):</b><br>
+(The '1' in the second last column indicates that this vehicle is to be marked as a 'Best Buy'.<br>
+Leave this as '0' if the vehicle is NOT a 'Best Buy'.)
+</p>
+
+<p>12345 | V | OPEL | ASTRA 1.6 CS A/C | 2000 | 89995 | Black | CA123456 | 128000 | Air conditioner, power steering | black_astra.jpg | 1 | 23</p>
+
+<% form_tag( { :action => 'import_cyberstock' }, { :method => :post, :multipart => true } ) do %>
+      File: <%= file_field_tag :file  %>
+      <br/>
+      <%= submit_tag 'Import'   %>
+<% end %>
