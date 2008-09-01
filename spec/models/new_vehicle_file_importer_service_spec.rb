@@ -16,7 +16,7 @@ describe NewVehicleFileImporterService do
     end
   
   def perform
-    NewVehicleFileImporterService.instance.process( @stock )
+    NewVehicleFileImporterService.instance.process(1, @stock)
   end
   
   describe 'performing imports' do

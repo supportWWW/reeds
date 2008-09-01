@@ -2,7 +2,7 @@ class NewVehicleFileImporterService
   
   include Singleton
   
-  def process( file_contents )
+  def process(model_range_id, file_contents)
     added, error = [], []
     FasterCSV.parse( file_contents, :col_sep => "\t" ) do |row|
       model_variant = ModelVariant.find_or_create_for( row[2], row[3] , row[6], row[4] )

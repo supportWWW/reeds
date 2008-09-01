@@ -32,7 +32,7 @@ class Admin::ImporterController < Admin::ApplicationController
     if request.post?
       
       unless params[:file].blank?
-        NewVehicleFileImporterService.instance.process( params[:file] )
+        NewVehicleFileImporterService.instance.process(params[:model_range_id], params[:file])
         flash[:notice] = 'The file you provided has been imported'
         redirect_to :action => 'import_new_vehicles'
       else

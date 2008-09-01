@@ -32,6 +32,7 @@ Rails::Initializer.run do |config|
   config.gem 'gchartrb', :version => '0.8', :lib => 'google_chart'
   config.gem 'fastercsv', :version => '1.2.3'
   config.gem 'money', :version => '1.7.1'
+  #config.gem 'ar_mailer', :version => '1.3.1'
   config.gem 'jcnetdev-active_record_without_table', :lib => 'active_record_without_table', :version => '1.1'
   
   # Only load the plugins named here, in the order given. By default, all plugins 
@@ -45,7 +46,7 @@ Rails::Initializer.run do |config|
                             #{RAILS_ROOT}/app/observers
                             #{RAILS_ROOT}/app/services
                             #{RAILS_ROOT}/app/form_models
-                            #{RAILS_ROOT}/vendor/gems/mailbuild-1.0/lib
+                            #{RAILS_ROOT}/vendor/gems/uuidtools-1.0.3/lib
                           )
   # Force all environments to use the same logger level
   # (by default production uses :info, the others :debug)
@@ -78,6 +79,7 @@ Rails::Initializer.run do |config|
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector
 end
+
 
 # Needed for ImageScience
 if RAILS_ENV == "production" 

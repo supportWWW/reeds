@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080826115433) do
+ActiveRecord::Schema.define(:version => 20080829112940) do
 
   create_table "accessories", :force => true do |t|
     t.string   "name"
@@ -89,6 +89,14 @@ ActiveRecord::Schema.define(:version => 20080826115433) do
   add_index "classifieds", ["stock_code"], :name => "index_classifieds_on_stock_code", :unique => true
   add_index "classifieds", ["model_variant_id"], :name => "index_classifieds_on_model_variant_id"
   add_index "classifieds", ["price_in_cents"], :name => "index_classifieds_on_price_in_cents"
+
+  create_table "emails", :force => true do |t|
+    t.string   "from"
+    t.string   "to"
+    t.integer  "last_send_attempt", :limit => 11, :default => 0
+    t.text     "mail"
+    t.datetime "created_on"
+  end
 
   create_table "images", :force => true do |t|
     t.string   "filename"

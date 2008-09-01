@@ -29,7 +29,7 @@ describe Admin::ImporterController do
 
   describe "GET 'import_new_vehicles'" do
     it "should be successful" do
-      get 'import_new_vehicles'
+      get 'import_new_vehicles', :model_range_id => 1
       response.should be_success
     end
   end

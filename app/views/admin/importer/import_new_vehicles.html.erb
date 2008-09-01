@@ -21,8 +21,12 @@ Leave this as '0' if the vehicle is NOT a 'Best Buy'.)
 
 <p>12345 | V | OPEL | ASTRA 1.6 CS A/C | 2000 | 89995 | Black | CA123456 | 128000 | Air conditioner, power steering | black_astra.jpg | 1 | 23</p>
 
-<% form_tag( { :action => 'import_cyberstock' }, { :method => :post, :multipart => true } ) do %>
-      File: <%= file_field_tag :file  %>
-      <br/>
-      <%= submit_tag 'Import'   %>
+<% form_tag( { :action => 'import_new_vehicles' }, { :method => :post, :multipart => true } ) do %>
+	<p>
+		Model range: <%= select_tag :model_range_id, model_ranges_options %>
+	</p>
+	<p>
+		File: <%= file_field_tag :file  %>
+	</p>
+	<%= submit_tag 'Import'   %>
 <% end %>
