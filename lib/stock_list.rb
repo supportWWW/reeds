@@ -1,23 +1,25 @@
 class StockList
   def self.send
+    stocklist = stock
+
     Mailbuild.list_id = MAILBUILD_STOCK_LIST_ID
     subscribers = Mailbuild.subscribers("2008-01-01 00:00:00")
 
-    stocklist = stock
     subscribers.each do |subscriber|
       StockListMailer.deliver_list(subscriber[:name], subscriber[:email], stocklist)
+      puts "Stocklist delivered to #{subscriber[:email]}"
     end
     
     rescue MailbuildError::SubscribersNotFoundError
-      @message = 'No subscribers were found for this list.'
+      puts 'No subscribers were found for this list.'
     rescue MailbuildError::DateError
-      @message = 'Invalid date.'
+      puts 'Invalid date.'
     rescue MailbuildError::ListIDError
-      @message = 'Invalid API Key.'
+      puts 'Invalid API Key.'
     rescue MailbuildError::APIKeyError
-      @message = 'Invalid ListID.'
-    rescue HTTPAccess2::Session::KeepAliveDisconnected
-      @message = 'Mailbuild Timeout'
+      puts 'Invalid ListID.'
+    #rescue HTTPAccess2::Session::KeepAliveDisconnected
+    #  @message = 'Mailbuild Timeout'
       
   end
   

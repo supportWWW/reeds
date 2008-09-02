@@ -1,0 +1,13 @@
+Hello,
+
+This cyberstock is expiring on: <%= @cyberstock.expires_on %>.
+
+Stock code: <%= @cyberstock.stock_code %> (based on #<%= @cyberstock.physical_stock %>)
+Model: <%= @cyberstock.humanize %>
+Year: <%= @cyberstock.year %>
+Colour: <%= @cyberstock.colour %>
+Mileage: <%= @cyberstock.mileage %>
+
+Price: <%= @cyberstock.price.format(:no_cents) %>
+
+The Reeds Team

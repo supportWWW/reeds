@@ -8,6 +8,10 @@ class Salesperson < ActiveRecord::Base
   
   named_scope :managers, :conditions => ["job_title != ?", "Salesperson"]
   
+  def salesperson?
+    job_title == "Salesperson"
+  end
+  
   class << self
     
     def find_not_in_branch( branch_id )
