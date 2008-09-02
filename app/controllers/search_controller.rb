@@ -55,7 +55,6 @@ class SearchController < ApplicationController
     
     @results = Classified.available.paginate( :all,
                                         :page => @page, :per_page => @per_page,
-                                        :include => [:make, :model],
                                         :conditions => [conditions.join(" AND "), *criteria])
   end
 

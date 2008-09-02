@@ -12,9 +12,9 @@ class Classified < ActiveRecord::Base
 
   before_save :set_make_and_model
   
-  named_scope :available, lambda { { :conditions => ["removed_at is NULL AND (expires_on IS NULL OR expires_on > ?)", Date.today] } }
-  named_scope :with_photos, lambda { { :conditions => ["removed_at is NULL AND img_url IS NOT NULL AND (expires_on IS NULL OR expires_on > ?)", Date.today] } }
-  named_scope :no_photos, lambda { { :conditions => ["removed_at is NULL AND img_url IS NULL AND (expires_on IS NULL OR expires_on > ?)", Date.today] } }
+  named_scope :available, lambda { { :conditions => ["removed_at is NULL AND (expires_on IS NULL OR expires_on > ?)", Date.today], :include => [:make, :model] } }
+  named_scope :with_photos, lambda { { :conditions => ["removed_at is NULL AND img_url IS NOT NULL AND (expires_on IS NULL OR expires_on > ?)", Date.today], :include => [:make, :model] } }
+  named_scope :no_photos, lambda { { :conditions => ["removed_at is NULL AND img_url IS NULL AND (expires_on IS NULL OR expires_on > ?)", Date.today], :include => [:make, :model] } }
 
   def cyberstock?
     kind_of?(Cyberstock)
@@ -25,9 +25,8 @@ class Classified < ActiveRecord::Base
   end
   
   def humanize
-    if model_variant
-      model = model_variant.model
-      "#{model.make.common_name} #{model.common_name}"
+    if make && model
+      "#{make.common_name} #{model.common_name}"
     else
       ""
     end
