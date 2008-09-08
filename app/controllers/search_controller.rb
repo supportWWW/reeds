@@ -52,10 +52,12 @@ class SearchController < ApplicationController
       criteria << t.to_i
       @criteria_in_words += f == t ? "Year: #{f}\n"  : "Year: Between #{f} and #{t}\n"
     end
-    
-    @results = Classified.available.paginate( :all,
-                                        :page => @page, :per_page => @per_page,
-                                        :conditions => [conditions.join(" AND "), *criteria])
+
+    unless conditions.empty?
+      @results = Classified.available.paginate( :all,
+                                          :page => @page, :per_page => @per_page,
+                                          :conditions => [conditions.join(" AND "), *criteria])
+    end
   end
 
   def load_models

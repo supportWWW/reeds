@@ -24,11 +24,11 @@ describe ClassifiedsController do
 
     before(:each) do
       @classified = mock_model(Classified)
-      Classified.stub!(:find).and_return(@classified)
+      Classified.stub!(:find_by_permalink).and_return(@classified)
     end
   
     def do_get
-      get :show, :id => "1"
+      get :show, :id => "permalink1"
     end
 
     it "should be successful" do
@@ -42,7 +42,7 @@ describe ClassifiedsController do
     end
   
     it "should find the classified requested" do
-      Classified.should_receive(:find).with("1").and_return(@classified)
+      Classified.should_receive(:find_by_permalink).with("permalink1").and_return(@classified)
       do_get
     end
   
@@ -56,12 +56,12 @@ describe ClassifiedsController do
 
     before(:each) do
       @classified = mock_model(Classified, :to_xml => "XML")
-      Classified.stub!(:find).and_return(@classified)
+      Classified.stub!(:find_by_permalink).and_return(@classified)
     end
   
     def do_get
       @request.env["HTTP_ACCEPT"] = "application/xml"
-      get :show, :id => "1"
+      get :show, :id => "permalink1"
     end
 
     it "should be successful" do
@@ -70,7 +70,7 @@ describe ClassifiedsController do
     end
   
     it "should find the classified requested" do
-      Classified.should_receive(:find).with("1").and_return(@classified)
+      Classified.should_receive(:find_by_permalink).with("permalink1").and_return(@classified)
       do_get
     end
   

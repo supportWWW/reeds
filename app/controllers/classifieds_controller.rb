@@ -14,7 +14,7 @@ class ClassifiedsController < ApplicationController
   # GET /classifieds/1
   # GET /classifieds/1.xml
   def show
-    @classified = Classified.find(params[:id])
+    @classified = Classified.find_by_permalink(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

@@ -8,6 +8,6 @@ describe "/main/index" do
   end
   
   it "should display search form" do
-    response.should have_tag("form[action=?][method=?]", search_path, "post")
+    response.should have_tag("form[action=?][method=?]", search_path, "get")
   end
 end

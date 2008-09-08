@@ -36,20 +36,6 @@ class Classified < ActiveRecord::Base
     !removed_at.nil?
   end
   
-  class << self
-    
-    def find_with_permalink( *args )
-      if args.size == 1 and !args.first.kind_of?(Symbol) and args.first.to_i.to_s != args.first.to_s
-        find_without_permalink :first, :conditions => { :permalink => args.first }
-      else
-        find_without_permalink( *args )
-      end
-    end
-    
-    alias_method_chain :find, :permalink
-    
-  end
-
 private
 
   # denormalization for search
