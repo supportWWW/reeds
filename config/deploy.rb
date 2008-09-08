@@ -48,7 +48,7 @@ end
 
 task :copy_mongrel_config do
   put IO.read( 'config/mongrel/cluster.yml' ), "#{shared_path}/#{application}_mongrel.yml"
-  sudo "ln -s #{shared_path}/#{application}_mongrel.yml /etc/mongrel_cluster/#{application}_mongrel.yml"
+  sudo "ln -s #{shared_path}/#{application}_mongrel.yml /etc/mongrel_cluster/#{application}.yml"
 end
 
 task :copy_nginx_config do
