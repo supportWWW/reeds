@@ -29,9 +29,11 @@ module Authentication
       # REST_AUTH_DIGEST_STRETCHES to 1 you'll have backwards compatibility with
       # older versions of restful-authentication.
       def password_digest(password, salt)
-        digest = REST_AUTH_SITE_KEY
-        REST_AUTH_DIGEST_STRETCHES.times do
-          digest = secure_digest(digest, salt, password, REST_AUTH_SITE_KEY)
+        rest_auth_site_key = '0941a2dea368d71831571b701f7df944d85a52af' # joergd: For some crazy reason - in production it doesn't pick up the site keys version
+        rest_auth_digest_stretches = 10
+        digest = rest_auth_site_key
+        rest_auth_digest_stretches.times do
+          digest = secure_digest(digest, salt, password, rest_auth_site_key)
         end
         digest
       end      
