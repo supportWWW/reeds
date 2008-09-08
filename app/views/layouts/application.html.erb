@@ -6,7 +6,8 @@
 
   	<%= stylesheet_link_tag "application", "ui.datepicker.css", :cache => "cached_all" %>
         <% if @use_jquery %>
-            <%= javascript_include_tag "jquery-1.2.6.pack.js", "jquery-form.js", "jquery-ui-1.5rc1.min.js", "jquery.highlight.js", "frontend"  %>
+            <%= javascript_include_tag "jquery-1.2.6.pack.js", "jquery-form.js", "jquery-ui-1.5rc1.min.js", "jquery.highlight.js", :cache => "cached_js"  %>
+						<%= javascript_include_tag "frontend" %>
         <% end  %>
         <%= yield :header %>
   </head>
