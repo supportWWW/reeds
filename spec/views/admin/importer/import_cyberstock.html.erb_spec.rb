@@ -7,6 +7,6 @@ describe "/admin/importer/import_cyberstock" do
   
   #Delete this example and add some real ones or delete this file
   it "should show heading" do
-    response.should have_tag('h1', %r[Import Cyberstock List])
+    response.should have_tag('h2', %r[Import Cyberstock List])
   end
 end

@@ -1,0 +1,5 @@
+<h2>Export Auto Trader</h2>
+
+<p>Export the used car stock list for Auto Trader.</p>
+<p><%= Classified.available.count %> cars will be exported.</p>
+<%= button_to "Export Auto Trader", :action => "export_autotrader", :format => "csv" %>

@@ -16,6 +16,17 @@
 	<li><%= link_to 'Import Mead & McGrouther file', :controller => 'admin/importer', :action => 'import_mm' %></li>
 </ul>
 
+<span class="menu_header">Exporting</span>
+<ul>
+	<li><%= link_to 'G2 Export', :controller => 'admin/exporter', :action => 'export_g2' %></li>
+	<li><%= link_to 'AutoTrader Export', :controller => 'admin/exporter', :action => 'export_autotrader' %></li>
+</ul>
+
+<span class="menu_header">Newsletters</span>
+<ul>
+	<li><%= link_to "Newsletters", "#", :onclick => "$('newsletter_login_form').submit(); return false;" %></li>
+</ul>
+
 <span class="menu_header">New Vehicles</span>
 <ul>
 	<li><%= link_to 'Model ranges', admin_model_ranges_path %></li>
@@ -27,11 +38,6 @@
 	<li><%= link_to 'With photo', with_photo_admin_classifieds_path %></li>
 	<li><%= link_to 'No photo', no_photo_admin_classifieds_path %></li>
 	<li><%= link_to 'Expired cyberstock', expired_admin_classifieds_path %></li>
-</ul>
-
-<span class="menu_header">Newsletters</span>
-<ul>
-	<li><%= link_to "Newsletters", "#", :onclick => "$('newsletter_login_form').submit(); return false;" %></li>
 </ul>
 
 <span class="menu_header">Admin</span>

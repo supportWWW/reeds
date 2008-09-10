@@ -6,6 +6,6 @@ describe "/admin/importer/import_mm" do
   end
   
   it "should show heading" do
-    response.should have_tag('h1', %r[Import Mead &amp; McGrouther list])
+    response.should have_tag('h2', %r[Import Mead &amp; McGrouther list])
   end
 end
