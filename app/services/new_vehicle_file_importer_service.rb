@@ -6,7 +6,7 @@ class NewVehicleFileImporterService
     added, error = [], []
     new_vehicle = NewVehicle.find(new_vehicle_id)
     FasterCSV.parse( file_contents, :col_sep => "\t" ) do |row|
-      new_vehicle_variant = NewVehicleVariant.find_or_initialize_by_model_reference( row[1].strip )
+      new_vehicle_variant = NewVehicleVariant.find_or_initialize_by_new_vehicle_id_and_model_reference(new_vehicle_id, row[1].strip)
       new_vehicle_variant.new_vehicle_id = new_vehicle_id
       new_vehicle_variant.name = strip_variant(new_vehicle, row[0])
       new_vehicle_variant.excl = strip_price(row[2])

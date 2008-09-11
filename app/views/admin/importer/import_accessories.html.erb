@@ -1,24 +1,24 @@
-<h2>Import New Vehicle List</h2>
+<h2>Import Accessories</h2>
 
 <p><b>Important:</b></p>
 <ol>
-  <li>The stock list must be saved from Microsoft Excel as a tab-delimited text file.</li>
+  <li>The file must be saved from Microsoft Excel as a tab-delimited text file.</li>
   <li>Remove the first line of column headings from the file.</li>
   <li>The document must contain <b>all</b> the columns listed below, any other columns will be ignored.</li>
   <li>The columns <b>must</b> be in this exact order.</li>
 </ol>
 
 <p><b>Columns:</b>
-  variant, model_reference, excluded, vat, included
+  accessory, model_reference, excluded, vat, included
 </p>
 
 <p>
 <b>Example (We have used '|' to indicate the separation between columns.):</b><br>
 </p>
 
-<p>1.4 ESSENTIA A/C 5DR | M080S01 | R125,201.75 | R17,528.25 | R142,730.00</p>
+<p>TWO COAT METALLIC BODY COLOUR | M080S01 | R125,201.75 | R17,528.25 | R142,730.00</p>
 
-<% form_tag( { :action => 'import_new_vehicles' }, { :method => :post, :multipart => true } ) do %>
+<% form_tag( { :action => 'import_accessories' }, { :method => :post, :multipart => true } ) do %>
 	<p>
 		Vehicle: <%= select_tag :new_vehicle_id, new_vehicle_options(params[:new_vehicle_id]) %>
 	</p>

@@ -5,12 +5,12 @@
   <%= f.select :model_range_id, ModelRange.for_select  %>
 </p>
 <p>
-  <%= f.label :description %><br />
-  <%= f.text_area :description %>
-</p>
-<p>
   <%= f.label :year %><br />
   <%= f.text_field :year %>
+</p>
+<p>
+  <%= f.label :description %><br />
+  <%= f.text_area :description, :rows => 5 %>
 </p>
 <p>
   <%= f.label :enabled %><br />
@@ -19,9 +19,9 @@
 
 <%= partial :scripts %>
 
-<%= partial :variants %>
+<!-- %= partial :variants %-->
 
-<%= partial :accessories %>
+<!-- %= partial :accessories %-->
 
 <%= partial :images %>
 

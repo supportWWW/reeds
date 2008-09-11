@@ -13,6 +13,7 @@ describe "/admin/new_vehicles/show.html.erb" do
     @new_vehicle.stub!(:attachments).and_return(mock("Array of attachments", :count => 1, :each => [mock_model(Attachment)]))
     @new_vehicle.stub!(:description).and_return("MyText")
     @new_vehicle.stub!(:year).and_return("1")
+    @new_vehicle.stub!(:humanize).and_return("Opel")
     @new_vehicle.stub!(:enabled).and_return(false)
 
     assigns[:new_vehicle] = @new_vehicle
@@ -21,6 +22,7 @@ describe "/admin/new_vehicles/show.html.erb" do
   it "should render attributes in <p>" do
     render "/admin/new_vehicles/show.html.erb"
     response.should have_text(/MyText/)
+    response.should have_text(/Opel/)
     response.should have_text(/1/)
   end
 end

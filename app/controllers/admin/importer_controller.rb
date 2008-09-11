@@ -42,6 +42,20 @@ class Admin::ImporterController < Admin::ApplicationController
     end
   end
 
+  def import_accessories
+    if request.post?
+      
+      unless params[:file].blank?
+        AccessoriesFileImporterService.instance.process(params[:new_vehicle_id], params[:file])
+        flash[:notice] = 'The file you provided has been imported'
+        redirect_to :action => 'import_accessories'
+      else
+        flash[:error] = 'You have to provide a file to upload'
+      end
+      
+    end
+  end
+
   def import_mm
     
     if request.post?
