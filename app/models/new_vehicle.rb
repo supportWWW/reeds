@@ -11,10 +11,7 @@ class NewVehicle < ActiveRecord::Base
   named_scope :enabled, :conditions => { :enabled => true }, :include => { :model_range => :make }
 
   delegate :make, :to => :model_range
-  
-  def humanize
-    "#{make.name} #{model_range.name}"
-  end
+  delegate :humanize, :to => :model_range
   
   class << self
     
