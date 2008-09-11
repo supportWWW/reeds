@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080829112940) do
+ActiveRecord::Schema.define(:version => 20080911140744) do
 
   create_table "accessories", :force => true do |t|
     t.string   "name"
@@ -179,6 +179,8 @@ ActiveRecord::Schema.define(:version => 20080829112940) do
     t.integer  "new_vehicle_id",  :limit => 11, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "excl_in_cents",   :limit => 11
+    t.integer  "vat_in_cents",    :limit => 11
   end
 
   create_table "new_vehicles", :force => true do |t|

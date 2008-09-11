@@ -4,36 +4,29 @@ describe NewVehicleFileImporterService do
 
   include ReedsSpecHelper
   
-  before :all do
-    @stock = read_file( 'reeds-stocksheet.csv' )
-    @mm_list = read_file( 'sample-mmlist.csv' )
-  end
+    before :all do
+      @stock = read_file( 'opel-corsa.txt' )
+      
+      @make = mock_model(Make, :name => "Opel")
+      @model_range = mock_model(ModelRange, :name => "Corsa", :make => @make)
+      @new_vehicle = mock_model(NewVehicle, :id => 1, :year => 2008, :model_range => @model_range, :make => @make)
+      
+      NewVehicle.stub!(:find).with(1).and_return(@new_vehicle)
+    end
   
     before :each do
-      Classified.delete_all
-      Model.delete_all
-      Make.delete_all
+      NewVehicleVariant.delete_all
     end
   
   def perform
-    NewVehicleFileImporterService.instance.process(1, @stock)
+    NewVehicleFileImporterService.instance.process(@new_vehicle.id, @stock)
   end
   
   describe 'performing imports' do
     
-    it 'Should add 16 makes' do
+    it 'Should add 9 new vehicle variants' do
       perform
-      Make.count.should == 16
-    end
-    
-    it 'Should add 165 classifieds' do
-      perform
-      Classified.count.should == 165
-    end
-
-    it 'Should add 88 models' do
-      perform
-      Model.count.should == 88
+      NewVehicleVariant.count.should == 9
     end
     
   end
@@ -45,19 +38,9 @@ describe NewVehicleFileImporterService do
       perform
     end
     
-    it 'Should add 16 makes' do
+    it 'Should add 9 new vehicle variants' do
       do_double_add
-      Make.count.should == 16
-    end
-    
-    it 'Should add 165 classifieds' do
-      do_double_add
-      Classified.count.should == 165
-    end
-
-    it 'Should add 88 models' do
-      do_double_add
-      Model.count.should == 88
+      NewVehicleVariant.count.should == 9
     end
     
   end

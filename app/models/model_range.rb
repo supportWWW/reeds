@@ -12,5 +12,5 @@ class ModelRange < ActiveRecord::Base
     end
     
   end
-  
+    
 end

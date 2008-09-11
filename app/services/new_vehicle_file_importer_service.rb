@@ -2,37 +2,37 @@ class NewVehicleFileImporterService
   
   include Singleton
   
-  def process(model_range_id, file_contents)
+  def process(new_vehicle_id, file_contents)
     added, error = [], []
+    new_vehicle = NewVehicle.find(new_vehicle_id)
     FasterCSV.parse( file_contents, :col_sep => "\t" ) do |row|
-      model_variant = ModelVariant.find_or_create_for( row[2], row[3] , row[6], row[4] )
-      classified = Classified.find_or_initialize_by_stock_code( row[0].strip )
-      classified[:type] = "Cyberstock"
-      classified.model_variant_id = model_variant.id
-      classified.year = row[4].strip # denormalization for search
-      classified.price= row[5].strip
-      classified.colour = row[7].strip
-      classified.reg_num = row[8].strip
-      classified.mileage = row[9].strip
-      classified.features = row[10].strip
-      classified.img_url = row[11].strip
-      classified.days_in_stock = row[13].strip
-      classified.removed_at = nil
-      if classified.save
-        added << classified
+      new_vehicle_variant = NewVehicleVariant.find_or_initialize_by_model_reference( row[1].strip )
+      new_vehicle_variant.new_vehicle_id = new_vehicle_id
+      new_vehicle_variant.name = strip_variant(new_vehicle, row[0])
+      new_vehicle_variant.excl = strip_price(row[2])
+      new_vehicle_variant.vat = strip_price(row[3])
+      new_vehicle_variant.price = strip_price(row[4])
+      if new_vehicle_variant.save
+        added << new_vehicle_variant
       else
-        error << classified
+        error << new_vehicle_variant
       end
     end
     
-    Classified.update_all( { :removed_at => Time.now }, [ 'id not in ( ? ) and removed_at is null', added.collect{ |i| i.id } ] )
+    NewVehicleVariant.delete_all(['id not in (?)', added.collect{ |i| i.id }])
     
     return added, error
   end
   
-  def strip_value( value )
+  def strip_price(value)
     if value
-      value.strip
+      value.strip.gsub(/ /, "").gsub(/,/, "").gsub(/R/, "").gsub(/r/, "")
+    end
+  end
+
+  def strip_variant(new_vehicle, value)
+    if value
+      value.gsub(new_vehicle.make.name.upcase, "").gsub(new_vehicle.model_range.name.upcase, "").strip
     end
   end
   
