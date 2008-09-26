@@ -12,6 +12,10 @@ class Salesperson < ActiveRecord::Base
     job_title == "Salesperson"
   end
   
+  def phone_for_sms
+    phone.gsub("[ -()\.]", "")
+  end
+  
   class << self
     
     def find_not_in_branch( branch_id )

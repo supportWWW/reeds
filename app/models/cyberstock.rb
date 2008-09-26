@@ -9,7 +9,8 @@ class Cyberstock < Classified
   named_scope :live, lambda { { :conditions => ["removed_at is NULL AND expires_on > ?", Date.today] } }
   named_scope :expired, lambda { { :conditions => ["removed_at is NULL AND expires_on <= ?", Date.today] } }
   named_scope :soon_to_expire, lambda { { :conditions => ["removed_at is NULL AND expires_on <= ?", Date.today + 2.days] } }
-
+  named_scope :all, :conditions => ["removed_at is NULL"]
+  
   def notify_of_expiry
     if branch
       CyberstockMailer.deliver_soon_to_expire(branch.salespeople_emails, self) 

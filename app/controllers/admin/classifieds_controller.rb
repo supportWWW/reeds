@@ -1,5 +1,16 @@
 class Admin::ClassifiedsController < Admin::ApplicationController
 
+  # GET /classifieds/cyberstock
+  # GET /classifieds/cyberstock.xml
+  def cyberstock
+    @classifieds = Cyberstock.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @classifieds }
+    end
+  end
+
   # GET /classifieds/expired
   # GET /classifieds/expired.xml
   def expired
