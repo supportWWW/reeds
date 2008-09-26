@@ -5,4 +5,6 @@ class StocklistsController < ApplicationController
   def unsubscribed
   end
 
+  def subscribe
+  end
 end

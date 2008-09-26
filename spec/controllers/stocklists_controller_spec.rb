@@ -8,6 +8,13 @@ describe StocklistsController do
   end
 
 
+  describe "GET 'subscribe'" do
+    it "should be successful" do
+      get 'subscribe'
+      response.should be_success
+    end
+  end
+
   describe "GET 'confirmation'" do
     it "should be successful" do
       get 'confirmation'

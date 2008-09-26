@@ -1,8 +1,8 @@
 <h2> <%=h @page.title %> </h2>
 
 <%= @page.rendered_text %>
-<%= image_tag @page.image.public_filename %>
+<%= image_tag @page.image.public_filename if @page.image %>
 
 <% if logged_in?  %>
-    <%= link_to 'Edit', edit_admin_page_path(@page) %> |
+    <%= link_to 'Edit', edit_admin_page_path(@page) %>
 <% end  %>
