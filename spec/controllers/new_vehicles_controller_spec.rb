@@ -67,11 +67,11 @@ describe NewVehiclesController do
 
     before(:each) do
       @new_vehicle = mock_model(NewVehicle)
-      NewVehicle.stub!(:find).and_return(@new_vehicle)
+      NewVehicle.stub!(:find_by_permalink).and_return(@new_vehicle)
     end
   
     def do_get
-      get :show, :id => "1"
+      get :show, :id => "permalink1"
     end
 
     it "should be successful" do
@@ -85,7 +85,7 @@ describe NewVehiclesController do
     end
   
     it "should find the new_vehicle requested" do
-      NewVehicle.should_receive(:find).with("1").and_return(@new_vehicle)
+      NewVehicle.should_receive(:find_by_permalink).with("permalink1").and_return(@new_vehicle)
       do_get
     end
   
@@ -99,12 +99,12 @@ describe NewVehiclesController do
 
     before(:each) do
       @new_vehicle = mock_model(NewVehicle, :to_xml => "XML")
-      NewVehicle.stub!(:find).and_return(@new_vehicle)
+      NewVehicle.stub!(:find_by_permalink).and_return(@new_vehicle)
     end
   
     def do_get
       @request.env["HTTP_ACCEPT"] = "application/xml"
-      get :show, :id => "1"
+      get :show, :id => "permalink1"
     end
 
     it "should be successful" do
@@ -113,7 +113,7 @@ describe NewVehiclesController do
     end
   
     it "should find the new_vehicle requested" do
-      NewVehicle.should_receive(:find).with("1").and_return(@new_vehicle)
+      NewVehicle.should_receive(:find_by_permalink).with("permalink1").and_return(@new_vehicle)
       do_get
     end
   

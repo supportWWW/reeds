@@ -9,9 +9,12 @@ describe NewVehicleFileImporterService do
       
       @make = mock_model(Make, :name => "Opel")
       @model_range = mock_model(ModelRange, :name => "Corsa", :make => @make)
+      @model_range.stub!(:humanize)
       @new_vehicle = mock_model(NewVehicle, :id => 1, :year => 2008, :model_range => @model_range, :make => @make)
       
+      @new_vehicle_variant = NewVehicleVariant.new(:new_vehicle => @new_vehicle)
       NewVehicle.stub!(:find).with(1).and_return(@new_vehicle)
+      NewVehicleVariant.stub!(:find_or_initialize_by_new_vehicle_id_and_model_reference).and_return(@new_vehicle_variant)
     end
   
     before :each do

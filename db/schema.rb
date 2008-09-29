@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080926130455) do
+ActiveRecord::Schema.define(:version => 20080929103605) do
 
   create_table "accessories", :force => true do |t|
     t.string   "name"
@@ -183,6 +183,9 @@ ActiveRecord::Schema.define(:version => 20080926130455) do
     t.datetime "updated_at"
     t.integer  "excl_in_cents",   :limit => 11
     t.integer  "vat_in_cents",    :limit => 11
+    t.integer  "make_id",         :limit => 11
+    t.integer  "model_range_id",  :limit => 11
+    t.string   "permalink"
   end
 
   create_table "new_vehicles", :force => true do |t|
@@ -192,6 +195,7 @@ ActiveRecord::Schema.define(:version => 20080926130455) do
     t.boolean  "enabled",                      :default => true
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "permalink"
   end
 
   create_table "news_articles", :force => true do |t|

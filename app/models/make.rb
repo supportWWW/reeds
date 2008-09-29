@@ -4,6 +4,7 @@ class Make < ActiveRecord::Base
   validates_uniqueness_of :name
 
   has_many :models, :dependent => :destroy
+  has_many :model_ranges, :dependent => :destroy
   
   before_save :set_common_name
   
@@ -20,6 +21,14 @@ class Make < ActiveRecord::Base
                           SELECT DISTINCT m.* FROM classifieds c
                           INNER JOIN makes m ON m.id = c.make_id
                           WHERE c.removed_at IS NULL
+                          ORDER BY m.name
+                         #)
+    end
+
+    def new_vehicles
+      Make.find_by_sql(%#
+                          SELECT DISTINCT m.* FROM new_vehicle_variants v
+                          INNER JOIN makes m ON m.id = v.make_id
                           ORDER BY m.name
                          #)
     end

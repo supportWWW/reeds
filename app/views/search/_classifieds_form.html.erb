@@ -3,16 +3,12 @@
 
 	  <p>
 	    Make:&nbsp;
-	    <%= select_tag :make_id, makes_options(params[:make_id]) %>
+	    <%= select_tag :make_id, makes_options("classified", params[:make_id]) %>
 	  </p>
 
 	  <p>
 	    Model:&nbsp;
-			<% if params[:model_id] && !params[:model_id].blank? %>
-				<%= select_tag :model_id, models_options(params[:model_id]) %>
-			<% else %>
-		    <%= select_tag :model_id, "<option value=''>Any model</option>" %> <%= spinner 'models_spinner' %>
-			<% end %>
+			<%= select_tag :model_id, models_options(params[:make_id], params[:model_id]) %><%= spinner("models_spinner") %>
 	  </p>
 
 		<p>
@@ -44,6 +40,7 @@
 			&nbsp;&nbsp;To:&nbsp;<%= select_tag :to, year_options(params[:to]) %>
 		</p>
 	
+		<%= hidden_field_tag :type, "classified" %>
 	  <%= submit_tag "Search" %>
 
 	<% end -%>

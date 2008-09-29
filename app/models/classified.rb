@@ -3,14 +3,14 @@ class Classified < ActiveRecord::Base
   validates_presence_of :price_in_cents, :model_variant_id, :stock_code
   money :price
   
-  has_permalink [:humanize, :stock_code]
 
   belongs_to :model_variant
   
   belongs_to :model # denormalized for search
   belongs_to :make # denormalized for search
 
-  before_save :set_make_and_model
+  before_validation :set_make_and_model
+  has_permalink [:humanize, :stock_code] # needs to be after before_validation :set_make_and_model
   
   named_scope :available, lambda { { :conditions => ["removed_at is NULL AND (expires_on IS NULL OR expires_on > ?)", Date.today], :include => [:make, :model] } }
   named_scope :with_photos, lambda { { :conditions => ["removed_at is NULL AND img_url IS NOT NULL AND (expires_on IS NULL OR expires_on > ?)", Date.today], :include => [:make, :model] } }

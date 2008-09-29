@@ -18,7 +18,7 @@ class NewVehiclesController < ApplicationController
   # GET /new_vehicles/1
   # GET /new_vehicles/1.xml
   def show
-    @new_vehicle = NewVehicle.find(params[:id])
+    @new_vehicle = NewVehicle.find_by_permalink(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

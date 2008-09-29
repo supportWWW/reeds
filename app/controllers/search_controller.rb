@@ -22,6 +22,13 @@ class SearchController < ApplicationController
       @criteria_in_words += "Model: #{Model.find(params[:model_id]).common_name}\n"
     end
 
+    # MODEL RANGE
+    unless params[:model_range_id].blank?
+      conditions << "model_range_id = ?"
+      criteria << params[:model_range_id]
+      @criteria_in_words += "Series: #{ModelRange.find(params[:model_range_id]).name}\n"
+    end
+
     # Convert price to price range if there is only a price
     # Price is in rands (not cents)
     unless params[:price].blank?
@@ -54,9 +61,26 @@ class SearchController < ApplicationController
     end
 
     unless conditions.empty?
-      @results = Classified.available.paginate( :all,
-                                          :page => @page, :per_page => @per_page,
-                                          :conditions => [conditions.join(" AND "), *criteria])
+      if params[:type] == "classified"
+        @results = Classified.available.paginate( :all,
+                                            :page => @page, :per_page => @per_page,
+                                            :conditions => [conditions.join(" AND "), *criteria])
+      else
+        @results = NewVehicleVariant.paginate( :all,
+                                            :page => @page, :per_page => @per_page,
+                                            :conditions => [conditions.join(" AND "), *criteria],
+                                            :include => [:new_vehicle, :make, :model_range])
+      end
+    end
+
+    respond_to do |format|
+      format.html do
+        if params[:type] == "classified"
+          render :template => "search/classifieds"
+        else
+          render :template => "search/new_vehicles"
+        end
+      end
     end
   end
 
@@ -66,6 +90,18 @@ class SearchController < ApplicationController
       @models.insert( 0, [ 'Any model', '' ] )
     else
       @models = [[ 'Any model', '' ]]
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
+
+  def load_model_ranges
+    unless params[:make_id].blank?
+      @model_ranges = ModelRange.find_all_by_make_id( params[:make_id] ).collect { |m| [ m.name, m.id ] }
+      @model_ranges.insert( 0, [ 'Any series', '' ] )
+    else
+      @model_ranges = [[ 'Any series', '' ]]
     end
     respond_to do |format|
       format.js

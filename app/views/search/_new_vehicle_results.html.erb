@@ -1,0 +1,10 @@
+<table>
+	<% results.each do |result| %>
+		<tr>
+			<td>
+				<%=h result.humanize %> <%= link_to "Show", new_vehicle_path(result.new_vehicle.permalink) %><br/>
+				Price: <%=h result.price.format(:no_cents) %>	
+			</td>
+		</tr>
+	<% end %>
+</table>
