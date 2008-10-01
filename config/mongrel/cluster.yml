@@ -1,5 +1,5 @@
 --- 
-user: www-data
+user: reeds
 group: www-data
 cwd: /u/apps/reeds/current
 log_file: /u/apps/reeds/shared/log/mongrel.log
@@ -7,4 +7,5 @@ port: "8000"
 environment: production
 address: 127.0.0.1
 pid_file: /u/apps/reeds/shared/pids/mongrel.pid
-servers: 1
+config_script: /u/apps/reeds/current/lib/health_check_handler.rb
+servers: 2

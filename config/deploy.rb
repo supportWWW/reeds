@@ -48,14 +48,28 @@ end
 
 task :copy_mongrel_config do
   put IO.read( 'config/mongrel/cluster.yml' ), "#{shared_path}/#{application}_mongrel.yml"
-  sudo "ln -s #{shared_path}/#{application}_mongrel.yml /etc/mongrel_cluster/#{application}.yml"
+  sudo "ln -sf #{shared_path}/#{application}_mongrel.yml /etc/mongrel_cluster/#{application}.yml"
 end
 
 task :copy_nginx_config do
   put IO.read( 'config/nginx/rails_nginx_vhost.conf' ), "#{shared_path}/#{application}_nginx_vhost.conf"
-  sudo "ln -s #{shared_path}/#{application}_nginx_vhost.conf /etc/nginx/sites-available/reeds"
-  sudo "ln -s /etc/nginx/sites-available/reeds /etc/nginx/sites-enabled/reeds"
+  sudo "ln -sf #{shared_path}/#{application}_nginx_vhost.conf /etc/nginx/sites-available/reeds"
+  sudo "ln -sf /etc/nginx/sites-available/reeds /etc/nginx/sites-enabled/reeds"
   restart_nginx
+end
+
+task :copy_haproxy_config do
+  put IO.read( 'config/haproxy/haproxy.cfg' ), "#{shared_path}/haproxy.cfg"
+  sudo "ln -sf #{shared_path}/haproxy.cfg /etc/haproxy.cfg"
+  restart_this_haproxy
+end
+
+task :copy_monit_app_configs, :roles => [:app] do
+  %w(mongrel nginx postfix haproxy mysql).each do |service|
+    put IO.read( "config/monit/etc/monit.d/monit_#{service}.conf" ), "#{shared_path}/monit_#{service}.conf"
+    sudo "ln -sf #{shared_path}/monit_#{service}.conf /etc/monit.d/monit_#{service}.conf"
+  end
+  restart_this_monit
 end
 
 task :create_basic_dirs do
