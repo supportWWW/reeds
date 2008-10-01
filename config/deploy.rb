@@ -27,8 +27,7 @@ set :use_sudo, true
 default_run_options[:pty] = true
 set :repository,  "git@github.com:joergd/reeds.git"
 set :scm, "git"
-#set :scm_passphrase, "int3rn3t" #This is your custom users password
-#set :user, "joergd"
+set :scm_passphrase, "00r33d5" #This is your ssh key password
 set :branch, "master"
 set :deploy_via, :remote_cache
 set :git_enable_submodules, 1
@@ -61,15 +60,15 @@ end
 task :copy_haproxy_config do
   put IO.read( 'config/haproxy/haproxy.cfg' ), "#{shared_path}/haproxy.cfg"
   sudo "ln -sf #{shared_path}/haproxy.cfg /etc/haproxy.cfg"
-  restart_this_haproxy
+  restart_haproxy
 end
 
-task :copy_monit_app_configs, :roles => [:app] do
+task :copy_monit_configs, :roles => [:app] do
   %w(mongrel nginx postfix haproxy mysql).each do |service|
     put IO.read( "config/monit/etc/monit.d/monit_#{service}.conf" ), "#{shared_path}/monit_#{service}.conf"
     sudo "ln -sf #{shared_path}/monit_#{service}.conf /etc/monit.d/monit_#{service}.conf"
   end
-  restart_this_monit
+  restart_monit
 end
 
 task :create_basic_dirs do
@@ -80,6 +79,8 @@ end
 task :copy_configs do
   copy_nginx_config
   copy_mongrel_config
+  copy_haproxy_config
+  copy_monit_configs
 end
 
 
@@ -142,3 +143,12 @@ task :restart_nginx do
   sudo '/etc/init.d/nginx reload'
   sudo '/etc/init.d/nginx restart'
 end
+
+task :restart_haproxy do
+  sudo '/etc/init.d/haproxy restart'
+end
+
+task :restart_monit do
+  sudo '/etc/init.d/monit restart'
+end
+
