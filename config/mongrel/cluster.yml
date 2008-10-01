@@ -1,5 +1,5 @@
 --- 
-user: joergd
+user: www-data
 group: www-data
 cwd: /u/apps/reeds/current
 log_file: /u/apps/reeds/shared/log/mongrel.log

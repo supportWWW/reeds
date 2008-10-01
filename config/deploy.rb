@@ -1,11 +1,11 @@
 require 'erb'
 require 'mongrel_cluster/recipes'
 
-set :user, "joergd"
-set :runner, "joergd"
+set :user, "reeds"
+set :runner, "reeds"
 set :application, "reeds"
-set :domain, "reeds.theselovelydays.com"
-set :password, 'int3rn3t'
+set :domain, "reeds.webhop.net"
+set :password, '00r33d5'
 
 # Update these if you're not running everything on one host.
 role :app, domain
@@ -27,13 +27,13 @@ set :use_sudo, true
 default_run_options[:pty] = true
 set :repository,  "git@github.com:joergd/reeds.git"
 set :scm, "git"
-set :scm_passphrase, "int3rn3t" #This is your custom users password
-set :user, "joergd"
+#set :scm_passphrase, "int3rn3t" #This is your custom users password
+#set :user, "joergd"
 set :branch, "master"
 set :deploy_via, :remote_cache
 set :git_enable_submodules, 1
 
-set :server_name, "reeds.theselovelydays.com"
+set :server_name, "reeds.webhop.net"
 #set :server_alias, "gnm7rcaa.joyent.us"
 
 #set :mongrel_config, "/etc/mongrel_cluster/mongrel_cluster.yml" 
@@ -59,7 +59,7 @@ task :copy_nginx_config do
 end
 
 task :create_basic_dirs do
-  sudo "chown -R joergd:www-data #{deploy_to}"
+  sudo "chown -R reeds:www-data #{deploy_to}"
   create_public_shared_dirs
 end
 
