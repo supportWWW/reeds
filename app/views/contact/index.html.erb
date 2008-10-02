@@ -4,6 +4,7 @@
 	<% @branches.each do |branch| -%>
 		<li>
 			<h3><%= branch.name %></h3>
+			<strong>Email: <%= enkode_mail "contact@reeds.co.za", "contact@reeds.co.za", "", "[#{branch.name}]"  %></strong>
 			<strong>Phone: </strong><%=h branch.phone %>
 			<strong>Fax: </strong><%=h branch.fax %>
 			<%= simple_format(sanitize(branch.address)) %>

@@ -15,6 +15,16 @@
 	<%= simple_format(sanitize(@branch.address)) %>
 </p>
 
+<p>
+	<strong>Stock code prefix:</strong>
+	<%=h @branch.stock_code_prefix %>
+</p>
+
+<p>
+	<strong>Cyberstock prefix:</strong>
+	<%=h @branch.cybertock_prefix %>
+</p>
+
 <h3>Salespeople at this branch</h3>
 
 <div id="salespeople_in_branch">

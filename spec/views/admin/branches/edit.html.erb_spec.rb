@@ -9,6 +9,8 @@ describe "/admin/branches/edit.html.erb" do
     @branch.stub!(:phone).and_return("MyString")
     @branch.stub!(:fax).and_return("MyString")
     @branch.stub!(:address).and_return("MyString")
+    @branch.stub!(:stock_code_prefix).and_return("MyString")
+    @branch.stub!(:cyberstock_prefix).and_return("MyString")
     assigns[:branch] = @branch
   end
 
