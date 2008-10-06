@@ -1,6 +1,4 @@
 class ClassifiedsController < ApplicationController
-
-  helper :search
   
   # GET /classifieds
   # GET /classifieds.xml

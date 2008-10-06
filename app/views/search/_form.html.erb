@@ -1,0 +1,21 @@
+<div id="search">
+
+<h2>Vehicle Search</h2>
+<% form_tag( search_path, { :id => "search_form", :method => :get } ) do -%>
+	<p>
+		<input id="search_type" value="new" class="radio" type="radio"> <strong>NEW</strong><span>&nbsp;</span>
+		<input id="search_type" value="used" class="radio" type="radio"> <strong>USED</strong>
+	</p>
+	<div id="ruler"></div>
+	<% if params[:type] && params[:type] == "new_vehicle" -%>
+		<%= render :partial => "search/new_vehicle_form" %>
+	<% else -%>
+	<%= render :partial => "search/classifieds_form" %>
+	<% end -%>
+	<div id="ruler"></div>
+	<p>
+		<input class="button" src="/images/btn-search.gif" value="Search" id="Search" name="Search" type="image">
+	</p>
+<% end -%>
+
+</div><!-- end search -->

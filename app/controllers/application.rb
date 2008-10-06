@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
   # from your application log (in this case, all fields with names like "password"). 
   # filter_parameter_logging :password
   
+  helper :search
   helper_method :public_path
   
   protected

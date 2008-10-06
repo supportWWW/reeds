@@ -9,7 +9,9 @@ class HugeSms
   @@application_id = "62"
 
   def self.deliver(number, message, username = '32888452', password = 'Reeds01')
+    puts "Connecting to HugeSms..."
     Net::HTTP.start('smsza.telepassport.co.za') do |http|
+      puts "Connected."
       xml = create_xml(number, message, username, password).to_s
       puts xml
       http.post("/SMS/SMSSend.jsp", "xmldata=#{xml}").body

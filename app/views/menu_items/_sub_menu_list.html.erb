@@ -1,0 +1,12 @@
+<% unless menu_items.blank?  %>
+
+	<ul>
+		<% for menu_item in menu_items %>
+			<li <% if ["/", "/contact"].include?(menu_item.path) -%>id="border"<% end -%>><a href="<%= url_for_menu menu_item %>"><%= menu_item.title %></a></li>
+			<% unless menu_item.children.blank? %>
+				<%= partial 'menu_items/sub_menu_list', :menu_items => menu_item.children %>
+			<% end  %>
+		<% end  %>
+	</ul>
+
+<% end %>

@@ -1,50 +1,45 @@
-<div id="search">
-	<% form_tag( search_path, { :id => "search_form", :method => :get } ) do -%>
+<p>
+  <label>Make:</label>
+  <%= select_tag :make_id, makes_options("new_vehicle", params[:make_id]) %>
+</p>
 
-	  <p>
-	    Make:&nbsp;
-	    <%= select_tag :make_id, makes_options("classified", params[:make_id]) %>
-	  </p>
+<p>
+	<label>Model:</label>
+	<%= select_tag :model_id, models_options(params[:make_id], params[:model_id]) %><%= spinner("models_spinner") %>
+</p>
 
-	  <p>
-	    Model:&nbsp;
-			<%= select_tag :model_id, models_options(params[:make_id], params[:model_id]) %><%= spinner("models_spinner") %>
-	  </p>
-
-		<p>
-			Price Range:&nbsp;
-			<%= select_tag :price_range, options_for_select(
-				[["< R20 000", "0|20000"],
-					["R20 000 - R40 000", "20000|40000"],
-					["R40 000 - R60 000", "40000|60000"],
-					["R60 000 - R80 000", "60000|80000"],
-					["R80 000 - R100 000", "80000|100000"],
-					["R100 000 - R120 000", "100000|120000"],
-					["R120 000 - R140 000", "120000|140000"],
-					["R140 000 - R160 000", "140000|160000"],
-					["R160 000 - R180 000", "160000|180000"],
-					["R180 000 - R200 000", "180000|200000"],
-					["R200 000 - R220 000", "200000|220000"],
-					["R220 000 - R240 000", "230000|240000"],
-					["R240 000 - R260 000", "240000|260000"],
-					["R260 000 - R280 000", "260000|280000"],
-					["R280 000 - R300 000", "280000|300000"],
-					["> R300 000", "300000|"]
-				], params[:price_range]
-			) %>
-		</p>
+<p>
 	
-		<p>
-			Year Range:&nbsp;
-			From:&nbsp;<%= select_tag :from, year_options(params[:from]) %>
-			&nbsp;&nbsp;To:&nbsp;<%= select_tag :to, year_options(params[:to]) %>
-		</p>
-	
-		<%= hidden_field_tag :type, "classified" %>
-	  <%= submit_tag "Search" %>
+<p>
+	<label>Price Range:</label>
+	<%= select_tag :price_range, options_for_select(
+		[["< R20 000", "0|20000"],
+			["R20 000 - R40 000", "20000|40000"],
+			["R40 000 - R60 000", "40000|60000"],
+			["R60 000 - R80 000", "60000|80000"],
+			["R80 000 - R100 000", "80000|100000"],
+			["R100 000 - R120 000", "100000|120000"],
+			["R120 000 - R140 000", "120000|140000"],
+			["R140 000 - R160 000", "140000|160000"],
+			["R160 000 - R180 000", "160000|180000"],
+			["R180 000 - R200 000", "180000|200000"],
+			["R200 000 - R220 000", "200000|220000"],
+			["R220 000 - R240 000", "230000|240000"],
+			["R240 000 - R260 000", "240000|260000"],
+			["R260 000 - R280 000", "260000|280000"],
+			["R280 000 - R300 000", "280000|300000"],
+			["> R300 000", "300000|"]
+		], params[:price_range]
+	) %>
+</p>
 
-	<% end -%>
-</div>
+<p>
+	<label>Year Range:</label>
+	<label class="year">From:</label><%= select_tag :from, year_options(params[:from]) %><br/>
+	<label>&nbsp;</label><label class="year">To:</label><%= select_tag :to, year_options(params[:to]) %>
+</p>
+
+<%= hidden_field_tag :type, "classified" %>
 
 <script type="text/javascript">
 //<![CDATA[

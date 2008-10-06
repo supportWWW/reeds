@@ -7,7 +7,4 @@ describe "/main/index" do
     render 'main/index'
   end
   
-  it "should display search form" do
-    response.should have_tag("form[action=?][method=?]", search_path, "get")
-  end
 end

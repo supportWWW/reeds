@@ -1,30 +1,47 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  	<title>Reeds Motorgroup</title>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
 
-  	<%= stylesheet_link_tag "application", "ui.datepicker.css", :cache => "cached_all" %>
-        <% if @use_jquery %>
-            <%= javascript_include_tag "jquery-1.2.6.pack.js", "frontend", :cache => "cached_jquery"  %>
-						<%= javascript_include_tag "jquery-form.js", "jquery-ui-1.5rc1.min.js", "jquery.highlight.js", :cache => "cached_jquery_extras" %>
-        <% end  %>
-        <%= yield :header %>
-  </head>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
 
-  <body>
-    <h1>Reeds Motorgroup</h1>
 
-    <%= partial 'menu_items/menu'  %>
+		<title>REEDS : HOME</title>
 
-    <% unless flash.blank? %>
-        <% flash.each do |key, value| %>
-            <p><%= key.to_s.humanize %> - <%= value  %> </p>
-        <% end  %>
-    <% end %>
+		<meta name="description" content="Reeds are a Western Cape based, franchised motor group, providing motoring solutions to the private and corporate sectors. General Motors Vehicles, Opel, Isuzu, Chevrolet, Saab, Hummer, Cadillac." lang="en-us">
+		<meta name="keywords" content="Reeds are a Western Cape based, franchised motor group, providing motoring solutions to the private and corporate sectors. General Motors Vehicles, Opel, Isuzu, Chevrolet, Saab, Hummer, Cadillac." lang="en-us">
+		<%= stylesheet_link_tag "slider", "ui.datepicker.css", "styles", "application", :media => "screen, projection", :cache => "cached_all" %>
+		<% if @use_jquery %>
+		    <%= javascript_include_tag "jquery-1.2.6.pack.js", "frontend", :cache => "cached_jquery"  %>
+				<%= javascript_include_tag "jquery-form.js", "jquery-ui-1.5rc1.min.js", "jquery.highlight.js", "accordion.js", "cycle.js", "slider.js", "suckerfish.js", :cache => "cached_jquery_extras" %>
+		<% end  %>
+		<%= yield :header %>
+	</head>
+
+	<body>
+
+		<div id="wrapper">
+			<div id="header">
+				<h1><a href="/" title="Home"><img src="/images/reeds.gif" alt="REEDS"></a></h1>
+				<p>Welcome to <strong>reeds.co.za</strong> <a href="/contact" class="locate-dealer">Locate a dealer</a> <small>|</small> <a href="/pages/friends-of-reeds">Friends of Reeds</a> <small>|</small> <a href="javascript:window.print()">Print this page</a></p>
+				
+		    <%= partial 'menu_items/menu'  %>
+			</div><!-- end header -->
+
+			<div id="content">
+				<%= render :partial => "layouts/features" %>
+				<%= render :partial => "search/form" %>
+
+		    <% unless flash.blank? %>
+		        <% flash.each do |key, value| %>
+		            <p><%= key.to_s.humanize %> - <%= value  %> </p>
+		        <% end  %>
+		    <% end %>
     
-    <%= yield %>
+		    <%= yield %>
     
-		<%= partial "layouts/footer" %>
-  </body>
+				<%= partial "layouts/footer" %>
+
+			</div><!-- end content -->
+		</div><!-- end wrapper -->
+	</body>
 </html>
