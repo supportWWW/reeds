@@ -15,6 +15,7 @@ ActionController::Routing::Routes.draw do |map|
   map.search "/search", :controller => "search", :action => "index"
   map.find_car "/contact/find_car", :controller => "contact", :action => "find_car"
   map.monthly_payment "/calculators/monthly_payment", :controller => "calculators", :action => "monthly_payment"
+  map.affordability "/calculators/affordability", :controller => "calculators", :action => "affordability"
 
   map.namespace(:admin) do |admin|
 

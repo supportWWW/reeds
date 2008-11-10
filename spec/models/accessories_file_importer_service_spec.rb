@@ -5,7 +5,7 @@ describe AccessoriesFileImporterService do
   include ReedsSpecHelper
   
     before :all do
-      @stock = read_file( 'opel-corsa-accessories.txt' )
+      @stock = open_file( 'opel-corsa-accessories.txt' )
       
       @make = mock_model(Make, :name => "Opel")
       @model_range = mock_model(ModelRange, :name => "Corsa", :make => @make)
@@ -24,9 +24,9 @@ describe AccessoriesFileImporterService do
   
   describe 'performing imports' do
     
-    it 'Should add 2 accessories' do
+    it 'Should add 13 accessories' do
       perform
-      Accessory.count.should == 2
+      Accessory.count.should == 13
     end
     
   end
@@ -38,9 +38,9 @@ describe AccessoriesFileImporterService do
       perform
     end
     
-    it 'Should add 2 accessories' do
+    it 'Should add 13 accessories' do
       do_double_add
-      Accessory.count.should == 2
+      Accessory.count.should == 13
     end
     
   end

@@ -1,0 +1,8 @@
+<% if @success %>
+	$('#approximate_loan_amount').html(<%= @approximate_loan_amount.to_json %>);
+	$('#approximate_loan_amount').effect('highlight');
+<% else %>
+	$('#approximate_loan_amount').html('');
+	$('#affordability_form_errors').html(<%= error_messages_for(:form).to_json %>);
+	$('#affordability_form_errors').show();
+<% end %>

@@ -24,4 +24,22 @@ describe CalculatorsController do
       assigns(:form).valid?.should be_false
     end
   end
+
+
+  describe "GET valid 'affordability'" do
+    it "should be successful" do
+      xhr :post, 'affordability', :form => { :monthly_payment => "1200", :deposit => "10000", :repayment_period => "54", :interest_rate => "16.5" }
+      response.should be_success
+      assigns(:form).valid?.should be_true
+      assigns(:approximate_loan_amount).should == 55527
+    end
+  end
+
+  describe "GET invalid 'affordability'" do
+    it "should be successful" do
+      xhr :post, 'affordability'
+      response.should be_success
+      assigns(:form).valid?.should be_false
+    end
+  end
 end

@@ -5,7 +5,10 @@ class AccessoriesFileImporterService
   def process(new_vehicle_id, file_contents)
     added, error = [], []
     new_vehicle = NewVehicle.find(new_vehicle_id)
-    FasterCSV.parse( file_contents, :col_sep => "\t" ) do |row|
+    
+    while (line = file_contents.gets)
+      row = line.split("\t")
+
       accessory = Accessory.new
       accessory.model_reference = row[1].strip
       accessory.new_vehicle_id = new_vehicle_id
@@ -19,6 +22,9 @@ class AccessoriesFileImporterService
         error << accessory
       end
     end
+    
+#    FasterCSV.parse( file_contents, :col_sep => "\t" ) do |row|
+#    end
     
     Accessory.delete_all(['id not in (?)', added.collect{ |i| i.id }])
     

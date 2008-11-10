@@ -20,4 +20,17 @@ module Calculator
 
   	((amount * intermediate[0]) / (total + 1 - intermediate[0])).to_i
   end
+  
+  def self.affordability(deposit, repayment_period, interest_rate, monthly_payment)
+    interest_rate = BigDecimal(interest_rate.to_s)
+	  interest_rate = interest_rate / 100.0 if interest_rate > 1
+	  interest_rate = interest_rate / 12.0
+
+    pow = 1
+    0.upto(repayment_period - 1) do |t|
+      pow = pow * (1 + interest_rate)
+    end
+
+    ((BigDecimal(monthly_payment.to_s) * (1.0 - (1.0 + interest_rate) ** (- BigDecimal(repayment_period.to_s))) / interest_rate) + BigDecimal(deposit.to_s)).to_i
+  end
 end

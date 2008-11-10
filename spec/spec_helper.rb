@@ -56,5 +56,9 @@ module ReedsSpecHelper
   def read_file( name )
     IO.read( File.dirname(__FILE__) + "/files/#{name}" )
   end
+
+  def open_file( name )
+    File.new(File.dirname(__FILE__) + "/files/#{name}", "r")
+  end
   
 end
