@@ -14,12 +14,12 @@ class CyberstockFileImporterService
         classified.physical_stock = row[12] || row[13] # only one of these will be set.
         classified.branch = branch
         classified.year = row[5].strip # denormalization for search
-        classified.price= row[8].strip.gsub(/ /, "")
-        classified.colour = row[6].strip
-        classified.mileage = row[7].strip.gsub(/ /, "")
-        classified.features = row[10].strip
-        classified.has_service_history = row[9].strip.downcase == "yes"
-        classified.expires_on = get_date(row[0].strip)
+        classified.price= row[8].strip.gsub(/ /, "") unless row[8].nil?
+        classified.colour = row[6].strip unless row[6].nil?
+        classified.mileage = row[7].strip.gsub(/ /, "") unless row[7].nil?
+        classified.features = row[10].strip unless row[10].nil?
+        classified.has_service_history = row[9].strip.downcase == "yes" unless row[9].nil?
+        classified.expires_on = get_date(row[0].strip) unless row[0].nil?
         classified.removed_at = nil
         if classified.save
           added << classified
