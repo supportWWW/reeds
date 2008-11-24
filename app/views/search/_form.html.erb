@@ -3,19 +3,47 @@
 <h2>Vehicle Search</h2>
 <% form_tag( search_path, { :id => "search_form", :method => :get } ) do -%>
 	<p>
-		<input id="search_type" value="new" class="radio" type="radio"> <strong>NEW</strong><span>&nbsp;</span>
-		<input id="search_type" value="used" class="radio" type="radio"> <strong>USED</strong>
+		<input id="search_type_new" name="search_type" value="new" class="radio" type="radio" <% if params[:type] && params[:type] == "new_vehicle" %>checked="true"<% end %>> <strong>NEW</strong><span>&nbsp;</span>
+		<input id="search_type_used" name="search_type" value="used" class="radio" type="radio" <% if !params[:type] || params[:type] == "classified" %>checked="true"<% end %>> <strong>USED</strong>
 	</p>
 	<div id="ruler"></div>
-	<% if params[:type] && params[:type] == "new_vehicle" -%>
-		<%= render :partial => "search/new_vehicle_form" %>
-	<% else -%>
-	<%= render :partial => "search/classifieds_form" %>
-	<% end -%>
+	<div id="vehicle_search_form_content" style="margin: 0px; padding:0px;">
+		<% if params[:type] && params[:type] == "new_vehicle" -%>
+			<%= render :partial => "search/new_vehicle_form" %>
+		<% else %>
+			<%= render :partial => "search/classifieds_form" %>
+		<% end %>
+	</div>
 	<div id="ruler"></div>
 	<p>
 		<input class="button" src="/images/btn-search.gif" value="Search" id="Search" name="Search" type="image">
 	</p>
 <% end -%>
 
+<div id="hidden_used_vehicle_search_form_content" style="display:none;">
+	<%= render :partial => "search/classifieds_form" %>
+</div>
+
+<div id="hidden_new_vehicle_search_form_content" style="display:none;">
+	<%= render :partial => "search/new_vehicle_form" %>
+</div>
+	
 </div><!-- end search -->
+
+<script type="text/javascript">
+//<![CDATA[
+
+	$('#search_type_new').click(function() {
+		$('#vehicle_search_form_content').html($('#hidden_new_vehicle_search_form_content').html());
+	});
+
+	$('#search_type_used').click(function() {
+		$('#vehicle_search_form_content').html($('#hidden_used_vehicle_search_form_content').html());
+	});
+
+//]]>
+</script>
+
+
+
+	

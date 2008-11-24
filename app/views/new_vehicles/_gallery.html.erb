@@ -1,0 +1,23 @@
+<div id="gallery">
+	<script language="JavaScript" type="text/javascript">
+		function movepic(img_name,img_src) {
+			document[img_name].src=img_src;
+		}
+	</script>
+	<img src="/images/vehicles/bmw1.jpg" name="main" alt="Capriva"/>
+	<div id="thumbs">
+		<a href="#" onclick="movepic('main','/images/vehicles/bmw1.jpg')"><img src="/images/vehicles/bmw1.jpg" alt="Capriva"/></a>
+		<a href="#" onclick="movepic('main','/images/vehicles/bmw2.jpg')"><img src="/images/vehicles/bmw2.jpg" alt="Capriva"/></a>
+		<a href="#" onclick="movepic('main','/images/vehicles/bmw3.jpg')"><img src="/images/vehicles/bmw3.jpg" alt="Capriva"/></a>
+		<a href="#" onclick="movepic('main','/images/vehicles/bmw1.jpg')"><img src="/images/vehicles/bmw1.jpg" alt="Capriva"/></a>
+		<a href="#" onclick="movepic('main','/images/vehicles/bmw2.jpg')"><img src="/images/vehicles/bmw2.jpg" alt="Capriva"/></a>
+		<a href="#" onclick="movepic('main','/images/vehicles/bmw3.jpg')"><img src="/images/vehicles/bmw3.jpg" alt="Capriva"/></a>
+	</div><!-- end thumbs -->
+	<% unless new_vehicle.attachments.brochure.nil? %>
+		<p class="pdf"><strong><a href="#">Download</a> a detailed PDF</strong><br />
+		brochure for this vehicle</p>
+	<% else %>
+		<p class="no_pdf">There is currently no detailed PDF brochure available for download.</p>
+	<% end %>
+
+</div><!-- end gallery -->

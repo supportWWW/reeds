@@ -19,12 +19,17 @@
 				<td><%= f.text_field :interest_rate, :maxsize => 10, :size => 10 %>%</td>
 			</tr>
 			<tr>
+				<td></td>
+				<td><%= submit_tag 'Calculate' %><%= spinner("monthly_payment_spinner") %></td>
+			</tr>
+			<tr>
 				<td>Approximate monthly payment</td>
 				<td>R <span id="approximate_monthly_payment"><%= mpf.monthly_payment %></span></td>
 			</tr>
+			
 		</table>
+		
 		<p>This is an approximate amount and we do not accept responsibility for any errors that may occur.</p>
-		<%= submit_tag 'Calculate' %><%= spinner("monthly_payment_spinner") %>
 	<% end %>
 </div>
 

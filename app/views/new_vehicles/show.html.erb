@@ -1,23 +1,83 @@
-<p>
-  <b>Model:</b>
-  <%=h @new_vehicle.model_range.name %>
-</p>
+<% content_for(:title) do %>
+	<h2><%=h @new_vehicle.humanize %></h2>
+<% end -%>
 
-<p>
-  <b>Description:</b>
-  <%=h @new_vehicle.description %>
-</p>
+<% unless @new_vehicle.enabled? %>
+	<p style="color: red;">	
+		Sorry, it was a great vehicle, but we no longer have it available.<br/>
+	</p>
 
-<p>
-  <b>Year:</b>
-  <%=h @new_vehicle.year %>
-</p>
+<% else %>
 
-<p>
-  <b>Enabled:</b>
-  <%= boolean_label  @new_vehicle.enabled %>
-</p>
+	<div id="action_menu">
+		<p>
+		<% if (request.env["HTTP_REFERER"] || "").include?(request.env["SERVER_NAME"]) %>
+			<%= link_to "Back to search results", "javascript:history.back();", :title => "Back to search results" %>
+		<% else %>
+			<%= link_to "Search for other new vehicles", search_path(:type => "new_vehicle"), :title => "Search for new motor vehicles" %>
+		<% end -%>
+		</p>
+	</div>
 
-<%= partial :accessories_and_variants %>
+	<div id="twotwenty">
 
-<%= partial :images_and_files %>
+		<%= render :partial => "gallery", :locals => { :new_vehicle => @new_vehicle } %>
+		<%= render :partial => "enquiry", :locals => { :new_vehicle => @new_vehicle } %>
+	
+	</div><!-- end twotwenty -->
+	
+	<div id="fourthirty">
+
+		<table id="alt" border="0" cellpadding="0" cellspacing="0">
+			<thead>
+				<tr>
+					<th>Model</th> 
+					<th>Mod Ref</th>
+					<th>Price <span>(incl. VAT)</span></th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @new_vehicle.new_vehicle_variants.each do |new_vehicle_variant| %>
+					<tr>
+						<td><%=h new_vehicle_variant.name %></td>
+						<td><%=h new_vehicle_variant.model_reference %></td>
+						<td><%=h new_vehicle_variant.price.format(:no_cents) %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+		
+		<% unless @new_vehicle.accessories.empty? %>
+			<h6>Accessories:</h6>
+			<p><%=h @new_vehicle.accessories.map(&:name).join(", ") %></p>
+		<% end %>
+		
+		<div id="callus">
+			<h3>Call us now about this car!</h3>
+			<p>If you are excited to get your new car right now, don't hesitate and contact <strong>Suzanne</strong> now on <strong>021 443 5130</strong> and quote the vehicle mod ref.</p>
+		</div><!-- end callus -->
+
+		<% unless @new_vehicle.new_vehicle_variants.empty? %>
+			<h3>Calculator</h3>
+			<%= partial "calculators/monthly_payment", :purchase_price => (@new_vehicle.new_vehicle_variants.first.price_in_cents / 100).to_i %>
+		<% end -%>
+
+	</div><!-- end fourthirty -->
+
+<% end -%>
+
+<% content_for(:actions) do %>
+
+	<div><div id="callback">
+	<h3><a href="#">Request a Call-back</a></h3>
+	<p>Weíll <a href="#">call you back</a> as soon as<br />an agent becomes free.</p>
+	</div></div>
+
+	<div><div id="testdrive">
+	<h3><a href="#">Book a test drive</a></h3>
+	<p><a href="#">Click here</a> to book a test<br />
+	drive for this vehicle.</p>
+	</div></div>
+
+<% end -%>
+	

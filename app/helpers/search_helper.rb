@@ -41,7 +41,7 @@ module SearchHelper
     make_id = nil if make_id && make_id.to_i == 0
     unless selected.nil?
       if selected.class != ModelRange
-        selected = ModelRange.find(selected.to_i)
+        selected = ModelRange.find_by_id(selected.to_i)
       end
     end
     make = make_id.nil? ? nil : Make.find(make_id.to_i)

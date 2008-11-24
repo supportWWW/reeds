@@ -4,8 +4,8 @@ class ServiceBookingMailer < ActionMailer::Base
   
   def booking( form )
     subject    'Reeds  - Service booking request'
-    recipients ['joergd@pobox.com', form.email ]
-    from        ActionMailer::Base.smtp_settings[:user_name]
+    recipients ['joergd@pobox.com' ]
+    from        "i-am-robot-dont-respond@reeds.co.za"
     sent_on    Time.now
     body       :form => form
   end

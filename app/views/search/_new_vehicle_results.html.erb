@@ -1,10 +1,20 @@
-<table>
+<table id="alt" border="0" cellpadding="0" cellspacing="0">
+	<thead>
+		<tr>
+			<th>Range</th>
+			<th>Model</th>
+			<th>Price</th>
+			<th>Details</th>
+		</tr>
+	</thead>
+	<tbody>
 	<% results.each do |result| %>
 		<tr>
-			<td>
-				<%=h result.humanize %> <%= link_to "Show", new_vehicle_path(result.new_vehicle.permalink) %><br/>
-				Price: <%=h result.price.format(:no_cents) %>	
-			</td>
+			<td><%=h result.model_range.humanize %></td>
+			<td><%=h result.name %></td>
+			<td><%=h result.price.format(:no_cents) %></td>
+			<td><%= link_to "View", new_vehicle_path(result.new_vehicle.permalink) %></td>
 		</tr>
 	<% end %>
+	</tbody>
 </table>

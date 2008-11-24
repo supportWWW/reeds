@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081006130829) do
+ActiveRecord::Schema.define(:version => 20081124195757) do
 
   create_table "accessories", :force => true do |t|
     t.string   "name"
@@ -73,11 +73,9 @@ ActiveRecord::Schema.define(:version => 20081006130829) do
     t.string   "reg_num"
     t.integer  "mileage",             :limit => 11
     t.text     "features"
-    t.string   "img_url"
     t.integer  "days_in_stock",       :limit => 11
     t.datetime "removed_at"
     t.boolean  "has_service_history"
-    t.boolean  "cyberstock"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "year",                :limit => 11
@@ -244,6 +242,8 @@ ActiveRecord::Schema.define(:version => 20081006130829) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "job_title"
+    t.boolean  "sms_contact_me"
+    t.boolean  "receive_web_leads"
   end
 
   create_table "users", :force => true do |t|

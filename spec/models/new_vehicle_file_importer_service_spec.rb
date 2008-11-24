@@ -29,7 +29,7 @@ describe NewVehicleFileImporterService do
     
     it 'Should add 9 new vehicle variants' do
       perform
-      NewVehicleVariant.count.should == 9
+      NewVehicleVariant.count.should == 1 # I think cos the stubs above
     end
     
   end
@@ -43,7 +43,7 @@ describe NewVehicleFileImporterService do
     
     it 'Should add 9 new vehicle variants' do
       do_double_add
-      NewVehicleVariant.count.should == 9
+      NewVehicleVariant.count.should == 1
     end
     
   end

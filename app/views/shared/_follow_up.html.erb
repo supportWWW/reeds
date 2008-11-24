@@ -5,25 +5,18 @@
 	<% form_for :form, FindCarForm.new(:criteria => criteria_in_words), :url => find_car_path, :html => { :method => :post, :id => "find_car_form" } do |f| -%>
 		<div id="find_car_form_notice" style="display: hidden;"></div>
 	  <div id="find_car_form_errors" style="display: hidden;"></div>
-	  <p>
-	    <b>Name</b><br/>
-	    <%= f.text_field :name %>
-	  </p>
-	  <p>
-	    <b>Email</b><br/>
-	    <%= f.text_field :email %>
-	  </p>
-	  <p>
-	    <b>Phone number</b><br/>
-	    <%= f.text_field :phone %>
-	  </p>
-	  <p>
-	    <b>What are you looking for</b><br/>
-	    <%= f.text_area :criteria, :rows => 5, :cols => 50 %>
-	  </p>
-	  <p>
-	    <%= submit_tag 'Please find for me' %><%= spinner("find_car_spinner") %>
-	  </p>
+		<div>
+			Name<br/>
+			<%= f.text_field :name %><br/>
+			Email<br/>
+			<%= f.text_field :email %><br/>
+			Phone number<br/>
+			<%= f.text_field :phone %><br/>
+			What are you looking for<br/>
+			<span class="info">Please fill in as much information as you can, so that we can help you properly.</span><br/>
+			<%= f.text_area :criteria, :rows => 5, :cols => 50 %><br/>
+			<%= submit_tag 'Please find for me' %><%= spinner("find_car_spinner") %>
+		</div>
 	<% end -%>
 <% end -%>
 <br/>

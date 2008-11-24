@@ -1,0 +1,12 @@
+span.info {
+	padding:0px;
+	margin: 0px;
+	color: #9a9a9a;
+}
+
+#gallery p.no_pdf { 
+background: #ebf1f6;
+text-align: left; 
+padding: 6px 0 7px 12px;
+font: normal 1.1em/1.3em "Arial", Helvetica, san-serif; 
+}

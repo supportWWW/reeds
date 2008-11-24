@@ -20,6 +20,7 @@ describe "/classifieds/show.html.erb" do
     @classified.stub!(:removed?).and_return(false)
     @classified.stub!(:make).and_return(Make.new)
     @classified.stub!(:model).and_return(Model.new)
+    @classified.stub!(:branch_id).and_return(1)
 
     assigns[:classified] = @classified
     @request.env["HTTP_REFERER"] = "http://localhost/search"

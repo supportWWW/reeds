@@ -2,24 +2,22 @@
 
 <p><b>Important:</b></p>
 <ol>
-  <li>The stock list must be saved from Microsoft Excel as a tab-delimited text file.</li>
+  <li>The stock list must be saved from Microsoft Excel as a comma-delimited text file.</li>
   <li>Make and Model fields must correspond to entries on the Mead & McGrouther list.</li>
-  <li>Remove the first line of column headings from the file.</li>
+  <li>Don't remove the first line of column headings from the file.</li>
   <li>The document must contain <b>all</b> the columns listed below, any other columns will be ignored.</li>
   <li>The columns <b>must</b> be in this exact order.</li>
 </ol>
 
 <p><b>Columns:</b>
-  stock_code, stock_type, make, model, year, price, colour, reg_num, mileage, features, img_url, best_buy, days_in_stock
+	Expiry_Date	Stock_Code Branch	Make	Model	Year	Colour	Kilometers	Price	Service_History	Features	Type	Advert (if new)	Real_Stock_Code (if used)	MM_Code	IMG_1	IMG_2	IMG_3
 </p>
 
 <p>
-<b>Example (We have used '|' to indicate the separation between columns.):</b><br>
-(The '1' in the second last column indicates that this vehicle is to be marked as a 'Best Buy'.<br>
-Leave this as '0' if the vehicle is NOT a 'Best Buy'.)
+<b>Example (We have used '|' to indicate the separation between columns.):</b>
 </p>
 
-<p>12345 | V | OPEL | ASTRA 1.6 CS A/C | 2000 | 89995 | Black | CA123456 | 128000 | Air conditioner, power steering | black_astra.jpg | 1 | 23</p>
+<p>20/11/2008	| CC000001 | CT | CHEVROLET	| AVEO 1.5 LS 5Dr	| 2007	| Silver |	12 000 |	89 995	| Yes	 | ABS Airbags AirCon Alloy Wheels Anti Theft - Alarm Anti Theft - Immobiliser Balance of Manufacturer Warranty Central Locking Electric Windows Full Service History Maintenance Plan Metallic Paint Power Steering Radio and CD  | 	Used	|	O12085	| 10030280</p>
 
 <% form_tag( { :action => 'import_cyberstock' }, { :method => :post, :multipart => true } ) do %>
       File: <%= file_field_tag :file  %>

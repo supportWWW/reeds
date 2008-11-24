@@ -1,6 +1,6 @@
-<h2>Search results</h2>
-
-<%= partial "new_vehicle_form" %>
+<% content_for(:title) do %>
+	<h2>Search results</h2>
+<% end -%>
 
 <% unless @results.nil? %>
 	<% if @results.empty? %>

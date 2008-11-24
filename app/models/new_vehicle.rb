@@ -2,7 +2,11 @@ class NewVehicle < ActiveRecord::Base
 
   belongs_to :model_range
   has_many :images, :as => :owner, :dependent => :destroy
-  has_many :attachments, :as => :owner, :dependent => :destroy
+  has_many :attachments, :as => :owner, :dependent => :destroy, :order => "created_at ASC" do
+    def brochure
+      find(:first)
+    end
+  end
   has_many :new_vehicle_variants, :dependent => :destroy
   has_many :accessories, :dependent => :destroy
   

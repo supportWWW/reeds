@@ -112,6 +112,7 @@ private
 
   def convert_to_price_range(price)
     p = price.to_i.roundup(10000)
-    return "#{p - 10000}|#{p + 10000}"
+    p += 10000 if p % 20000 > 0
+    return "#{p - 20000}|#{p}"
   end
 end

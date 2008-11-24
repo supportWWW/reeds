@@ -1,6 +1,7 @@
-<h2>Search results</h2>
+<% content_for(:title) do %>
+	<h2>Search results</h2>
+<% end -%>
 
-<%= partial "classifieds_form" %>
 
 <% unless @results.nil? %>
 	<% if @results.empty? %>

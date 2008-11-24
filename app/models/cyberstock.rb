@@ -1,7 +1,5 @@
 class Cyberstock < Classified
 
-  validates_presence_of :branch_id
-  
   has_permalink [:humanize, :stock_code]
 
   belongs_to :branch

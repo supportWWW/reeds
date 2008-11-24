@@ -6,6 +6,5 @@ describe "/stocklists/subscribe" do
   end
   
   it "should display heading" do
-    response.should have_tag('h2', %r[Stock List Subscription])
   end
 end

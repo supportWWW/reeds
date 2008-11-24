@@ -10,6 +10,8 @@ describe "/admin/salespeople/new.html.erb" do
     @salesperson.stub!(:phone).and_return("MyString")
     @salesperson.stub!(:email).and_return("MyString")
     @salesperson.stub!(:job_title).and_return("MyString")
+    @salesperson.stub!(:sms_contact_me).and_return(true)
+    @salesperson.stub!(:receive_web_leads).and_return(true)
     assigns[:salesperson] = @salesperson
   end
 

@@ -1,73 +1,87 @@
+<% content_for(:title) do %>
+	<h2><%=h @classified.year %> <%=h @classified.humanize %></h2>
+<% end -%>
+
 <% if @classified.removed? %>
 	<p style="color: red;">	
 		Sorry, it was a great vehicle, but we have already sold it.<br/>
 		<%= partial "shared/follow_up", { :criteria_in_words => "Make: #{@classified.make.common_name}\nModel: #{@classified.model.name}\nPrice range: \nYear: " } %>
 	</p>
-<% end -%>
 
-<% if (request.env["HTTP_REFERER"] || "").include?(request.env["SERVER_NAME"]) %>
-	<%= link_to "Back to search results", "javascript:history.back();", :title => "Back to search results" %> | <%= link_to "Search again", search_path, :title => "Search for used motor vehicles" %>
 <% else %>
-	<%= link_to "Search for other used vehicles", search_path, :title => "Search for used motor vehicles" %>
+
+	<div id="action_menu">
+		<p>
+		<% if (request.env["HTTP_REFERER"] || "").include?(request.env["SERVER_NAME"]) %>
+			<%= link_to "Back to search results", "javascript:history.back();", :title => "Back to search results" %> | 
+		<% end -%>
+		<%= link_to "View Vehicles in same price range", search_path(:type => "classified", :price => @classified.price), :title => "Search for similarly priced vehicles" %>
+		</p>
+	</div>
+
+	<div id="twotwenty">
+
+		<%= render :partial => "gallery" %>
+		<%= render :partial => "enquiry", :locals => { :classified => @classified } %>
+	
+	</div><!-- end twotwenty -->
+	
+	<div id="fourthirty">
+
+		<ol id="specs">
+			<li><span>Make:</span><%=h @classified.make.name %></li>
+			<li><span>Model:</span><%=h @classified.model.name %></li>
+			<li><span>Colour:</span><%=h @classified.colour  %></li>
+			<li><span>Mileage:</span><%=h @classified.mileage %> km</li>
+			<li><span>Price:</span><%=h @classified.price.format(:no_cents) %></li>
+			<li><span>Ref. #:</span><%=h @classified.stock_code %></li>
+		</ol>
+
+		<h6>Features:</h6>
+		<p><%=h @classified.features %></p>
+
+		<h6>Description:</h6>
+		<p>Good quality Holden Certified vehicles. 3 Year Certified Warranty.<br />
+		* Conditions apply.</p>
+		<p>
+			<% link_to_section "Warranty information" do |cancel| %>	
+				<%= link_to_function("Hide warranty", cancel) %>
+				<h3>Warranty  information</h3>
+				<p> RV to supply the warranty.</p>
+			<% end -%>
+		</p>	
+
+		<div id="callus">
+			<h3>Call us now about this car!</h3>
+			<p>If you are excited to get your pre-owned car right now, don't hesitate and contact <strong>Suzanne</strong> now on <strong>021 443 5130</strong> and quote the vehicle    reference number <span><%=h @classified.stock_code %></span>. </p>
+		</div><!-- end callus -->
+
+		<h3>Calculator</h3>
+		<%= partial "calculators/monthly_payment", :purchase_price => (@classified.price_in_cents / 100).to_i %>
+
+		<% link_to_section "Disclaimer" do |cancel| %>	
+			<%= link_to_function("Hide disclaimer", cancel) %>
+			<h3>Disclaimer</h3>
+			<p> RV to supply the disclaimer.</p>
+		<% end -%>
+
+	</div><!-- end fourthirty -->
+
 <% end -%>
- | <%= link_to "View Vehicles in same price range", search_path(:price => @classified.price), :title => "Search for similarly priced vehicles" %>
 
-<p>
-  <b>Model:</b>
-  <%=h @classified.humanize %>
-</p>
+<% content_for(:actions) do %>
 
-<p>
-  <b>Year:</b>
-  <%=h @classified.year %>
-</p>
+	<div><div id="callback">
+	<h3><a href="#">Request a Call-back</a></h3>
+	<p>Weíll <a href="#">call you back</a> as soon as<br />an agent becomes free.</p>
+	</div></div>
 
-<p>
-  <b>Stock code:</b>
-  <%=h @classified.stock_code %>
-</p>
+	<div><div id="testdrive">
+	<h3><a href="#">Book a test drive</a></h3>
+	<p><a href="#">Click here</a> to book a test<br />
+	drive for this vehicle.</p>
+	</div></div>
 
-<p>
-  <b>Price:</b>
-  <%=h @classified.price.format(:no_cents) %>
-</p>
-
-<p>
-  <b>Colour:</b>
-  <%=h @classified.colour %>
-</p>
-
-<p>
-  <b>Mileage:</b>
-  <%=h @classified.mileage %>km
-</p>
-
-<p>
-  <b>Features:</b>
-  <%=h @classified.features %>
-</p>
-
-<p>
-  <b>Img url:</b>
-  <%=h @classified.img_url %>
-</p>
-
-<p>
-  <b>Has service history:</b>
-  <%=h @classified.has_service_history %>
-</p>
-
-<h3>Calculator</h3>
-<%= partial "calculators/monthly_payment", :purchase_price => (@classified.price_in_cents / 100).to_i %>
-
-<% link_to_section "Disclaimer" do |cancel| %>	
-	<%= link_to_function("Hide disclaimer", cancel) %>
-	<h3>Disclaimer</h3>
-	<p> RV to supply the disclaimer.</p>
 <% end -%>
-<br/>
-<% link_to_section "Warranty information" do |cancel| %>	
-	<%= link_to_function("Hide warranty", cancel) %>
-	<h3>Warranty  information</h3>
-	<p> RV to supply the warranty.</p>
-<% end -%>
+	
+	

@@ -28,16 +28,33 @@
 			</div><!-- end header -->
 
 			<div id="content">
-				<%= render :partial => "layouts/features" %>
-				<%= render :partial => "search/form" %>
+				<div id="sixfifty">
 
-		    <% unless flash.blank? %>
-		        <% flash.each do |key, value| %>
-		            <p><%= key.to_s.humanize %> - <%= value  %> </p>
-		        <% end  %>
-		    <% end %>
-    
-		    <%= yield %>
+					<div id="path">
+						<p>You are here: <a href="index.html">Home</a> / General page layout</p>
+					</div>
+
+					<%= yield :title %>
+
+					<% unless flash.blank? %>
+			        <% flash.each do |key, value| %>
+			            <p><%= key.to_s.humanize %> - <%= value  %> </p>
+			        <% end  %>
+			    <% end %>
+			    
+					<%= yield %>
+
+				</div>
+				
+				<div id="twofifty">
+				
+					<%= render :partial => "search/form" %>
+
+					<div id="actions">
+						<%= yield :actions %>
+					</div>
+					
+				</div>
     
 				<%= partial "layouts/footer" %>
 

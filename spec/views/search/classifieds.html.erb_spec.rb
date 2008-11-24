@@ -6,21 +6,19 @@ describe "/search/classifieds" do
   
   it "should display forms" do
     result_98 = mock_model(Classified)
-    result_98.should_receive(:humanize).and_return("MyString")
-    result_98.should_receive(:mileage).and_return("MyString")
     result_98.should_receive(:price).and_return(Money.new(1))
     result_98.should_receive(:year).and_return(2007)
-    result_98.should_receive(:colour).and_return("MyString")
-    result_98.should_receive(:stock_code).and_return("MyString")
     result_98.should_receive(:permalink).and_return("MyString")
+    result_98.should_receive(:make).and_return(Make.new)
+    result_98.should_receive(:model).and_return(Model.new)
+    result_98.should_receive(:has_images?).and_return(true)
     result_99 = mock_model(Classified)
-    result_99.should_receive(:humanize).and_return("MyString")
-    result_99.should_receive(:mileage).and_return("MyString")
     result_99.should_receive(:price).and_return(Money.new(1))
     result_99.should_receive(:year).and_return(2007)
-    result_99.should_receive(:colour).and_return("MyString")
-    result_99.should_receive(:stock_code).and_return("MyString")
     result_99.should_receive(:permalink).and_return("MyString")
+    result_99.should_receive(:make).and_return(Make.new)
+    result_99.should_receive(:model).and_return(Model.new)
+    result_99.should_receive(:has_images?).and_return(true)
     
     assigns[:results] = [result_98, result_99]
     assigns[:results].stub!( :total_pages ).and_return( 1 )
@@ -29,7 +27,6 @@ describe "/search/classifieds" do
     
     render 'search/classifieds'
 
-    response.should have_tag('h2', %r[Search results])
     response.should have_tag("form[action=?][method=?]", find_car_path, "post")
     response.should have_tag("textarea", %r[My criteria])
   end

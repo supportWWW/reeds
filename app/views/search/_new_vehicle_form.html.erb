@@ -1,15 +1,11 @@
  <p>
-   Make:<br/>
-   <%= select_tag :make_id, makes_options("new_vehicle", params[:make_id]) %>
- </p>
+	<label>Make:</label>
+	<%= select_tag :make_id, makes_options("new_vehicle", params[:make_id]) %><br/>
 
- <p>
-   Series:<br/>
-	<%= select_tag :model_range_id, model_ranges_options(params[:make_id], params[:model_id]) %><%= spinner("model_ranges_spinner") %>
- </p>
+	<label>Series:</label>
+	<%= select_tag :model_range_id, model_ranges_options(params[:make_id], params[:model_id]) %><%= spinner("model_ranges_spinner") %><br/>
 
-<p>
-	Price Range:<br/>
+	<label>Price Range:</label>
 	<%= select_tag :price_range, options_for_select(
 		[	["R80 000 - R100 000", "80000|100000"],
 			["R100 000 - R120 000", "100000|120000"],
@@ -24,7 +20,8 @@
 			["R280 000 - R300 000", "280000|300000"],
 			["> R300 000", "300000|"]
 		], params[:price_range]
-	) %>
+	) %><br/>
+
 </p>
 
 <%= hidden_field_tag :type, "new_vehicle" %>

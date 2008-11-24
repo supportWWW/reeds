@@ -35,4 +35,28 @@ describe ContactController do
       response.should be_success
     end
   end
+
+  describe "GET find_car" do
+    it "should be successful" do
+      xhr :post, 'find_car', :form => { :name => "Joerg", :phone => "123", :email => "me@spam.com", :criteria => "My car" }
+      response.should be_success
+      assigns[:success].should == true
+    end
+  end
+  
+  describe "GET used_vehicle_enquiry" do
+    it "should be successful" do
+      xhr :post, 'used_vehicle_enquiry', :form => { :name => "Joerg", :phone => "123", :email => "me@spam.com", :vehicle => "My car" }
+      response.should be_success
+      assigns[:success].should == true
+    end
+  end
+
+  describe "GET new_vehicle_enquiry" do
+    it "should be successful" do
+      xhr :post, 'new_vehicle_enquiry', :form => { :name => "Joerg", :phone => "123", :email => "me@spam.com", :vehicle => "My car" }
+      response.should be_success
+      assigns[:success].should == true
+    end
+  end
 end

@@ -5,7 +5,7 @@ describe CyberstockFileImporterService do
   include ReedsSpecHelper
   
   before :all do
-    @stock = read_file( 'reeds-stocksheet.csv' )
+    @stock = read_file( 'cyberstock.csv' )
     @mm_list = read_file( 'sample-mmlist.csv' )
   end
   
@@ -21,19 +21,19 @@ describe CyberstockFileImporterService do
   
   describe 'performing imports' do
     
-    it 'Should add 16 makes' do
+    it 'Should add 4 makes' do
       perform
-      Make.count.should == 16
+      Make.count.should == 4
     end
     
-    it 'Should add 165 classifieds' do
+    it 'Should add 29 classifieds' do
       perform
-      Cyberstock.count.should == 165
+      Cyberstock.count.should == 29
     end
 
-    it 'Should add 88 models' do
+    it 'Should add 20 models' do
       perform
-      Model.count.should == 88
+      Model.count.should == 20
     end
     
   end
@@ -45,19 +45,19 @@ describe CyberstockFileImporterService do
       perform
     end
     
-    it 'Should add 16 makes' do
+    it 'Should add 4 makes' do
       do_double_add
-      Make.count.should == 16
+      Make.count.should == 4
     end
     
-    it 'Should add 165 classifieds' do
+    it 'Should add 29 classifieds' do
       do_double_add
-      Cyberstock.count.should == 165
+      Cyberstock.count.should == 29
     end
 
-    it 'Should add 88 models' do
+    it 'Should add 20 models' do
       do_double_add
-      Model.count.should == 88
+      Model.count.should == 20
     end
     
   end

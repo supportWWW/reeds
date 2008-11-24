@@ -1,11 +1,22 @@
-<table>
+<table id="alt" border="0" cellpadding="0" cellspacing="0">
+	<thead>
+		<tr>
+			<th>Make</th>
+			<th>Model</th>
+			<th>Price</th>
+			<th>Year</th>
+			<th>Details</th>
+		</tr>
+	</thead>
+	<tbody>
 	<% results.each do |result| %>
 		<tr>
-			<td>
-				<%=h result.humanize %> <%=h result.year %> (<%=h result.mileage  %>km) <%= link_to "Show", classified_path(result.permalink) %><br/>
-				Price: <%=h result.price.format(:no_cents) %>  Colour: <%=h result.colour  %><br/>
-				Stock code: #<%=h result.stock_code %>				
-			</td>
+			<td><%=h result.make.name %></td>
+			<td><%=h result.model.name %></td>
+			<td><%=h result.price.format(:no_cents) %></td>
+			<td><%=h result.year %></td>
+			<td><%= link_to "View", classified_path(result.permalink) %> <% if result.has_images? %>(<%= image_tag "camera.gif", :alt => "Photo", :size => "22x16" %>)<% end %></td>
 		</tr>
 	<% end %>
+	</tbody>
 </table>

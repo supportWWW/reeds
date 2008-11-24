@@ -7,6 +7,8 @@ class Salesperson < ActiveRecord::Base
   JOB_TITLES = ["Salesperson", "Dealer Principal", "Service Manager", "New Vehicle Manager", "Used Vehicle Manager", "Parts Manager"]
   
   named_scope :managers, :conditions => ["job_title != ?", "Salesperson"]
+  named_scope :contact_mes, :conditions => [:sms_contact_me => true]
+  named_scope :web_leads, :conditions => ["receive_web_leads = ?", true]
   
   def salesperson?
     job_title == "Salesperson"
