@@ -10,7 +10,7 @@
 				<p>
 					<small><%= news_article.publish_at %></small><br>
 					<strong><%=h news_article.title %></strong><br>
-					<%= news_article.rendered_text %>
+					<%= truncate(news_article.text, 150) %>
 				</p>
 			</div>
 
