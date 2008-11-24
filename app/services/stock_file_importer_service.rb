@@ -14,13 +14,13 @@ class StockFileImporterService
       branch = Branch.find_by_stock_code_prefix(row[0].first)
       classified.branch = branch
       
-      classified.year = row[4].strip # denormalization for search
-      classified.price= row[5].strip.gsub(/ /, "")
-      classified.colour = row[7].strip
-      classified.reg_num = row[8].strip
-      classified.mileage = row[9].strip.gsub(/ /, "")
-      classified.features = row[10].strip
-      classified.days_in_stock = row[13].strip
+      classified.year = row[4].strip unless row[4].nil? # denormalization for search
+      classified.price= row[5].strip.gsub(/ /, "") unless row[5].nil?
+      classified.colour = row[7].strip unless row[7].nil?
+      classified.reg_num = row[8].strip unless row[8].nil?
+      classified.mileage = row[9].strip.gsub(/ /, "") unless row[9].nil?
+      classified.features = row[10].strip unless row[10].nil?
+      classified.days_in_stock = row[13].strip unless row[13].nil?
       classified.removed_at = nil
       if classified.save
         added << classified
