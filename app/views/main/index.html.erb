@@ -6,10 +6,10 @@
 		<% for news_article in @news_articles %>
 		
 			<div id="news">
-				<%= image_tag(news_article.image.public_filename(:thumb), :size => "70x70") if news_article.image %>
+				<%= link_to(image_tag(news_article.image.public_filename(:thumb), :size => "70x70"), news_article_path(news_article), :title => "Click to read full news article") if news_article.image %>
 				<p>
 					<small><%= news_article.publish_at %></small><br>
-					<strong><%=h news_article.title %></strong><br>
+					<strong><%= link_to news_article.title, news_article_path(news_article), :title => "Click to read full news article", :style => "text-decoration: none;" %></strong><br>
 					<%= truncate(news_article.text, 150) %>
 				</p>
 			</div>

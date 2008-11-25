@@ -6,18 +6,6 @@
 	<h2><%=h @news_article.title %> - <%= @news_article.publish_at.to_s( :date ) %></h2>
 <% end -%>
 
-
-
-<h3>
-  Category: <%=h @news_article.category.name if @news_article.category %>
-</h3>
-
-<% unless @news_article.author.blank? %>
-<h3>
-  Author: <%=h @news_article.author %>
-</h3>
-<% end  %>
-
 <%= image_tag @news_article.image.public_filename if @news_article.image %>
 <%= @news_article.rendered_text %>
 
