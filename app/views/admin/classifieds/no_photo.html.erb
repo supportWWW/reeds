@@ -1,3 +1,24 @@
 <h2>Listing classifieds with no photo</h2>
 
-<%= partial "classifieds", :classifieds => @classifieds %>
+<table>
+  <tr>
+    <th>Stock code</th>
+    <th>Model</th>
+    <th>Price</th>
+    <th>Reg num</th>
+    <th>Days in stock</th>
+    <th>Missing photos</th>
+  </tr>
+
+<% for classified in @classifieds %>
+  <tr>
+    <td><%=h classified.stock_code %></td>
+    <td><%=h classified.humanize %></td>
+    <td><%=h classified.price.format(:no_cents) %></td>
+    <td><%=h classified.reg_num %></td>
+    <td><%=h classified.days_in_stock %></td>
+    <td><%=h classified.missing_images.join(", ") %></td>
+    <td><%= link_to 'Show', admin_classified_path(classified) %> </td>
+  </tr>
+<% end %>
+</table>

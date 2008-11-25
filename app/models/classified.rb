@@ -15,9 +15,23 @@ class Classified < ActiveRecord::Base
   has_permalink [:humanize, :stock_code] # needs to be after before_validation :set_make_and_model
   
   named_scope :available, lambda { { :conditions => ["removed_at is NULL AND (expires_on IS NULL OR expires_on > ?)", Date.today], :include => [:make, :model] } }
-  named_scope :with_photos, lambda { { :conditions => ["removed_at is NULL AND img_url IS NOT NULL AND (expires_on IS NULL OR expires_on > ?)", Date.today], :include => [:make, :model] } }
-  named_scope :no_photos, lambda { { :conditions => ["removed_at is NULL AND img_url IS NULL AND (expires_on IS NULL OR expires_on > ?)", Date.today], :include => [:make, :model] } }
 
+  def self.with_photos
+    classifieds = []
+    Classified.available.each do |classified|
+      classifieds << classified if classified.has_all_images?
+    end
+    classifieds
+  end
+
+  def self.no_photos
+    classifieds = []
+    Classified.available.each do |classified|
+      classifieds << classified if !classified.has_all_images?
+    end
+    classifieds
+  end
+  
   def cyberstock?
     kind_of?(Cyberstock)
   end
@@ -42,12 +56,28 @@ class Classified < ActiveRecord::Base
     !images.empty?
   end
 
+  def has_all_images?
+    images.size == 3
+  end
+  
+
   def images
     imgs = []
     %w(1 2 3).each do |suffix|
       filename = cyberstock? ? "#{stock_code}_#{suffix}.jpg" : "#{reg_num}_#{suffix}.jpg"
       if File.exist?("#{RAILS_ROOT}/public/vehicles/#{filename}")
         imgs << "/vehicles/#{filename}"
+      end
+    end
+    imgs
+  end
+
+  def missing_images
+    imgs = []
+    %w(1 2 3).each do |suffix|
+      filename = cyberstock? ? "#{stock_code}_#{suffix}.jpg" : "#{reg_num}_#{suffix}.jpg"
+      if !File.exist?("#{RAILS_ROOT}/public/vehicles/#{filename}")
+        imgs << suffix
       end
     end
     imgs

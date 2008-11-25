@@ -74,7 +74,7 @@ describe Admin::ClassifiedsController do
   describe "handling GET /classifieds/with_photo" do
 
     before(:each) do
-      @classified = mock_model(Classified)
+      @classified = Classified.new
       Classified.stub!(:find).and_return([@classified])
     end
   
@@ -106,7 +106,7 @@ describe Admin::ClassifiedsController do
   describe "handling GET /classifieds/no_photo" do
 
     before(:each) do
-      @classified = mock_model(Classified)
+      @classified = Classified.new
       Classified.stub!(:find).and_return([@classified])
     end
   
