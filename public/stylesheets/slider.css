@@ -19,7 +19,7 @@ height: 275px;
 float: left; 
 width: 600px; 
 height: 30px; 
-background: #bacede url(../img/grad-header-bg.gif) top left repeat-x;
+background: #bacede url(/images/grad-header-bg.gif) top left repeat-x;
 }
 #featureWrapper #bar p {
 font: normal 1.2em/1.2em "Arial", Helvetica, san-serif;  
@@ -30,7 +30,7 @@ float: right;
 text-align: right;
 height: 30px; 
 display: inline; 
-background: #bacede url(../img/grad-header-bg.gif) top left repeat-x;
+background: #bacede url(/images/grad-header-bg.gif) top left repeat-x;
 }
 #fW_Controls a {
 float: left; 
@@ -40,7 +40,7 @@ color: #154367;
 font: normal 1.4em/1.1em "Arial Narrow", Arial, Helvetica, san-serif;  
 text-decoration: none;
 text-align: center;
-background: url(../img/divider.gif) left center no-repeat;
+background: url(/images/divider.gif) left center no-repeat;
 }
 #fW_Controls a.activeSlide,
 #fW_Controls a:hover { color: #cd001f; }
