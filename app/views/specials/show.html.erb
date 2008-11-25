@@ -1,4 +1,11 @@
-<h2> <%=h @special.title %> </h2>
+<% content_for(:browser_title) do %>
+	<%=h @special.title %>
+<% end -%>
+
+<% content_for(:title) do %>
+	<h2><%=h @special.title %></h2>
+<% end -%>
+
 
 <%= image_tag @special.image.public_filename if @special.image %>
 <%= @special.rendered_text %>

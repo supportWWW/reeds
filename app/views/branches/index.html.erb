@@ -1,4 +1,12 @@
-<h2>Listing branches</h2>
+<% content_for(:browser_title) do %>
+	Branches
+<% end -%>
+
+<% content_for(:title) do %>
+	<h2>Branches</h2>
+<% end -%>
+
+
 
 <% unless @branches.blank? %>
 

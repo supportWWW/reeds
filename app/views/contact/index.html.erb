@@ -1,4 +1,12 @@
-<h2>Contact</h2>
+<% content_for(:browser_title) do %>
+	Contact
+<% end -%>
+
+<% content_for(:title) do %>
+	<h2>Contact</h2>
+<% end -%>
+
+
 
 <ul class="non_list">
 	<% @branches.each do |branch| -%>

@@ -1,3 +1,7 @@
+<% content_for(:browser_title) do %>
+	<%=h @new_vehicle.humanize %>
+<% end -%>
+
 <% content_for(:title) do %>
 	<h2><%=h @new_vehicle.humanize %></h2>
 <% end -%>

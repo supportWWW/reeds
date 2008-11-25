@@ -1,4 +1,12 @@
-<h2> <%=h @news_article.title %> - <%= @news_article.publish_at.to_s( :date ) %> </h2>
+<% content_for(:browser_title) do %>
+	<%=h @news_article.title %> - <%= @news_article.publish_at.to_s( :date ) %>
+<% end -%>
+
+<% content_for(:title) do %>
+	<h2><%=h @news_article.title %> - <%= @news_article.publish_at.to_s( :date ) %></h2>
+<% end -%>
+
+
 
 <h3>
   Category: <%=h @news_article.category.name if @news_article.category %>

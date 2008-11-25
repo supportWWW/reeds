@@ -1,4 +1,12 @@
-<h2> Reeds - <%=h @branch.name %>  </h2>
+<% content_for(:browser_title) do %>
+	<%=h @branch.name %>
+<% end -%>
+
+<% content_for(:title) do %>
+	<h2><%=h @branch.name %></h2>
+<% end -%>
+
+
 
 <h3>Salespeople at this branch</h3>
 

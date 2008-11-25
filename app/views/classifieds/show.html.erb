@@ -1,3 +1,7 @@
+<% content_for(:browser_title) do %>
+	<%=h @classified.year %> <%=h @classified.humanize %>
+<% end -%>
+
 <% content_for(:title) do %>
 	<h2><%=h @classified.year %> <%=h @classified.humanize %></h2>
 <% end -%>

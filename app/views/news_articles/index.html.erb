@@ -1,4 +1,12 @@
-<h2>News</h2>
+<% content_for(:browser_title) do %>
+	News
+<% end -%>
+
+<% content_for(:title) do %>
+	<h2>News</h2>
+<% end -%>
+
+
 
 <%= will_paginate @news_articles %>
 

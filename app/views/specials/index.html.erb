@@ -1,4 +1,11 @@
-<h2>Specials</h2>
+<% content_for(:browser_title) do %>
+	Specials
+<% end -%>
+
+<% content_for(:title) do %>
+	<h2>Specials</h2>
+<% end -%>
+
 
 <% unless @specials.blank? %>
 
