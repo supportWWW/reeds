@@ -10,6 +10,9 @@
 <%= image_tag @special.image.public_filename if @special.image %>
 <%= @special.rendered_text %>
 
+<h3>Enquire about special</h3>
+<%= render :partial => "form", :locals => { :special => @special } %>
+
 <% if logged_in?  %>
     <%= link_to 'Edit', edit_admin_special_path(@special) %>
 <% end  %>

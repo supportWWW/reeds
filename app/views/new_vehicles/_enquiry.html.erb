@@ -2,8 +2,8 @@
 	<div>
 		<h3>Vehicle enquiry</h3>
 
-		<div id="enquiry_form_notice" style="display: hidden;"></div>
-	  <div id="enquiry_form_errors" style="display: hidden;"></div>
+		<div id="enquiry_form_notice" class="notice" style="display: none;"></div>
+	  <div id="enquiry_form_errors" class="error" style="display: none;"></div>
 
 		<% form_for :form, ef = NewVehicleEnquiryForm.new(), :url => new_vehicle_enquiry_path, :html => { :method => :post, :id => "enquiry_form" } do |f| -%>
 

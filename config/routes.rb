@@ -8,7 +8,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :branches
   map.resources :classifieds
   map.resources :pages
-  map.resources :specials
+  map.resources :specials, :member => { :enquire => :post }
 
   #map.connect "/new_vehicles/:id", :controller => "new_vehicles", :action => "show" # Need this override 'cos of the name new_vehicles
   map.resources :new_vehicles

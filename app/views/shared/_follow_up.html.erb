@@ -3,8 +3,8 @@
 	<h3>Let us find the vehicle you're looking for</h3>
 	<p>Would you like us to contact you if we find vehicles matching your criteria?</p>
 	<% form_for :form, FindCarForm.new(:criteria => criteria_in_words), :url => find_car_path, :html => { :method => :post, :id => "find_car_form" } do |f| -%>
-		<div id="find_car_form_notice" style="display: hidden;"></div>
-	  <div id="find_car_form_errors" style="display: hidden;"></div>
+		<div id="find_car_form_notice" class="notice" style="display: none;"></div>
+	  <div id="find_car_form_errors" class="error" style="display: none;"></div>
 		<div>
 			Name<br/>
 			<%= f.text_field :name %><br/>

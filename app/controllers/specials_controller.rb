@@ -21,5 +21,19 @@ class SpecialsController < ApplicationController
       format.xml  { render :xml => @special }
     end
   end
+  
+  def enquire
+    @form = SpecialsForm.new( params[:form] )
+    if request.post? and @form.valid?
+      flash[:notice] = 'We received your message and will get in contact shortly'
+      SpecialsMailer.deliver_client_request @form
+      @success = true
+    elsif request.post?
+      @success = false
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
 
 end

@@ -2,8 +2,8 @@
 	<div>
 		<h3>Vehicle enquiry</h3>
 
-		<div id="enquiry_form_notice" style="display: hidden;"></div>
-	  <div id="enquiry_form_errors" style="display: hidden;"></div>
+		<div id="enquiry_form_notice" class="notice" style="display: none;"></div>
+	  <div id="enquiry_form_errors" class="error" style="display: none;"></div>
 
 		<% form_for :form, ef = UsedVehicleEnquiryForm.new(:branch_id => classified.branch_id, :vehicle => "#{classified.year} #{classified.humanize} (Ref ##{classified.stock_code})"), :url => used_vehicle_enquiry_path, :html => { :method => :post, :id => "enquiry_form" } do |f| -%>
 

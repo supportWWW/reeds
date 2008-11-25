@@ -1,6 +1,6 @@
 <div class="calculator">
 	<% form_for :form, mpf = MonthlyPaymentForm.new(:purchase_price => purchase_price, :deposit => (purchase_price * 0.1).to_i, :repayment_period => 54, :interest_rate => 16.5), :url => monthly_payment_path, :html => { :method => :post, :id => "monthly_payment_form" } do |f| -%>
-	  <div id="monthly_payment_form_errors" style="display: hidden;"></div>
+	  <div id="monthly_payment_form_errors" class="error" style="display: none;"></div>
 		<table>
 			<tr>
 				<td>Purchase price</td>

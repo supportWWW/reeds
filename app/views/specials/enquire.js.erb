@@ -1,0 +1,7 @@
+<% if @success -%>
+	$('#specials_form_notice').html(<%= flash[:notice].to_json %>);
+	$('#specials_form_notice').show();
+<% else -%>
+	$('#specials_form_errors').html(<%= error_messages_for(:form).to_json %>);
+	$('#specials_form_errors').show();
+<% end -%>
