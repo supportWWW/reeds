@@ -124,4 +124,12 @@ describe SpecialsController do
     end
   end
 
+  describe "GET enquire" do
+    it "should be successful" do
+      xhr :post, 'enquire', :form => { :name => "Joerg", :phone => "123", :email => "me@spam.com", :special => "My car" }
+      response.should be_success
+      assigns[:success].should == true
+    end
+  end
+
 end
