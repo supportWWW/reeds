@@ -180,7 +180,7 @@ margin: 0 15px 2px;
 margin: 0 15px 15px;
 font: normal 1.2em/1.4em "Arial", Helvetica, san-serif;  
 }
-#content p span { color: #cd001f; font-weight: bold;}
+/* #content p span { color: #cd001f; font-weight: bold;} */
 small { color: #96a3b1;}
 #content a {color: #207ab4; }
 #content a:hover {color: #cd001f;}
