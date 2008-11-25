@@ -1,7 +1,7 @@
 <h2> <%=h @page.title %> </h2>
 
+<%= image_tag @page.image.public_filename if @page.image %>
 <%= @page.rendered_text %>
-<%= image_tag @page.image.public_filename %>
 
 <% if logged_in?  %>
     <%= link_to 'Edit', edit_admin_page_path(@page) %> |
