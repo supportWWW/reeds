@@ -136,67 +136,6 @@ describe Admin::ClassifiedsController do
     end
   end
 
-  describe "handling GET /classifieds/1" do
-
-    before(:each) do
-      @classified = mock_model(Classified)
-      Classified.stub!(:find).and_return(@classified)
-    end
-  
-    def do_get
-      get :show, :id => "1"
-    end
-
-    it "should be successful" do
-      do_get
-      response.should be_success
-    end
-  
-    it "should render show template" do
-      do_get
-      response.should render_template('show')
-    end
-  
-    it "should find the classified requested" do
-      Classified.should_receive(:find).with("1").and_return(@classified)
-      do_get
-    end
-  
-    it "should assign the found classified for the view" do
-      do_get
-      assigns[:classified].should equal(@classified)
-    end
-  end
-
-  describe "handling GET /classifieds/1.xml" do
-
-    before(:each) do
-      @classified = mock_model(Classified, :to_xml => "XML")
-      Classified.stub!(:find).and_return(@classified)
-    end
-  
-    def do_get
-      @request.env["HTTP_ACCEPT"] = "application/xml"
-      get :show, :id => "1"
-    end
-
-    it "should be successful" do
-      do_get
-      response.should be_success
-    end
-  
-    it "should find the classified requested" do
-      Classified.should_receive(:find).with("1").and_return(@classified)
-      do_get
-    end
-  
-    it "should render the found classified as xml" do
-      @classified.should_receive(:to_xml).and_return("XML")
-      do_get
-      response.body.should == "XML"
-    end
-  end
-
   describe "handling GET /classifieds/1/edit" do
 
     before(:each) do
@@ -260,7 +199,7 @@ describe Admin::ClassifiedsController do
 
       it "should redirect to the classified" do
         do_put
-        response.should redirect_to(admin_classified_path("1"))
+        response.should redirect_to(cyberstock_admin_classifieds_path)
       end
 
     end

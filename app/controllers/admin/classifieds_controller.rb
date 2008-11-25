@@ -44,17 +44,6 @@ class Admin::ClassifiedsController < Admin::ApplicationController
     end
   end
 
-  # GET /classifieds/1
-  # GET /classifieds/1.xml
-  def show
-    @classified = Classified.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @classified }
-    end
-  end
-
   # GET /classifieds/1/edit
   def edit
     @classified = Classified.find(params[:id])
@@ -68,7 +57,7 @@ class Admin::ClassifiedsController < Admin::ApplicationController
     respond_to do |format|
       if @classified.update_attributes(params[:classified])
         flash[:notice] = 'Cyberstock was successfully updated.'
-        format.html { redirect_to(admin_classified_path(@classified)) }
+        format.html { redirect_to(cyberstock_admin_classifieds_path) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
