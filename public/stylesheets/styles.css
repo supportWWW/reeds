@@ -392,26 +392,20 @@ color: #fff;
 width: 249px;
 float: right;
 }
-#actions div {
+#actions div.sidebox {
 width: 240px;
-height: 76px;
+border: 1px solid #B4CFE2;
 margin: 9px 0 0;
 float: left;
-background: #e9f0f7 url(/images/actions-bg.gif) 0 0 no-repeat; 
 }
-#actions div div {
-width: 240px;
-height: 76px;
-margin: 0;
-float: left;
-}
-#actions div #callback { background: transparent url(/images/phone.gif) 197px center no-repeat; }
-#actions div #calc { background: transparent url(/images/calculator.gif) 190px center no-repeat; }
-#actions div #testdrive { background: transparent url(/images/carkey.gif) 167px center no-repeat; }
+#actions #callback { background: transparent url(/images/phone.gif) 197px center no-repeat; }
+#actions #calc { background: transparent url(/images/calculator.gif) 190px center no-repeat; }
+#actions #testdrive { background: transparent url(/images/carkey.gif) 167px center no-repeat; }
 #actions div h3 {margin: 9px 12px 5px; line-height: 1.1em;}
 #actions div h3 a {text-decoration: none; color:#154367;}
 #actions div h3 a:hover {text-decoration: underline;}
 #actions div p { margin: 0 12px; line-height: 1.3em;}
+#actions div div { margin: 0 6px; line-height: 1.3em;}
 
 
 /* form elements */

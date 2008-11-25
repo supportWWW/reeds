@@ -13,7 +13,6 @@ describe "/branches/show.html.erb" do
 
   it "should render attributes in <p>" do
     render "/branches/show.html.erb"
-    response.should have_text(/MyString/)
   end
 end
 

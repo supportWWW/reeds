@@ -16,8 +16,6 @@ describe "/pages/show.html.erb" do
 
   it "should render attributes in <p>" do
     render "/pages/show.html.erb"
-    response.should have_text(/MyString/)
-    response.should have_text(/MyText/)
   end
 end
 

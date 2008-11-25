@@ -1,0 +1,13 @@
+Hello,
+
+The following client is interested in the following vehicle:
+
+Vehicle: <%= @form.vehicle %>
+
+Name: <%=h @form.name %>
+Phone: <%=h @form.phone %>
+
+SMS has been sent to the following people:
+<%= @salespeople.to_sentence %>
+
+The Reeds Team

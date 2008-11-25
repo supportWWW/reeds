@@ -7,7 +7,7 @@ class Salesperson < ActiveRecord::Base
   JOB_TITLES = ["Salesperson", "Dealer Principal", "Service Manager", "New Vehicle Manager", "Used Vehicle Manager", "Parts Manager"]
   
   named_scope :managers, :conditions => ["job_title != ?", "Salesperson"]
-  named_scope :contact_mes, :conditions => [:sms_contact_me => true]
+  named_scope :sms_callbacks, :conditions => { :sms_contact_me => true }
   named_scope :web_leads, :conditions => ["receive_web_leads = ?", true]
   
   def salesperson?
@@ -15,7 +15,10 @@ class Salesperson < ActiveRecord::Base
   end
   
   def phone_for_sms
-    phone.gsub("[ -()\.]", "")
+    return nil if phone.blank?
+    p = phone.gsub("[ -()\.]", "").gsub("+27", "")
+    p = p.reverse.chop.reverse if p.first == "0"
+    "+27#{p}"
   end
   
   class << self

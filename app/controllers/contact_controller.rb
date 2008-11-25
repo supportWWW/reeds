@@ -78,4 +78,36 @@ class ContactController < ApplicationController
       format.js
     end
   end
+  
+  def callback
+    @form = CallbackForm.new( params[:form] )
+    if request.post? and @form.valid?
+      msg = "[Reeds] Please call #{@form.name} on #{@form.phone} re #{@form.vehicle}."
+      branch = Branch.find(@form.branch_id)
+      @success = false
+      salespeople_names = []
+      branch.salespeople.sms_callbacks.each do |salesperson|
+        logger.info("Callback: #{salesperson.name}")
+        if phone = salesperson.phone_for_sms
+          ret = HugeSms.deliver(phone, msg)
+          if ret
+            @success = true
+            salespeople_names << salesperson.name
+          end
+        end
+      end
+      if @success
+        flash[:notice] = 'We received your message and will get in contact shortly'
+        CallbackMailer.deliver_requested(@form, salespeople_names)
+      else
+        @form.errors.add(:base, 'Something went wrong. We were not able to send your message. Sorry. Please call us or email us rather ...')
+      end
+      
+    elsif request.post?
+      @success = false
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
 end

@@ -19,10 +19,6 @@ describe "/news_articles/show.html.erb" do
 
   it "should render attributes in <p>" do
     render "/news_articles/show.html.erb"
-    response.should have_text(/MyString/)
-    response.should have_text(/rendered text/)
-    response.should have_text(/my source url/)
-    response.should have_text(/my author/)
   end
 end
 

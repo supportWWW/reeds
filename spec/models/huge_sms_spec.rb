@@ -8,6 +8,6 @@ describe HugeSms do
   end
   
   it "should successfully deliver" do
-    HugeSms.deliver("+27824477057", "Testing SMS", "joerg", "password").should == "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<XML />\r\n\n"
+    HugeSms.deliver("+27824477057", "Testing SMS").should == true
   end
 end

@@ -27,3 +27,8 @@ font: normal 1.1em/1.3em "Arial", Helvetica, san-serif;
 .error h2 {
 	font-size: 12px;
 }
+
+.paging {
+	text-align: right;
+	margin-right: 15px;
+}

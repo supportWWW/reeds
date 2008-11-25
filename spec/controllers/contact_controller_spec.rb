@@ -59,4 +59,18 @@ describe ContactController do
       assigns[:success].should == true
     end
   end
+
+  describe "GET callback" do
+    it "should be successful" do
+
+      @branch = Branch.create!( :name => 'test' )
+      @salesperson = Salesperson.create!( :name => 'test', :phone => '0824477057', :email => 'mauricio@gmail.com', :job_title => "Salesperson", :sms_contact_me => true )
+      @assignment = Assignment.create!( :branch => @branch, :salesperson => @salesperson )
+
+      xhr :post, 'callback', :form => { :name => "Joerg", :phone => "123", :vehicle => "My car", :branch_id => @branch.id }
+      response.should be_success
+      assigns[:success].should == true
+    end
+  end
+  
 end

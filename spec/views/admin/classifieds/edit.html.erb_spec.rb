@@ -5,7 +5,7 @@ describe "/admin/classifieds/edit.html.erb" do
   
   before do
     @classified = mock_model(Cyberstock)
-    @classified.stub!(:price_in_cents).and_return("1")
+    @classified.stub!(:price).and_return("1")
     @classified.stub!(:mileage).and_return("1")
     @classified.stub!(:expires_on).and_return(Date.today)
     assigns[:classified] = @classified
@@ -15,7 +15,7 @@ describe "/admin/classifieds/edit.html.erb" do
     render "/admin/classifieds/edit.html.erb"
     
     response.should have_tag("form[action=#{admin_classified_path(@classified)}][method=post]") do
-      with_tag('input#classified_price_in_cents[name=?]', "classified[price_in_cents]")
+      with_tag('input#classified_price[name=?]', "classified[price]")
       with_tag('input#classified_mileage[name=?]', "classified[mileage]")
     end
   end

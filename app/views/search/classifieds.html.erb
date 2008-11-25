@@ -13,7 +13,9 @@
 	<% else %>
 		<%= render :partial => "classified_results", :locals => { :results => @results } %>
 
-		<%= will_paginate @results %>
+		<div class="paging">
+			<%= will_paginate @results %>
+		</div>
 	<% end -%>
 
 	<%= partial "shared/follow_up", { :criteria_in_words => @criteria_in_words } %>

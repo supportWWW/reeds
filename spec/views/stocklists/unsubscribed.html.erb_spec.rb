@@ -6,6 +6,5 @@ describe "/stocklists/unsubscribed" do
   end
   
   it "should display heading" do
-    response.should have_tag('h2', %r[Bye])
   end
 end

@@ -16,7 +16,8 @@ class HugeSms
       xml = create_xml(number, message, username, password).to_xs
       xml.gsub!("<to_xs/>", "") # WHY ????????????????????????????
       puts xml
-      http.post("/SMS/SMSSend.jsp", "xmldata=#{xml}").body
+      return_xml = http.post("/SMS/SMSSend.jsp", "xmldata=#{xml}").body
+      return_xml.include?("OK")
     end
   end
 

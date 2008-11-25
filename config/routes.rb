@@ -16,6 +16,7 @@ ActionController::Routing::Routes.draw do |map|
   map.sell_your_car "contact/sell_your_car", :controller => "contact", :action => "sell_your_car"
   map.search "/search", :controller => "search", :action => "index"
   map.find_car "/contact/find_car", :controller => "contact", :action => "find_car"
+  map.callback "/contact/callback", :controller => "contact", :action => "callback"
   map.used_vehicle_enquiry "/contact/used_vehicle_enquiry", :controller => "contact", :action => "used_vehicle_enquiry"
   map.new_vehicle_enquiry "/contact/new_vehicle_enquiry", :controller => "contact", :action => "new_vehicle_enquiry"
   map.monthly_payment "/calculators/monthly_payment", :controller => "calculators", :action => "monthly_payment"
