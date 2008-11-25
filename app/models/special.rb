@@ -1,5 +1,5 @@
-class NewsArticle < ActiveRecord::Base
-  
+class Special < ActiveRecord::Base
+
   include ImageHelper
   
   has_permalink :title, :title_permalink
@@ -10,16 +10,6 @@ class NewsArticle < ActiveRecord::Base
   validates_uniqueness_of :title_permalink, :message => 'This title has already been taken', :if => :has_title?
   
   rendered_column :text
-  
-  belongs_to :category
-  
-  named_scope :live, :conditions => ["publish_at <= ?", Date.today ], :order => "publish_at desc"
-  
-  def source_url=( url )
-    unless "http://" == url
-      write_attribute_with_dirty( :source_url, url )
-    end
-  end
   
   def to_param
     title_permalink
@@ -38,15 +28,9 @@ class NewsArticle < ActiveRecord::Base
         find_without_permalink( *args )
       end
     end
-    
-    def paginate_current( page = 1 ) 
-      paginate :page => page, :per_page => 10, :conditions => [ 'publish_at < ?', Time.now ], :order => 'publish_at desc'
-    end
   
     alias_method_chain :find, :permalink
     
-  end
-  
-  
+  end  
   
 end

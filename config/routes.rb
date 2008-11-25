@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+
   
   map.root :controller => 'main', :action => 'index'
 
@@ -7,6 +8,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :branches
   map.resources :classifieds
   map.resources :pages
+  map.resources :specials
 
   #map.connect "/new_vehicles/:id", :controller => "new_vehicles", :action => "show" # Need this override 'cos of the name new_vehicles
   map.resources :new_vehicles
@@ -35,6 +37,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :salespeople
     admin.resources :menu_items
     admin.resources :pages
+    admin.resources :specials
     admin.resources :categories
     admin.resources :news_articles
 

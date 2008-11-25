@@ -1,0 +1,8 @@
+<h2> <%=h @special.title %> </h2>
+
+<%= image_tag @special.image.public_filename if @special.image %>
+<%= @special.rendered_text %>
+
+<% if logged_in?  %>
+    <%= link_to 'Edit', edit_admin_special_path(@special) %>
+<% end  %>

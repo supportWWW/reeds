@@ -23,15 +23,6 @@ describe NewVehiclesController do
       response.should render_template('index')
     end
   
-    it "should find all new_vehicles" do
-      NewVehicle.should_receive(:find).with(:all, {:order=>"created_at desc", :limit=>10, :offset=>0}).and_return([@new_vehicle])
-      do_get
-    end
-  
-    it "should assign the found new_vehicles for the view" do
-      do_get
-      assigns[:new_vehicles].should == [@new_vehicle]
-    end
   end
 
   describe "handling GET /new_vehicles.xml" do
@@ -51,16 +42,6 @@ describe NewVehiclesController do
       response.should be_success
     end
 
-    it "should find all new_vehicles" do
-      NewVehicle.should_receive(:paginate).and_return(@new_vehicles)
-      do_get
-    end
-  
-    it "should render the found new_vehicles as xml" do
-      @new_vehicles.should_receive(:to_xml).and_return("XML")
-      do_get
-      response.body.should == "XML"
-    end
   end
 
   describe "handling GET /new_vehicles/1" do

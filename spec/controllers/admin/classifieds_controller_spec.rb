@@ -75,6 +75,7 @@ describe Admin::ClassifiedsController do
 
     before(:each) do
       @classified = Classified.new
+      @classified.stub!(:has_all_images?).and_return(true)
       Classified.stub!(:find).and_return([@classified])
     end
   

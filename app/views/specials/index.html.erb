@@ -1,0 +1,21 @@
+<h2>Specials</h2>
+
+<% unless @specials.blank? %>
+
+<table>
+  <tr>
+		<th></th>
+    <th>Title</th>
+  </tr>
+
+<% for special in @specials %>
+  <tr>
+		<td width="200"><%= image_tag(special.image.public_filename(:thumb), :size => "200x200") if special.image %></td>
+    <td><%= link_to special.title, special %></td>
+  </tr>
+<% end %>
+</table>
+
+<% else  %>
+  <p>There are no specials available yet</p>
+<% end  %>

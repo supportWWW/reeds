@@ -1,0 +1,30 @@
+<h2>Specials</h2>
+
+<%= will_paginate @specials %>
+
+<% unless @specials.blank? %>
+
+<table>
+  <tr>
+		<th></th>
+    <th>Title</th>
+  </tr>
+
+<% for special in @specials %>
+  <tr>
+		<td width="200"><%= image_tag special.image.public_filename(:thumb) if special.image %></td>
+    <td><%=link_to special.title, admin_special_path(special) %></td>
+    <td><%= link_to 'Edit', edit_admin_special_path(special) %> | <%= link_to 'Destroy', admin_special_path(special), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<% else  %>
+  <p>There are no specials available yet</p>
+<% end  %>
+
+<%= will_paginate @specials %>
+
+<br />
+
+<%= link_to 'New special', new_admin_special_path %>

@@ -1,0 +1,12 @@
+<h2>Editing special</h2>
+
+<% form_for :special, :url => admin_special_path(@special), :html => { :method => :put, :multipart => true }  do |f| -%>
+	<%= render :partial =>  "form", :locals => { :f => f } %>
+
+	<p>
+	  <%= f.submit "Update" %>
+	</p>
+<% end %>
+
+<%= link_to 'Show', admin_special_path(@special) %> |
+<%= link_to 'Back', admin_specials_path %>
