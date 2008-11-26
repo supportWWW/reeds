@@ -60,17 +60,15 @@ class SearchController < ApplicationController
       @criteria_in_words += f == t ? "Year: #{f}\n"  : "Year: Between #{f} and #{t}\n"
     end
 
-    unless conditions.empty?
-      if params[:type] == "classified"
-        @results = Classified.available.paginate( :all,
-                                            :page => @page, :per_page => @per_page,
-                                            :conditions => [conditions.join(" AND "), *criteria])
-      else
-        @results = NewVehicleVariant.paginate( :all,
-                                            :page => @page, :per_page => @per_page,
-                                            :conditions => [conditions.join(" AND "), *criteria],
-                                            :include => [:new_vehicle, :make, :model_range])
-      end
+    if params[:type] == "classified"
+      @results = Classified.available.paginate( :all,
+                                          :page => @page, :per_page => @per_page,
+                                          :conditions => [conditions.join(" AND "), *criteria])
+    else
+      @results = NewVehicleVariant.paginate( :all,
+                                          :page => @page, :per_page => @per_page,
+                                          :conditions => [conditions.join(" AND "), *criteria],
+                                          :include => [:new_vehicle, :make, :model_range])
     end
 
     respond_to do |format|
