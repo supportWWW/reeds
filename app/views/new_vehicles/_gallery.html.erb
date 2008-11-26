@@ -4,14 +4,11 @@
 			document[img_name].src=img_src;
 		}
 	</script>
-	<img src="/vehicles/bmw1.jpg" name="main" alt="Capriva"/>
+	<%= image_tag new_vehicle.gallery_images.first, :size => "200x150", :title => new_vehicle.humanize, :alt => "Image", :name => "main" %>
 	<div id="thumbs">
-		<a href="#" onclick="movepic('main','/vehicles/bmw1.jpg')"><img src="/vehicles/bmw1.jpg" alt="Capriva"/></a>
-		<a href="#" onclick="movepic('main','/vehicles/bmw2.jpg')"><img src="/vehicles/bmw2.jpg" alt="Capriva"/></a>
-		<a href="#" onclick="movepic('main','/vehicles/bmw3.jpg')"><img src="/vehicles/bmw3.jpg" alt="Capriva"/></a>
-		<a href="#" onclick="movepic('main','/vehicles/bmw1.jpg')"><img src="/vehicles/bmw1.jpg" alt="Capriva"/></a>
-		<a href="#" onclick="movepic('main','/vehicles/bmw2.jpg')"><img src="/vehicles/bmw2.jpg" alt="Capriva"/></a>
-		<a href="#" onclick="movepic('main','/vehicles/bmw3.jpg')"><img src="/vehicles/bmw3.jpg" alt="Capriva"/></a>
+		<% new_vehicle.gallery_images.each do |image| %>
+			<a href="#" onclick="movepic('main','<%= image %>')"><%= image_tag image, :title => new_vehicle.humanize, :alt => "Image" %></a>
+		<% end %>
 	</div><!-- end thumbs -->
 	<% unless new_vehicle.attachments.brochure.nil? %>
 		<p class="pdf"><strong><a href="#">Download</a> a detailed PDF</strong><br />

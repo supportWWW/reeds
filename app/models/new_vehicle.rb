@@ -19,6 +19,18 @@ class NewVehicle < ActiveRecord::Base
   
   has_permalink :humanize
   
+  # Fills up the array with placeholders if need be.
+  def gallery_images
+    imgs = []
+    images.each do |image|
+      imgs << image.public_filename
+    end
+    1.upto(6 - imgs.size) do |i|
+      imgs << "/images/placeholder.png"
+    end
+    imgs
+  end
+
   class << self
     
     def for_select
