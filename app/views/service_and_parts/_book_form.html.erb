@@ -1,40 +1,23 @@
-<% form_for :form, @form, :url => { :controller => 'service_and_parts', :action => 'book' }, :method => :post do |f| %>
+<% form_for :form, @form, :url => { :controller => 'service_and_parts', :action => 'book' }, :html => { :method => :post, :id => "service_form" } do |f| %>
 
-      <%= error_messages_for :form %>
-
-  <p>
-    <b>Name</b><br/>
-    <%= f.text_field :name %>
-  </p>
-
-  <p>
-    <b>Email</b><br/>
-    <%= f.text_field :email %>
-  </p>
-
-  <p>
-    <b>Cel phone number</b><br/>
-    <%= f.text_field :cel_phone_number %>
-  </p>
-
-  <p>
-    <b>Work phone number</b><br/>
-    <%= f.text_field :work_phone_number %>
-  </p>
-
-  <p>
-    <b>Booking date: </b>( Should be at least 3 days from now )<br/>
-    <%= f.text_field :booking_date %>
-  </p>
-
-  <p>
-    <b>Problem description</b><br/>
-    <%= f.text_area :problem_description, :rows => 5 %>
-  </p>
-
-  <p>
-    <%= submit_tag 'Send' %>
-  </p>
+	<%= error_messages_for :form %>
+	<div id="service_form_notice" class="notice" style="display: none;"></div>
+	<div id="service_form_errors" class="error" style="display: none;"></div>
+	<div>
+		Name<br/>
+		<%= f.text_field :name %><br/>
+		Email<br/>
+		<%= f.text_field :email %><br/>
+		Cell phone number<br/>
+		<%= f.text_field :cel_phone_number %><br/>
+		Work phone number<br/>
+		<%= f.text_field :work_phone_number %><br/>
+		Booking date ( Should be at least 3 days from now )<br/>
+		<%= f.text_field :booking_date %><br/>
+		Service requirements<br/>
+		<%= f.text_field :problem_description %><br/>
+		<%= submit_tag 'Book' %><%= spinner("service_spinner") %>
+	</div>
 
 <% end  %>
 

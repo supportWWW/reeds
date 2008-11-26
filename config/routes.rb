@@ -21,7 +21,7 @@ ActionController::Routing::Routes.draw do |map|
   map.new_vehicle_enquiry "/contact/new_vehicle_enquiry", :controller => "contact", :action => "new_vehicle_enquiry"
   map.monthly_payment "/calculators/monthly_payment", :controller => "calculators", :action => "monthly_payment"
   map.affordability "/calculators/affordability", :controller => "calculators", :action => "affordability"
-
+  map.book_service "service_and_parts/book", :controller => "service_and_parts", :action => "book"
   map.namespace(:admin) do |admin|
 
     admin.root :controller => 'dashboard', :action => 'index'

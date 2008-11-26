@@ -398,9 +398,9 @@ border: 1px solid #B4CFE2;
 margin: 9px 0 0;
 float: left;
 }
-#actions #callback { background: transparent url(/images/phone.gif) 197px center no-repeat; }
-#actions #calc { background: transparent url(/images/calculator.gif) 190px center no-repeat; }
-#actions #testdrive { background: transparent url(/images/carkey.gif) 167px center no-repeat; }
+#actions #callback { background: transparent url(/images/phone.gif) 197px 15px no-repeat; }
+#actions #calc { background: transparent url(/images/calculator.gif) 190px 15px no-repeat; }
+#actions #testdrive { background: transparent url(/images/carkey.gif) 167px 15px no-repeat; }
 #actions div h3 {margin: 9px 12px 5px; line-height: 1.1em;}
 #actions div h3 a {text-decoration: none; color:#154367;}
 #actions div h3 a:hover {text-decoration: underline;}
