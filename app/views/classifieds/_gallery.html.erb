@@ -4,11 +4,11 @@
 			document[img_name].src=img_src;
 		}
 	</script>
-	<img src="/vehicles/bmw1.jpg" name="main" alt="Capriva"/>
+	<%= image_tag classified.gallery_images.first, :size => "200x150", :title => classified.humanize, :alt => "Image", :name => "main" %>
 	<div id="thumbs">
-		<a href="#" onclick="movepic('main','/vehicles/bmw1.jpg')"><img src="/vehicles/bmw1.jpg" alt="Capriva"/></a>
-		<a href="#" onclick="movepic('main','/vehicles/bmw2.jpg')"><img src="/vehicles/bmw2.jpg" alt="Capriva"/></a>
-		<a href="#" onclick="movepic('main','/vehicles/bmw3.jpg')"><img src="/vehicles/bmw3.jpg" alt="Capriva"/></a>
+		<% classified.gallery_images.each do |image| %>
+			<a href="#" onclick="movepic('main','<%= image %>')"><%= image_tag image, :title => classified.humanize, :alt => "Image" %></a>
+		<% end %>
 	</div><!-- end thumbs -->
 	<p>Click on each image to enlarge</p>
 </div><!-- end gallery -->

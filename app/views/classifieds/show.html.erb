@@ -25,7 +25,7 @@
 
 	<div id="twotwenty">
 
-		<%= render :partial => "gallery" %>
+		<%= render :partial => "gallery", :locals => { :classified => @classified } %>
 		<%= render :partial => "enquiry", :locals => { :classified => @classified } %>
 	
 	</div><!-- end twotwenty -->

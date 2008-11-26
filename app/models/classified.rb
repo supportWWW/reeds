@@ -62,16 +62,26 @@ class Classified < ActiveRecord::Base
   
 
   def images
-    imgs = []
+    return @imgs unless @imgs.nil?
+    @imgs = []
     %w(1 2 3).each do |suffix|
       filename = cyberstock? ? "#{stock_code}_#{suffix}.jpg" : "#{reg_num}_#{suffix}.jpg"
       if File.exist?("#{RAILS_ROOT}/public/vehicles/#{filename}")
-        imgs << "/vehicles/#{filename}"
+        @imgs << "/vehicles/#{filename}"
       end
+    end
+    @imgs
+  end
+
+  # Fills up the array with placeholders if need be.
+  def gallery_images
+    imgs = images
+    1.upto(3 - imgs.size) do |i|
+      imgs << "/images/placeholder.png"
     end
     imgs
   end
-
+  
   def missing_images
     imgs = []
     %w(1 2 3).each do |suffix|
