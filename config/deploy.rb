@@ -37,7 +37,7 @@ set :server_name, "reeds.webhop.net"
 
 #set :mongrel_config, "/etc/mongrel_cluster/mongrel_cluster.yml" 
 
-set :symlinked_public_dirs, %w(uploaded_images uploaded_files)
+set :symlinked_public_dirs, %w(uploaded_images uploaded_files vehicles)
 
 task :create_public_shared_dirs do
   symlinked_dirs.each do |d|
