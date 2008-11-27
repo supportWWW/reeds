@@ -12,7 +12,3 @@
 
 <h3>Enquire about special</h3>
 <%= render :partial => "form", :locals => { :special => @special } %>
-
-<% if logged_in?  %>
-    <%= link_to 'Edit', edit_admin_special_path(@special) %>
-<% end  %>
