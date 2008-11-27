@@ -39,6 +39,8 @@
     <%= partial :salespeople_not_in_branch %>
 </div>
 
+<%= image_tag @branch.image.public_filename if @branch.image %>
+
 <br/>
 
 <%= link_to 'Edit', edit_admin_branch_path(@branch) %>

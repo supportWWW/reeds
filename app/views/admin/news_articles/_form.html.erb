@@ -15,6 +15,13 @@
   <%= categories_select( f ) %>
 </p>
 
+<% if news_article.image %>
+	<p id="<%= "image_#{news_article.image.id}"  %>"> 
+	    <%= image_tag news_article.image.public_filename %> 
+	    - <%= link_to_remote 'Remove this image', :url => admin_uploaded_image_path( news_article.image ), :method => :delete, :confirm => 'Are you sure?'  %>
+	</p>
+<% end %>
+
 <p>
   <%= f.label :image %><br />
   <%= f.file_field :uploaded_data %>

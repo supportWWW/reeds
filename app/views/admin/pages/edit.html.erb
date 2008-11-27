@@ -1,7 +1,7 @@
 <h2>Editing page</h2>
 
 <% form_for :page, :url => admin_page_path(@page), :html => { :method => :put, :multipart => true }  do |f| -%>
-	<%= render :partial =>  "form", :locals => { :f => f } %>
+	<%= render :partial =>  "form", :locals => { :f => f, :page => @page } %>
 
 	<p>
 	  <%= f.submit "Update" %>

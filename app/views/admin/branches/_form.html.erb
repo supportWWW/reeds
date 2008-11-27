@@ -29,3 +29,15 @@
   <%= f.label :cyberstock_prefix %><br />
   <%= f.text_field :cyberstock_prefix %>
 </p>
+
+<% if branch.image %>
+	<p id="<%= "image_#{branch.image.id}"  %>"> 
+	    <%= image_tag branch.image.public_filename %> 
+	    - <%= link_to_remote 'Remove this image', :url => admin_uploaded_image_path( branch.image ), :method => :delete, :confirm => 'Are you sure?'  %>
+	</p>
+<% end %>
+
+ <p>
+  <%= f.label :image, "Map Image" %><br />
+  <%= f.file_field :uploaded_data %>
+</p>

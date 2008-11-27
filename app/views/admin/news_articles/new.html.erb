@@ -1,7 +1,7 @@
 <h2>New article</h2>
 
 <% form_for :news_article, :url => admin_news_articles_path, :html => { :multipart => true } do |f| -%>
-	<%= render :partial =>  "form", :locals => { :f => f } %>
+	<%= render :partial =>  "form", :locals => { :f => f, :news_article => @news_article } %>
 
 	<p>
 	  <%= f.submit "Create" %>

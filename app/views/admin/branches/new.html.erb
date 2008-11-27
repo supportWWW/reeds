@@ -1,8 +1,8 @@
 <h2>New branch</h2>
 
-<% form_for :branch, :url => admin_branches_path do |f| -%>
+<% form_for :branch, :url => admin_branches_path, :html => { :multipart => true } do |f| -%>
 
-	<%= render :partial =>  "form", :locals => { :f => f } %>
+	<%= render :partial =>  "form", :locals => { :f => f, :branch => @branch } %>
 	<p>
 	  <%= f.submit "Create" %>
 	</p>

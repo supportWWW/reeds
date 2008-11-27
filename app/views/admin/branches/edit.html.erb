@@ -1,7 +1,7 @@
 <h2>Editing branch</h2>
 
-<% form_for :branch, :url => admin_branch_path(@branch), :html => { :method => :put }  do |f| -%>
-	<%= render :partial =>  "form", :locals => { :f => f } %>
+<% form_for :branch, :url => admin_branch_path(@branch), :html => { :method => :put, :multipart => true }  do |f| -%>
+	<%= render :partial =>  "form", :locals => { :f => f, :branch => @branch } %>
 	<p>
 	  <%= f.submit "Update" %>
 	</p>

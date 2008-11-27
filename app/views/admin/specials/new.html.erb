@@ -1,7 +1,7 @@
 <h2>New special</h2>
 
 <% form_for :special, :url => admin_specials_path, :html => { :multipart => true } do |f| -%>
-	<%= render :partial =>  "form", :locals => { :f => f } %>
+	<%= render :partial =>  "form", :locals => { :f => f, :special => @special } %>
 
 	<p>
 	  <%= f.submit "Create" %>

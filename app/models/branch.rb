@@ -1,4 +1,7 @@
 class Branch < ActiveRecord::Base
+
+  include ImageHelper
+
   has_many :assignments
   has_many :salespeople, :through => :assignments, :dependent => :destroy
   
