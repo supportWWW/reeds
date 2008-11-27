@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :promotion_boxes
+
 
   
   map.root :controller => 'main', :action => 'index'
@@ -41,6 +43,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :specials
     admin.resources :categories
     admin.resources :news_articles
+    admin.resources :promotion_boxes
 
     admin.assign_to_branch 'branches/:branch_id/assign/:id', :controller => 'branches', :action => 'assign', :conditions => { :method => :post }
     admin.remove_assignment 'branches/:branch_id/remove_assignment/:id', :controller => 'branches', :action => 'remove_assignment', :conditions => { :method => :delete }

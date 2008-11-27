@@ -1,0 +1,28 @@
+<h2>Listing promotion boxes</h2>
+
+<% unless @promotion_boxes.empty? %>
+
+	<table>
+	  <tr>
+	    <th>Title</th>
+	    <th>Body</th>
+	    <th>Active</th>
+	  </tr>
+
+	<% for promotion_box in @promotion_boxes %>
+	  <tr>
+	    <td><%=h promotion_box.title %></td>
+	    <td><%=h promotion_box.body %></td>
+	    <td><%=h promotion_box.active %></td>
+	    <td><%= link_to 'Edit', edit_admin_promotion_box_path(promotion_box) %> | <%= link_to 'Destroy', admin_promotion_box_path(promotion_box), :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+
+<% else %>
+  <p> There are no promotion boxes available yet. </p>
+<% end %>
+
+<br />
+
+<%= link_to 'New promotion box', new_admin_promotion_box_path %>

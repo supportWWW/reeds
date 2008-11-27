@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081125081202) do
+ActiveRecord::Schema.define(:version => 20081127162358) do
 
   create_table "accessories", :force => true do |t|
     t.string   "name"
@@ -224,6 +224,17 @@ ActiveRecord::Schema.define(:version => 20081125081202) do
   end
 
   add_index "pages", ["title_permalink"], :name => "index_pages_on_title_permalink", :unique => true
+
+  create_table "promotion_boxes", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.boolean  "active"
+    t.integer  "position",      :limit => 11
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "style"
+    t.text     "rendered_body"
+  end
 
   create_table "referrals", :force => true do |t|
     t.string   "name"

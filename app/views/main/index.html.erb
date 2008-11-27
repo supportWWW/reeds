@@ -10,7 +10,7 @@
 				<p>
 					<small><%= news_article.publish_at %></small><br>
 					<strong><%= link_to news_article.title, news_article_path(news_article), :title => "Click to read full news article", :style => "text-decoration: none;" %></strong><br>
-					<%= truncate(news_article.text, 150) %>
+					<%= truncate(news_article.text.gsub("*", ""), 150) %>
 				</p>
 			</div>
 
@@ -32,16 +32,13 @@
 
 	<div id="actions">
 		
-		<div id="callback" class="sidebox">
-			<h3>Book a service</h3>
-			<p><%= link_to "Click here", book_service_path, :title => "Book a service" %> to book your car<br/>in for a service.<br/><br/></p>
-		</div>
+		<% PromotionBox.active.each do |promotion_box| %>
+			<div class="sidebox <%= promotion_box.style %>">
+				<h3><%=h promotion_box.title %></h3>
+				<%= promotion_box.rendered_body %><br/><br/>
+			</div>
+		<% end %>
 
-		<div id="testdrive" class="sidebox">
-			<h3>Specials</h3>
-			<p><%= link_to "Click here", specials_path, :title => "Specials" %> to take a look at all of our latest specials.<br/><br/></p>
-		</div>
-		
 	</div>
 	
 

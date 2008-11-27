@@ -1,0 +1,2 @@
+module Admin::PromotionBoxesHelper
+end

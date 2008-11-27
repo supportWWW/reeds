@@ -1,0 +1,23 @@
+<p>
+  <b>Title:</b>
+  <%=h @promotion_box.title %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @promotion_box.body %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%=h @promotion_box.active %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%=h @promotion_box.position %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_promotion_box_path(@promotion_box) %> |
+<%= link_to 'Back', admin_promotion_boxes_path %>

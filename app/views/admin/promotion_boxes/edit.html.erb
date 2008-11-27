@@ -1,0 +1,11 @@
+<h2>Editing promotion box</h2>
+
+<% form_for :promotion_box, :url => admin_promotion_box_path(@promotion_box), :html => { :method => :put }  do |f| -%>
+	<%= render :partial =>  "form", :locals => { :f => f } %>
+	<p>
+	  <%= f.submit "Update" %>
+	</p>
+<% end %>
+
+<%= link_to 'Show', admin_promotion_box_path(@promotion_box) %> |
+<%= link_to 'Back', admin_promotion_boxes_path %>

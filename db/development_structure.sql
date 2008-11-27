@@ -22,7 +22,7 @@ CREATE TABLE `assignments` (
   PRIMARY KEY  (`id`),
   KEY `index_assignments_on_salesperson_id` (`salesperson_id`),
   KEY `index_assignments_on_branch_id` (`branch_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `attachments` (
   `id` int(11) NOT NULL auto_increment,
@@ -116,7 +116,7 @@ CREATE TABLE `images` (
   KEY `index_images_on_owner_id` (`owner_id`),
   KEY `index_images_on_owner_type` (`owner_type`),
   KEY `index_images_on_parent_id` (`parent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `makes` (
   `id` int(11) NOT NULL auto_increment,
@@ -236,6 +236,19 @@ CREATE TABLE `pages` (
   UNIQUE KEY `index_pages_on_title_permalink` (`title_permalink`)
 ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8;
 
+CREATE TABLE `promotion_boxes` (
+  `id` int(11) NOT NULL auto_increment,
+  `title` varchar(255) default NULL,
+  `body` text,
+  `active` tinyint(1) default NULL,
+  `position` int(11) default NULL,
+  `created_at` datetime default NULL,
+  `updated_at` datetime default NULL,
+  `style` varchar(255) default NULL,
+  `rendered_body` text,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
 CREATE TABLE `referrals` (
   `id` int(11) NOT NULL auto_increment,
   `name` varchar(255) default NULL,
@@ -275,7 +288,7 @@ CREATE TABLE `specials` (
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL auto_increment,
@@ -416,3 +429,9 @@ INSERT INTO schema_migrations (version) VALUES ('20081114152205');
 INSERT INTO schema_migrations (version) VALUES ('20081124195757');
 
 INSERT INTO schema_migrations (version) VALUES ('20081125081202');
+
+INSERT INTO schema_migrations (version) VALUES ('20081127155457');
+
+INSERT INTO schema_migrations (version) VALUES ('20081127161723');
+
+INSERT INTO schema_migrations (version) VALUES ('20081127162358');

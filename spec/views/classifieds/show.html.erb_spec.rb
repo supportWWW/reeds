@@ -21,6 +21,7 @@ describe "/classifieds/show.html.erb" do
     @classified.stub!(:make).and_return(Make.new)
     @classified.stub!(:model).and_return(Model.new)
     @classified.stub!(:branch_id).and_return(1)
+    @classified.stub!(:gallery_images).and_return(["lnk"])
 
     assigns[:classified] = @classified
     @request.env["HTTP_REFERER"] = "http://localhost/search"
