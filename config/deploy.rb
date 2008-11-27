@@ -8,7 +8,7 @@ set :domain, "reeds.webhop.net"
 set :password, '00r33d5'
 
 # Update these if you're not running everything on one host.
-role :app, domain
+role :app, domain, :cron => true
 role :web, domain
 role :db,  domain, :primary => true
 role :scm, domain # used by deprec if you want to install subversion
@@ -152,3 +152,40 @@ task :restart_monit do
   sudo '/etc/init.d/monit restart'
 end
 
+
+namespace :cron do 
+  task :start, :roles => :web, :only => {:cron => true} do 
+    cron_tab = "#{shared_path}/cron.tab" 
+    run "mkdir -p #{shared_path}/log/cron" 
+    require 'erb' 
+    template = File.read("config/cron.erb") 
+    file = ERB.new(template).result(binding) 
+    put file, cron_tab, :mode => 0644 
+    # merge with the current crontab 
+    # fails with an empty crontab, which is acceptable 
+    run "crontab -l >> #{cron_tab}" rescue nil 
+    # install the new crontab 
+    run "crontab #{cron_tab}" 
+  end 
+
+  task :stop, :roles => :web, :only => {:cron => true} do 
+    cron_tmp = "#{shared_path}/cron.old" 
+    cron_tab = "#{shared_path}/cron.tab" 
+    begin 
+      # dump the current cron entries 
+      run "crontab -l > #{cron_tmp}" 
+      # remove any lines that contain the application name 
+      run "awk '{if ($0 !~ /#{application}/) print $0}' " + 
+      "#{cron_tmp} > #{cron_tab}" 
+      # replace the cron entries 
+      run "crontab #{cron_tab}" 
+    rescue 
+      # fails with an empty crontab, which is acceptable 
+    end 
+    # clean up 
+    run "rm -rf #{cron_tmp}" 
+  end 
+end
+
+before "deploy:stop", "cron:stop" 
+after "deploy:start", "cron:start" 
