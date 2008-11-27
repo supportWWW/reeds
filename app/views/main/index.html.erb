@@ -35,7 +35,7 @@
 		<% PromotionBox.active.each do |promotion_box| %>
 			<div class="sidebox <%= promotion_box.style %>">
 				<h3><%=h promotion_box.title %></h3>
-				<%= promotion_box.rendered_body %><br/><br/>
+				<p><%= promotion_box.rendered_body %></p><br/><br/>
 			</div>
 		<% end %>
 
