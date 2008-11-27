@@ -32,3 +32,5 @@ font: normal 1.1em/1.3em "Arial", Helvetica, san-serif;
 	text-align: right;
 	margin-right: 15px;
 }
+
+span.caps { padding: 0;} 

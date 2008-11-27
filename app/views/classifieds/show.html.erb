@@ -63,12 +63,13 @@
 		<h3>Calculator</h3>
 		<%= partial "calculators/monthly_payment", :purchase_price => (@classified.price_in_cents / 100).to_i %>
 
-		<% link_to_section "Disclaimer" do |cancel| %>	
-			<%= link_to_function("Hide disclaimer", cancel) %>
-			<h3>Disclaimer</h3>
-			<p> RV to supply the disclaimer.</p>
-		<% end -%>
-
+		<p>
+			<% link_to_section "Disclaimer" do |cancel| %>	
+				<%= link_to_function("Hide disclaimer", cancel) %>
+				<h3>Disclaimer</h3>
+				<p> RV to supply the disclaimer.</p>
+			<% end -%>
+		</p>
 	</div><!-- end fourthirty -->
 
 <% end -%>

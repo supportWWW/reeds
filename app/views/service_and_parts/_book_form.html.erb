@@ -1,9 +1,9 @@
 <% form_for :form, @form, :url => { :controller => 'service_and_parts', :action => 'book' }, :html => { :method => :post, :id => "service_form" } do |f| %>
-
-	<%= error_messages_for :form %>
-	<div id="service_form_notice" class="notice" style="display: none;"></div>
-	<div id="service_form_errors" class="error" style="display: none;"></div>
-	<div>
+	<div class="form">
+		<%= error_messages_for :form %>
+		<div id="service_form_notice" class="notice" style="display: none;"></div>
+		<div id="service_form_errors" class="error" style="display: none;"></div>
+		<br/>
 		Name<br/>
 		<%= f.text_field :name %><br/>
 		Email<br/>
@@ -18,7 +18,6 @@
 		<%= f.text_field :problem_description %><br/>
 		<%= submit_tag 'Book' %><%= spinner("service_spinner") %>
 	</div>
-
 <% end  %>
 
 <script type="text/javascript">

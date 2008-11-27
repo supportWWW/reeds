@@ -1,30 +1,30 @@
 <div class="calculator">
 	<% form_for :form, af = AffordabilityForm.new(:monthly_payment => 2000, :deposit => 0, :repayment_period => 54, :interest_rate => 16.5), :url => affordability_path, :html => { :method => :post, :id => "affordability_form" } do |f| -%>
-	  <div id="affordability_form_errors" class="error" style="display: none;"></div>
-		<table>
-			<tr>
-				<td>Monthly payment</td>
-				<td>R<%= f.text_field :monthly_payment, :maxsize => 10, :size => 10 %></td>
-			</tr>
-			<tr>
-				<td>Deposit/Trade in value<br/>(No longer required by law)</td>
-				<td>R<%= f.text_field :deposit, :maxsize => 10, :size => 10 %></td>
-			</tr>
-			<tr>
-				<td>Repayment period</td>
-				<td><%= f.select :repayment_period, MonthlyPaymentForm::REPAYMENT_PERIODS.collect { |p| [p, p] } %>months</td>
-			</tr>
-			<tr>
-				<td>Interest rate</td>
-				<td><%= f.text_field :interest_rate, :maxsize => 10, :size => 10 %>%</td>
-			</tr>
-			<tr>
-				<td>Approximate loan amount</td>
-				<td>R <span id="approximate_loan_amount"><%= af.affordability %></span></td>
-			</tr>
-		</table>
-		<%= submit_tag 'Calculate' %><%= spinner("affordability_spinner") %>
-		<p>This is an approximate amount and we do not accept responsibility for any errors that may occur.</p>
+		  <div id="affordability_form_errors" class="error" style="display: none;"></div>
+			<table>
+				<tr>
+					<td>Monthly payment</td>
+					<td>R<%= f.text_field :monthly_payment, :maxsize => 10, :size => 10 %></td>
+				</tr>
+				<tr>
+					<td>Deposit/Trade in value<br/>(No longer required by law)</td>
+					<td>R<%= f.text_field :deposit, :maxsize => 10, :size => 10 %></td>
+				</tr>
+				<tr>
+					<td>Repayment period</td>
+					<td><%= f.select :repayment_period, MonthlyPaymentForm::REPAYMENT_PERIODS.collect { |p| [p, p] } %>months</td>
+				</tr>
+				<tr>
+					<td>Interest rate</td>
+					<td><%= f.text_field :interest_rate, :maxsize => 10, :size => 10 %>%</td>
+				</tr>
+				<tr>
+					<td>Approximate loan amount</td>
+					<td>R <span id="approximate_loan_amount"><%= af.affordability %></span></td>
+				</tr>
+			</table>
+			<%= submit_tag 'Calculate' %><%= spinner("affordability_spinner") %>
+			<p>This is an approximate amount and we do not accept responsibility for any errors that may occur.</p>
 	<% end %>
 </div>
 

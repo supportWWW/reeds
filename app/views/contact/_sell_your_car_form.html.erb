@@ -1,5 +1,7 @@
 <% form_for :sell_your_car_form, @form, :url => { :controller => 'contact', :action => 'sell_your_car' }, :method => :post do |f| %>
 
+	<div class="form">
+	
     <%= error_messages_for :form %>
 
   <script>
@@ -73,4 +75,5 @@
     <%= submit_tag 'Send' %>
   </p>
 
+	</div>
 <% end  %>

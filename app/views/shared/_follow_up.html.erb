@@ -1,32 +1,40 @@
-<% link_to_section "Let us find the vehicle for you" do |cancel| %>	
-	<%= link_to_function("Hide Details", cancel) %>
-	<h3>Let us find the vehicle you're looking for</h3>
-	<p>Would you like us to contact you if we find vehicles matching your criteria?</p>
-	<% form_for :form, FindCarForm.new(:criteria => criteria_in_words), :url => find_car_path, :html => { :method => :post, :id => "find_car_form" } do |f| -%>
-		<div id="find_car_form_notice" class="notice" style="display: none;"></div>
-	  <div id="find_car_form_errors" class="error" style="display: none;"></div>
-		<div>
-			Name<br/>
-			<%= f.text_field :name %><br/>
-			Email<br/>
-			<%= f.text_field :email %><br/>
-			Phone number<br/>
-			<%= f.text_field :phone %><br/>
-			What are you looking for<br/>
-			<span class="info">Please fill in as much information as you can, so that we can help you properly.</span><br/>
-			<%= f.text_area :criteria, :rows => 5, :cols => 50 %><br/>
-			<%= submit_tag 'Please find for me' %><%= spinner("find_car_spinner") %>
-		</div>
-	<% end -%>
-<% end -%>
-<br/>
-<% link_to_section "Subscribe now to receive an updated list of our pre-owned cars daily." do |cancel| %>	
-	<%= link_to_function("Hide Details", cancel) %>
-	<h3>Subscribe to Stock List</h3>
-	<p>You can also subscribe to our daily stock lists sent to you via email.</p>
-	<%= partial "stocklists/form" %>
-<% end -%>
+<p>
 
+	<% link_to_section "Let us find the vehicle for you" do |cancel| %>	
+		<%= link_to_function("Hide Details", cancel) %>
+		<h3>Let us find the vehicle you're looking for</h3>
+		<p>Would you like us to contact you if we find vehicles matching your criteria?</p>
+		<% form_for :form, FindCarForm.new(:criteria => criteria_in_words), :url => find_car_path, :html => { :method => :post, :id => "find_car_form" } do |f| -%>
+			<div class="form">
+				<div id="find_car_form_notice" class="notice" style="display: none;"></div>
+			  <div id="find_car_form_errors" class="error" style="display: none;"></div>
+				<p>
+					Name<br/>
+					<%= f.text_field :name %><br/>
+					Email<br/>
+					<%= f.text_field :email %><br/>
+					Phone number<br/>
+					<%= f.text_field :phone %><br/>
+					What are you looking for<br/>
+					<span class="info">Please fill in as much information as you can, so that we can help you properly.</span><br/>
+					<%= f.text_area :criteria, :rows => 5, :cols => 50 %><br/>
+					<%= submit_tag 'Please find for me' %><%= spinner("find_car_spinner") %>
+				</p>
+			</div>
+		<% end -%>
+	<% end -%>
+</p>
+
+<p>
+
+	<% link_to_section "Subscribe now to receive an updated list of our pre-owned cars daily" do |cancel| %>	
+		<%= link_to_function("Hide Details", cancel) %>
+		<h3>Subscribe to Stock List</h3>
+		<p>You can also subscribe to our daily stock lists sent to you via email.</p>
+		<%= partial "stocklists/form" %>
+	<% end -%>
+
+</p>
 <script type="text/javascript">
 //<![CDATA[
 

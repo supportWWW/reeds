@@ -180,7 +180,13 @@ margin: 0 15px 2px;
 margin: 0 15px 15px;
 font: normal 1.2em/1.4em "Arial", Helvetica, san-serif;  
 }
-
+#content div.form {
+margin: 0 15px 15px;
+font: normal 1.2em/1.4em "Arial", Helvetica, san-serif;  
+}
+#content div.form h2 {
+	font: normal 1em "Arial", Helvetica, san-serif;  
+}
 
 
 
@@ -233,8 +239,10 @@ padding-right: 15px;
 padding: 6px;
 background: url(/images/newspic-bg.gif) 0 0 no-repeat; 
 float: left;
+width: 70px;
 margin: 0 10px 10px 12px;
 }
+
 
 
 

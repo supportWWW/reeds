@@ -23,7 +23,7 @@ class NewVehicle < ActiveRecord::Base
   def gallery_images
     imgs = []
     images.each do |image|
-      imgs << image.public_filename
+      imgs << image.public_filename(:medium)
     end
     1.upto(6 - imgs.size) do |i|
       imgs << "/images/placeholder.png"

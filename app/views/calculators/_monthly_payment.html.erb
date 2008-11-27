@@ -1,35 +1,36 @@
 <div class="calculator">
 	<% form_for :form, mpf = MonthlyPaymentForm.new(:purchase_price => purchase_price, :deposit => (purchase_price * 0.1).to_i, :repayment_period => 54, :interest_rate => 16.5), :url => monthly_payment_path, :html => { :method => :post, :id => "monthly_payment_form" } do |f| -%>
-	  <div id="monthly_payment_form_errors" class="error" style="display: none;"></div>
-		<table>
-			<tr>
-				<td>Purchase price</td>
-				<td>R<%= f.text_field :purchase_price, :maxsize => 10, :size => 10 %></td>
-			</tr>
-			<tr>
-				<td>Deposit/Trade in value<br/>(No longer required by law)</td>
-				<td>R<%= f.text_field :deposit, :maxsize => 10, :size => 10 %></td>
-			</tr>
-			<tr>
-				<td>Repayment period</td>
-				<td><%= f.select :repayment_period, MonthlyPaymentForm::REPAYMENT_PERIODS.collect { |p| [p, p] } %>months</td>
-			</tr>
-			<tr>
-				<td>Interest rate</td>
-				<td><%= f.text_field :interest_rate, :maxsize => 10, :size => 10 %>%</td>
-			</tr>
-			<tr>
-				<td></td>
-				<td><%= submit_tag 'Calculate' %><%= spinner("monthly_payment_spinner") %></td>
-			</tr>
-			<tr>
-				<td>Approximate monthly payment</td>
-				<td>R <span id="approximate_monthly_payment"><%= mpf.monthly_payment %></span></td>
-			</tr>
-			
-		</table>
 		
-		<p>This is an approximate amount and we do not accept responsibility for any errors that may occur.</p>
+		
+		  <div id="monthly_payment_form_errors" class="error" style="display: none;"></div>
+			<table>
+				<tr>
+					<td>Purchase price</td>
+					<td>R<%= f.text_field :purchase_price, :maxsize => 10, :size => 10 %></td>
+				</tr>
+				<tr>
+					<td>Deposit/Trade in value<br/>(No longer required by law)</td>
+					<td>R<%= f.text_field :deposit, :maxsize => 10, :size => 10 %></td>
+				</tr>
+				<tr>
+					<td>Repayment period</td>
+					<td><%= f.select :repayment_period, MonthlyPaymentForm::REPAYMENT_PERIODS.collect { |p| [p, p] } %>months</td>
+				</tr>
+				<tr>
+					<td>Interest rate</td>
+					<td><%= f.text_field :interest_rate, :maxsize => 10, :size => 10 %>%</td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><%= submit_tag 'Calculate' %><%= spinner("monthly_payment_spinner") %></td>
+				</tr>
+				<tr>
+					<td>Approximate monthly payment</td>
+					<td>R <span id="approximate_monthly_payment"><%= mpf.monthly_payment %></span></td>
+				</tr>
+			
+			</table>
+			<p>This is an approximate amount and we do not accept responsibility for any errors that may occur.</p>
 	<% end %>
 </div>
 
