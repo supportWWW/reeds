@@ -6,9 +6,12 @@
 	<h2><%=h @page.title %></h2>
 <% end -%>
 
-<p><%= image_tag @page.image.public_filename if @page.image %></p>
+<%= image_tag(@page.image.public_filename(:medium), :class => "dropshad") if @page.image %>
 <%= @page.rendered_text %>
 
-<% if logged_in?  %>
-    <%= link_to 'Edit', edit_admin_page_path(@page) %>
-<% end  %>
+<br/>
+
+<div id="callus">
+	<h3>Call us now!</h3>
+	<p>Contact us now to find out more about <strong>new vehicles</strong> or speak to one of our agents about our selection of <strong>used cars</strong> on offer. See our <a href="contact-us.html">contact details</a> to get in touch.</p>
+</div><!-- end callus -->
