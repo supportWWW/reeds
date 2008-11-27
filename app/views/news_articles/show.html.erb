@@ -6,13 +6,16 @@
 	<h2><%=h @news_article.title %> - <%= @news_article.publish_at.to_s( :date ) %></h2>
 <% end -%>
 
-<p><%= image_tag @news_article.image.public_filename if @news_article.image %></p>
+<%= image_tag(@news_article.image.public_filename(:medium), :class => "dropshad") if @news_article.image %>
 <%= @news_article.rendered_text %>
 
 <% unless @news_article.source_url.blank? %>
     <%= link_to 'View Source', @news_article.source_url %>
 <% end %>
 
-<% if logged_in? %>
-    <%= link_to 'Edit', edit_admin_news_article_path( @news_article )  %>
-<% end %>
+<br/>
+
+<div id="callus">
+	<h3>Call us now!</h3>
+	<p>Contact us now to find out more about <strong>new vehicles</strong> or speak to one of our agents about our selection of <strong>used cars</strong> on offer. See our <a href="/contact">contact details</a> to get in touch.</p>
+</div><!-- end callus -->
