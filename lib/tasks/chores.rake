@@ -9,7 +9,7 @@ namespace :chores do
   task :daily => :environment do
     chore("Daily") do
       Rake::Task['reeds:stocklist:send'].invoke
-      Rake::Task['reeds:cyberstock:send_expire'].invoke
+      #Rake::Task['reeds:cyberstock:send_expire'].invoke
     end
   end
   

@@ -8,8 +8,8 @@ set :domain, "reeds.webhop.net"
 set :password, '00r33d5'
 
 # Update these if you're not running everything on one host.
-role :app, domain, :cron => true
-role :web, domain
+role :app, domain
+role :web, domain, :cron => true
 role :db,  domain, :primary => true
 role :scm, domain # used by deprec if you want to install subversion
 
