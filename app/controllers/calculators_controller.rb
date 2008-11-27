@@ -16,6 +16,7 @@ class CalculatorsController < ApplicationController
     end
     respond_to do |format|
       format.js # index.html.erb
+      format.html
     end
   end
 

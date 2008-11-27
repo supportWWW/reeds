@@ -19,11 +19,14 @@
 					<td><%= f.text_field :interest_rate, :maxsize => 10, :size => 10 %>%</td>
 				</tr>
 				<tr>
+					<td></td>
+					<td><%= submit_tag 'Calculate', :style => "font-size: 18px; border: 1px solid #00457C; border-bottom: 3px solid #00457C; border-right: 2px solid #00457C;" %><%= spinner("affordability_spinner") %></td>
+				</tr>
+				<tr>
 					<td>Approximate loan amount</td>
 					<td>R <span id="approximate_loan_amount"><%= af.affordability %></span></td>
 				</tr>
 			</table>
-			<%= submit_tag 'Calculate' %><%= spinner("affordability_spinner") %>
 			<p>This is an approximate amount and we do not accept responsibility for any errors that may occur.</p>
 	<% end %>
 </div>
