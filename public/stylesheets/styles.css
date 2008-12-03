@@ -180,6 +180,11 @@ margin: 0 15px 2px;
 margin: 0 15px 15px;
 font: normal 1.2em/1.4em "Arial", Helvetica, san-serif;  
 }
+#content div.list {
+margin: 0 15px 15px;
+font: normal 1.2em/1.4em "Arial", Helvetica, san-serif;  
+}
+
 #content div.form {
 margin: 0 15px 15px;
 font: normal 1.2em/1.4em "Arial", Helvetica, san-serif;  

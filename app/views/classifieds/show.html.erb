@@ -45,14 +45,8 @@
 		<p><%=h @classified.features %></p>
 
 		<h6>Description:</h6>
-		<p>Good quality Holden Certified vehicles. 3 Year Certified Warranty.<br />
-		* Conditions apply.</p>
 		<p>
-			<% link_to_section "Warranty information" do |cancel| %>	
-				<%= link_to_function("Hide warranty", cancel) %>
-				<h3>Warranty  information</h3>
-				<p> RV to supply the warranty.</p>
-			<% end -%>
+			<%= render :partial => "warranty" %>
 		</p>	
 
 		<div id="callus">
