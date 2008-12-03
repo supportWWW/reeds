@@ -72,32 +72,9 @@
 
 <% content_for(:actions) do %>
 
-	<div class="sidebox callback">
-		<h3>Request a Call-back</h3>
-		<p>We'll call you back as soon as<br />an agent becomes free.</p>
-		<div id="callback_panel">
-			<% form_for :form, CallbackForm.new(:vehicle => @new_vehicle.humanize), :url => callback_path, :html => { :method => :post, :id => "callback_form" } do |f| -%>
-				<div id="callback_form_notice" class="notice" style="display: none;"></div>
-			  <div id="callback_form_errors" class="error" style="display: none;"></div>
-				<div>
-					Name<br/>
-					<%= f.text_field :name %><br/>
-					Phone number<br/>
-					<%= f.text_field :phone %><br/>
-					Branch<br/>
-					<%= f.select :branch_id, Branch.find(:all).map { |branch| [branch.name, branch.id] } %><br/>
-					<%= f.hidden_field :vehicle %>
-					<%= submit_tag 'Call me' %><%= spinner("callback_spinner") %>
-				</div>
-			<% end -%>
-		</div>
-	</div>
 
-	<div class="sidebox testdrive">
-		<h3>Book a test drive</h3>
-		<p><a href="#">Click here</a> to book a test<br />
-		drive for this vehicle.</p>
-	</div>
+	<%= render :partial => "callback", :locals => { :new_vehicle => @new_vehicle } %>
+	<%= render :partial => "book_test_drive", :locals => { :new_vehicle => @new_vehicle } %>
 
 	<script type="text/javascript">
 	//<![CDATA[

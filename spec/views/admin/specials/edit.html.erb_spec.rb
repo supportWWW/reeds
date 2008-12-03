@@ -8,6 +8,7 @@ describe "/admin/specials/edit.html.erb" do
     @special.stub!(:title).and_return("MyString")
     @special.stub!(:text).and_return("MyText")
     assigns[:special] = @special
+    @special.stub!(:image).and_return(nil)
   end
 
   it "should render edit form" do

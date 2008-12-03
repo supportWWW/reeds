@@ -10,6 +10,7 @@ describe "/admin/specials/new.html.erb" do
     @special.stub!(:title_permalink).and_return("MyString")
     @special.stub!(:text).and_return("MyText")
     @special.stub!(:rendered_text).and_return("MyText")
+    @special.stub!(:image).and_return(nil)
     assigns[:special] = @special
   end
 

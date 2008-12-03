@@ -7,6 +7,7 @@ describe "/admin/pages/edit.html.erb" do
     @page = mock_model(Page)
     @page.stub!(:title).and_return("MyString")
     @page.stub!(:text).and_return("MyText")
+    @page.stub!(:image).and_return(nil)
     assigns[:page] = @page
   end
 

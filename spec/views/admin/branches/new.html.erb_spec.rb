@@ -12,6 +12,7 @@ describe "/admin/branches/new.html.erb" do
     @branch.stub!(:address).and_return("MyString")
     @branch.stub!(:stock_code_prefix).and_return("MyString")
     @branch.stub!(:cyberstock_prefix).and_return("MyString")
+    @branch.stub!(:image).and_return(nil)
     assigns[:branch] = @branch
   end
 

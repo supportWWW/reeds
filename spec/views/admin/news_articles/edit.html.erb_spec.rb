@@ -12,6 +12,7 @@ describe "/admin/news_articles/edit.html.erb" do
     @news_article.stub!(:category_id).and_return( 1 )
     @news_article.stub!(:source_url).and_return( 'test url' )      
     @news_article.stub!(:publish_at).and_return(Time.now)
+    @news_article.stub!(:image).and_return(nil)
     assigns[:news_article] = @news_article
   end
 

@@ -21,9 +21,11 @@ ActionController::Routing::Routes.draw do |map|
   map.callback "/contact/callback", :controller => "contact", :action => "callback"
   map.used_vehicle_enquiry "/contact/used_vehicle_enquiry", :controller => "contact", :action => "used_vehicle_enquiry"
   map.new_vehicle_enquiry "/contact/new_vehicle_enquiry", :controller => "contact", :action => "new_vehicle_enquiry"
+  map.new_vehicle_book_test_drive "/contact/new_vehicle_book_test_drive", :controller => "contact", :action => "new_vehicle_book_test_drive"
   map.monthly_payment "/calculators/monthly_payment", :controller => "calculators", :action => "monthly_payment"
   map.affordability "/calculators/affordability", :controller => "calculators", :action => "affordability"
   map.book_service "service_and_parts/book", :controller => "service_and_parts", :action => "book"
+
   map.namespace(:admin) do |admin|
 
     admin.root :controller => 'dashboard', :action => 'index'

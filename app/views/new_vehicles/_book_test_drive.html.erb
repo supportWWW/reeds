@@ -1,0 +1,46 @@
+<div class="sidebox testdrive">
+	<h3>Book a Test Drive</h3>
+
+	<div id="book_test_drive_form_notice" class="notice" style="display: none;"></div>
+  <div id="book_test_drive_form_errors" class="error" style="display: none;"></div>
+
+	<% form_for :form, ef = BookTestDriveForm.new(), :url => new_vehicle_book_test_drive_path, :html => { :method => :post, :id => "book_test_drive_form" } do |f| -%>
+
+		<div class="form">
+		
+			<label>Your name:</label>
+			<%= f.text_field :name %><br/>
+			<label>Telephone No:</label>
+			<%= f.text_field :phone %><br/>
+			<label>Email address: </label>
+			<%= f.text_field :email %><br/>
+			<label class="gap">Vehicle:</label><br/>
+			<%= f.select :vehicle, new_vehicle.new_vehicle_variants.map { |new_vehicle_variant| [new_vehicle_variant.name, new_vehicle_variant.humanize] } %><br/>
+			<label>Branch:</label><br/>
+			<%= f.select :branch, Branch.find(:all).map { |branch| [branch.name, branch.name] } %><br/>
+			<label>Comments:</label><br/>
+			<%= f.text_area :comments, :rows => 2, :cols => 27 %><br/>
+			<input type="image" class="button" src="/images/btn-submit.gif" value="Submit" id="Submit" name="Submit" /><%= spinner("book_test_drive_spinner") %>
+		</div>
+
+	<% end %>
+	
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+
+ $('#book_test_drive_form').ajaxForm({
+	dataType: 'script',
+	beforeSubmit: function(xhr){
+		$('#book_test_drive_spinner').show();
+		$('#book_test_drive_form_errors').hide();
+		$('#book_test_drive_form_notice').hide();
+	},
+	success: function(data){
+		$('#book_test_drive_spinner').hide();
+		eval(data);
+	}
+});
+//]]>
+</script>

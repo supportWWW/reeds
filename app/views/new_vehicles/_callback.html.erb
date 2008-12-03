@@ -1,0 +1,18 @@
+<div class="sidebox callback">
+	<h3>Request a Call-back</h3>
+	<p>We'll call you back as soon as<br />an agent becomes free.</p>
+		<% form_for :form, CallbackForm.new(:vehicle => @new_vehicle.humanize), :url => callback_path, :html => { :method => :post, :id => "callback_form" } do |f| -%>
+			<div id="callback_form_notice" class="notice" style="display: none;"></div>
+		  <div id="callback_form_errors" class="error" style="display: none;"></div>
+			<div class="form">
+				<label>Name:</label><br/>
+				<%= f.text_field :name %><br/>
+				<label>Phone number:</label><br/>
+				<%= f.text_field :phone %><br/>
+				<label>Branch:</label><br/>
+				<%= f.select :branch_id, Branch.find(:all).map { |branch| [branch.name, branch.id] } %><br/>
+				<%= f.hidden_field :vehicle %>
+				<input type="image" class="button" src="/images/btn-submit.gif" value="Submit" id="Submit" name="Submit" /><%= spinner("callback_spinner") %>
+			</div>
+		<% end -%>
+</div>

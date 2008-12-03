@@ -10,12 +10,14 @@ describe "/contact/index" do
     branch_98.should_receive(:fax).and_return("MyString")
     branch_98.should_receive(:address).and_return("MyString")
     branch_98.should_receive(:salespeople).and_return(salespeople)
+    branch_98.should_receive(:image).and_return(nil)
     branch_99 = mock_model(Branch)
     branch_99.stub!(:name).and_return("MyString")
     branch_99.should_receive(:phone).and_return("MyString")
     branch_99.should_receive(:fax).and_return("MyString")
     branch_99.should_receive(:address).and_return("MyString")
     branch_99.should_receive(:salespeople).and_return(salespeople)
+    branch_99.should_receive(:image).and_return(nil)
     
     assigns[:branches] = [branch_98, branch_99]
 

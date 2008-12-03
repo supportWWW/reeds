@@ -10,6 +10,7 @@ describe "/admin/pages/new.html.erb" do
     @page.stub!(:title_permalink).and_return("MyString")
     @page.stub!(:text).and_return("MyText")
     @page.stub!(:rendered_text).and_return("MyText")
+    @page.stub!(:image).and_return(nil)
     assigns[:page] = @page
   end
 

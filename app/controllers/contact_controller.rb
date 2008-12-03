@@ -78,6 +78,20 @@ class ContactController < ApplicationController
       format.js
     end
   end
+
+  def new_vehicle_book_test_drive
+    @form = BookTestDriveForm.new( params[:form] )
+    if request.post? and @form.valid?
+      flash[:notice] = 'We received your enquiry and will get in contact shortly'
+      BookTestDriveMailer.deliver_neww @form
+      @success = true
+    elsif request.post?
+      @success = false
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
   
   def callback
     @form = CallbackForm.new( params[:form] )

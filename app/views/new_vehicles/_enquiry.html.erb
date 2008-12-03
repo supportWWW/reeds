@@ -17,14 +17,13 @@
 				<%= f.text_field :email %><br/>
 				<%= f.radio_button :insurance, "I require insurance" %> I require insurance.<br/>
 				<%= f.radio_button :insurance, "I have insurance, but would like another insurance quote" %> I have insurance, but would like another insurance quote.<br/>
-				<label class="gap">Accessories:</label>
+				<label class="gap">Vehicle:</label>
+				<%= f.select :vehicle, new_vehicle.new_vehicle_variants.map { |new_vehicle_variant| [new_vehicle_variant.name, new_vehicle_variant.humanize] } %><br/>
+				<label>Accessories:</label>
 				<%= f.text_area :accessories, :rows => 2 %><br/>
 				<label>Comments:</label>
 				<%= f.text_area :comments, :rows => 2 %><br/>
-				<%= f.hidden_field :vehicle %>
-				<%= f.hidden_field :branch_id %>
 				<input type="image" class="button" src="/images/btn-submit.gif" value="Submit" id="Submit" name="Submit" /><%= spinner("enquiry_spinner") %>
-				
 			</div>
 
 		<% end %>

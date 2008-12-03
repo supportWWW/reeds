@@ -19,4 +19,11 @@ describe VehicleEnquiryMailer do
     mail.to.should == ["joergd@pobox.com", "mauricio@gmail.com"]
     mail.body.should =~ /Isuzu/
   end
+
+  it "should generate neww email" do
+    mail = VehicleEnquiryMailer.deliver_neww(NewVehicleEnquiryForm.new(:name => "Joerg", :phone => "0214465543", :email => "me@spam.com", :vehicle => "Isuzu"))
+    ActionMailer::Base.deliveries.size.should == 1
+    mail.to.should == ["joergd@pobox.com", "direct@reeds.co.za"]
+    mail.body.should =~ /Isuzu/
+  end
 end

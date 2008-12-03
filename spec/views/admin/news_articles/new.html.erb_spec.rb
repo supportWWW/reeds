@@ -13,6 +13,7 @@ describe "/admin/news_articles/new.html.erb" do
     @news_article.stub!(:author).and_return("Myautor")
     @news_article.stub!(:category_id).and_return( 1 )  
     @news_article.stub!(:source_url).and_return( 'test url' )      
+    @news_article.stub!(:image).and_return(nil)
     assigns[:news_article] = @news_article
   end
 
