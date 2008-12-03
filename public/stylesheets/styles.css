@@ -480,7 +480,7 @@ color: #fff;
 padding: 4px 4px 4px 10px;
 }
 #content #enquiry form p { line-height: 1.3em;margin: 0 10px;}
-#content #enquiry form input, #enquiry form textarea { width: 95%;}
+#content #enquiry form input, #enquiry form textarea, #enquiry form select { width: 85%;}
 #content #enquiry form p input { margin: 0 0 5px;}
 #content #enquiry form p input.radio { 
 margin: 0 2px 0 0;
