@@ -4,7 +4,7 @@ class StockFileImporterService
   
   def process( file_contents )
     added, error = [], []
-    FasterCSV.parse( file_contents, :col_sep => "\t" ) do |row|
+    FasterCSV.parse( file_contents, :col_sep => "\t", :headers => true ) do |row|
       model_variant = ModelVariant.find_or_create_for( row[2], row[3] , row[6], row[4] )
       classified = Classified.find_or_initialize_by_stock_code( row[0].strip )
       classified[:type] = "UsedVehicle"

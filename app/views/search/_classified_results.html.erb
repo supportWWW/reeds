@@ -17,7 +17,7 @@
 			<td><%=h result.price.format(:no_cents) %></td>
 			<td><%=h result.year %></td>
 			<td><%= link_to "View", classified_path(result.permalink) %></td>
-			<td><% if result.has_images? %><%= image_tag "camera.gif", :alt => "Photo", :size => "22x16" %><% end %></td>
+			<td><% if result.has_images? %><%= link_to(image_tag("camera.gif", :alt => "Photo", :size => "22x16"), classified_path(result.permalink)) %><% end %></td>
 		</tr>
 	<% end %>
 	</tbody>
