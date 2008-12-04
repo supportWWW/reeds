@@ -15,7 +15,7 @@ module SearchHelper
   end
 
   def models_for_select(make=nil)
-    models = make.nil? ? [] : make.models.find(:all, :order => 'name').collect { |m| [m.name, m.id] }
+    models = make.nil? ? [] : make.find_models_in_stock.collect { |m| [m.name, m.id] }
     models.insert(0, [ 'Any model', '' ])
   end
 

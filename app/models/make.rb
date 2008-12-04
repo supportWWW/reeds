@@ -14,6 +14,16 @@ class Make < ActiveRecord::Base
     end
   end
   
+  def find_models_in_stock
+    Make.find_by_sql(%$
+                        SELECT DISTINCT m.* FROM models m
+                        INNER JOIN classifieds c ON c.model_id = m.id
+                        WHERE m.make_id = #{id}
+                        AND c.removed_at IS NULL
+                        ORDER BY m.name
+                       $)
+  end
+
   class << self 
   
     def find_in_stock
