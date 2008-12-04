@@ -184,6 +184,8 @@ font: normal 1.2em/1.4em "Arial", Helvetica, san-serif;
 margin: 0 15px 15px;
 font: normal 1.2em/1.4em "Arial", Helvetica, san-serif;  
 }
+#content div.list ul {margin: 0 20px;}
+#content div.list ul li {list-style-type: disc;}
 
 #content div.form {
 margin: 0 15px 15px;
@@ -207,13 +209,13 @@ background: url(/images/horiz-dash.gif) left center repeat-x;
 margin: 10px 0;
 line-height: 0.01em;
 }
-img.dropshad { /* images must be 200 x 150 pixels */
-padding: 6px;
-background: url(/images/200x150-dropshadow.gif) 0 0 no-repeat; 
+
+img.bdr { 
+padding: 1px;
+border: 4px solid #dde9f3;
 float: right;
 margin: 0 15px 10px 12px;
 }
-
 
 /* path */
 #path {
@@ -239,14 +241,14 @@ width: 180px;
 margin: 0;
 padding-right: 15px;
 }
+
 #news img {
-padding: 6px;
-background: url(/images/newspic-bg.gif) 0 0 no-repeat; 
+padding: 1px;
+border: 4px solid #dde9f3;
 float: left;
 width: 70px;
 margin: 0 10px 10px 12px;
 }
-
 
 
 
@@ -462,6 +464,13 @@ background: #003f75;
 outline: none;
 }
 #twofifty #search input.button {margin-bottom: 12px;}
+
+div.calculator input { margin: 0 2px; padding: 2px; line-height: 1em; }
+div.calculator select { margin: 0 2px; padding: 1px; line-height: 1em; }
+div.calculator option { margin: 0 2px 0 0; padding: 0; line-height: 1em; width: 65px;}
+div.calculator span { padding: 0;}
+
+
 input, select, #search input, #search select, #new-vehicles form select { background: url(/images/input-bg.gif) left bottom repeat-x;}
 
 
