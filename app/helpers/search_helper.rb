@@ -49,7 +49,7 @@ module SearchHelper
   end
 
   def years_for_select
-    years = (1960..(Date.today.year)).to_a.collect { |y| [y, y] }
+    years = (1960..(Date.today.year)).to_a.reverse.collect { |y| [y, y] }
     years.insert(0, ['Any', ''])
   end
   
