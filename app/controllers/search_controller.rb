@@ -8,16 +8,18 @@ class SearchController < ApplicationController
     
     @criteria_in_words = "" # Used for mailing find car requests
     
+    table = params[:type] == "classified" ? "classifieds" : "new_vehicle_variants"
+    
     # MAKE
     unless params[:make_id].blank?
-      conditions << "make_id = ?"
+      conditions << "#{table}.make_id = ?"
       criteria << params[:make_id].to_i
       @criteria_in_words += "Make: #{Make.find(params[:make_id]).common_name}\n"
     end
     
     # MODEL
     unless params[:model_id].blank?
-      conditions << "model_id = ?"
+      conditions << "#{table}.model_id = ?"
       criteria << params[:model_id]
       @criteria_in_words += "Model: #{Model.find(params[:model_id]).common_name}\n"
     end
