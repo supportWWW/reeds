@@ -6,7 +6,7 @@
 	<h2><%=h @page.title %></h2>
 <% end -%>
 
-<%= image_tag(@page.image.public_filename(:medium), :class => "dropshad") if @page.image %>
+<%= image_tag(@page.image.public_filename(:medium), :class => "bdr") if @page.image %>
 <%= @page.rendered_text %>
 
 <br/>

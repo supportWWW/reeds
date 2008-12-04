@@ -11,7 +11,7 @@
 <ul class="non_list">
 	<% @branches.each do |branch| -%>
 		<li>
-			<%= link_to(image_tag(branch.image.public_filename(:medium), :class => "dropshad"), branch.image.public_filename, :title => "Click to see full size", :popup => true) if branch.image %>
+			<%= link_to(image_tag(branch.image.public_filename(:medium), :class => "bdr"), branch.image.public_filename, :title => "Click to see full size", :popup => true) if branch.image %>
 			<h3><%= branch.name %></h3>
 			<p>
 				<strong>Email: <%= enkode_mail "contact@reeds.co.za", "contact@reeds.co.za", "", "[#{branch.name}]"  %></strong><br/>

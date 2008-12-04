@@ -6,7 +6,7 @@
 	<h2><%=h @news_article.title %> - <%= @news_article.publish_at.to_s( :date ) %></h2>
 <% end -%>
 
-<%= image_tag(@news_article.image.public_filename(:medium), :class => "dropshad") if @news_article.image %>
+<%= image_tag(@news_article.image.public_filename(:medium), :class => "bdr") if @news_article.image %>
 <%= @news_article.rendered_text %>
 
 <% unless @news_article.source_url.blank? %>
