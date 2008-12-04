@@ -86,7 +86,9 @@ class SearchController < ApplicationController
 
   def load_models
     unless params[:make_id].blank?
-      @models = Model.find_all_by_make_id( params[:make_id] ).collect { |m| [ m.name, m.id ] }
+      make = Make.find(params[:make_id])
+      
+      @models = make.find_models_in_stock.collect { |m| [ m.name, m.id ] }
       @models.insert( 0, [ 'Any model', '' ] )
     else
       @models = [[ 'Any model', '' ]]
