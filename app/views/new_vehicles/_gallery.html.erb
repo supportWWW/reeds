@@ -11,7 +11,7 @@
 		<% end %>
 	</div><!-- end thumbs -->
 	<% unless new_vehicle.attachments.brochure.nil? %>
-		<p class="pdf"><strong><a href="#">Download</a> a detailed PDF</strong><br />
+		<p class="pdf"><strong><%= link_to "Download", new_vehicle.attachments.brochure.public_filename, :title => new_vehicle.attachments.brochure.name, :popup => true %> a detailed PDF</strong><br />
 		brochure for this vehicle</p>
 	<% else %>
 		<p class="no_pdf">There is currently no detailed PDF brochure available for download.</p>
