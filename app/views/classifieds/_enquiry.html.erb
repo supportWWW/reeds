@@ -15,8 +15,8 @@
 				<%= f.text_field :phone %><br/>
 				<label>Email address: </label>
 				<%= f.text_field :email %><br/>
-				<%= f.radio_button :insurance, "I require insurance" %> I require insurance.<br/>
-				<%= f.radio_button :insurance, "I have insurance, but would like another insurance quote" %> I have insurance, but would like another insurance quote.<br/>
+				<%= f.radio_button :insurance, "I require insurance", :class => "radio" %> I require insurance.<br/>
+				<%= f.radio_button :insurance, "I have insurance, but would like another insurance quote", :class => "radio" %> I have insurance, but would like another insurance quote.<br/>
 				<label class="gap">Comments:</label>
 				<%= f.text_area :comments, :rows => 2 %><br/>
 				<%= f.hidden_field :vehicle %>
