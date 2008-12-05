@@ -11,6 +11,8 @@ describe "/admin/specials/new.html.erb" do
     @special.stub!(:text).and_return("MyText")
     @special.stub!(:rendered_text).and_return("MyText")
     @special.stub!(:image).and_return(nil)
+    @special.stub!(:enabled).and_return(true)
+    @special.stub!(:slideshow).and_return(true)
     assigns[:special] = @special
   end
 

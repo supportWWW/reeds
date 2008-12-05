@@ -6,7 +6,7 @@ describe SpecialsController do
 
     before(:each) do
       @special = mock_model(Special)
-      Special.stub!(:find).and_return([@special])
+      Special.stub!(:enabled).and_return([@special])
     end
   
     def do_get
@@ -24,7 +24,7 @@ describe SpecialsController do
     end
   
     it "should find all specials" do
-      Special.should_receive(:find).and_return([@special])
+      Special.should_receive(:enabled).and_return([@special])
       do_get
     end
   
@@ -52,7 +52,7 @@ describe SpecialsController do
     end
 
     it "should find all specials" do
-      Special.should_receive(:find).and_return(@specials)
+      Special.should_receive(:enabled).and_return(@specials)
       do_get
     end
   

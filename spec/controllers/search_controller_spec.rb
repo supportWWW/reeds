@@ -79,6 +79,8 @@ describe SearchController do
       assigns[:models].size.should == 1
     end
     it "should be successful with make_id passed it" do
+      @make = mock_model(Make, :find_models_in_stock => [])
+      Make.stub!(:find).and_return(@make)
       get 'load_models', :make_id => 1
       response.should be_success
       assigns[:models].size.should > 0
@@ -92,6 +94,8 @@ describe SearchController do
       assigns[:model_ranges].size.should == 1
     end
     it "should be successful with make_id passed it" do
+      @make = mock_model(Make, :find_model_ranges_in_stock => [])
+      Make.stub!(:find).and_return(@make)
       get 'load_model_ranges', :make_id => 1
       response.should be_success
       assigns[:model_ranges].size.should > 0
