@@ -100,7 +100,9 @@ class SearchController < ApplicationController
 
   def load_model_ranges
     unless params[:make_id].blank?
-      @model_ranges = ModelRange.find_all_by_make_id( params[:make_id] ).collect { |m| [ m.name, m.id ] }
+      make = Make.find(params[:make_id])
+
+      @model_ranges = make.find_model_ranges_in_stock.collect { |m| [ m.name, m.id ] }
       @model_ranges.insert( 0, [ 'Any series', '' ] )
     else
       @model_ranges = [[ 'Any series', '' ]]

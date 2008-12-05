@@ -24,6 +24,17 @@ class Make < ActiveRecord::Base
                        $)
   end
 
+  def find_model_ranges_in_stock
+    Make.find_by_sql(%$
+                        SELECT DISTINCT m.* FROM model_ranges m
+                        INNER JOIN new_vehicle_variants c ON c.model_range_id = m.id
+                        INNER JOIN new_vehicles n ON n.id = c.new_vehicle_id
+                        WHERE m.make_id = #{id}
+                        AND n.enabled = 1
+                        ORDER BY m.name
+                       $)
+  end
+
   class << self 
   
     def find_in_stock
@@ -38,7 +49,9 @@ class Make < ActiveRecord::Base
     def new_vehicles
       Make.find_by_sql(%#
                           SELECT DISTINCT m.* FROM new_vehicle_variants v
+                          INNER JOIN new_vehicles n ON n.id = v.new_vehicle_id
                           INNER JOIN makes m ON m.id = v.make_id
+                          WHERE n.enabled = 1
                           ORDER BY m.name
                          #)
     end

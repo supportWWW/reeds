@@ -32,7 +32,7 @@ module SearchHelper
   end
 
   def model_ranges_for_select(make=nil)
-    model_ranges = make.nil? ? [] : make.model_ranges.find(:all, :order => 'name').collect { |m| [m.name, m.id] }
+    model_ranges = make.nil? ? [] : make.find_model_ranges_in_stock.collect { |m| [m.name, m.id] }
     model_ranges.insert(0, [ 'Any series', '' ])
   end
 
