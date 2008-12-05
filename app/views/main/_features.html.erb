@@ -4,11 +4,8 @@
 		<p>Click through the <strong>vehicle gallery</strong>...</p>
 	</div>
 	<div style="overflow: hidden; position: relative;" id="fW_Content">
-		<% Special.slideshow.each_with_index do |special, idx| %>
-			<img style="position: absolute; top: 0pt; left: -600px; display: block; z-index: <%= idx + 1 %>; opacity: 1;" src="<%= special.image.public_filename(:slideshow) %>" alt="<%=h special.title %>"> 
+		<% Special.slideshow.each do |special| %>
+			<%= link_to(image_tag(special.image.public_filename(:slideshow), :alt => special.title), special_url(special), :title => special.title) %>
 		<% end %>
-		<!--img style="position: absolute; top: 0pt; left: -600px; display: block; z-index: 3; opacity: 1;" src="/images/tmp/tigra.jpg" alt="Tigra"> 
-		<img style="position: absolute; top: 0pt; left: 0px; display: block; z-index: 2;" src="/images/tmp/captiva.jpg" alt="Captiva">
-		<img style="position: absolute; top: 0pt; left: -600px; display: block; z-index: 1;" src="/images/tmp/corsa.jpg" alt="Corsa"--> 
 	</div>
 </div><!-- end featureWrapper //-->
