@@ -3,7 +3,7 @@ class SpecialsController < ApplicationController
   # GET /specials
   # GET /specials.xml
   def index
-    @specials = Special.find(:all, :order => 'created_at')
+    @specials = Special.enabled
 
     respond_to do |format|
       format.html # index.html.erb

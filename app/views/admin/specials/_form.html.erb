@@ -6,6 +6,17 @@
 </p>
 
 <p>
+	<label>Enabled</label>
+	<%= f.check_box :enabled %>
+</p>
+
+<p>
+	<label>Appears in HomePage image slideshow</label>
+	<%= f.check_box :slideshow %>
+</p>
+
+
+<p>
   <%= f.label :text %> (you can use the <%= link_to 'Textile', 'http://textile.thresholdstate.com/' %> format here) <br />
   <%= f.text_area :text %>
 </p>

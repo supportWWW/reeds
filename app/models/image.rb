@@ -1,7 +1,7 @@
 class Image < ActiveRecord::Base
 
   belongs_to :owner, :polymorphic => true
-  has_attachment :storage => :file_system, :path_prefix => 'public/uploaded_images', :content_type => :image, :thumbnails => { :thumb => "70x", :medium => '200x' }
+  has_attachment :storage => :file_system, :path_prefix => 'public/uploaded_images', :content_type => :image, :thumbnails => { :thumb => "70x", :medium => '200x', :slideshow => "600x274" }
 
   validates_presence_of :filename, :content_type
   

@@ -8,12 +8,16 @@
   <tr>
 		<th></th>
     <th>Title</th>
+		<th>Enabled</th>
+		<th>HP slideshow</th>
   </tr>
 
 <% for special in @specials %>
   <tr>
 		<td width="200"><%= image_tag special.image.public_filename(:thumb) if special.image %></td>
     <td><%=link_to special.title, admin_special_path(special) %></td>
+		<td><%= special.enabled? %></td>
+		<td><%= special.slideshow? %></td>
     <td><%= link_to 'Edit', edit_admin_special_path(special) %> | <%= link_to 'Destroy', admin_special_path(special), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081127162358) do
+ActiveRecord::Schema.define(:version => 20081205103229) do
 
   create_table "accessories", :force => true do |t|
     t.string   "name"
@@ -264,6 +264,8 @@ ActiveRecord::Schema.define(:version => 20081127162358) do
     t.text     "rendered_text"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "slideshow",       :default => false
+    t.boolean  "enabled",         :default => true
   end
 
   create_table "users", :force => true do |t|

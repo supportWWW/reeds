@@ -11,6 +11,9 @@ class Special < ActiveRecord::Base
   
   rendered_column :text
   
+  named_scope :enabled, :conditions => { :enabled => true }, :order => 'created_at DESC'
+  named_scope :slideshow, :conditions => { :enabled => true, :slideshow => true }, :order => 'created_at'
+  
   def to_param
     title_permalink
   end
