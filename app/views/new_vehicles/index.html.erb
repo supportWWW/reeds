@@ -6,4 +6,29 @@
 	<h2>New vehicles</h2>
 <% end -%>
 
-
+<table class="layout">
+	<% Make.new_vehicles.in_groups_of(3) do |row| %>
+		<tr class="layout">
+			<% row.each do |make| %>
+				<td class="layout">
+					<% if make %>
+						<table id="alt" border="0" cellpadding="0" cellspacing="0">
+							<thead>
+								<tr>
+									<th><%=h make.name %></th> 
+								</tr>
+							</thead>
+							<tbody>
+								<% make.find_model_ranges_in_stock.each do |model_range| %>
+									<tr>
+										<td><%= link_to model_range.name, new_vehicle_path(model_range.new_vehicles.first.permalink) %></td>
+									</tr>
+								<% end %>
+							</tbody>
+						</table>
+					<% end %>
+				</td>
+			<% end %>
+		</tr>
+	<% end %>
+</table>

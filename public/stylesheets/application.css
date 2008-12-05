@@ -34,3 +34,9 @@ font: normal 1.1em/1.3em "Arial", Helvetica, san-serif;
 }
 
 span.caps { padding: 0;} 
+
+table.layout, tr.layout, td.layout, th.layout {
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+}
