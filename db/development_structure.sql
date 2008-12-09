@@ -10,7 +10,7 @@ CREATE TABLE `accessories` (
   `excl_in_cents` int(11) default NULL,
   `vat_in_cents` int(11) default NULL,
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=66 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=79 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `assignments` (
   `id` int(11) NOT NULL auto_increment,
@@ -37,7 +37,7 @@ CREATE TABLE `attachments` (
   PRIMARY KEY  (`id`),
   KEY `index_attachments_on_owner_id` (`owner_id`),
   KEY `index_attachments_on_owner_type` (`owner_type`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `branches` (
   `id` int(11) NOT NULL auto_increment,
@@ -116,7 +116,7 @@ CREATE TABLE `images` (
   KEY `index_images_on_owner_id` (`owner_id`),
   KEY `index_images_on_owner_type` (`owner_type`),
   KEY `index_images_on_parent_id` (`parent_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `makes` (
   `id` int(11) NOT NULL auto_increment,
@@ -287,8 +287,10 @@ CREATE TABLE `specials` (
   `rendered_text` text,
   `created_at` datetime default NULL,
   `updated_at` datetime default NULL,
+  `slideshow` tinyint(1) default '0',
+  `enabled` tinyint(1) default '1',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL auto_increment,
@@ -435,3 +437,7 @@ INSERT INTO schema_migrations (version) VALUES ('20081127155457');
 INSERT INTO schema_migrations (version) VALUES ('20081127161723');
 
 INSERT INTO schema_migrations (version) VALUES ('20081127162358');
+
+INSERT INTO schema_migrations (version) VALUES ('20081205102424');
+
+INSERT INTO schema_migrations (version) VALUES ('20081205103229');
