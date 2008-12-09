@@ -19,7 +19,7 @@ class NewVehicleFileImporterService
       end
     end
     
-    NewVehicleVariant.delete_all(['id not in (?)', added.collect{ |i| i.id }])
+    NewVehicleVariant.delete_all(['new_vehicle_id = ? AND id not in (?)', new_vehicle.id, added.collect{ |i| i.id }])
     
     return added, error
   end
