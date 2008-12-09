@@ -26,7 +26,7 @@ class AccessoriesFileImporterService
 #    FasterCSV.parse( file_contents, :col_sep => "\t" ) do |row|
 #    end
     
-    Accessory.delete_all(['id not in (?)', added.collect{ |i| i.id }])
+    Accessory.delete_all(['new_vehicle_id = ? AND id not in (?)', new_vehicle.id, added.collect{ |i| i.id }])
     
     return added, error
   end
