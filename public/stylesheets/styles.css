@@ -1,3 +1,261 @@
+#featureWrapper {
+float: left; 
+width: 600px;
+height: 305px; 
+display: inline; 
+background: #fff;
+}						
+#fW_Content {
+float: left; 
+width: 600px; 
+height: 275px; 
+display: inline; 
+}
+#fW_Content img {
+width: 600px; 
+height: 275px; 
+}
+#featureWrapper #bar {
+float: left; 
+width: 600px; 
+height: 30px; 
+background: #bacede url(/images/grad-header-bg.gif) top left repeat-x;
+}
+#featureWrapper #bar p {
+font: normal 1.2em/1.2em "Arial", Helvetica, san-serif;  
+margin: 8px 0 0 10px;
+}
+#fW_Controls {
+float: right; 
+text-align: right;
+height: 30px; 
+display: inline; 
+background: #bacede url(/images/grad-header-bg.gif) top left repeat-x;
+}
+#fW_Controls a {
+float: left; 
+height: 23px; 
+padding: 7px 8px 0 10px;
+color: #154367;
+font: normal 1.4em/1.1em "Arial Narrow", Arial, Helvetica, san-serif;  
+text-decoration: none;
+text-align: center;
+background: url(/images/divider.gif) left center no-repeat;
+}
+#fW_Controls a.activeSlide,
+#fW_Controls a:hover { color: #cd001f; }
+
+
+
+
+/* Main Style Sheet for jQuery UI date picker */
+#ui-datepicker-div, .ui-datepicker-inline {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	padding: 0;
+	margin: 0;
+	background: #ddd;
+	width: 185px;
+}
+#ui-datepicker-div {
+	display: none;
+	border: 1px solid #777;
+	z-index: 9999; /*must have*/
+}
+.ui-datepicker-inline {
+	float: left;
+	display: block;
+	border: 0;
+}
+.ui-datepicker-rtl {
+	direction: rtl;
+}
+.ui-datepicker-dialog {
+	padding: 5px !important;
+	border: 4px ridge #ddd !important;
+}
+button.ui-datepicker-trigger {
+	width: 25px;
+}
+img.ui-datepicker-trigger {
+	margin: 2px;
+	vertical-align: middle;
+}
+.ui-datepicker-prompt {
+	float: left;
+	padding: 2px;
+	background: #ddd;
+	color: #000;
+}
+* html .ui-datepicker-prompt {
+	width: 185px;
+}
+.ui-datepicker-control, .ui-datepicker-links, .ui-datepicker-header, .ui-datepicker {
+	clear: both;
+	float: left;
+	width: 100%;
+	color: #fff;
+}
+.ui-datepicker-control {
+	background: #400;
+	padding: 2px 0px;
+}
+.ui-datepicker-links {
+	background: #000;
+	padding: 2px 0px;
+}
+.ui-datepicker-control, .ui-datepicker-links {
+	font-weight: bold;
+	font-size: 80%;
+}
+.ui-datepicker-links label { /* disabled links */
+	padding: 2px 5px;
+	color: #888;
+}
+.ui-datepicker-clear, .ui-datepicker-prev {
+	float: left;
+	width: 34%;
+}
+.ui-datepicker-rtl .ui-datepicker-clear, .ui-datepicker-rtl .ui-datepicker-prev {
+	float: right;
+	text-align: right;
+}
+.ui-datepicker-current {
+	float: left;
+	width: 30%;
+	text-align: center;
+}
+.ui-datepicker-close, .ui-datepicker-next {
+	float: right;
+	width: 34%;
+	text-align: right;
+}
+.ui-datepicker-rtl .ui-datepicker-close, .ui-datepicker-rtl .ui-datepicker-next {
+	float: left;
+	text-align: left;
+}
+.ui-datepicker-header {
+	padding: 1px 0 3px;
+	background: #333;
+	text-align: center;
+	font-weight: bold;
+	height: 1.3em;
+}
+.ui-datepicker-header select {
+	background: #333;
+	color: #fff;
+	border: 0px;
+	font-weight: bold;
+}
+.ui-datepicker {
+	background: #ccc;
+	text-align: center;
+	font-size: 100%;
+}
+.ui-datepicker a {
+	display: block;
+	width: 100%;
+}
+.ui-datepicker-titleRow {
+	background: #777;
+}
+.ui-datepicker-daysRow {
+	background: #eee;
+	color: #666;
+}
+.ui-datepicker-weekCol {
+	background: #777;
+	color: #fff;
+}
+.ui-datepicker-daysCell {
+	color: #000;
+	border: 1px solid #ddd;
+}
+.ui-datepicker-daysCell a{
+	display: block;
+}
+.ui-datepicker-weekEndCell {
+	background: #ddd;
+}
+.ui-datepicker-titleRow .ui-datepicker-weekEndCell {
+	background: #777;
+}
+.ui-datepicker-daysCellOver {
+	background: #fff;
+	border: 1px solid #777;
+}
+.ui-datepicker-unselectable {
+	color: #888;
+}
+.ui-datepicker-today {
+	background: #fcc !important;
+}
+.ui-datepicker-currentDay {
+	background: #999 !important;
+}
+.ui-datepicker-status {
+	background: #ddd;
+	width: 100%;
+	font-size: 80%;
+	text-align: center;
+}
+
+/* ________ Datepicker Links _______
+
+** Reset link properties and then override them with !important */
+#ui-datepicker-div a, .ui-datepicker-inline a {
+	cursor: pointer;
+	margin: 0;
+	padding: 0;
+	background: none;
+	color: #000;
+}
+.ui-datepicker-inline .ui-datepicker-links a {
+	padding: 0 5px !important;
+}
+.ui-datepicker-control a, .ui-datepicker-links a {
+	padding: 2px 5px !important;
+	color: #eee !important;
+}
+.ui-datepicker-titleRow a {
+	color: #eee !important;
+}
+.ui-datepicker-control a:hover {
+	background: #fdd !important;
+	color: #333 !important;
+}
+.ui-datepicker-links a:hover, .ui-datepicker-titleRow a:hover {
+	background: #ddd !important;
+	color: #333 !important;
+}
+
+/* ___________ MULTIPLE MONTHS _________*/
+
+.ui-datepicker-multi .ui-datepicker {
+	border: 1px solid #777;
+}
+.ui-datepicker-oneMonth {
+	float: left;
+	width: 185px;
+}
+.ui-datepicker-newRow {
+	clear: left;
+}
+
+/* ___________ IE6 IFRAME FIX ________ */
+
+.ui-datepicker-cover {
+    display: none; /*sorry for IE5*/
+    display/**/: block; /*sorry for IE5*/
+    position: absolute; /*must have*/
+    z-index: -1; /*must have*/
+    filter: mask(); /*must have*/
+    top: -4px; /*must have*/
+    left: -4px; /*must have*/
+    width: 200px; /*must have*/
+    height: 200px; /*must have*/
+}
+
 * {margin:0;padding:0; border: 0px none;}
 ul, ol, li {list-style-type:none;}
 a {text-decoration: underline;color: #154367;}
@@ -186,14 +444,12 @@ font: normal 1.2em/1.4em "Arial", Helvetica, san-serif;
 }
 #content div.list ul {margin: 0 20px;}
 #content div.list ul li {list-style-type: disc;}
-
 #content div.form {
-margin: 0 15px 15px;
-font: normal 1.2em/1.4em "Arial", Helvetica, san-serif;  
+font: normal 1.2em/1.3em "Arial", Helvetica, san-serif;  
+line-height: 1.3em;
+margin: 0 12px;
 }
-#content div.form h2 {
-	font: normal 1em "Arial", Helvetica, san-serif;  
-}
+#content div.form h2 { font: normal 1em "Arial", Helvetica, san-serif;  }
 
 
 
@@ -209,13 +465,13 @@ background: url(/images/horiz-dash.gif) left center repeat-x;
 margin: 10px 0;
 line-height: 0.01em;
 }
-
 img.bdr { 
 padding: 1px;
 border: 4px solid #dde9f3;
 float: right;
 margin: 0 15px 10px 12px;
 }
+
 
 /* path */
 #path {
@@ -224,7 +480,7 @@ height: 30px;
 margin: 0 0 15px;
 background: #bacede url(/images/grad-header-bg.gif) top left repeat-x;
 }
-#path p {font: normal 1.1em/2.6em "Arial", Helvetica, san-serif; }
+#path p {font: normal 1.1em/2.6em "Arial", Helvetica, san-serif; margin-bottom: 0; }
 
 
 
@@ -241,7 +497,6 @@ width: 180px;
 margin: 0;
 padding-right: 15px;
 }
-
 #news img {
 padding: 1px;
 border: 4px solid #dde9f3;
@@ -249,6 +504,7 @@ float: left;
 width: 70px;
 margin: 0 10px 10px 12px;
 }
+
 
 
 
@@ -410,8 +666,11 @@ float: right;
 width: 240px;
 border: 1px solid #B4CFE2;
 margin: 9px 0 0;
+padding: 0 0 10px;
+background: url(/images/actions-bg.gif) 0 bottom repeat-x;
 float: left;
 }
+#actions form { margin: 10px 0 0;}
 #actions .callback { background: transparent url(/images/phone.gif) 197px 15px no-repeat; }
 #actions .calc { background: transparent url(/images/calculator.gif) 190px 15px no-repeat; }
 #actions .testdrive { background: transparent url(/images/carkey.gif) 167px 15px no-repeat; }
@@ -436,7 +695,13 @@ padding: 2px;
 margin: 0 0 8px 0;
 }
 textarea:focus, input:focus { border: 1px solid #cd001f; background: #f9eaed; }
-#content label {  float: left; padding-right: 5px; }
+#content label {  
+float: left; 
+padding-right: 5px;
+width: 85%;
+clear: left;
+margin: 0;
+ }
 #content #search label { 
 float: left;
 width: 80px;
@@ -444,11 +709,13 @@ padding-right: 0;
 }
 #content #search label.year { 
 float: left;
+clear: none;
 width: 40px;
 text-align: right;
 padding-right: 5px;
 }
-#search input, #search textarea, #search select { background: #fff; margin-right: 10px;}
+#search input, #search textarea, #search select { background: #fff; }
+#search select { font-size: 95%; }
 #search input.radio { 
 padding: 0; 
 border: none;
@@ -459,18 +726,12 @@ input.button  {
 padding: 0;
 border: 0;
 margin: 0;
+width: auto;
 color: #fff;
 background: #003f75;
 outline: none;
 }
 #twofifty #search input.button {margin-bottom: 12px;}
-
-div.calculator input { margin: 0 2px; padding: 2px; line-height: 1em; }
-div.calculator select { margin: 0 2px; padding: 1px; line-height: 1em; }
-div.calculator option { margin: 0 2px 0 0; padding: 0; line-height: 1em; width: 65px;}
-div.calculator span { padding: 0;}
-
-
 input, select, #search input, #search select, #new-vehicles form select { background: url(/images/input-bg.gif) left bottom repeat-x;}
 
 
@@ -487,6 +748,7 @@ margin: 0;
 padding: 0 0 10px;
 background: url(/images/enquiry-btm.gif) 0 bottom no-repeat; 
 }
+#enquiry div div { margin: 0; padding: 0; background: none; width: 180px;}
 #enquiry h3 {
 margin: 0 0 5px; 
 background: #154367 url(/images/enquiry-h3.gif) 0 0 no-repeat; 
@@ -494,16 +756,17 @@ color: #fff;
 padding: 4px 4px 4px 10px;
 }
 #content #enquiry form p { line-height: 1.3em;margin: 0 10px;}
-#content #enquiry form input, #enquiry form textarea, #enquiry form select { width: 85%;}
+#content #enquiry form input, #enquiry form textarea, #enquiry form select, #actions form input, #actions form textarea { width: 95%;}
 #content #enquiry form p input { margin: 0 0 5px;}
-#content #enquiry form p input.radio { 
+#content #enquiry div form input.radio { 
 margin: 0 2px 0 0;
 padding: 0; 
+clear: left;
 width: auto;
 border: none;
 background: none;
 }
-#content #enquiry form input.button { width: auto; margin:0;}
+#content #enquiry form input.button, #content #actions form input.button { width: auto; margin:0;}
 #content #enquiry form label.gap { margin-top: 10px;}
 
 

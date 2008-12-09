@@ -7,7 +7,7 @@ class NewVehicle < ActiveRecord::Base
       find(:first)
     end
   end
-  has_many :new_vehicle_variants, :dependent => :destroy
+  has_many :new_vehicle_variants, :order => "price_in_cents ASC", :dependent => :destroy
   has_many :accessories, :dependent => :destroy
   
   validates_presence_of :model_range_id, :year
@@ -15,6 +15,7 @@ class NewVehicle < ActiveRecord::Base
   named_scope :enabled, :conditions => { :enabled => true }, :include => { :model_range => :make }
 
   delegate :make, :to => :model_range
+  delegate :name, :to => :model_range
   delegate :humanize, :to => :model_range
   
   has_permalink :humanize

@@ -43,7 +43,7 @@
 			<tbody>
 				<% @new_vehicle.new_vehicle_variants.each do |new_vehicle_variant| %>
 					<tr>
-						<td><%=h new_vehicle_variant.name %></td>
+						<td><%=h @new_vehicle.name %> <%=h new_vehicle_variant.name %></td>
 						<td><%=h new_vehicle_variant.model_reference %></td>
 						<td><%=h new_vehicle_variant.price.format(:no_cents) %></td>
 					</tr>

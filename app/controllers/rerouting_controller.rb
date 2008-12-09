@@ -51,7 +51,7 @@ class ReroutingController < ApplicationController
     elsif path.include?("reeds.php")
       redirect_to "/", :status => 301
     elsif path.include?("isuzudiesel.php")
-      redirect_to "/new_vehicles/isuzu-diesel", :status => 301
+      redirect_to "/new_vehicles/isuzu-kb-diesel", :status => 301
     elsif path.include?("fleet_news.php")
       redirect_to "/", :status => 301
     elsif path.include?("hummer.php")

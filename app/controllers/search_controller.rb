@@ -26,7 +26,7 @@ class SearchController < ApplicationController
 
     # MODEL RANGE
     unless params[:model_range_id].blank?
-      conditions << "model_range_id = ?"
+      conditions << "new_vehicle_variants.model_range_id = ?"
       criteria << params[:model_range_id]
       @criteria_in_words += "Series: #{ModelRange.find(params[:model_range_id]).name}\n"
     end
