@@ -8,18 +8,16 @@
 			<div class="form">
 				<div id="find_car_form_notice" class="notice" style="display: none;"></div>
 			  <div id="find_car_form_errors" class="error" style="display: none;"></div>
-				<p>
-					Name<br/>
+					Name:<br/>
 					<%= f.text_field :name %><br/>
-					Email<br/>
+					Email:<br/>
 					<%= f.text_field :email %><br/>
-					Phone number<br/>
+					Phone number:<br/>
 					<%= f.text_field :phone %><br/>
-					What are you looking for<br/>
+					What are you looking for:<br/>
 					<span class="info">Please fill in as much information as you can, so that we can help you properly.</span><br/>
 					<%= f.text_area :criteria, :rows => 5, :cols => 50 %><br/>
 					<%= submit_tag 'Please find for me' %><%= spinner("find_car_spinner") %>
-				</p>
 			</div>
 		<% end -%>
 	<% end -%>
