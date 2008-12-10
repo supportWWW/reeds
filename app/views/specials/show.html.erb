@@ -10,5 +10,7 @@
 <p><%= image_tag @special.image.public_filename if @special.image %></p>
 <%= @special.rendered_text %>
 
-<h3>Enquire about special</h3>
-<%= render :partial => "form", :locals => { :special => @special } %>
+<div id="enquire">
+	<h3>Enquire about special</h3>
+	<%= render :partial => "form", :locals => { :special => @special } %>
+</div>

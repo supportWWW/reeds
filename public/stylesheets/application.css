@@ -1,3 +1,7 @@
+#print_logo_image {
+	display: none;
+}
+
 span.info {
 	padding:0px;
 	margin: 0px;

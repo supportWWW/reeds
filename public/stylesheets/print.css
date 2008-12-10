@@ -1,0 +1,19 @@
+#header_welcome, #nav-contain, .paging, #search, a, #footer, .sidebox, #enquiry, #enquire, .button, #thumbs, #gallery p {
+	display: none;
+}
+
+td, th {
+	padding: 5px;
+}
+
+body {
+	font-size: 62.5%;
+}
+
+input, select {
+	font-size: 74%;
+}
+
+h6 {
+	font-size: 100%;
+}

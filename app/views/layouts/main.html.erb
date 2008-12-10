@@ -10,6 +10,7 @@
 		<meta name="description" content="Reeds are a Western Cape based, franchised motor group, providing motoring solutions to the private and corporate sectors. General Motors Vehicles, Opel, Isuzu, Chevrolet, Saab, Hummer, Cadillac." lang="en-us">
 		<meta name="keywords" content="Reeds are a Western Cape based, franchised motor group, providing motoring solutions to the private and corporate sectors. General Motors Vehicles, Opel, Isuzu, Chevrolet, Saab, Hummer, Cadillac." lang="en-us">
 		<%= stylesheet_link_tag "slider", "ui.datepicker.css", "styles", "application", :media => "screen, projection", :cache => "cached_all" %>
+		<%= stylesheet_link_tag "print", :media => "print" %>
 		<% if @use_jquery %>
 		    <%= javascript_include_tag "jquery-1.2.6.pack.js", "frontend", :cache => "cached_jquery"  %>
 				<%= javascript_include_tag "jquery-form.js", "jquery-ui-1.5rc1.min.js", "jquery.highlight.js", "accordion.js", "cycle.js", "slider.js", "suckerfish.js", :cache => "cached_jquery_extras" %>
@@ -22,7 +23,7 @@
 		<div id="wrapper">
 			<div id="header">
 				<h1><a href="/" title="Home"><img src="/images/reeds.gif" alt="REEDS"></a></h1>
-				<p>Welcome to <strong>reeds.co.za</strong> <a href="/contact" class="locate-dealer">Locate a dealer</a> <small>|</small> <a href="/pages/friends-of-reeds">Friends of Reeds</a> <small>|</small> <a href="javascript:window.print()">Print this page</a></p>
+				<p id="header_welcome">Welcome to <strong>reeds.co.za</strong> <a href="/contact" class="locate-dealer">Locate a dealer</a> <small>|</small> <a href="/pages/friends-of-reeds">Friends of Reeds</a> <small>|</small> <a href="javascript:window.print()">Print this page</a></p>
 				
 		    <%= partial 'menu_items/menu'  %>
 			</div><!-- end header -->
