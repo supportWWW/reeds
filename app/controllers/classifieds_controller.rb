@@ -1,4 +1,6 @@
 class ClassifiedsController < ApplicationController
+
+  caches_page :show
   
   # GET /classifieds
   # GET /classifieds.xml
