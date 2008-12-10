@@ -89,6 +89,12 @@ class Admin::MenuItemsController < Admin::ApplicationController
 private
 
   def expire_cache
-    expire("")
+    expire("pages")
+    expire("new_vehicles")
+    expire("news_articles")
+    expire("classifieds")
+    expire("contact")
+    expire("specials")
+    expire_home
   end
 end
