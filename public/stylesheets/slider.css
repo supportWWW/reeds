@@ -1,0 +1,48 @@
+#featureWrapper {
+float: left; 
+width: 600px;
+height: 305px; 
+display: inline; 
+background: #fff;
+}						
+#fW_Content {
+float: left; 
+width: 600px; 
+height: 275px; 
+display: inline; 
+}
+#fW_Content img {
+width: 600px; 
+height: 275px; 
+}
+#featureWrapper #bar {
+float: left; 
+width: 600px; 
+height: 30px; 
+background: #bacede url(/images/grad-header-bg.gif) top left repeat-x;
+}
+#featureWrapper #bar p {
+font: normal 1.2em/1.2em "Arial", Helvetica, san-serif;  
+margin: 8px 0 0 10px;
+}
+#fW_Controls {
+float: right; 
+text-align: right;
+height: 30px; 
+display: inline; 
+background: #bacede url(/images/grad-header-bg.gif) top left repeat-x;
+}
+#fW_Controls a {
+float: left; 
+height: 23px; 
+padding: 7px 8px 0 10px;
+color: #154367;
+font: normal 1.4em/1.1em "Arial Narrow", Arial, Helvetica, san-serif;  
+text-decoration: none;
+text-align: center;
+background: url(/images/divider.gif) left center no-repeat;
+}
+#fW_Controls a.activeSlide,
+#fW_Controls a:hover { color: #cd001f; }
+
+
