@@ -40,3 +40,7 @@ table.layout, tr.layout, td.layout, th.layout {
 	margin: 0px;
 	padding: 0px;
 }
+
+table.accessories {
+	font-size: 10px;
+}
