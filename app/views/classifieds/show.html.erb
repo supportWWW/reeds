@@ -54,7 +54,7 @@
 			<p>If you are excited to get your pre-owned car right now, don't hesitate and contact <strong>Suzanne</strong> now on <strong>021 443 5130</strong> and quote the vehicle    reference number <span><%=h @classified.stock_code %></span>. </p>
 		</div><!-- end callus -->
 
-		<h3>Calculator</h3>
+		<h3 class="calc_heading">Calculator</h3>
 		<%= partial "calculators/monthly_payment", :purchase_price => (@classified.price_in_cents / 100).to_i %>
 
 		<p>

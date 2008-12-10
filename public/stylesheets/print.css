@@ -1,4 +1,4 @@
-#header_welcome, #nav-contain, .paging, #search, a, #footer, .sidebox, #enquiry, #enquire, .button, #thumbs, #gallery p {
+#header_welcome, #nav-contain, .paging, #search, a, #footer, .sidebox, #enquiry, #enquire, .button, #thumbs, #gallery p, .calc_heading, .calculator {
 	display: none;
 }
 

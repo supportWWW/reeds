@@ -82,7 +82,7 @@
 		</div><!-- end callus -->
 
 		<% unless @new_vehicle.new_vehicle_variants.empty? %>
-			<h3>Calculator</h3>
+			<h3 class="calc_heading">Calculator</h3>
 			<%= partial "calculators/monthly_payment", :purchase_price => (@new_vehicle.new_vehicle_variants.first.price_in_cents / 100).to_i %>
 		<% end -%>
 
