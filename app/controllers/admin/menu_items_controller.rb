@@ -1,5 +1,7 @@
 class Admin::MenuItemsController < Admin::ApplicationController
   
+  after_filter :expire_cache, :only => [:update, :create, :destroy]
+
   # GET /menu_items
   # GET /menu_items.xml
   def index
@@ -82,5 +84,11 @@ class Admin::MenuItemsController < Admin::ApplicationController
       format.html { redirect_to(admin_menu_items_path) }
       format.xml  { head :ok }
     end
+  end
+
+private
+
+  def expire_cache
+    expire("")
   end
 end

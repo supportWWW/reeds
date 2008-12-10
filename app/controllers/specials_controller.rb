@@ -1,5 +1,7 @@
 class SpecialsController < ApplicationController
 
+  caches_page :show, :index
+  
   # GET /specials
   # GET /specials.xml
   def index

@@ -1,5 +1,7 @@
 class Admin::BranchesController < Admin::ApplicationController
   
+  after_filter :expire_cache, :only => [:update, :create, :assign, :remove_assignment, :destroy]
+
   # GET /branches GET /branches.xml
   def index
     @branches = Branch.find(:all, :order => 'name asc')
@@ -105,4 +107,9 @@ class Admin::BranchesController < Admin::ApplicationController
     end
   end
   
+private
+
+  def expire_cache
+    expire("contact")
+  end
 end

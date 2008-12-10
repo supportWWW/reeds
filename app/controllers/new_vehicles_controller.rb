@@ -1,4 +1,6 @@
 class NewVehiclesController < ApplicationController
+
+  caches_page :show
   
   skip_before_filter :use_prototype, :only => :show
   

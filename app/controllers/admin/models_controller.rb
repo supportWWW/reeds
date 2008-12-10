@@ -1,5 +1,7 @@
 class Admin::ModelsController < Admin::ApplicationController
 
+  after_filter :expire_cache, :only => [:update, :create, :destroy]
+
   # GET /models
   # GET /models.xml
   def index
@@ -82,5 +84,11 @@ class Admin::ModelsController < Admin::ApplicationController
       format.html { redirect_to(admin_models_path) }
       format.xml  { head :ok }
     end
+  end
+
+private
+
+  def expire_cache
+    expire("classifieds")
   end
 end

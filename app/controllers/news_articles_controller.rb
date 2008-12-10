@@ -1,6 +1,8 @@
 class NewsArticlesController < ApplicationController
   # GET /news_articles GET /news_articles.xml
   
+  caches_page :show
+  
   before_filter :load_news_article, :only => [ :show ]
   before_filter :load_page, :only => :index
   

@@ -3,6 +3,8 @@ class Admin::NewVehiclesController < Admin::ApplicationController
   before_filter :load_page, :only => :index
   
   skip_before_filter :use_prototype, :only => :show
+
+  after_filter :expire_cache, :only => [:update, :create, :destroy]
   
   # GET /new_vehicles
   # GET /new_vehicles.xml
@@ -134,4 +136,9 @@ class Admin::NewVehiclesController < Admin::ApplicationController
     end
   end
   
+private
+
+  def expire_cache
+    expire("new_vehicles")
+  end
 end

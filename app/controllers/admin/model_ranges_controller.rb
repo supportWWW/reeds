@@ -1,5 +1,7 @@
 class Admin::ModelRangesController < Admin::ApplicationController
   
+  after_filter :expire_cache, :only => [:update, :create, :destroy]
+
   # GET /model_ranges
   # GET /model_ranges.xml
   def index
@@ -82,5 +84,11 @@ class Admin::ModelRangesController < Admin::ApplicationController
       format.html { redirect_to(admin_model_ranges_path) }
       format.xml  { head :ok }
     end
+  end
+
+private
+
+  def expire_cache
+    expire("new_vehicles")
   end
 end

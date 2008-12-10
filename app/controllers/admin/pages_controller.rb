@@ -1,6 +1,7 @@
 class Admin::PagesController < Admin::ApplicationController
 
   before_filter :load_page, :only => :index
+  after_filter :expire_cache, :only => [:update, :destroy]
   
   # GET /pages
   # GET /pages.xml
@@ -84,5 +85,11 @@ class Admin::PagesController < Admin::ApplicationController
       format.html { redirect_to(admin_pages_path) }
       format.xml  { head :ok }
     end
+  end
+  
+private
+
+  def expire_cache
+    expire("pages")
   end
 end

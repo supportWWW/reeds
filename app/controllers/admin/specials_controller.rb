@@ -1,6 +1,7 @@
 class Admin::SpecialsController < Admin::ApplicationController
 
   before_filter :load_page, :only => :index
+  after_filter :expire_cache, :only => [:update, :create, :destroy]
   
 
   # GET /specials
@@ -85,5 +86,12 @@ class Admin::SpecialsController < Admin::ApplicationController
       format.html { redirect_to(admin_specials_url) }
       format.xml  { head :ok }
     end
+  end
+
+private
+
+  def expire_cache
+    expire_home
+    expire("specials")
   end
 end

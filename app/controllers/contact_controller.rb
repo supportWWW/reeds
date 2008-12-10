@@ -1,5 +1,7 @@
 class ContactController < ApplicationController
 
+  caches_page :index
+  
   def index
     @branches = Branch.find(:all, :order => "name", :include => [:salespeople])
   end

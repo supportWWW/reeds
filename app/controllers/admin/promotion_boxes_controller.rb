@@ -1,4 +1,7 @@
 class Admin::PromotionBoxesController < Admin::ApplicationController
+
+  after_filter :expire_home, :only => [:update, :create, :destroy]
+
   # GET /promotion_boxes
   # GET /promotion_boxes.xml
   def index
@@ -82,4 +85,5 @@ class Admin::PromotionBoxesController < Admin::ApplicationController
       format.xml  { head :ok }
     end
   end
+
 end

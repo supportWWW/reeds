@@ -1,5 +1,7 @@
 class Admin::SalespeopleController < Admin::ApplicationController
   
+  after_filter :expire_cache, :only => [:update, :create, :destroy]
+
   # GET /salespeople
   # GET /salespeople.xml
   def index
@@ -82,5 +84,11 @@ class Admin::SalespeopleController < Admin::ApplicationController
       format.html { redirect_to(admin_salespeople_path) }
       format.xml  { head :ok }
     end
+  end
+
+private
+
+  def expire_cache
+    expire("contact")
   end
 end

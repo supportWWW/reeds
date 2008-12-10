@@ -1,5 +1,7 @@
 class Admin::MakesController < Admin::ApplicationController
   
+  after_filter :expire_cache, :only => [:update, :create, :destroy]
+
   # GET /makes
   # GET /makes.xml
   def index
@@ -82,5 +84,12 @@ class Admin::MakesController < Admin::ApplicationController
       format.html { redirect_to(admin_makes_path) }
       format.xml  { head :ok }
     end
+  end
+
+private
+
+  def expire_cache
+    expire("new_vehicles")
+    expire("classifieds")
   end
 end

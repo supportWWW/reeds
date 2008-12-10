@@ -1,5 +1,8 @@
 class Admin::ImporterController < Admin::ApplicationController
   
+  after_filter :expire_classifieds, :only => [:import_stock, :import_cyberstock]
+  after_filter :expire_new_vehicles, :only => [:import_new_vehicles, :import_accessories]
+
   def import_stock
     if request.post?
       
@@ -70,4 +73,13 @@ class Admin::ImporterController < Admin::ApplicationController
     
   end
 
+private
+
+  def expire_classifieds
+    expire("classifieds")
+  end
+
+  def expire_new_vehicles
+    expire("new_vehicles")
+  end
 end

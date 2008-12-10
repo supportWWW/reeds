@@ -1,5 +1,7 @@
 class Admin::ModelVariantsController < Admin::ApplicationController
 
+  after_filter :expire_cache, :only => [:update, :create, :destroy]
+
   # GET /model_variants
   # GET /model_variants.xml
   def index
@@ -82,5 +84,11 @@ class Admin::ModelVariantsController < Admin::ApplicationController
       format.html { redirect_to(admin_model_variants_path) }
       format.xml  { head :ok }
     end
+  end
+
+private
+
+  def expire_cache
+    expire("classifieds")
   end
 end

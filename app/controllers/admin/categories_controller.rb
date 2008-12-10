@@ -1,5 +1,7 @@
 class Admin::CategoriesController < Admin::ApplicationController
   
+  after_filter :expire_cache, :only => [:update, :destroy]
+
   # GET /categories
   # GET /categories.xml
   def index
@@ -82,5 +84,11 @@ class Admin::CategoriesController < Admin::ApplicationController
       format.html { redirect_to(admin_categories_url) }
       format.xml  { head :ok }
     end
+  end
+
+private
+
+  def expire_cache
+    expire("news_articles")
   end
 end
