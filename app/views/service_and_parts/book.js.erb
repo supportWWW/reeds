@@ -1,9 +1,0 @@
-<% if @success -%>
-	$('#service_form_notice').html(<%= flash[:notice].to_json %>);
-	$('#service_form_notice').show();
-	$('#service_form_errors').hide();
-<% else -%>
-	$('#service_form_errors').html(<%= error_messages_for(:form).to_json %>);
-	$('#service_form_errors').show();
-	$('#service_form_notice').hide();
-<% end -%>

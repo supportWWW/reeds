@@ -10,7 +10,6 @@ class ServiceAndPartsController < ApplicationController
 
       respond_to do |format|
         format.html { redirect_to :action => 'book' }
-        format.js
       end
     end
     

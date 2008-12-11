@@ -1,8 +1,10 @@
 <% form_for :form, @form, :url => { :controller => 'service_and_parts', :action => 'book' }, :html => { :method => :post, :id => "service_form" } do |f| %>
 	<div class="form">
-		<%= error_messages_for :form %>
-		<div id="service_form_notice" class="notice" style="display: none;"></div>
-		<div id="service_form_errors" class="error" style="display: none;"></div>
+		<% unless @form.errors.empty? %>
+			<div class="error">
+				<%= error_messages_for :form %>
+			</div>
+		<% end %>
 		<br/>
 		Name<br/>
 		<%= f.text_field :name %><br/>
@@ -15,7 +17,7 @@
 		Booking date ( Should be at least 3 days from now )<br/>
 		<%= f.text_field :booking_date %><br/>
 		Service requirements<br/>
-		<%= f.text_field :problem_description %><br/>
+		<%= f.text_area :problem_description, :rows => 5 %><br/>
 		<input type="image" class="button" src="/images/btn-submit.gif" value="Submit" id="Submit" name="Submit" /><%= spinner("service_spinner") %>
 	</div>
 <% end  %>

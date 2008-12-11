@@ -39,7 +39,11 @@
 
 					<% unless flash.blank? %>
 			        <% flash.each do |key, value| %>
-			            <p><%= key.to_s.humanize %> - <%= value  %> </p>
+								<% if key == :error %>
+									<div id="global_error" class="error"><%= key.to_s.humanize %> - <%= value  %></div>
+								<% else %>
+									<div id="global_notice" class="notice"><%= key.to_s.humanize %> - <%= value  %></div>
+								<% end %>
 			        <% end  %>
 			    <% end %>
 			    
