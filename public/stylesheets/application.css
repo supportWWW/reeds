@@ -15,17 +15,27 @@ padding: 6px 0 7px 12px;
 font: normal 1.1em/1.3em "Arial", Helvetica, san-serif; 
 }
 
-.notice {
+.notice, #enquiry div.notice div {
 	margin: 10px;
 	padding: 10px;
 	padding-left: 30px;
 	background: #FFFF97 url(/images/tick.png) 8px 5px no-repeat;
 }
 
-.error {
+.error, #enquiry div.error div {
 	margin: 10px;
 	padding: 10px;
 	background-color: #E78B7A;
+}
+
+#enquiry div.error div {
+	margin: 0px;
+	margin-bottom: 10px;
+}
+
+#enquiry div.notice div {
+	margin: 0px;
+	margin-bottom: 10px;
 }
 
 .error h2 {
