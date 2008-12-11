@@ -803,3 +803,8 @@ background: url(/images/divider.gif) left center no-repeat;
 text-decoration: none;
 }
 #footer ul li a:hover { text-decoration: underline; }
+
+div.calculator input { margin: 0 2px; padding: 2px; line-height: 1em; }
+div.calculator select { margin: 0 2px; padding: 1px; line-height: 1em; }
+div.calculator option { margin: 0 2px 0 0; padding: 0; line-height: 1em; width: 65px;}
+div.calculator span { padding: 0;}
