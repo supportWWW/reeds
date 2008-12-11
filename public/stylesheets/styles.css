@@ -808,3 +808,12 @@ div.calculator input { margin: 0 2px; padding: 2px; line-height: 1em; }
 div.calculator select { margin: 0 2px; padding: 1px; line-height: 1em; }
 div.calculator option { margin: 0 2px 0 0; padding: 0; line-height: 1em; width: 65px;}
 div.calculator span { padding: 0;}
+
+#sixfifty ul {
+margin: 0 25px 15px;
+font: normal 1.2em/1.3em "Arial", Helvetica, san-serif;  
+}
+#sixfifty ul li {
+margin: 0 15px 4px;
+list-style-type: disc;
+}
