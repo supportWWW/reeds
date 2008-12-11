@@ -1,5 +1,5 @@
 <% if @success -%>
-	$('#book_test_drive_form_notice').html(<%= flash[:notice].to_json %>);
+	$('#book_test_drive_form_notice').html(<%= flash[:public_notice].to_json %>);
 	$('#book_test_drive_form_notice').show();
 <% else -%>
 	$('#book_test_drive_form_errors').html(<%= error_messages_for(:form).to_json %>);

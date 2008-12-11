@@ -9,7 +9,7 @@ class ContactController < ApplicationController
   def sell_your_car
     @form = SellMyCarForm.new( params[:sell_your_car_form] )
     if request.post? and @form.valid?
-      flash[:notice] = 'We received your message and will get in contact shortly'
+      flash[:public_notice] = 'We received your message and will get in contact shortly'
       SellYourCarMailer.deliver_client_request @form
       redirect_to :action => 'sell_your_car'
     elsif request.post?
@@ -20,7 +20,7 @@ class ContactController < ApplicationController
   def find_car
     @form = FindCarForm.new( params[:form] )
     if request.post? and @form.valid?
-      flash[:notice] = 'We received your message and will get in contact shortly'
+      flash[:public_notice] = 'We received your message and will get in contact shortly'
       FindCarMailer.deliver_client_request @form
       @success = true
     elsif request.post?
@@ -56,7 +56,7 @@ class ContactController < ApplicationController
   def used_vehicle_enquiry
     @form = UsedVehicleEnquiryForm.new( params[:form] )
     if request.post? and @form.valid?
-      flash[:notice] = 'We received your enquiry and will get in contact shortly'
+      flash[:public_notice] = 'We received your enquiry and will get in contact shortly'
       VehicleEnquiryMailer.deliver_used @form
       @success = true
     elsif request.post?
@@ -70,7 +70,7 @@ class ContactController < ApplicationController
   def new_vehicle_enquiry
     @form = NewVehicleEnquiryForm.new( params[:form] )
     if request.post? and @form.valid?
-      flash[:notice] = 'We received your enquiry and will get in contact shortly'
+      flash[:public_notice] = 'We received your enquiry and will get in contact shortly'
       VehicleEnquiryMailer.deliver_neww @form
       @success = true
     elsif request.post?
@@ -84,7 +84,7 @@ class ContactController < ApplicationController
   def new_vehicle_book_test_drive
     @form = BookTestDriveForm.new( params[:form] )
     if request.post? and @form.valid?
-      flash[:notice] = 'We received your enquiry and will get in contact shortly'
+      flash[:public_notice] = 'We received your enquiry and will get in contact shortly'
       BookTestDriveMailer.deliver_neww @form
       @success = true
     elsif request.post?
@@ -113,7 +113,7 @@ class ContactController < ApplicationController
         end
       end
       if @success
-        flash[:notice] = 'We received your message and will get in contact shortly'
+        flash[:public_notice] = 'We received your message and will get in contact shortly'
         CallbackMailer.deliver_requested(@form, salespeople_names)
       else
         @form.errors.add(:base, 'Something went wrong. We were not able to send your message. Sorry. Please call us or email us rather ...')

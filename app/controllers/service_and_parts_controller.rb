@@ -4,7 +4,7 @@ class ServiceAndPartsController < ApplicationController
     @form = ServiceBookingForm.new( params[:form] )
     @success = false
     if request.post? and @form.valid?
-      flash[:notice] = 'Your message was successfully received'
+      flash[:public_notice] = 'Your message was successfully received'
       ServiceBookingMailer.deliver_booking( @form )
       @success = true
 
