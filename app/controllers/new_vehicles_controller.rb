@@ -18,6 +18,11 @@ class NewVehiclesController < ApplicationController
   def show
     @new_vehicle = NewVehicle.find_by_permalink(params[:id])
 
+    if @new_vehicle.nil?
+      render :file => "#{RAILS_ROOT}/public/404.html", :status => 404 
+      return
+    end
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @new_vehicle }

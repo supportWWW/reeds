@@ -66,8 +66,8 @@ describe NewsArticlesController do
   describe "handling GET /news_articles/1" do
 
     before(:each) do
-      @news_article = mock_model(NewsArticle)
-      NewsArticle.stub!(:find).and_return(@news_article)
+      @news_article = mock_model(NewsArticle, :id => 1)
+      NewsArticle.stub!(:find).with("1").and_return(@news_article)
     end
   
     def do_get
