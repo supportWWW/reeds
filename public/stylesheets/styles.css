@@ -722,7 +722,7 @@ border: none;
 background: none;
 margin: 0;
 }
-input.button  {
+input.button, .calculator input.button  {
 padding: 0;
 border: 0;
 margin: 0;
@@ -755,7 +755,8 @@ background: #154367 url(/images/enquiry-h3.gif) 0 0 no-repeat;
 color: #fff;
 padding: 4px 4px 4px 10px;
 }
-#content #enquiry form p { line-height: 1.3em;margin: 0 10px;}
+#content #enquiry form { padding-left: 10px;}
+#content #enquiry form div { line-height: 1.3em;margin: 0; }
 #content #enquiry form input, #enquiry form textarea, #enquiry form select, #actions form input, #actions form textarea, .sidebox form select { width: 95%;}
 #content #enquiry form p input { margin: 0 0 5px;}
 #content #enquiry div form input.radio { 
