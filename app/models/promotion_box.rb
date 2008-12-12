@@ -5,5 +5,5 @@ class PromotionBox < ActiveRecord::Base
   
   rendered_column :body
 
-  STYLES = %w(callback calc testdrive)
+  STYLES = %w(service specials)
 end
