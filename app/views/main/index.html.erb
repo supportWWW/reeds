@@ -30,12 +30,14 @@
 
 <div id="rightcol">
 
-	<div id="actions">
+	<div id="actions-home">
 		
 		<% PromotionBox.active.each do |promotion_box| %>
 			<div class="sidebox <%= promotion_box.style %>">
-				<h3><%=h promotion_box.title %></h3>
-				<p><%= promotion_box.rendered_body %></p><br/><br/>
+				<div>
+					<h3><%=h promotion_box.title %></h3>
+					<p><%= promotion_box.rendered_body %></p>
+				</div>
 			</div>
 		<% end %>
 
