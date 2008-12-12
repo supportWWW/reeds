@@ -668,7 +668,7 @@ width: 240px;
 border: 1px solid #B4CFE2;
 margin: 9px 0 0;
 padding: 0 0 15px;
-background: url(../images/actions-bg.gif) 0 bottom repeat-x;
+background: url(/images/actions-bg.gif) 0 bottom repeat-x;
 float: left;
 }
 #actions-home div.sidebox {
@@ -676,7 +676,7 @@ width: 280px;
 border: 1px solid #B4CFE2;
 margin: 9px 0 0;
 padding: 0 0 0;
-background: url(../images/actions-bg.gif) 0 bottom repeat-x;
+background: url(/images/actions-bg.gif) 0 bottom repeat-x;
 float: left;
 }
 #actions-home div.sidebox div { 
@@ -685,11 +685,11 @@ padding: 0;
 width: 280px;
 }
 #actions form { margin: 10px 0 0;}
-#actions .callback { background: transparent url(../images/phone.gif) 197px 15px no-repeat; }
-#actions .calc { background: transparent url(../images/calculator.gif) 190px 15px no-repeat; }
-#actions .testdrive { background: transparent url(../images/carkey.gif) 167px 15px no-repeat; }
-#actions-home div.service div { background: transparent url(../images/spanners.gif) 215px 0px no-repeat;padding-bottom: 10px; }
-#actions-home div.specials div { background: transparent url(../images/sale.gif) 210px 0px no-repeat;padding-bottom: 10px;  }
+#actions .callback { background: transparent url(/images/phone.gif) 197px 15px no-repeat; }
+#actions .calc { background: transparent url(/images/calculator.gif) 190px 15px no-repeat; }
+#actions .testdrive { background: transparent url(/images/carkey.gif) 167px 15px no-repeat; }
+#actions-home div.service div { background: transparent url(/images/spanners.gif) 215px 0px no-repeat;padding-bottom: 10px; }
+#actions-home div.specials div { background: transparent url(/images/sale.gif) 210px 0px no-repeat;padding-bottom: 10px;  }
 #actions div h3, #actions-home h3 {margin: 9px 12px 5px; line-height: 1.1em;}
 #actions-home h3 {font-size: 1.7em;}
 #actions div h3 a, #actions-home div h3 a {text-decoration: none; color:#154367;}
