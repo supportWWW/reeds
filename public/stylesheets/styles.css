@@ -674,9 +674,9 @@ float: left;
 #actions-home div.sidebox {
 width: 280px;
 border: 1px solid #B4CFE2;
-margin: 9px 0 0;
+margin: 0 0 10px;
 padding: 0 0 0;
-background: url(/images/actions-bg.gif) 0 bottom repeat-x;
+background: url(../images/actions-bg.gif) 0 bottom repeat-x;
 float: left;
 }
 #actions-home div.sidebox div { 
@@ -694,7 +694,8 @@ width: 280px;
 #actions-home h3 {font-size: 1.7em;}
 #actions div h3 a, #actions-home div h3 a {text-decoration: none; color:#154367;}
 #actions div h3 a:hover, #actions-home div h3 a:hover {text-decoration: underline;}
-#actions div p, #actions-home div p { margin: 0 12px; line-height: 1.3em;}
+#actions div p { margin: 0 12px; line-height: 1.3em;}
+#actions-home div p { margin: 0 75px 0 12px; line-height: 1.3em;}
 #actions div div { margin: 0 6px; line-height: 1.3em;}
 
 /* form elements */

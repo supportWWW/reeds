@@ -13,6 +13,7 @@
 <% unless @news_articles.blank? %>
   <table>
     <tr>
+			<th></th>
       <th>Title</th>
       <th>Category</th>
       <th>Publish at</th>
@@ -20,9 +21,13 @@
   
     <% for news_article in @news_articles %>
       <tr>
-        <td><%= link_to news_article.title, news_article %></td>
+				<td><%= link_to(image_tag(news_article.image.public_filename(:thumb)), news_article_path(news_article), :title => "Click to read full news article") if news_article.image %></td>
+        <td>
+					<%= link_to news_article.title, news_article %><br/>
+					<%= truncate(news_article.text.gsub("*", ""), 150) %>
+				</td>
         <td><%= h news_article.category.name if news_article.category %></td>
-        <td><%= h news_article.publish_at %></td>
+        <td><%= h news_article.publish_at.fmt_long %></td>
       </tr>
     <% end %>
   </table>
