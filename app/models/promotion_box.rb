@@ -5,5 +5,5 @@ class PromotionBox < ActiveRecord::Base
   
   rendered_column :body
 
-  STYLES = %w(service specials)
+  STYLES = %w(service specials news)
 end

@@ -690,6 +690,7 @@ width: 280px;
 #actions .testdrive { background: transparent url(/images/carkey.gif) 167px 15px no-repeat; }
 #actions-home div.service div { background: transparent url(/images/spanners.gif) 215px 0px no-repeat;padding-bottom: 10px; }
 #actions-home div.specials div { background: transparent url(/images/sale.gif) 210px 0px no-repeat;padding-bottom: 10px;  }
+#actions-home div.news div { background: transparent url(/images/latest-news.gif) 210px 0px no-repeat;padding-bottom: 10px;  } 
 #actions div h3, #actions-home h3 {margin: 9px 12px 5px; line-height: 1.1em;}
 #actions-home h3 {font-size: 1.7em;}
 #actions div h3 a, #actions-home div h3 a {text-decoration: none; color:#154367;}
