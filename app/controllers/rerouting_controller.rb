@@ -66,6 +66,8 @@ class ReroutingController < ApplicationController
       redirect_to "/", :status => 301
     elsif path.include?("qa.php")
       redirect_to "/pages/workshop-qa", :status => 301
+    elsif path.include?("isuzu")
+      redirect_to "/new_vehicles/isuzu-n-series", :status => 301
     else
       render :file => "#{RAILS_ROOT}/public/404.html", :status => 404
     end

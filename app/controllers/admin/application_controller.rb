@@ -2,7 +2,7 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class Admin::ApplicationController < ActionController::Base
-
+  session :on
   include AuthenticatedSystem
   include ExceptionNotifiable
   before_filter :use_prototype

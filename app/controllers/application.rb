@@ -2,7 +2,8 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
-  include AuthenticatedSystem
+  session :off
+
   include ExceptionNotifiable
   before_filter :use_jquery
   
