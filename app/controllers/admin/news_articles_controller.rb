@@ -3,7 +3,7 @@ class Admin::NewsArticlesController < Admin::ApplicationController
   
   before_filter :load_news_article, :only => [ :show, :new, :edit, :update, :destroy ]
   before_filter :load_page, :only => :index
-  after_filter :expire_cache, :only => [:update, :destroy]
+  after_filter :expire_cache, :only => [:create, :update, :destroy]
   
   def index
     @news_articles = paginate( NewsArticle, :order => 'publish_at desc', :include => :category )
