@@ -4,7 +4,7 @@ class VehicleEnquiryMailer < ActionMailer::Base
   
   def used( frm )
     subject    'Reeds  - Used vehicle enquiry'
-    recipients get_used_vehicle_recipients(frm)
+    recipients ['joergd@pobox.com', 'direct@reeds.co.za']
     from        "i-am-robot-dont-respond@reeds.co.za"
     sent_on    Time.now
     body       :form => frm
