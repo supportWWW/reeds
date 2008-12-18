@@ -41,9 +41,9 @@
 			        <% flash.each do |key, value| %>
 								<% unless flash[key].blank? %>
 									<% if key == :public_error %>
-										<div id="global_error" class="error"><%= key.to_s.humanize %> - <%= value  %></div>
-									<% elsif key == :public_notice%>
-										<div id="global_notice" class="notice"><%= key.to_s.humanize %> - <%= value  %></div>
+										<div id="global_error" class="error">Error - <%= value  %></div>
+									<% elsif key == :public_notice %>
+										<div id="global_notice" class="notice">Notice - <%= value  %></div>
 									<% end %>
 									<% flash[key] = nil %>
 								<% end %>

@@ -32,12 +32,6 @@
 				<%= render :partial => "main/features" %>
 				<%= render :partial => "search/form" %>
 
-		    <% unless flash.blank? %>
-		        <% flash.each do |key, value| %>
-		            <p><%= key.to_s.humanize %> - <%= value  %> </p>
-		        <% end  %>
-		    <% end %>
-    
 		    <%= yield %>
     
 				<%= partial "layouts/footer" %>
