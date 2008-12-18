@@ -15,11 +15,15 @@ padding: 6px 0 7px 12px;
 font: normal 1.1em/1.3em "Arial", Helvetica, san-serif; 
 }
 
-.notice, #enquiry div.notice div {
+.notice, #enquiry div.notice {
 	margin: 10px;
 	padding: 10px;
 	padding-left: 30px;
 	background: #FFFF97 url(/images/tick.png) 8px 5px no-repeat;
+}
+
+#enquiry div.notice {
+	width: 140px;
 }
 
 .error, #enquiry div.error div {
