@@ -8,7 +8,7 @@
 			<div id="news">
 				<%= link_to(image_tag(news_article.image.public_filename(:thumb)), news_article_path(news_article), :title => "Click to read full news article") if news_article.image %>
 				<p>
-					<small><%= news_article.publish_at %></small><br>
+					<small><%= news_article.publish_at.to_date %></small><br>
 					<strong><%= link_to news_article.title, news_article_path(news_article), :title => "Click to read full news article", :style => "text-decoration: none;" %></strong><br>
 					<%= truncate(news_article.text.gsub("*", ""), 150) %>
 				</p>

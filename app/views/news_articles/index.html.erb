@@ -27,7 +27,7 @@
 					<%= truncate(news_article.text.gsub("*", ""), 150) %>
 				</td>
         <td><%= h news_article.category.name if news_article.category %></td>
-        <td><%= h news_article.publish_at.fmt_long %></td>
+        <td><%= h news_article.publish_at.to_date %></td>
       </tr>
     <% end %>
   </table>
