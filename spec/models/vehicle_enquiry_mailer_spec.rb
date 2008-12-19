@@ -16,14 +16,14 @@ describe VehicleEnquiryMailer do
   it "should generate used email" do
     mail = VehicleEnquiryMailer.deliver_used(UsedVehicleEnquiryForm.new(:name => "Joerg", :phone => "0214465543", :email => "me@spam.com", :vehicle => "Isuzu", :branch_id => @branch.id))
     ActionMailer::Base.deliveries.size.should == 1
-    mail.to.should == ["joergd@pobox.com", "mauricio@gmail.com"]
+    mail.to.should == ["direct@reeds.co.za"] # ["mauricio@gmail.com"]
     mail.body.should =~ /Isuzu/
   end
 
   it "should generate neww email" do
     mail = VehicleEnquiryMailer.deliver_neww(NewVehicleEnquiryForm.new(:name => "Joerg", :phone => "0214465543", :email => "me@spam.com", :vehicle => "Isuzu"))
     ActionMailer::Base.deliveries.size.should == 1
-    mail.to.should == ["joergd@pobox.com", "direct@reeds.co.za"]
+    mail.to.should == ["direct@reeds.co.za"]
     mail.body.should =~ /Isuzu/
   end
 end

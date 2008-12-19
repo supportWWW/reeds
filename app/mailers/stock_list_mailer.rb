@@ -4,7 +4,7 @@ class StockListMailer < ActionMailer::Base
   
   def list(name, email, stocklist)
     subject    'Reeds  - Stock List'
-    recipients ['joergd@pobox.com', "#{name} <#{email}>" ]
+    recipients ["#{name} <#{email}>" ]
     from        "Reeds <direct@reeds.co.za>"
     sent_on    Time.now
     body       :name => name, :stocklist => stocklist

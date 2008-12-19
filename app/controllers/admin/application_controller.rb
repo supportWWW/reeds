@@ -57,6 +57,7 @@ class Admin::ApplicationController < ActionController::Base
   def expire(dir)
     cache_dir = ActionController::Base.page_cache_directory
     FileUtils.rm_r(Dir.glob(cache_dir + "/#{dir}/*")) rescue Errno::ENOENT
+    FileUtils.rm_r(Dir.glob(cache_dir + "/#{dir}.html")) rescue Errno::ENOENT
     RAILS_DEFAULT_LOGGER.info("Cache directory '#{cache_dir}/#{dir}' fully sweeped.")
   end
 

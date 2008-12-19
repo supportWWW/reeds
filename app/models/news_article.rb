@@ -13,7 +13,7 @@ class NewsArticle < ActiveRecord::Base
   
   belongs_to :category
   
-  named_scope :live, :conditions => ["publish_at <= ?", Date.today ], :order => "publish_at desc"
+  named_scope :live, :order => "publish_at desc"
   
   def source_url=( url )
     unless "http://" == url
