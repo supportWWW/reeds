@@ -42,7 +42,7 @@ class G2ExporterService
                 classified.year,
                 classified.mileage,
                 classified.price,
-                Date.today - (classified.days_in_stock).days,
+                Date.today - ((classified.days_in_stock || 0)).days,
                 "",
                 "",
                 "",

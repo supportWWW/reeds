@@ -60,7 +60,12 @@ class Classified < ActiveRecord::Base
     images.size == 3
   end
   
-
+  # Default image
+  def img_url
+    filename = cyberstock? ? "#{stock_code}_1.jpg" : "#{reg_num}_1.jpg"
+    File.exist?("#{RAILS_ROOT}/public/vehicles/#{filename}") ? "/vehicles/#{filename}" : ""
+  end
+  
   def images
     return @imgs unless @imgs.nil?
     @imgs = []
