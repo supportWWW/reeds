@@ -15,7 +15,6 @@
     <tr>
 			<th></th>
       <th>Title</th>
-      <th>Category</th>
       <th>Publish at</th>
     </tr>
   
@@ -26,7 +25,6 @@
 					<%= link_to news_article.title, news_article %><br/>
 					<%= truncate(news_article.text.gsub("*", ""), 150) %>
 				</td>
-        <td><%= h news_article.category.name if news_article.category %></td>
         <td><%= h news_article.publish_at.to_date %></td>
       </tr>
     <% end %>

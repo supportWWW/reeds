@@ -89,5 +89,6 @@ class Admin::NewsArticlesController < Admin::ApplicationController
 
     def expire_cache
       expire("news_articles")
+      expire_home
     end
 end
