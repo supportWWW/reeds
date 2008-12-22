@@ -29,7 +29,7 @@ class StockFileImporterService
       end
     end
     
-    Classified.update_all( { :removed_at => Time.now }, [ 'id not in ( ? ) and removed_at is null', added.collect{ |i| i.id } ] )
+    UsedVehicle.update_all( { :removed_at => Time.now }, [ 'id not in ( ? ) and removed_at is null', added.collect{ |i| i.id } ] )
     
     return added, error
   end
