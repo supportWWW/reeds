@@ -1,0 +1,22 @@
+<p>Hello <%= @name %>,</p>
+
+<p>Here is your daily stock list:</p>
+
+<table border cellpadding="2">
+<% @stocklist.each do |classified| -%>
+<tr style="background-color: <%= cycle('#ffffff', '#F4F4F4') %>">
+	<td><%= classified.humanize %></td>
+	<td width="35"><%= classified.year %></td>
+	<td width="80"><%= classified.mileage %>km</td>
+	<td><strong><%= classified.price.format(:no_cents) %></strong></td>
+</tr>
+<% end -%>
+</table>
+
+<p>The Reeds Team</p>
+
+<p>
+To get in contact with us,<br/>
+please call Suzanne Denicker on 021 443 5100,<br/>
+or email her at suzanned@reeds.co.za
+</p>

@@ -2,7 +2,9 @@ Hello <%= @name %>,
 
 Here is your daily stock list:
 
-<%= @stocklist.join("\n") %>
+<% @stocklist.each do |classified| -%>
+<%= "#{classified.humanize} #{classified.year} (#{classified.mileage}km): #{classified.price.format(:no_cents)}" %>
+<% end -%>
 
 The Reeds Team
 

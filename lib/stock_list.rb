@@ -24,10 +24,10 @@ class StockList
   end
   
   def self.stock
-    list = []
-    Classified.available.find(:all, :order => "makes.common_name, models.common_name, price_in_cents").each do |classified|
-      list << "#{classified.humanize} #{classified.year} (#{classified.mileage}km): #{classified.price.format(:no_cents)}"
-    end
-    return list
+    #list = []
+    Classified.available.find(:all, :order => "makes.common_name, models.common_name, price_in_cents") # .each do |classified|
+    #  list << classified # "#{classified.humanize} #{classified.year} (#{classified.mileage}km): #{classified.price.format(:no_cents)}"
+    #end
+    #return list
   end
 end
