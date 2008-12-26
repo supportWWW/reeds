@@ -1,6 +1,6 @@
 class Admin::ClassifiedsController < Admin::ApplicationController
 
-  after_filter :expire_cache, :only => [:update]
+  after_filter :expire_cache, :only => [:update, :destroy]
 
   # GET /classifieds/cyberstock
   # GET /classifieds/cyberstock.xml
