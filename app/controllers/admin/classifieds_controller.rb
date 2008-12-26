@@ -68,6 +68,18 @@ class Admin::ClassifiedsController < Admin::ApplicationController
     end
   end
 
+  # DELETE /classifieds/1
+  # DELETE /classifieds/1.xml
+  def destroy
+    @classified = Classified.find(params[:id])
+    @classified.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(cyberstock_admin_classifieds_path) }
+      format.xml  { head :ok }
+    end
+  end
+
 private
 
   def expire_cache

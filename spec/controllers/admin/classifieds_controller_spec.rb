@@ -217,6 +217,34 @@ describe Admin::ClassifiedsController do
       end
 
     end
+
+
+    describe "handling DELETE /categories/1" do
+
+      before(:each) do
+        @classified = mock_model(Classified, :destroy => true)
+        Classified.stub!(:find).and_return(@classified)
+      end
+
+      def do_delete
+        delete :destroy, :id => "1"
+      end
+
+      it "should find the category requested" do
+        Classified.should_receive(:find).with("1").and_return(@classified)
+        do_delete
+      end
+
+      it "should call destroy on the found category" do
+        @classified.should_receive(:destroy)
+        do_delete
+      end
+
+      it "should redirect to the categories list" do
+        do_delete
+        response.should redirect_to(cyberstock_admin_classifieds_path)
+      end
+    end
   end
 
 end
