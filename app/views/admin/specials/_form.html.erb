@@ -18,7 +18,7 @@
 
 <p>
   <%= f.label :text %> (you can use the <%= link_to 'Textile', 'http://textile.thresholdstate.com/' %> format here) <br />
-  <%= f.text_area :text %>
+  <%= f.text_area :text, :cols => 80 %>
 </p>
 
 <% if special.image %>
