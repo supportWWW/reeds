@@ -62,3 +62,7 @@ table.layout, tr.layout, td.layout, th.layout {
 table.accessories {
 	font-size: 10px;
 }
+
+li.non_list {
+	list-style-type: none;
+}

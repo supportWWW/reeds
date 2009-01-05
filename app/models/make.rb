@@ -20,6 +20,7 @@ class Make < ActiveRecord::Base
                         INNER JOIN classifieds c ON c.model_id = m.id
                         WHERE m.make_id = #{id}
                         AND c.removed_at IS NULL
+                        AND c.expires_on <= '#{Date.today}'
                         ORDER BY m.name
                        $)
   end

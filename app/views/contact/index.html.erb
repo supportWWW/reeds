@@ -8,9 +8,9 @@
 
 
 
-<ul class="non_list">
+<ul>
 	<% @branches.each do |branch| -%>
-		<li>
+		<li style="list-style-type: none; margin-left: 0px; padding-left: 0px;">
 			<%= link_to(image_tag(branch.image.public_filename(:medium), :class => "bdr"), branch.image.public_filename, :title => "Click to see full size", :popup => true) if branch.image %>
 			<h3><%= branch.name %></h3>
 			<p>
