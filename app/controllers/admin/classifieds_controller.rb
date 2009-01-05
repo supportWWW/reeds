@@ -5,7 +5,7 @@ class Admin::ClassifiedsController < Admin::ApplicationController
   # GET /classifieds/cyberstock
   # GET /classifieds/cyberstock.xml
   def cyberstock
-    @classifieds = Cyberstock.all
+    @classifieds = Cyberstock.live
 
     respond_to do |format|
       format.html # index.html.erb
