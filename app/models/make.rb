@@ -39,12 +39,13 @@ class Make < ActiveRecord::Base
   class << self 
   
     def find_in_stock
-      Make.find_by_sql(%#
+      Make.find_by_sql(%$
                           SELECT DISTINCT m.* FROM classifieds c
                           INNER JOIN makes m ON m.id = c.make_id
                           WHERE c.removed_at IS NULL
+                          AND c.expires_on > '#{Date.today}'
                           ORDER BY m.name
-                         #)
+                         $)
     end
 
     def new_vehicles
