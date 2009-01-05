@@ -1,6 +1,26 @@
 <%= f.error_messages %>
 
 <p>
+  <b>Stock no:</b>
+  <%=h classified.stock_code %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%=h classified.humanize %>
+</p>
+
+<p>
+  <b>Features:</b>
+  <%=h classified.features %>
+</p>
+
+<p>
+  <b>Branch:</b>
+  <%=h classified.branch.name %>
+</p>
+
+<p>
   <%= f.label :price %><br />
   <%= f.text_field :price %>
 </p>
