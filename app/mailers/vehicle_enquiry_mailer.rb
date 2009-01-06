@@ -4,7 +4,7 @@ class VehicleEnquiryMailer < ActionMailer::Base
   
   def used( frm )
     subject    'Reeds  - Used vehicle enquiry'
-    recipients ['riaanv@reeds.co.za', 'joergd@pobox.com', 'direct@reeds.co.za']
+    recipients ['rv@imaginet.co.za', 'riaanv@reeds.co.za', 'joergd@pobox.com', 'direct@reeds.co.za']
     from        "i-am-robot-dont-respond@reeds.co.za"
     sent_on    Time.now
     body       :form => frm
@@ -12,7 +12,7 @@ class VehicleEnquiryMailer < ActionMailer::Base
 
   def neww( frm )
     subject    'Reeds  - New vehicle enquiry'
-    recipients ['riaanv@reeds.co.za', 'joergd@pobox.com', 'direct@reeds.co.za']
+    recipients ['rv@imaginet.co.za', 'riaanv@reeds.co.za', 'joergd@pobox.com', 'direct@reeds.co.za']
     from        "i-am-robot-dont-respond@reeds.co.za"
     sent_on    Time.now
     body       :form => frm
