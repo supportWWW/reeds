@@ -86,7 +86,7 @@ module Technoweenie # :nodoc:
               # TODO: This overwrites the file if it exists, maybe have an allow_overwrite option?
               FileUtils.mkdir_p(File.dirname(full_filename))
               File.cp(temp_path, full_filename)
-              File.chmod(attachment_options[:chmod] || 0644, full_filename)
+              File.chmod(attachment_options[:chmod] || 0755, full_filename) # was 644 Joerg
             end
             @old_filename = nil
             true
