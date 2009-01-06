@@ -14,7 +14,7 @@ describe StockList do
     @classified_99.stub!(:mileage).and_return(8000)
     @classified_99.stub!(:price).and_return(Money.new(10000000))
     Classified.stub!(:find).and_return([@classified_98, @classified_99])
-    StockList.stock.should == ["Audi A4 2008 (16000km): R250000", "Opel Corsa 2008 (8000km): R100000"]
+    StockList.stock.should == [@classified_98, @classified_99]
   end
 
   it "should send an email" do

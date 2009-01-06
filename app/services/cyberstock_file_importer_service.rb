@@ -17,6 +17,7 @@ class CyberstockFileImporterService
         classified.price= row[8].strip.gsub(/ /, "") unless row[8].nil?
         classified.colour = row[6].strip unless row[6].nil?
         classified.mileage = row[7].strip.gsub(/ /, "") unless row[7].nil?
+        classified.reg_num = row[1].strip unless row[1].nil?
         classified.features = row[10].strip unless row[10].nil?
         classified.has_service_history = row[9].strip.downcase == "yes" unless row[9].nil?
         classified.expires_on = get_date(row[0].strip) unless row[0].nil?

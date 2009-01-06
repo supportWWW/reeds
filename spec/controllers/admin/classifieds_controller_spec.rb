@@ -43,7 +43,7 @@ describe Admin::ClassifiedsController do
 
     before(:each) do
       @classified = mock_model(Classified)
-      Cyberstock.stub!(:all).and_return([@classified])
+      Cyberstock.stub!(:live).and_return([@classified])
     end
   
     def do_get
@@ -61,7 +61,7 @@ describe Admin::ClassifiedsController do
     end
   
     it "should find all cyberstock" do
-      Cyberstock.should_receive(:all).and_return([@classified])
+      Cyberstock.should_receive(:live).and_return([@classified])
       do_get
     end
   

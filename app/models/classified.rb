@@ -24,9 +24,10 @@ class Classified < ActiveRecord::Base
     classifieds
   end
 
-  def self.no_photos
+  def self.no_photos(branch_id = nil)
     classifieds = []
-    Classified.available.each do |classified|
+    available = branch_id.nil? ? Classified.available : Classified.available.find(:all, :conditions => { :branch_id => branch_id })
+    available.each do |classified|
       classifieds << classified if !classified.has_all_images?
     end
     classifieds
@@ -62,7 +63,7 @@ class Classified < ActiveRecord::Base
   
   # Default image
   def img_url
-    filename = cyberstock? ? "#{stock_code}_1.jpg" : "#{reg_num}_1.jpg"
+    filename = "#{reg_num}_1.jpg"
     File.exist?("#{RAILS_ROOT}/public/vehicles/#{filename}") ? "/vehicles/#{filename}" : ""
   end
   
@@ -70,7 +71,7 @@ class Classified < ActiveRecord::Base
     return @imgs unless @imgs.nil?
     @imgs = []
     %w(1 2 3).each do |suffix|
-      filename = cyberstock? ? "#{stock_code}_#{suffix}.jpg" : "#{reg_num}_#{suffix}.jpg"
+      filename = "#{reg_num}_#{suffix}.jpg"
       if File.exist?("#{RAILS_ROOT}/public/vehicles/#{filename}")
         @imgs << "/vehicles/#{filename}"
       end
@@ -90,7 +91,7 @@ class Classified < ActiveRecord::Base
   def missing_images
     imgs = []
     %w(1 2 3).each do |suffix|
-      filename = cyberstock? ? "#{stock_code}_#{suffix}.jpg" : "#{reg_num}_#{suffix}.jpg"
+      filename = "#{reg_num}_#{suffix}.jpg"
       if !File.exist?("#{RAILS_ROOT}/public/vehicles/#{filename}")
         imgs << suffix
       end

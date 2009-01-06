@@ -1,24 +1,32 @@
 <h2>Listing classifieds with no photo</h2>
 
-<table>
-  <tr>
-    <th>Stock code</th>
-    <th>Model</th>
-    <th>Price</th>
-    <th>Reg num</th>
-    <th>Days in stock</th>
-    <th>Missing photos</th>
-  </tr>
+<% Branch.all.each do |branch| %>
+	<% classifieds = Classified.no_photos(branch.id) %>
+	<% unless classifieds.empty? %>
 
-<% for classified in @classifieds %>
-  <tr>
-    <td><%=h classified.stock_code %></td>
-    <td><%=h classified.humanize %></td>
-    <td><%=h classified.price.format(:no_cents) %></td>
-    <td><%=h classified.reg_num %></td>
-    <td><%=h classified.days_in_stock %></td>
-    <td><%=h classified.missing_images.join(", ") %></td>
-    <td><%= link_to 'Show', admin_classified_path(classified) %> </td>
-  </tr>
+		<h3><%= branch.name %></h3>
+		<table>
+		  <tr>
+		    <th>Stock code</th>
+		    <th>Model</th>
+		    <th>Price</th>
+		    <th>Reg num</th>
+		    <th>Days in stock</th>
+		    <th>Missing photos</th>
+		  </tr>
+
+		<% for classified in classifieds %>
+		  <tr>
+		    <td><%=h classified.stock_code %></td>
+		    <td><%=h classified.humanize %></td>
+		    <td><%=h classified.price.format(:no_cents) %></td>
+		    <td><%=h classified.reg_num %></td>
+		    <td><%=h classified.days_in_stock %></td>
+		    <td><%=h classified.missing_images.join(", ") %></td>
+		    <td><%= link_to 'Show', admin_classified_path(classified) %> </td>
+		  </tr>
+		<% end %>
+		</table>
+
+	<% end %>
 <% end %>
-</table>
