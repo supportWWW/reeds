@@ -5,6 +5,7 @@ class ServiceBookingForm < ActiveRecord::BaseWithoutTable
   column :work_phone_number, :string
   column :problem_description, :string
   column :booking_date, :date
+  column :branch, :string
   
   validate :validate_booking_date
   
