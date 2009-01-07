@@ -70,6 +70,29 @@
 
 <% content_for(:actions) do %>
 
+	<% unless @classified.branch_id.nil? %>
+		<%= render :partial => "callback", :locals => { :classified => @classified } %>
+
+		<script type="text/javascript">
+		//<![CDATA[
+
+		 $('#callback_form').ajaxForm({
+			dataType: 'script',
+			beforeSubmit: function(xhr){
+				$('#callback_spinner').show();
+				$('#callback_form_errors').hide();
+				$('#callback_form_notice').hide();
+			},
+			success: function(data){
+				$('#callback_spinner').hide();
+				eval(data);
+			}
+		});
+		//]]>
+		</script>
+	<% end %>
+
 <% end -%>
+	
 	
 	
