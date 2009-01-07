@@ -3,6 +3,8 @@ tmp/*
 *.log
 public/javascripts/*_cached.js
 public/stylesheets/*_cached.css
+public/javascripts/cached_*.js
+public/stylesheets/cached_*.css
 public/uploaded_images/*
 public/uploaded_files/*
 public/vehicles/*
