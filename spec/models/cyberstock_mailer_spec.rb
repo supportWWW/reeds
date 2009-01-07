@@ -19,7 +19,7 @@ describe CyberstockMailer do
     @cyberstock.stub!(:physical_stock).and_return("phy555")
     @cyberstock.stub!(:colour).and_return("red")
     
-    mail = CyberstockMailer.deliver_soon_to_expire(["email1@spam.com", "email2@spam.com"], @cyberstock)
+    mail = CyberstockMailer.deliver_soon_to_expire(["email1@spam.com", "email2@spam.com"], [@cyberstock])
     ActionMailer::Base.deliveries.size.should == 1
     mail.to.should == ["joergd@pobox.com", "email1@spam.com", "email2@spam.com"]
     mail.body.should =~ /Audi A4/

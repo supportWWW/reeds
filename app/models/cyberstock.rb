@@ -9,15 +9,6 @@ class Cyberstock < Classified
   named_scope :soon_to_expire, lambda { { :conditions => ["removed_at is NULL AND expires_on <= ?", Date.today + 2.days] } }
   named_scope :all, :conditions => ["removed_at is NULL"]
   
-  def notify_of_expiry
-    if branch
-      CyberstockMailer.deliver_soon_to_expire(branch.salespeople_emails, self) 
-      puts "Notification for cyberstock #{stock_code} expiry delivered to #{branch.salespeople_emails.join(', ')}"
-    else
-      puts "Notification for cyberstock #{stock_code} expiry NOT SENT - no branch/emails to send to."
-    end      
-  end
-
   class << self
     
     def find_with_permalink( *args )
@@ -31,9 +22,18 @@ class Cyberstock < Classified
     alias_method_chain :find, :permalink
     
     def expiry_check
-      Cyberstock.soon_to_expire.each { |x| x.notify_of_expiry }
+      Branch.all.each do |branch|
+        unless branch.salespeople_emails.empty?
+          cyberstocks = Cyberstock.soon_to_expire.find(:all, :conditions => { :branch_id => branch.id })
+          unless cyberstocks.empty?
+            CyberstockMailer.deliver_soon_to_expire(branch.salespeople_emails, cyberstocks) 
+            puts "Notification for cyberstocks expiry delivered to #{branch.salespeople_emails.join(', ')}"
+          end
+        end
+      end
       true
     end
+
   end
 
 end

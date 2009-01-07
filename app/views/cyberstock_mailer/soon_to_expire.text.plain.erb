@@ -1,0 +1,14 @@
+Hello,
+
+This following cyberstock is expiring soon:
+
+<% @cyberstocks.each do |cyberstock| %>
+Stock code: <%= cyberstock.stock_code %> (based on #<%= cyberstock.physical_stock %>)
+Model: <%= cyberstock.humanize %>
+Year: <%= cyberstock.year %>
+Colour: <%= cyberstock.colour %>
+Mileage: <%= cyberstock.mileage %>
+Price: <%= cyberstock.price.format(:no_cents) %>
+
+<% end %>
+The Reeds Team

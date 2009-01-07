@@ -1,0 +1,18 @@
+<p>Hello,</p>
+
+<p>This following cyberstock is expiring soon:</p>
+
+<table border cellpadding="2">
+<% @cyberstocks.each do |cyberstock| %>
+<tr style="background-color: <%= cycle('#ffffff', '#F4F4F4') %>">
+	<td>#<%= cyberstock.stock_code %> (based on #<%= cyberstock.physical_stock %>)</td>
+	<td><%= cyberstock.humanize %></td>
+	<td><%= cyberstock.year %></td>
+	<td><%= cyberstock.mileage %>km</td>
+	<td><%= cyberstock.colour %></td>
+	<td><%= cyberstock.price.format(:no_cents) %></td>
+</tr>
+<% end %>
+</table>
+
+<p>The Reeds Team</p>
