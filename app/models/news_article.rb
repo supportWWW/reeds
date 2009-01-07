@@ -15,6 +15,8 @@ class NewsArticle < ActiveRecord::Base
   
   named_scope :live, :order => "publish_at desc"
   
+  before_create :set_publish_at
+  
   def source_url=( url )
     unless "http://" == url
       write_attribute_with_dirty( :source_url, url )
@@ -48,5 +50,9 @@ class NewsArticle < ActiveRecord::Base
   end
   
   
-  
+private
+
+  def set_publish_at
+    self[:publish_at] = Date.today
+  end
 end

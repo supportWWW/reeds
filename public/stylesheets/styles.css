@@ -843,3 +843,19 @@ font: normal 1.2em/1.3em "Arial", Helvetica, san-serif;
 margin: 0 15px 4px;
 list-style-type: disc;
 }
+
+/* new car table styles  */
+#newcars {margin: 0 0 0 15px;}
+#newcars table {
+border-collapse: collapse;
+width: 30%;
+float: left;
+margin: 0 15px 15px 0;
+border-top: 1px solid #afbbc7;
+border-left: 1px solid #afbbc7;
+font: normal 1.2em/1.2em "Arial", Helvetica, san-serif; 
+}
+#newcars #clearall {
+clear: both;
+width: 100%;
+}

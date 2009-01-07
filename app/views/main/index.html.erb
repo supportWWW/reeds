@@ -8,7 +8,7 @@
 			<div id="news">
 				<%= link_to(image_tag(news_article.image.public_filename(:thumb)), news_article_path(news_article), :title => "Click to read full news article") if news_article.image %>
 				<p>
-					<small><%= news_article.publish_at.to_date %></small><br>
+					<small><%= news_article.publish_at.to_date if news_article.publish_at %></small><br>
 					<strong><%= link_to news_article.title, news_article_path(news_article), :title => "Click to read full news article", :style => "text-decoration: none;" %></strong><br>
 					<%= truncate(news_article.text.gsub("*", ""), 150) %>
 				</p>
@@ -19,6 +19,14 @@
 	<% end %>
 
 </div><!-- end leftcol -->
+
+<!--div id="widecol"> 
+<h2>About Reeds Motor Group</h2>
+ <p><strong>Reeds Motor Group is Cape Town's largest independently owned General Motors Franchise Group.</strong> Cape Town's favourite car dealership has been operating since 1909, making 2009 our centenary year! We are celebrating by offering you the biggest range of guaranteed Cape Town used cars, and great deals on new cars from Opel, Isuzu, Chevrolet, Saab, Hummer and Cadillac.</p>
+<p>We have three modern and fully equipped vehicle dealerships (dealerships with a workshop) in Cape Town, N1 City and the Isuzu Truck Centre in Epping as well as a boutique dealership in Tygervalley.</p>      
+</div--><!-- end widecol -->
+
+
 
 <div id="middlecol">
 	<h2>Keep Informed</h2>
