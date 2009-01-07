@@ -629,6 +629,21 @@ table a, table img { padding: 0; margin: 0; color: #207ab4; }
 #fourthirty th { padding: 5px 7px; }
 #fourthirty td { padding: 3px 7px;}
 
+/* new car table styles  */
+#newcars {margin: 0 0 0 15px;}
+#newcars table {
+border-collapse: collapse;
+width: 30%;
+float: left;
+margin: 0 15px 15px 0;
+border-top: 1px solid #afbbc7;
+border-left: 1px solid #afbbc7;
+font: normal 1.2em/1.2em "Arial", Helvetica, san-serif; 
+}
+#newcars #clearall {
+clear: both;
+width: 100%;
+}
 
 /* pagination below tables */
 p#pages {
@@ -844,18 +859,3 @@ margin: 0 15px 4px;
 list-style-type: disc;
 }
 
-/* new car table styles  */
-#newcars {margin: 0 0 0 15px;}
-#newcars table {
-border-collapse: collapse;
-width: 30%;
-float: left;
-margin: 0 15px 15px 0;
-border-top: 1px solid #afbbc7;
-border-left: 1px solid #afbbc7;
-font: normal 1.2em/1.2em "Arial", Helvetica, san-serif; 
-}
-#newcars #clearall {
-clear: both;
-width: 100%;
-}
