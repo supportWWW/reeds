@@ -292,7 +292,7 @@ width: 720px;
 #header p strong { color: #cd001f; }
 #header p a { margin: 0 3px; text-decoration: none;}
 #header p a:hover { text-decoration: underline; }
-#header p a.locate-dealer { margin-left: 95px; }
+#header p a.locate-dealer { margin-left: 285px; }
 #header p small {
 font: normal 1em/1em "Arial", Helvetica, san-serif;  
 color: #e2ebf5;

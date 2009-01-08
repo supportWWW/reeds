@@ -1,6 +1,8 @@
 Hello <%= @name %>,
 
-Here is your daily stock list:
+To contact us or to express interest in any of our quality approved (114 point check)
+vehicles, please call Suzanne Denicker on 021 443 5130,
+or email her at suzanned@reeds.co.za
 
 <% @stocklist.each do |classified| -%>
 <%= "#{classified.humanize} #{classified.year} (#{classified.mileage}km) ##{classified.stock_code}: #{classified.price.format(:no_cents)}" %>
@@ -8,6 +10,6 @@ Here is your daily stock list:
 
 The Reeds Team
 
-To get in contact with us,
-please call Suzanne Denicker on 021 443 5100,
+To contact us or to express interest in any of our quality approved (114 point check)
+vehicles, please call Suzanne Denicker on 021 443 5130,
 or email her at suzanned@reeds.co.za
