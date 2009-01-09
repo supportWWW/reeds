@@ -8,5 +8,5 @@ class NewVehicleEnquiryForm < ActiveRecord::BaseWithoutTable
   column :branch_id, :integer
   column :accessories, :string
   
-  validates_presence_of :name, :email, :vehicle
+  validates_presence_of :name, :phone, :vehicle
 end
