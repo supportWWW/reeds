@@ -7,7 +7,7 @@ class StockListMailer < ActionMailer::Base
     recipients ["#{name} <#{email}>" ]
     from        "Reeds <direct@reeds.co.za>"
     sent_on    Time.now
-    body       :name => name, :stocklist => stocklist
+    body       :name => name, :email => email, :stocklist => stocklist
   end
 
 end
