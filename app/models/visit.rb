@@ -10,7 +10,7 @@ class Visit < ActiveRecord::Base
       write_attribute_with_dirty(:referer, 'Direct')
     else
       temp = referer.gsub( 'http://', "" )
-      if temp.include '/'
+      if temp.include? '/'
         write_attribute_with_dirty( :referer_host , temp[ 0, temp.index( '/' ) ])
       else
         write_attribute_with_dirty( :referer_host , temp )
