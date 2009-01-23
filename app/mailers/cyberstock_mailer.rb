@@ -4,7 +4,7 @@ class CyberstockMailer < ActionMailer::Base
   
   def soon_to_expire(tos, cyberstocks)
     subject    'Reeds  - Cyberstock Soon to Expire'
-    recipients ['joergd@pobox.com', *tos ]
+    recipients [*tos ]
     from        "i-am-robot-dont-respond@reeds.co.za"
     sent_on    Time.now
     body       :cyberstocks => cyberstocks
