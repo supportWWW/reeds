@@ -10,4 +10,8 @@ Phone: <%=h @form.phone %>
 SMS has been sent to the following people:
 <%= @salespeople.to_sentence %>
 
+<% unless @referrals.empty? %>
+Referral: <%= @referrals.join(", ") %>
+<% end %>
+
 The Reeds Team

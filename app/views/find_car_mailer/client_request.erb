@@ -8,4 +8,8 @@ Phone: <%=h @form.phone %>
 Criteria:
 <%=h @form.criteria %>
 
+<% unless @referrals.empty? %>
+Referral: <%= @referrals.join(", ") %>
+<% end %>
+
 The Reeds Team

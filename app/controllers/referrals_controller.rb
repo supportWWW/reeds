@@ -12,6 +12,8 @@ class ReferralsController < ApplicationController
       flash[:debug] = 'User clicked more than once on the same link '
     end
     
+    logger.info session.inspect
+    
     respond_to do |format|
       format.html { redirect_to @referral.redirect_to }
       format.jpeg do |format|

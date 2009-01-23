@@ -21,7 +21,7 @@ class ContactController < ApplicationController
     @form = FindCarForm.new( params[:form] )
     if request.post? and @form.valid?
       flash[:public_notice] = 'We received your message and will get in contact shortly'
-      FindCarMailer.deliver_client_request @form
+      FindCarMailer.deliver_client_request @form, get_referrals
       @success = true
     elsif request.post?
       @success = false
@@ -57,7 +57,7 @@ class ContactController < ApplicationController
     @form = UsedVehicleEnquiryForm.new( params[:form] )
     if request.post? and @form.valid?
       flash[:public_notice] = 'We received your enquiry and will get in contact shortly'
-      VehicleEnquiryMailer.deliver_used @form
+      VehicleEnquiryMailer.deliver_used @form, get_referrals
       @success = true
     elsif request.post?
       @success = false
@@ -71,7 +71,7 @@ class ContactController < ApplicationController
     @form = NewVehicleEnquiryForm.new( params[:form] )
     if request.post? and @form.valid?
       flash[:public_notice] = 'We received your enquiry and will get in contact shortly'
-      VehicleEnquiryMailer.deliver_neww @form
+      VehicleEnquiryMailer.deliver_neww @form, get_referrals
       @success = true
     elsif request.post?
       @success = false
@@ -85,7 +85,7 @@ class ContactController < ApplicationController
     @form = BookTestDriveForm.new( params[:form] )
     if request.post? and @form.valid?
       flash[:public_notice] = 'We received your enquiry and will get in contact shortly'
-      BookTestDriveMailer.deliver_neww @form
+      BookTestDriveMailer.deliver_neww @form, get_referrals
       @success = true
     elsif request.post?
       @success = false
@@ -114,7 +114,7 @@ class ContactController < ApplicationController
       end
       if @success
         flash[:public_notice] = 'We received your message and will get in contact shortly'
-        CallbackMailer.deliver_requested(@form, salespeople_names)
+        CallbackMailer.deliver_requested(@form, salespeople_names, get_referrals)
       else
         @form.errors.add(:base, 'Something went wrong. We were not able to send your message. Sorry. Please call us or email us rather ...')
       end
@@ -126,4 +126,16 @@ class ContactController < ApplicationController
       format.js
     end
   end
+  
+private
+
+  def get_referrals
+    referrals = []
+    unless session[:visits].blank?
+      referral_ids = session[:visits].split(",").map(&:to_i)
+      referrals = referral_ids.map { |referral_id| Referral.find(referral_id).name }
+    end
+    return referrals
+  end
+  
 end

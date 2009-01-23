@@ -2,20 +2,20 @@ class VehicleEnquiryMailer < ActionMailer::Base
   
   helper :application
   
-  def used( frm )
+  def used( frm, referrals )
     subject    'Reeds  - Used vehicle enquiry'
     recipients ['rv@imaginet.co.za', 'riaanv@reeds.co.za', 'direct@reeds.co.za']
     from        "i-am-robot-dont-respond@reeds.co.za"
     sent_on    Time.now
-    body       :form => frm
+    body       :form => frm, :referrals => referrals
   end
 
-  def neww( frm )
+  def neww( frm, referrals )
     subject    'Reeds  - New vehicle enquiry'
     recipients ['rv@imaginet.co.za', 'riaanv@reeds.co.za', 'direct@reeds.co.za']
     from        "i-am-robot-dont-respond@reeds.co.za"
     sent_on    Time.now
-    body       :form => frm
+    body       :form => frm, :referrals => referrals
   end
 
 private
@@ -30,4 +30,5 @@ private
     end
     arr
   end
+  
 end

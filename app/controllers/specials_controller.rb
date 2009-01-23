@@ -33,7 +33,7 @@ class SpecialsController < ApplicationController
     @form = SpecialsForm.new( params[:form] )
     if request.post? and @form.valid?
       flash[:public_notice] = 'We received your message and will get in contact shortly'
-      SpecialsMailer.deliver_client_request @form
+      SpecialsMailer.deliver_client_request @form, get_referrals
       @success = true
     elsif request.post?
       @success = false
@@ -42,5 +42,16 @@ class SpecialsController < ApplicationController
       format.js
     end
   end
+
+  private
+
+    def get_referrals
+      referrals = []
+      unless session[:visits].blank?
+        referral_ids = session[:visits].split(",").map(&:to_i)
+        referrals = referral_ids.map { |referral_id| Referral.find(referral_id).name }
+      end
+      return referrals
+    end
 
 end

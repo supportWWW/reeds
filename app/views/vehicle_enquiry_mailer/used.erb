@@ -12,4 +12,8 @@ Insurance: <%=h @form.insurance  %>
 Comments:
 <%=h @form.comments %>
 
+<% unless @referrals.empty? %>
+Referral: <%= @referrals.join(", ") %>
+<% end %>
+
 The Reeds Team
