@@ -49,7 +49,7 @@ class Money
       elsif self.class.zero
         self.class.zero
       else
-        format = "$0"
+        format = "R0"
         format << ".00" unless rules.include?(:no_cents)
         format
       end
