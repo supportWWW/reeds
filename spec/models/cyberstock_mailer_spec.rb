@@ -21,7 +21,7 @@ describe CyberstockMailer do
     
     mail = CyberstockMailer.deliver_soon_to_expire(["email1@spam.com", "email2@spam.com"], [@cyberstock])
     ActionMailer::Base.deliveries.size.should == 1
-    mail.to.should == ["joergd@pobox.com", "email1@spam.com", "email2@spam.com"]
+    mail.to.should == ["email1@spam.com", "email2@spam.com"]
     mail.body.should =~ /Audi A4/
   end
 end

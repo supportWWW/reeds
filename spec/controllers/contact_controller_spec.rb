@@ -46,7 +46,7 @@ describe ContactController do
   
   describe "GET used_vehicle_enquiry" do
     it "should be successful" do
-      xhr :post, 'used_vehicle_enquiry', :form => { :name => "Joerg", :phone => "123", :email => "me@spam.com", :vehicle => "My car" }
+      xhr :post, 'used_vehicle_enquiry', :form => { :first => "Joerg", :last => "Diek", :phone => "123", :email => "me@spam.com", :vehicle => "My car" }
       response.should be_success
       assigns[:success].should == true
     end
@@ -54,7 +54,7 @@ describe ContactController do
 
   describe "GET new_vehicle_enquiry" do
     it "should be successful" do
-      xhr :post, 'new_vehicle_enquiry', :form => { :name => "Joerg", :phone => "123", :email => "me@spam.com", :vehicle => "My car" }
+      xhr :post, 'new_vehicle_enquiry', :form => { :first => "Joerg", :last => "Diek", :phone => "123", :email => "me@spam.com", :vehicle => "My car" }
       response.should be_success
       assigns[:success].should == true
     end

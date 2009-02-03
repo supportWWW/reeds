@@ -2,7 +2,7 @@ class VehicleEnquiryMailer < ActionMailer::Base
   
   helper :application
   
-  def used( frm, referrals )
+  def used( frm, referrals = [] )
     subject    'Reeds  - Used vehicle enquiry'
     recipients ['rv@imaginet.co.za', 'riaanv@reeds.co.za', 'direct@reeds.co.za']
     from        "i-am-robot-dont-respond@reeds.co.za"
@@ -10,7 +10,7 @@ class VehicleEnquiryMailer < ActionMailer::Base
     body       :form => frm, :referrals => referrals
   end
 
-  def neww( frm, referrals )
+  def neww( frm, referrals = [])
     subject    'Reeds  - New vehicle enquiry'
     recipients ['rv@imaginet.co.za', 'riaanv@reeds.co.za', 'direct@reeds.co.za']
     from        "i-am-robot-dont-respond@reeds.co.za"
