@@ -56,6 +56,7 @@
 			<p>
 				<% link_to_section "Show accessories" do |cancel| %>	
 					<p><%= link_to_function("Hide accessories", cancel) %></p>
+						<p>Please note that these prices only apply to factory fitted accessories. If fitted by a dealer after delivery, you need to obtain a quote from your dealership.</p>
 						<table id="alt" border="0" cellpadding="0" cellspacing="0" class="accessories">
 							<tbody>
 								<% @new_vehicle.accessories.each do |accessory| %>
