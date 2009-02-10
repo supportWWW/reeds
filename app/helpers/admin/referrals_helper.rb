@@ -1,7 +1,7 @@
 module Admin::ReferralsHelper
 
   def referral_link( referral = @referral )
-    "#{public_path}#{visit_referral_path( referral)}"
+    "http://www.reeds.co.za#{visit_referral_path( referral)}"
   end
 
   def referral_graph( referral = @referral )    
