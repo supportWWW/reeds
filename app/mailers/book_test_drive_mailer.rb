@@ -4,7 +4,7 @@ class BookTestDriveMailer < ActionMailer::Base
   
   def neww( frm, referrals = [] )
     subject    'Reeds  - Book Test Drive'
-    recipients ['rv@imaginet.co.za', 'direct@reeds.co.za']
+    recipients ['direct@reeds.co.za']
     from        "i-am-robot-dont-respond@reeds.co.za"
     sent_on    Time.now
     body       :form => frm, :referrals => referrals

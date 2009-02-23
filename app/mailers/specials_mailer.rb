@@ -4,7 +4,7 @@ class SpecialsMailer < ActionMailer::Base
   
   def client_request( form, referrals = [] )
     subject    'Reeds  - Specials Request'
-    recipients ['rv@imaginet.co.za', 'direct@reeds.co.za' ]
+    recipients ['direct@reeds.co.za' ]
     from        "i-am-robot-dont-respond@reeds.co.za"
     sent_on    Time.now
     body       :form => form, :referrals => referrals

@@ -6,5 +6,5 @@ class SpecialsForm < ActiveRecord::BaseWithoutTable
   column :special, :string
   column :comments, :string
   
-  validates_presence_of :first, :last, :email, :special
+  validates_presence_of :first, :last, :email, :phone, :special
 end

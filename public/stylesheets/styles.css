@@ -273,26 +273,37 @@ margin: 0 auto;
 width: 900px;
 text-align: left;
 }
+
 #header {
 width: 900px;
 height: 92px;
 }
+
 h1 {
 margin: 20px 0 0 0;
 float: left;
 width: 158px;
+font: bold 1.5em/1.2em "Arial", Helvetica, san-serif;  
+}
+#header h2 {
+margin: 20px 0 0 0;
+padding: 0;
+float: right;
+font: bold 1em/1.2em "Arial", Helvetica, san-serif;  
+background: none;
 }
 #header p {
 font: normal 1.2em/1.2em "Arial", Helvetica, san-serif;  
 height: 27px;
+float: left;
+text-align: center;
+width: 584px;
 padding-top: 12px;
-float: right;
-width: 720px;
 }
 #header p strong { color: #cd001f; }
 #header p a { margin: 0 3px; text-decoration: none;}
 #header p a:hover { text-decoration: underline; }
-#header p a.locate-dealer { margin-left: 285px; }
+#header p a.locate-dealer { margin-left: 50px; }
 #header p small {
 font: normal 1em/1em "Arial", Helvetica, san-serif;  
 color: #e2ebf5;
@@ -301,23 +312,24 @@ color: #e2ebf5;
 
 /* main navigation */
 #nav-contain {
-width: 737px;
-float: right;
+width: 584px;
+float: left;
+margin: 0; 
+padding: 0;
 }
 #nav {
 position: relative;
 display: block;
 clear: left;
 float: left;
-width: 727px;
+width: 574px;
 background:url(/images/nav.gif) top left no-repeat;
 height: 36px;
 padding-left: 10px;
 }
 #nav li {
 float: left;
-font: bold italic 1.4em/1.2em "Arial Narrow", Arial, Helvetica, san-serif;  
-text-transform: uppercase;
+font: bold italic 1.45em/1.3em "Arial Narrow", Arial, Helvetica, san-serif;  
 }
 #nav li a span {cursor: pointer;}
 #nav li#margin { margin-right: 165px; }
@@ -330,17 +342,17 @@ height: 33px;
 color: #fff; 
 }
 #nav li a span {
-padding: 7px 14px 0 16px; 
-height: 26px;
+padding: 6px 11px 0 12px; 
+height: 27px;
 float: left;
 display: block;
 }
-#nav li:hover, #nav li.sfhover, #nav li a.current:hover, #nav li:hover a.current, #nav li.sfhover a.current { background: url(/images/nav-over-left.gif) 0 0 no-repeat; color: #154367; }
-#nav li:hover span, #nav li.sfhover span, #nav li a.current:hover span, #nav li:hover a.current span, #nav li.sfhover a.current span { background: url(/images/nav-over-right.gif) right 0 no-repeat; color: #154367;}
-#nav li#border a:hover, #nav li#border a.sfhover, #nav li#border a.current.sfhover { background: url(/images/nav-over-left-border.gif) 0 0 no-repeat; }
-#nav li#border a:hover span, #nav li#border a.sfhover span { background: url(/images/nav-over-right-border.gif) right 0 no-repeat;}
-#nav li a.current { background: url(/images/nav-current-left.gif) 0 0 no-repeat; }
-#nav li a.current span { background: url(/images/nav-current-right.gif) right 0 no-repeat;  }
+#nav li:hover, #nav li.sfhover, #nav li a.current:hover, #nav li:hover a.current, #nav li.sfhover a.current { background: url(/images/nav-over.gif) 0 0 no-repeat; color: #154367; }
+#nav li:hover span, #nav li.sfhover span, #nav li a.current:hover span, #nav li:hover a.current span, #nav li.sfhover a.current span { background: url(/images/nav-over.gif) bottom right no-repeat; color: #154367;}
+#nav li#border a:hover, #nav li#border a.sfhover, #nav li#border a.current.sfhover { background: url(/images/nav-over-border.gif) 0 0 no-repeat; }
+#nav li#border a:hover span, #nav li#border a.sfhover span { background: url(/images/nav-over-border.gif) bottom right no-repeat;}
+#nav li a.current { background: url(/images/nav-current.gif) 0 0 no-repeat; }
+#nav li a.current span { background: url(/images/nav-current.gif) bottom right no-repeat;  }
 
 
 /* sub-navigation */
@@ -354,13 +366,13 @@ background: #fff;
 #nav li li {
 float: left;
 text-transform: none;
-font: italic 1em/1.2em "Arial Narrow", Arial, Helvetica, san-serif;  
+font: italic 0.9em/1.3em "Arial Narrow", Arial, Helvetica, san-serif;  
 background: url(/images/subnav-divider.gif) right 8px no-repeat; 
 }
 #nav .current ul, #nav li:hover ul, #nav li.sfhover ul{
 top: 33px;
 left: 0;
-width: 730px;
+width: 578px;
 z-index: 2;
 padding-left: 6px;
 height: 30px;
@@ -369,7 +381,7 @@ background: url(/images/subnav.gif) bottom left no-repeat; }
 #nav .current ul{ z-index: 1;}
 #nav li li a{
 float: left;
-padding: 5px 15px 0 12px; 
+padding: 5px 10px 0 8px; 
 height: 25px;
 color: #154367;
 }

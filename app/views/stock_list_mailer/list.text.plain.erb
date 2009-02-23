@@ -5,7 +5,7 @@ vehicles, please call Suzanne Denicker on 021 443 5130,
 or email her at suzanned@reeds.co.za
 
 <% @stocklist.each do |classified| -%>
-<%= "#{classified.humanize} #{classified.year} (#{classified.mileage}km) ##{classified.stock_code}: #{classified.price.format(:no_cents)}" %>
+<%= "#{classified.humanize} #{classified.year} (#{classified.mileage}km) #{classified.colour} ##{classified.stock_code}: #{classified.price.format(:no_cents)}" %>
 <% end -%>
 
 The Reeds Team
