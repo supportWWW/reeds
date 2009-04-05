@@ -14,7 +14,7 @@
 <% end %>
 
 <p>
-	<%= image_tag @image.public_filename(:gallery) %>
+	<%= image_tag @image.public_filename(:gallery), :width => "620" %>
 </p>
 
 <% if @image.lower_item %>
