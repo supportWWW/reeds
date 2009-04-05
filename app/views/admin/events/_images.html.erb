@@ -1,0 +1,24 @@
+<h3>Images</h3>
+
+<div id="imagesPanel">
+  <% unless @event.images.blank? %>
+		<ul>
+	    <% for image in @event.images %>
+        <li id="<%= "image_#{image.id}"  %>"> 
+           <%= image_tag image.public_filename(:thumb) %> 
+           - <%= link_to_remote 'Remove this image', :url => admin_uploaded_image_path( image ), :method => :delete, :confirm => 'Are you sure?'  %>
+        </li>
+	    <% end  %>
+		</ul>
+  <% end  %><br/>
+	<p style="clear: both;">Please ensure the image is 200 x 150px in size.</p>
+    <p id="uploaded_images_item_0">
+      Name: <%= text_field_tag 'uploaded_images[0][name]' %>  
+      File: <%= file_field_tag 'uploaded_images_0'   %> 
+      <a href='javascript:void(0)' onclick="Element.remove( 'uploaded_images_item_0' ); return false;">Remove</a>  
+      <%= hidden_field_tag 'uploaded_images[0][file_field]', 'uploaded_images_0' %>  </p>
+
+			
+</div>
+
+<a href="javascript:void( 0 )" onclick="addNewImageField(); return false;"> New image </a>

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081205103229) do
+ActiveRecord::Schema.define(:version => 20090403120816) do
 
   create_table "accessories", :force => true do |t|
     t.string   "name"
@@ -100,6 +100,13 @@ ActiveRecord::Schema.define(:version => 20081205103229) do
     t.datetime "created_on"
   end
 
+  create_table "events", :force => true do |t|
+    t.string   "name"
+    t.date     "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "images", :force => true do |t|
     t.string   "filename"
     t.string   "content_type"
@@ -113,6 +120,8 @@ ActiveRecord::Schema.define(:version => 20081205103229) do
     t.datetime "updated_at"
     t.string   "name"
     t.string   "thumbnail"
+    t.string   "type"
+    t.integer  "position",     :limit => 11
   end
 
   add_index "images", ["owner_id"], :name => "index_images_on_owner_id"

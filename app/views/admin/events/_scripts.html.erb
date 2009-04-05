@@ -1,0 +1,19 @@
+<script>
+    //<!--
+    var imagesCount = 1;
+    function addNewImageField() {
+        addNewFileElement( 'imagesPanel' , imagesCount, 'uploaded_images');
+        imagesCount++;
+    }
+    
+    function addNewFileElement( panel, count, name ){
+        template = new Template( "\n<p id='#{itemName}_item_#{number}'>\nName: <input type='text' name='#{itemName}[#{number}][name]' />\n File: <input type='file' name='#{itemName}_#{number}'/>\n <input type='hidden' name='#{itemName}[#{number}][file_field]' value='#{itemName}_#{number}' /> \n <a href='javascript:void(0)' onclick='Element.remove( \"#{itemName}_item_#{number}\" ); return false;'>Remove</a> </p>" );
+        Element.insert( $( panel ), template.evaluate( { number: count, itemName: name } ) );
+    }
+
+    function removeNewFileElement( name, count ){
+        Element.remove( $( name + "_item_" + count ) )
+    }
+
+    //-->
+</script>

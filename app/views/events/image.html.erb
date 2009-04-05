@@ -1,0 +1,25 @@
+<% content_for(:browser_title) do %>
+	<%=h @event.name %>
+<% end -%>
+
+<% content_for(:title) do %>
+	<h2><%=h @event.name %>&nbsp;&nbsp;<span>(<%= link_to "Thumbnails", event_path(@event) %>)</span></h2>
+<% end -%>
+
+<% if @image.lower_item %>
+	<p style="float: left;"><%= link_to "Previous", image_event_path(:id => @event.id, :image_id => @image.lower_item.id) %></p>
+<% end %>
+<% if @image.higher_item %>
+	<p style="float: right;"><%= link_to "Next", image_event_path(:id => @event.id, :image_id => @image.higher_item.id) %></p>
+<% end %>
+
+<p>
+	<%= image_tag @image.public_filename(:gallery) %>
+</p>
+
+<% if @image.lower_item %>
+	<p style="float: left;"><%= link_to "Previous", image_event_path(:id => @event.id, :image_id => @image.lower_item.id) %></p>
+<% end %>
+<% if @image.higher_item %>
+	<p style="float: right;"><%= link_to "Next", image_event_path(:id => @event.id, :image_id => @image.higher_item.id) %></p>
+<% end %>

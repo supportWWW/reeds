@@ -66,3 +66,7 @@ table.accessories {
 li.non_list {
 	list-style-type: none;
 }
+
+h2 span {
+	font: 62.5% "Arial", Helvetica, san-serif;  
+}

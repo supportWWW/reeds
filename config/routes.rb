@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+
+
   map.resources :promotion_boxes
 
 
@@ -26,6 +28,8 @@ ActionController::Routing::Routes.draw do |map|
   map.affordability "/calculators/affordability", :controller => "calculators", :action => "affordability"
   map.book_service "service_and_parts/book", :controller => "service_and_parts", :action => "book"
 
+  map.resources :events, :member => { :image => :get }
+
   map.namespace(:admin) do |admin|
 
     admin.root :controller => 'dashboard', :action => 'index'
@@ -46,6 +50,7 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :categories
     admin.resources :news_articles
     admin.resources :promotion_boxes
+    admin.resources :events
 
     admin.assign_to_branch 'branches/:branch_id/assign/:id', :controller => 'branches', :action => 'assign', :conditions => { :method => :post }
     admin.remove_assignment 'branches/:branch_id/remove_assignment/:id', :controller => 'branches', :action => 'remove_assignment', :conditions => { :method => :delete }

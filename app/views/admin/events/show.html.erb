@@ -1,0 +1,22 @@
+<p>
+  <b>Name:</b>
+  <%=h @event.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_event_path(@event) %> |
+<%= link_to 'Back', admin_events_path %>
+
+
+<h3>Images</h3>
+
+<% unless @event.images.blank? %>
+  <ul>
+    <% for image in @event.images %>
+      <li> <%= image_tag image.public_filename(:thumb), :alt => image.name, :title => image.name %>  </li>
+    <% end  %>
+  </ul>
+<% else %>
+  <p>There are no images available yet.</p>
+<% end %>
+

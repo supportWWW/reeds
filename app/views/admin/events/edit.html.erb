@@ -1,0 +1,11 @@
+<h1>Editing event</h1>
+
+<% form_for :event, :url => admin_event_path(@event), :html => { :method => :put, :multipart => true }  do |f| -%>
+  <p>
+		<%= render :partial => "form", :locals => { :f => f } %>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', admin_event_path(@event) %> |
+<%= link_to 'Back', admin_events_path %>
