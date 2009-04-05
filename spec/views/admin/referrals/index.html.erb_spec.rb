@@ -7,10 +7,12 @@ describe "/admin/referrals/index.html.erb" do
     referral_98 = mock_model(Referral)
     referral_98.should_receive(:name).and_return("MyName")
     referral_98.should_receive(:source).and_return("MyString")
+    referral_98.should_receive(:visits).and_return(Visit.all)
     
     referral_99 = mock_model(Referral)
     referral_99.should_receive(:name).and_return("MyName")
     referral_99.should_receive(:source).and_return("MyString")
+    referral_99.should_receive(:visits).and_return(Visit.all)
 
     assigns[:referrals] = [referral_98, referral_99]
     assigns[:referrals].should_receive(:total_pages).twice.and_return( 1 )

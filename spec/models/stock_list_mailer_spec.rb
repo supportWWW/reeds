@@ -14,6 +14,7 @@ describe StockListMailer do
     @classified.stub!(:price).and_return(Money.new(1))
     @classified.stub!(:price_in_cents).and_return(1)
     @classified.stub!(:mileage).and_return("1")
+    @classified.stub!(:colour).and_return("Blue")
   end
 
   it "should generate email" do
