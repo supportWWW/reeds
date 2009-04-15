@@ -22,7 +22,7 @@
 		<%= f.text_field :booking_date %><br/>
 		Workshop<br/>
 		<%# Manual branch listing, as Tygervalley doesn't have a workshop %>
-		<%= f.select :branch, [["Reeds N1", "Reeds N1"], ["Reeds Cape Town", "Reeds Cape Town"], ["Isuzu Truck Centre", "Isuzu Truck Centre"]] %><br/>
+		<%= f.select :branch, [["Please select ...", ""], ["Reeds N1", "Reeds N1"], ["Reeds Cape Town", "Reeds Cape Town"], ["Isuzu Truck Centre", "Isuzu Truck Centre"]] %><br/>
 		Service requirements<br/>
 		<%= f.text_area :problem_description, :rows => 5 %><br/>
 		<input type="image" class="button" src="/images/btn-submit.gif" value="Submit" id="Submit" name="Submit" /><%= spinner("service_spinner") %>

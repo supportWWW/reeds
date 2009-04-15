@@ -11,7 +11,7 @@ class ServiceBookingForm < ActiveRecord::BaseWithoutTable
   
   validate :validate_booking_date
   
-  validates_presence_of :first, :last, :email, :cel_phone_number, :work_phone_number, :problem_description, :booking_date, :reg_num
+  validates_presence_of :first, :last, :email, :cel_phone_number, :work_phone_number, :problem_description, :booking_date, :reg_num, :branch
   
   def booking_date
       self[:booking_date] || 3.days.from_now.to_date
