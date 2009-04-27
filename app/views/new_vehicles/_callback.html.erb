@@ -10,7 +10,7 @@
 				<label>Phone number:</label><br/>
 				<%= f.text_field :phone %><br/>
 				<label>Branch:</label><br/>
-				<%= f.select :branch_id, Branch.find(:all).map { |branch| [branch.name, branch.id] } %><br/>
+				<%= f.select :branch_id, [["Please select ...", ""]] + Branch.find(:all).map { |branch| [branch.name, branch.id] } %><br/>
 				<%= f.hidden_field :vehicle %>
 				<input type="image" class="button" src="/images/btn-submit.gif" value="Submit" id="Submit" name="Submit" /><%= spinner("callback_spinner") %>
 			</div>

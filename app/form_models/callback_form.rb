@@ -4,5 +4,5 @@ class CallbackForm < ActiveRecord::BaseWithoutTable
   column :vehicle, :string
   column :branch_id, :integer
   
-  validates_presence_of :name, :phone, :vehicle
+  validates_presence_of :name, :phone, :vehicle, :branch_id
 end

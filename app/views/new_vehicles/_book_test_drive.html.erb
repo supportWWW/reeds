@@ -19,7 +19,7 @@
 			<label class="gap">Vehicle:</label><br/>
 			<%= f.select :vehicle, new_vehicle.new_vehicle_variants.map { |new_vehicle_variant| [new_vehicle_variant.name, new_vehicle_variant.humanize] } %><br/>
 			<label>Branch:</label><br/>
-			<%= f.select :branch, Branch.find(:all).map { |branch| [branch.name, branch.name] } %><br/>
+			<%= f.select :branch, [["Please select ...", ""]] + Branch.find(:all).map { |branch| [branch.name, branch.name] } %><br/>
 			<label>Comments:</label><br/>
 			<%= f.text_area :comments, :rows => 2, :cols => 27 %><br/>
 			<input type="image" class="button" src="/images/btn-submit.gif" value="Submit" id="Submit" name="Submit" /><%= spinner("book_test_drive_spinner") %>
