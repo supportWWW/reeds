@@ -117,6 +117,7 @@ class ContactController < ApplicationController
         CallbackMailer.deliver_requested(@form, salespeople_names, get_referrals)
       else
         @form.errors.add(:base, 'Something went wrong. We were not able to send your message. Sorry. Please call us or email us rather ...')
+        CallbackMailer.deliver_requested(@form, [], get_referrals)
       end
       
     elsif request.post?
