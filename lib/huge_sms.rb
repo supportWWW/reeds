@@ -20,6 +20,7 @@ class HugeSms
       puts xml
       ActiveRecord::Base.logger.info xml
       return_xml = http.post("/SMS/SMSSend.jsp", "xmldata=#{xml}").body
+      ActiveRecord::Base.logger.info return_xml
       return_xml.include?("OK")
     end
   end
