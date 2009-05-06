@@ -18,7 +18,7 @@
 				<strong>Phone: </strong><%=h branch.phone %>
 				<strong>Fax: </strong><%=h branch.fax %>
 			</p>
-			<%= simple_format(sanitize(branch.address)) %>
+			<%= simple_format(branch.address) %>
 			<h4>Managers</h4>
 			<table>
 				<% branch.salespeople.managers.each do |manager| -%>
