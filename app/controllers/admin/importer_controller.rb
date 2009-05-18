@@ -7,9 +7,13 @@ class Admin::ImporterController < Admin::ApplicationController
     if request.post?
       
       unless params[:file].blank?
-        StockFileImporterService.instance.process( params[:file] )
-        flash[:notice] = 'The file you provided has been imported'
-        redirect_to :action => 'import_stock'
+        added, @error = StockFileImporterService.instance.process( params[:file] )
+        if @error.blank?
+          flash[:notice] = 'The file you provided has been imported'
+        else
+          flash[:error] = "The file had errors."
+        end
+        # redirect_to :action => 'import_stock'
       else
         flash[:error] = 'You have to provide a file to upload'
       end
@@ -21,9 +25,12 @@ class Admin::ImporterController < Admin::ApplicationController
     if request.post?
       
       unless params[:file].blank?
-        CyberstockFileImporterService.instance.process( params[:file] )
-        flash[:notice] = 'The file you provided has been imported'
-        redirect_to :action => 'import_cyberstock'
+        added, @error = CyberstockFileImporterService.instance.process( params[:file] )
+        if @error.blank?
+          flash[:notice] = 'The file you provided has been imported'
+        else
+          flash[:error] = "The file had errors."
+        end
       else
         flash[:error] = 'You have to provide a file to upload'
       end
@@ -35,9 +42,12 @@ class Admin::ImporterController < Admin::ApplicationController
     if request.post?
       
       unless params[:file].blank?
-        NewVehicleFileImporterService.instance.process(params[:new_vehicle_id], params[:file])
-        flash[:notice] = 'The file you provided has been imported'
-        redirect_to :action => 'import_new_vehicles'
+        added, @error = NewVehicleFileImporterService.instance.process(params[:new_vehicle_id], params[:file])
+        if @error.blank?
+          flash[:notice] = 'The file you provided has been imported'
+        else
+          flash[:error] = "The file had errors."
+        end
       else
         flash[:error] = 'You have to provide a file to upload'
       end
@@ -49,9 +59,12 @@ class Admin::ImporterController < Admin::ApplicationController
     if request.post?
       
       unless params[:file].blank?
-        AccessoriesFileImporterService.instance.process(params[:new_vehicle_id], params[:file])
-        flash[:notice] = 'The file you provided has been imported'
-        redirect_to :action => 'import_accessories'
+        added, @error = AccessoriesFileImporterService.instance.process(params[:new_vehicle_id], params[:file])
+        if @error.blank?
+          flash[:notice] = 'The file you provided has been imported'
+        else
+          flash[:error] = "The file had errors."
+        end
       else
         flash[:error] = 'You have to provide a file to upload'
       end
@@ -63,9 +76,12 @@ class Admin::ImporterController < Admin::ApplicationController
     
     if request.post?
       unless params[:file].blank?
-        MeadMcgroutherImporterService.instance.process( params[:file] )
-        flash[:notice] = 'The file you provided has been imported'
-        redirect_to :action => 'import_mm'
+        added, @error = MeadMcgroutherImporterService.instance.process( params[:file] )
+        if @error.blank?
+          flash[:notice] = 'The file you provided has been imported'
+        else
+          flash[:error] = "The file had errors."
+        end
       else
         flash[:error] = 'You have to provide a file to upload'
       end

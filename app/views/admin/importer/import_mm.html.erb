@@ -10,3 +10,11 @@
       <br/>
       <%= submit_tag 'Import'   %>
 <% end  %>
+
+
+
+<div style="color:red;">
+	<% if defined?(@error) && !@error.blank? %>
+		There were errors on the following lines: <%= @error.to_sentence %>.
+	<% end %>
+</div>

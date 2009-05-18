@@ -29,6 +29,7 @@
 				      end
 				  %>
 				  <%= content_tag :div, content_tag(:img, msg, :src => src, :class => 'flash_icon'), :id => key %>
+					<% flash.delete(key) %>
 				<% end %>
 				<div id="main_content">
 					<%= yield %>
