@@ -5,8 +5,10 @@
 			<div id="callback_form_notice" class="notice" style="display: none;"></div>
 		  <div id="callback_form_errors" class="error" style="display: none;"></div>
 			<div class="form">
-				<label>Name:</label><br/>
-				<%= f.text_field :name %><br/>
+				<label>First Name:</label><br/>
+				<%= f.text_field :first %><br/>
+				<label>Last Name:</label><br/>
+				<%= f.text_field :last %><br/>
 				<label>Phone number:</label><br/>
 				<%= f.text_field :phone %><br/>
 				<%= f.hidden_field :vehicle %>

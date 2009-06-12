@@ -98,7 +98,7 @@ class ContactController < ApplicationController
   def callback
     @form = CallbackForm.new( params[:form] )
     if request.post? and @form.valid?
-      msg = "REEDS: Please call #{@form.name} on #{@form.phone} re #{@form.vehicle}."
+      msg = "REEDS: Please call #{@form.first} #{@form.last} on #{@form.phone} re #{@form.vehicle}."
       branch = Branch.find(@form.branch_id)
       @success = false
       salespeople_names = []
