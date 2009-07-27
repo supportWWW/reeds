@@ -66,6 +66,16 @@ class Classified < ActiveRecord::Base
     filename = "#{reg_num}_1.jpg"
     File.exist?("#{RAILS_ROOT}/public/vehicles/#{filename}") ? "/vehicles/#{filename}" : ""
   end
+
+  # Default image - used for Carfind for example
+  def full_img_url
+    @full_image_url ||= nil
+    if @full_image_url.nil?
+      filename = "#{reg_num}_1.jpg"
+      @full_image_url = File.exist?("#{RAILS_ROOT}/public/vehicles/#{filename}") ? "http://www.reeds.co.za/vehicles/#{filename}" : ""
+    end
+    @full_image_url
+  end
   
   def images
     return @imgs unless @imgs.nil?

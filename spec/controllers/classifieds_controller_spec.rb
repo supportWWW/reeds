@@ -81,4 +81,25 @@ describe ClassifiedsController do
     end
   end
 
+  describe "handling GET /classifieds/carfind.xml" do
+
+    before(:each) do
+      @classified = mock_model(Classified)
+      Classified.stub!(:find_by_permalink).and_return(@classified)
+    end
+  
+    def do_get
+      get :carfind, :format => :xml
+    end
+
+    it "should be successful" do
+      do_get
+      response.should be_success
+    end
+  
+    it "should assign the found classified for the view" do
+      do_get
+      assigns[:classifieds].should equal([@classified])
+    end
+  end
 end

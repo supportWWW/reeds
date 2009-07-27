@@ -10,7 +10,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :referrals, :member => { :visit => :get }
   map.resources :news_articles
   map.resources :branches
-  map.resources :classifieds
+  map.resources :classifieds, :collection => { :carfind => :get }
   map.resources :pages
   map.resources :specials, :member => { :enquire => :post }
 

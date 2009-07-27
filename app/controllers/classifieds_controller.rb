@@ -1,6 +1,6 @@
 class ClassifiedsController < ApplicationController
 
-  caches_page :show
+  caches_page :show, :index, :carfind
   
   # GET /classifieds
   # GET /classifieds.xml
@@ -27,4 +27,10 @@ class ClassifiedsController < ApplicationController
     end
   end
 
+  def carfind
+    @classifieds = Classified.available
+    respond_to do |format|
+      format.xml
+    end
+  end
 end
