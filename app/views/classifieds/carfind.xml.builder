@@ -11,7 +11,7 @@ xml.root do
       row.Pic classified.full_img_url
       row.Region "Western Cape"
       row.DealershipID (classified.branch.nil? ? "" : classified.branch.id)
-      row.DealershipName (classified.branch.nil? ? "" : classified.branch.name)
+      row.DealershipName (classified.branch.nil? ? "Reeds" : "Reeds " + classified.branch.name)
       row.Email "suzanned@reeds.co.za"
       row.PhoneNumber "021 443 5130"
       row.CellNumber ""

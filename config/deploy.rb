@@ -90,6 +90,8 @@ end
 
 task :chmod_tmp_folder do
   run "chmod -R 777 #{deploy_to}/current/tmp"
+  run "mkdir #{deploy_to}/current/tmp/attachment_fu"
+  run "chmod -R 777 #{deploy_to}/current/tmp/attachment_fu"
 end
 
 # this will create the shared folder at 'cap deploy:setup'
