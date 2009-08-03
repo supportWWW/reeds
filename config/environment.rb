@@ -31,7 +31,8 @@ Rails::Initializer.run do |config|
   config.gem 'RedCloth', :version => '3.0.4', :lib => 'redcloth'
   config.gem 'gchartrb', :version => '0.8', :lib => 'google_chart'
   config.gem 'fastercsv', :version => '1.2.3'
-  config.gem 'money', :version => '1.7.1'
+  config.gem 'money', :version => '2.1.4'
+  config.gem 'mailbuild', :version => '1.1.2'
   config.gem 'jcnetdev-active_record_without_table', :lib => 'active_record_without_table', :version => '1.1'
   
   # Only load the plugins named here, in the order given. By default, all plugins 
