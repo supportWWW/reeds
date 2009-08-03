@@ -1,11 +1,13 @@
-<tr id="assignment_<%= assignment.id  %>">
-  <td>
-    <%=h assignment.salesperson.job_title %>
-  </td>
-  <td>
-    <%=h assignment.salesperson.name %>
-  </td>
-  <td>
-    <%= link_to_remove_assignment( assignment ) %>
-  </td>
-</tr>
+<% if assignment.salesperson %>
+	<tr id="assignment_<%= assignment.id  %>">
+	  <td>
+	    <%=h assignment.salesperson.job_title %>
+	  </td>
+	  <td>
+	    <%=h assignment.salesperson.name %>
+	  </td>
+	  <td>
+	    <%= link_to_remove_assignment( assignment ) %>
+	  </td>
+	</tr>
+<% end %>
