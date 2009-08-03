@@ -9,17 +9,5 @@ describe Salesperson do
     @salesperson.should be_valid
   end
   
-  it 'Should have an error on name if no name is provided' do
-    should_have_errors @salesperson, :name
-  end
-
-  it 'Should have an error on phone if no phone is provided' do
-    should_have_errors @salesperson, :phone
-  end
-  
-  it 'Should have an error on email if no email is provided' do
-    should_have_errors @salesperson, :email
-  end  
-  
   
 end

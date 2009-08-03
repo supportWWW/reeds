@@ -8,9 +8,9 @@
     <% for variant in @new_vehicle.new_vehicle_variants %>
       <tr>
         <td> <%= variant.name %>  </td>
-        <td> <%= variant.excl.format(:no_cents) %>  </td>
-        <td> <%= variant.vat.format(:no_cents) %>  </td>
-        <td> <%= variant.price.format(:no_cents) %>  </td>
+        <td> <%= variant.excl.format %>  </td>
+        <td> <%= variant.vat.format %>  </td>
+        <td> <%= variant.price.format %>  </td>
         <td> <%= variant.model_reference %>  </td>
       </tr>
     <% end  %>
@@ -30,9 +30,9 @@
     <% for accessory in @new_vehicle.accessories %>
       <tr>
         <td> <%= accessory.name %>  </td>
-        <td> <%= accessory.excl.format(:no_cents) if accessory.excl %>  </td>
-        <td> <%= accessory.vat.format(:no_cents) if accessory.vat %>  </td>
-        <td> <%= accessory.price.format(:no_cents) if accessory.price %>  </td>
+        <td> <%= accessory.excl.format if accessory.excl %>  </td>
+        <td> <%= accessory.vat.format if accessory.vat %>  </td>
+        <td> <%= accessory.price.format if accessory.price %>  </td>
         <td> <%= accessory.model_reference %>  </td>
       </tr>
     <% end  %>

@@ -1,0 +1,65 @@
+--- !ruby/object:Gem::Specification 
+name: mailbuild
+version: !ruby/object:Gem::Version 
+  version: 1.1.2
+platform: ruby
+authors: 
+- Cameron Yule
+autorequire: 
+bindir: bin
+cert_chain: []
+
+date: 2008-11-10 00:00:00 +02:00
+default_executable: 
+dependencies: []
+
+description: 
+email: cameron@cameronyule.com
+executables: []
+
+extensions: []
+
+extra_rdoc_files: 
+- README
+- MIT-LICENSE
+files: 
+- lib/mailbuild
+- lib/mailbuild/mailbuild.rb
+- lib/mailbuild/mailbuild_error.rb
+- lib/mailbuild.rb
+- lib/support
+- lib/support/cattr_accessor.rb
+- README
+- MIT-LICENSE
+has_rdoc: true
+homepage: http://rubyforge.org/projects/mailbuild/
+post_install_message: 
+rdoc_options: 
+- --title
+- Mailbuild | RDoc documentation
+- --main
+- README
+- --line-numbers
+require_paths: 
+- lib
+required_ruby_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+required_rubygems_version: !ruby/object:Gem::Requirement 
+  requirements: 
+  - - ">="
+    - !ruby/object:Gem::Version 
+      version: "0"
+  version: 
+requirements: []
+
+rubyforge_project: mailbuild
+rubygems_version: 1.3.1
+signing_key: 
+specification_version: 2
+summary: Ruby interface to the Mailbuild API.
+test_files: []
+

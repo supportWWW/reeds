@@ -1,3 +1,5 @@
+require File.dirname(__FILE__) + '/../rspec_default_values'
+
 class RspecScaffoldGenerator < Rails::Generator::NamedBase
   default_options :skip_migration => false
   
@@ -28,19 +30,7 @@ class RspecScaffoldGenerator < Rails::Generator::NamedBase
       @controller_class_name = "#{@controller_class_nesting}::#{@controller_class_name_without_nesting}"
     end
     
-    if Rails::VERSION::STRING < "2.0.0"
-      @resource_generator = "scaffold_resource"
-      @default_file_extension = "rhtml"
-		else
-      @resource_generator = "scaffold"
-      @default_file_extension = "html.erb"
-    end
-    
-    if ActionController::Base.respond_to?(:resource_action_separator)
-      @resource_edit_path = "/edit"
-    else
-      @resource_edit_path = ";edit"
-    end
+    @default_file_extension = "html.erb"
   end
 
   def manifest
@@ -55,39 +45,48 @@ class RspecScaffoldGenerator < Rails::Generator::NamedBase
       m.directory(File.join('app/controllers', controller_class_path))
       m.directory(File.join('app/helpers', controller_class_path))
       m.directory(File.join('app/views', controller_class_path, controller_file_name))
+      m.directory(File.join('app/views/layouts', controller_class_path))
+      m.directory(File.join('public/stylesheets', class_path))
+
       m.directory(File.join('spec/controllers', controller_class_path))
+      m.directory(File.join('spec/routing', controller_class_path))
       m.directory(File.join('spec/models', class_path))
       m.directory(File.join('spec/helpers', class_path))
       m.directory File.join('spec/fixtures', class_path)
       m.directory File.join('spec/views', controller_class_path, controller_file_name)
+      m.directory File.join('spec/integration', class_path)
       
+      # Layout and stylesheet.
+      m.template("scaffold:layout.html.erb", File.join('app/views/layouts', controller_class_path, "#{controller_file_name}.html.erb"))
+      m.template("scaffold:style.css", 'public/stylesheets/scaffold.css')
+
       # Controller spec, class, and helper.
       m.template 'rspec_scaffold:routing_spec.rb',
-        File.join('spec/controllers', controller_class_path, "#{controller_file_name}_routing_spec.rb")
+        File.join('spec/routing', controller_class_path, "#{controller_file_name}_routing_spec.rb")
 
       m.template 'rspec_scaffold:controller_spec.rb',
         File.join('spec/controllers', controller_class_path, "#{controller_file_name}_controller_spec.rb")
 
-      m.template "#{@resource_generator}:controller.rb",
+      m.template "scaffold:controller.rb",
         File.join('app/controllers', controller_class_path, "#{controller_file_name}_controller.rb")
 
       m.template 'rspec_scaffold:helper_spec.rb',
         File.join('spec/helpers', class_path, "#{controller_file_name}_helper_spec.rb")
 
-      m.template "#{@resource_generator}:helper.rb",
+      m.template "scaffold:helper.rb",
         File.join('app/helpers', controller_class_path, "#{controller_file_name}_helper.rb")
 
       for action in scaffold_views
         m.template(
-          "#{@resource_generator}:view_#{action}.#{@default_file_extension}",
+          "scaffold:view_#{action}.#{@default_file_extension}",
           File.join('app/views', controller_class_path, controller_file_name, "#{action}.#{default_file_extension}")
         )
       end
       
       # Model class, unit test, and fixtures.
-      m.template 'model:model.rb',      File.join('app/models', class_path, "#{file_name}.rb")
-      m.template 'model:fixtures.yml',  File.join('spec/fixtures', class_path, "#{table_name}.yml")
-      m.template 'rspec_model:model_spec.rb',       File.join('spec/models', class_path, "#{file_name}_spec.rb")
+      m.template 'model:model.rb',            File.join('app/models', class_path, "#{file_name}.rb")
+      m.template 'model:fixtures.yml',        File.join('spec/fixtures', class_path, "#{table_name}.yml")
+      m.template 'rspec_model:model_spec.rb', File.join('spec/models', class_path, "#{file_name}_spec.rb")
 
       # View specs
       m.template "rspec_scaffold:edit_erb_spec.rb",
@@ -98,6 +97,9 @@ class RspecScaffoldGenerator < Rails::Generator::NamedBase
         File.join('spec/views', controller_class_path, controller_file_name, "new.#{default_file_extension}_spec.rb")
       m.template "rspec_scaffold:show_erb_spec.rb",
         File.join('spec/views', controller_class_path, controller_file_name, "show.#{default_file_extension}_spec.rb")
+
+      # Integration
+      m.template 'integration_spec:integration_spec.rb', File.join('spec/integration', class_path, "#{table_name}_spec.rb")
 
       unless options[:skip_migration]
         m.migration_template(
@@ -140,21 +142,6 @@ end
 module Rails
   module Generator
     class GeneratedAttribute
-      def default_value
-        @default_value ||= case type
-          when :int, :integer               then "\"1\""
-          when :float                       then "\"1.5\""
-          when :decimal                     then "\"9.99\""
-          when :datetime, :timestamp, :time then "Time.now"
-          when :date                        then "Date.today"
-          when :string                      then "\"MyString\""
-          when :text                        then "\"MyText\""
-          when :boolean                     then "false"
-          else
-            ""
-        end      
-      end
-
       def input_type
         @input_type ||= case type
           when :text                        then "textarea"

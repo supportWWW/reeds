@@ -4,8 +4,6 @@
 class ApplicationController < ActionController::Base
   self.allow_forgery_protection = false
 
-  #session :off
-
   include ExceptionNotifiable
   before_filter :use_jquery
   

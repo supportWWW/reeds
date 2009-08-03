@@ -45,7 +45,7 @@
 					<tr>
 						<td><%=h @new_vehicle.name %> <%=h new_vehicle_variant.name %></td>
 						<td><%=h new_vehicle_variant.model_reference %></td>
-						<td><%=h new_vehicle_variant.price.format(:no_cents) %></td>
+						<td><%=h new_vehicle_variant.price.format %></td>
 					</tr>
 				<% end %>
 			</tbody>
@@ -64,7 +64,7 @@
 										<td><%=h accessory.name.capitalize %></td>
 										<td>
 											<% if accessory.price %>
-												<%=h accessory.price.format(:no_cents) %>
+												<%=h accessory.price.format %>
 											<% else %>
 												Quote
 											<% end %>

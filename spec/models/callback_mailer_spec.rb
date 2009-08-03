@@ -9,7 +9,7 @@ describe CallbackMailer do
   end
 
   it "should generate used email" do
-    mail = CallbackMailer.deliver_requested(CallbackForm.new(:name => "Joerg", :phone => "0214465543", :vehicle => "Isuzu"), ["Bob", "Mary"])
+    mail = CallbackMailer.deliver_requested(CallbackForm.new(:first => "Joerg", :last => "Diekmann", :phone => "0214465543", :vehicle => "Isuzu"), ["Bob", "Mary"])
     ActionMailer::Base.deliveries.size.should == 1
     mail.to.should == ["direct@reeds.co.za"]
     mail.body.should =~ /Isuzu/

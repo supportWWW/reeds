@@ -198,6 +198,11 @@ class Money
   def format(*rules)
     # support for old format parameters
     rules = normalize_formatting_rules(rules)
+
+    # JOERG
+    if rules.empty?
+      rules = { :no_cents => true, :symbol => "R" }
+    end
     
     if cents == 0
       if rules[:display_free].respond_to?(:to_str)

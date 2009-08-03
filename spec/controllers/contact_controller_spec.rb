@@ -38,7 +38,7 @@ describe ContactController do
 
   describe "GET find_car" do
     it "should be successful" do
-      xhr :post, 'find_car', :form => { :name => "Joerg", :phone => "123", :email => "me@spam.com", :criteria => "My car" }
+      xhr :post, 'find_car', :form => { :first => "Joerg", :last => "Diejk", :phone => "123", :email => "me@spam.com", :criteria => "My car" }
       response.should be_success
       assigns[:success].should == true
     end
@@ -54,7 +54,7 @@ describe ContactController do
 
   describe "GET new_vehicle_enquiry" do
     it "should be successful" do
-      xhr :post, 'new_vehicle_enquiry', :form => { :first => "Joerg", :last => "Diek", :phone => "123", :email => "me@spam.com", :vehicle => "My car" }
+      xhr :post, 'new_vehicle_enquiry', :form => { :first => "Joerg", :last => "Diek", :phone => "123", :email => "me@spam.com", :vehicle => "My car", :branch => "N1" }
       response.should be_success
       assigns[:success].should == true
     end
@@ -67,7 +67,7 @@ describe ContactController do
       @salesperson = Salesperson.create!( :name => 'test', :phone => '0824477057', :email => 'mauricio@gmail.com', :job_title => "Salesperson", :sms_contact_me => true )
       @assignment = Assignment.create!( :branch => @branch, :salesperson => @salesperson )
 
-      xhr :post, 'callback', :form => { :name => "Joerg", :phone => "123", :vehicle => "My car", :branch_id => @branch.id }
+      xhr :post, 'callback', :form => { :first => "Joerg", :last => "Diek", :phone => "123", :vehicle => "My car", :branch_id => @branch.id }
       response.should be_success
       assigns[:success].should == true
     end
