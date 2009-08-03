@@ -4,7 +4,7 @@ class Salesperson < ActiveRecord::Base
   
   validates_presence_of :name, :phone, :email, :job_title
 
-  JOB_TITLES = ["Salesperson", "Dealer Principal", "Service Manager", "New Vehicle Manager", "Used Vehicle Manager", "Parts Manager"]
+  JOB_TITLES = ["Salesperson", "Dealer Principal", "Service Manager", "New Vehicle Manager", "Used Vehicle Manager", "Parts Manager", "General Sales Manager"]
   
   named_scope :managers, :conditions => ["job_title != ?", "Salesperson"]
   named_scope :sms_callbacks, :conditions => { :sms_contact_me => true }
