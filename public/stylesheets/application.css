@@ -70,3 +70,27 @@ li.non_list {
 h2 span {
 	font: 62.5% "Arial", Helvetica, san-serif;  
 }
+
+
+
+/* page flip */
+img { behavior: url(/stylesheets/iepngfix.htc) }
+#pageflip {
+	position: relative;
+	right: 0; top: 0;
+	float: right; 
+}
+#pageflip img {
+	width: 50px; height: 52px;
+	z-index: 99;
+	position: absolute;
+	right: 0; top: 0;
+	-ms-interpolation-mode: bicubic;
+}
+#pageflip .msg_block {
+	width: 50px; height: 50px;
+	overflow: hidden;
+	position: absolute;
+	right: 0; top: 0;
+	background: url(/images/100-years.png) no-repeat right top;
+}

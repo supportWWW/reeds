@@ -13,13 +13,17 @@
 		<%= stylesheet_link_tag "print", :media => "print" %>
 		<% if @use_jquery %>
 		    <%= javascript_include_tag "jquery-1.2.6.pack.js", "frontend", :cache => "cached_jquery"  %>
-				<%= javascript_include_tag "jquery-form.js", "jquery-ui-1.5rc1.min.js", "jquery.highlight.js", "accordion.js", "cycle.js", "slider.js", "suckerfish.js", :cache => "cached_jquery_extras" %>
+				<%= javascript_include_tag "jquery-form.js", "jquery-ui-1.5rc1.min.js", "jquery.highlight.js", "accordion.js", "cycle.js", "slider.js", "suckerfish.js", "pageflip.js", :cache => "cached_jquery_extras" %>
 		<% end  %>
 		<%= yield :header %>
 	</head>
 
 	<body>
-
+		
+		<div id="pageflip"> <a href="/pages/reeds-centenary-year"><img src="/images/page_flip.png" alt="" /></a> 
+		  <div class="msg_block"></div>
+		</div>
+		
 		<div id="wrapper">
 			<div id="header">
 				<h1><a href="/" title="Home"><img src="/images/reeds.gif" alt="REEDS New and Used Cars in Cape Town"></a></h1>
