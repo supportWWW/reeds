@@ -2,8 +2,8 @@ class StockList
   def self.send
     stocklist = stock
 
-    Mailbuild.default_list_id = MAILBUILD_STOCK_LIST_ID
-    subscribers = Mailbuild.subscribers("2008-01-01 00:00:00")
+    #Mailbuild.default_list_id = MAILBUILD_STOCK_LIST_ID
+    subscribers = Mailbuild.subscribers("2008-01-01 00:00:00", MAILBUILD_STOCK_LIST_ID)
 
     subscribers.each do |subscriber|
       StockListMailer.deliver_list(subscriber[:name], subscriber[:email], stocklist)
