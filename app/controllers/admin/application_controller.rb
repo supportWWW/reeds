@@ -64,6 +64,7 @@ class Admin::ApplicationController < ActionController::Base
   def expire_home
     cache_dir = ActionController::Base.page_cache_directory
     FileUtils.rm(Dir.glob(cache_dir + "/index.html")) rescue Errno::ENOENT
+    FileUtils.rm(Dir.glob(cache_dir + "/cruze.html")) rescue Errno::ENOENT
     RAILS_DEFAULT_LOGGER.info("Home cache fully sweeped.")
   end
 end
