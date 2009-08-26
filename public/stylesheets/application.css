@@ -94,3 +94,73 @@ img { behavior: url(/stylesheets/iepngfix.htc) }
 	right: 0; top: 0;
 	background: url(/images/100-years.png) no-repeat right top;
 }
+
+
+
+/* new vehicle feature header */
+h2.new {
+width: 622px;
+height: 45px;
+margin: 0 0 15px 15px;
+background: #003f75 url(/images/h2-new.gif) 0 0 no-repeat;
+color: #fff;
+font: bold italic 2.8em/1.45em "Arial Narrow", Arial, Helvetica, san-serif;  
+text-transform: none;
+padding: 0 0;
+}
+h2.new span {
+color: #fff;
+float: left;
+width: 77px;
+margin: 0;
+padding: 0 0 0 12px;
+font: bold italic 1em/1.45em "Arial Narrow", Arial, Helvetica, san-serif;  
+}
+#new-gallery {
+width: 622px;
+margin: 0 0 15px 0;
+float: left;
+padding-left: 15px;
+}
+#new-gallery img { float: left; margin: 0 1px 1px 0;}
+#new-gallery #thumbs { float: left; width: 248px; margin: 0;}
+#thumbs img {width: auto;}
+p.pdf { 
+background: #ebf1f6 url(/images/pdf-bg.gif) 0 bottom no-repeat;
+text-align: left; 
+padding: 6px 0 7px 12px;
+font: normal 1.1em/1.3em "Arial", Helvetica, san-serif; 
+}
+/* secondary page columns */
+#twofourtyeight { width: 263px;float: left;}
+#threeseventwo { width: 372px; float: left; }
+#threeseventwo h4 {
+background: none;
+text-transform: none;
+font: bold italic 2.5em/1.45em "Arial Narrow", Arial, Helvetica, san-serif;  
+padding: 0;
+margin: 0 0 10px 15px;
+}
+#twofourtyeight #enquiry {
+width: 233px;
+margin: 0 0 0 15px;
+background: none; 
+border: 1px solid #B4CFE2;
+}
+#twofourtyeight #enquiry div {
+width: 233px;
+margin: 0;
+border: 0;
+padding: 0 0 10px;
+background: none; 
+background: url(/images/enquiry-btm.gif) 0 bottom no-repeat; 
+}
+#twofourtyeight #enquiry .form {width: auto;}
+#twofourtyeight #enquiry div form input, #enquiry form textarea, #enquiry form select, #actions form input, #actions form textarea, .sidebox form select { width: 90%;}
+img.brdr {
+border: 1px solid #afbbc7;
+padding: 2px;
+margin: 0 0 10px 15px;
+}
+/* home page columns */
+#middlecol {margin: 15px 0 0;}

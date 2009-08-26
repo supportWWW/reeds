@@ -28,6 +28,8 @@ ActionController::Routing::Routes.draw do |map|
   map.affordability "/calculators/affordability", :controller => "calculators", :action => "affordability"
   map.book_service "service_and_parts/book", :controller => "service_and_parts", :action => "book"
 
+  map.cruze "cruze", :controller => "custom", :action => "cruze"
+
   map.resources :events, :member => { :image => :get }
 
   map.namespace(:admin) do |admin|

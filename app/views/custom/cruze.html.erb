@@ -1,0 +1,275 @@
+<% content_for(:browser_title) do %>
+	Chevrolet Cruze
+<% end -%>
+
+<% content_for(:title) do %>
+	<h2 class="new"><span>NEW</span> 		 Chevrolet Cruze</h2>
+<% end -%>
+
+      <div id="new-gallery"> 
+        <script language="JavaScript" type="text/javascript">
+	function movepic(img_name,img_src) {
+		document[img_name].src=img_src;
+	}
+</script>
+        <div id="thumbs"> 
+	    <a href="#" onclick="movepic('main','/images/cruze/cruze1.jpg')"><img alt="Image" src="/images/cruze/cruze1-s.jpg" title="CHEVROLET Cruze" /></a> 
+          <a href="#" onclick="movepic('main','/images/cruze/cruze2.jpg')"><img alt="Image" src="/images/cruze/cruze2-s.jpg" title="CHEVROLET Cruze" /></a> 
+          <a href="#" onclick="movepic('main','/images/cruze/cruze3.jpg')"><img alt="Image" src="/images/cruze/cruze3-s.jpg" title="CHEVROLET Cruze" /></a> 
+          <a href="#" onclick="movepic('main','/images/cruze/cruze4.jpg')"><img alt="Image" src="/images/cruze/cruze4-s.jpg" title="CHEVROLET Cruze" /></a> 
+          <a href="#" onclick="movepic('main','/images/cruze/cruze5.jpg')"><img alt="Image" src="/images/cruze/cruze5-s.jpg" title="CHEVROLET Cruze" /></a> 
+          <a href="#" onclick="movepic('main','/images/cruze/cruze6.jpg')"><img alt="Image" src="/images/cruze/cruze6-s.jpg" title="CHEVROLET Cruze" /></a> 
+        </div>
+        <!-- end thumbs -->
+	  <img alt="Image" height="248" name="main" src="/images/cruze/cruze1.jpg" title="CHEVROLET Cruze" width="372" /> 
+        
+      </div>
+      <!-- end new-gallery -->
+
+					<div id="twofourtyeight">
+
+					<p class="pdf"><strong><a href="/uploaded_files/0000/0003/Chevrolet_Captiva_Specs.pdf" onclick="window.open(this.href);return false;" title="Chevrolet_Captiva_Specs.pdf">Download</a> 
+			            a detailed PDF</strong><br />
+			            brochure for this vehicle</p>
+
+			        <div id="enquiry"> 
+			          <div> 
+			            <h3>Vehicle enquiry</h3>
+			            <div id="enquiry_form_notice" class="notice" style="display: none;"></div>
+			            <div id="enquiry_form_errors" class="error" style="display: none;"></div>
+			            <form action="/contact/new_vehicle_enquiry" id="enquiry_form" method="post">
+			              <div class="form"> 
+			                <label>Your first name:</label>
+			                <input id="form_first" name="form[first]" size="30" type="text" />
+			                <br/>
+			                <label>Your last name:</label>
+			                <input id="form_last" name="form[last]" size="30" type="text" />
+			                <br/>
+			                <label>Telephone No:</label>
+			                <input id="form_phone" name="form[phone]" size="30" type="text" />
+			                <br/>
+			                <label>Email address: </label>
+			                <input id="form_email" name="form[email]" size="30" type="text" />
+			                <br/>
+			                <label>Branch:</label>
+			                <br/>
+			                <select id="form_branch" name="form[branch]">
+			                  <option value="">Please select ...</option>
+			                  <option value="Tygervalley">Tygervalley</option>
+			                  <option value="Cape Town">Cape Town</option>
+			                  <option value="N1 City">N1 City</option>
+			                  <option value="Isuzu Truck Centre">Isuzu Truck Centre</option>
+			                  <option value="Premium Brands">Premium Brands</option>
+			                </select>
+			                <br/>
+			                <input class="radio" id="form_insurance_i_require_insurance" name="form[insurance]" type="radio" value="I require insurance" />
+			                I require insurance.<br/>
+			                <input class="radio" id="form_insurance_i_have_insurance_but_would_like_another_insurance_quote" name="form[insurance]" type="radio" value="I have insurance, but would like another insurance quote" />
+			                I have insurance, but would like another insurance quote.<br/>
+			                <label class="gap">Vehicle:</label>
+			                <select id="form_vehicle" name="form[vehicle]">
+			                  <option value="CHEVROLET CRUZE 1.6 L">CHEVROLET CRUZE 1.6 L</option>
+			                  <option value="CHEVROLET CRUZE 1.6 LS">CHEVROLET CRUZE 1.6 LS</option>
+			                  <option value="CHEVROLET CRUZE 1.8 LS">CHEVROLET CRUZE 1.8 LS</option>
+			                  <option value="CHEVROLET CRUZE 1.8 LT A/T">CHEVROLET CRUZE 1.8 LT A/T</option>
+			                </select>
+			                <br/>
+			                <label>Accessories:</label>
+			                <textarea cols="40" id="form_accessories" name="form[accessories]" rows="2"></textarea>
+			                <br/>
+			                <label>Comments:</label>
+			                <textarea cols="40" id="form_comments" name="form[comments]" rows="2"></textarea>
+			                <br/>
+			                <input type="image" class="button" src="/images/btn-submit.gif" value="Submit" id="Submit" name="Submit" />
+			                <span id='enquiry_spinner' style='display:none;'><img alt="Spinner" src="/images/spinner.gif" /></span> 
+			              </div>
+			            </form>
+			          </div>
+			        </div>
+			        <!-- end enquiry -->
+			        <script type="text/javascript">
+			//<![CDATA[
+
+			 $('#enquiry_form').ajaxForm({
+				dataType: 'script',
+				beforeSubmit: function(xhr){
+					$('#enquiry_spinner').show();
+					$('#enquiry_form_errors').hide();
+					$('#enquiry_form_notice').hide();
+				},
+				success: function(data){
+					$('#enquiry_spinner').hide();
+					eval(data);
+				}
+			});
+			//]]>
+			</script>
+			      </div>
+			      <!-- end twofourtyeight -->
+
+						      <div id="threeseventwo"> 
+
+							  <h4>They're here! </h4>
+
+								<p>The new Chevy Cruze is set to make its mark in the South African and global auto markets with its sporty nature and sexy styling. The arrival of Cruze spearheads an exciting new product roll-out program that is expected to propel the brand to even greater success globally.
+						Cruze features a dramatic re-interpretation of the traditional sedan featuring Chevrolet's new global design language which is becoming a signature on all new products carrying the gold bowtie.</p>
+						<p>Cruze's arching roof-line, extending from the steeply raked windshield to its sloping rear pillars and short rear deck, brings coupe-like proportions to a compact sedan. </p>
+
+						<p>Wider and longer than most of its competitors, Cruze has a purposeful stance with its wheels located at the outer edges of the tautly drawn bodywork. Noticeably tight body panel fits and a restrained use of exterior trim add to a high quality, ‘hewn from solid' appearance. 
+						Cruze's dramatic profile is matched by bold front styling, with large headlamp housings that wrap around the front corners and sweep up, arrow-like, into the fenders and sculpted hood. </p>
+
+						<p>Other distinct design themes include a concave shoulder line, the two-tier grille and a “wheels-out/body–in” stance. Inside, Cruze features a ‘twin cockpit' design motif, first introduced in the iconic Corvette sports car. </p>
+
+						<p>At launch in south Africa, the Cruze will be available with 16v, 1.6-litre , (80 kW) and 16v 1.8-litre, 103 kW petrol engines featuring variable valve timing (VVT) on both inlet and exhaust sides, giving more power as well as better fuel economy and lower emissions. </p>
+
+						<p>A new 2.0-litre turbo diesel, developing 110 kW and 320 Nm of torque adds power with even greater frugality. Five-speed manual gearboxes and an all-new automatic transmission, Chevrolet's first six-speed application in the compact segment, complete the power-train menu. </p>
+
+						<p>The new Cruze marks Chevrolet's entry into the value sector of the midsize segment in South Africa and will be available in 5 offerings, i.e. 1.6L 5M/T, 1.6LS 5M/T, 1.8LS 5M/T, 1.8LT 6A/T and( in 2010) the 2.0LT 5M/T .</p>
+
+						<p><strong>The model line-up will be:</strong></p>
+						<ul>
+						<li>CHEVROLET CRUZE 1.6 L - R 174,192.00</li>
+						<li>CHEVROLET CRUZE 1.6 LS - R 186,126.00</li>
+						<li>CHEVROLET CRUZE 1.8 LS - R 204,133.00</li>
+						<li>CHEVROLET CRUZE 1.8 LT A/T - R 244,440.00</li>
+						</ul>
+						<br />
+
+
+						        <div id="callus"> 
+						          <h3>Call us now about this car!</h3>
+						          <p>If you are excited to get your new car right now, don't hesitate 
+						            and contact <strong>Suzanne</strong> now on <strong>021 443 5130</strong> 
+						            and quote the vehicle mod ref.</p>
+						        </div>
+						        <!-- end callus -->
+
+						      </div>
+						      <!-- end threeseventwo -->
+
+	
+<% content_for(:actions) do %>
+
+        <div class="sidebox callback"> 
+          <h3>Request a Call-back</h3>
+          <p>We'll call you back as soon as<br />
+            an agent becomes free.</p>
+          <form action="/contact/callback" id="callback_form" method="post">
+            <div id="callback_form_notice" class="notice" style="display: none;"></div>
+            <div id="callback_form_errors" class="error" style="display: none;"></div>
+            <div class="form"> 
+              <label>First Name:</label>
+              <br/>
+              <input id="form_first" name="form[first]" size="30" type="text" />
+              <br/>
+              <label>Last Name:</label>
+              <br/>
+              <input id="form_last" name="form[last]" size="30" type="text" />
+              <br/>
+              <label>Phone number:</label>
+              <br/>
+              <input id="form_phone" name="form[phone]" size="30" type="text" />
+              <br/>
+              <label>Branch:</label>
+              <br/>
+              <select id="form_branch_id" name="form[branch_id]">
+                <option value="">Please select ...</option>
+                <option value="1">Tygervalley</option>
+                <option value="2">Cape Town</option>
+                <option value="3">N1 City</option>
+                <option value="4">Isuzu Truck Centre</option>
+                <option value="5">Premium Brands</option>
+              </select>
+              <br/>
+              <input id="form_vehicle" name="form[vehicle]" type="hidden" value="CHEVROLET Cruze" />
+              <input type="image" class="button" src="/images/btn-submit.gif" value="Submit" id="Submit" name="Submit" />
+              <span id='callback_spinner' style='display:none;'><img alt="Spinner" src="/images/spinner.gif" /></span> 
+            </div>
+          </form>
+        </div>
+        <div class="sidebox testdrive"> 
+          <h3>Book a Test Drive</h3>
+          <div id="book_test_drive_form_notice" class="notice" style="display: none;"></div>
+          <div id="book_test_drive_form_errors" class="error" style="display: none;"></div>
+          <form action="/contact/new_vehicle_book_test_drive" id="book_test_drive_form" method="post">
+            <div class="form"> 
+              <label>Your first name:</label>
+              <input id="form_first" name="form[first]" size="30" type="text" />
+              <br/>
+              <label>Your last name:</label>
+              <input id="form_last" name="form[last]" size="30" type="text" />
+              <br/>
+              <label>Telephone No:</label>
+              <input id="form_phone" name="form[phone]" size="30" type="text" />
+              <br/>
+              <label>Email address: </label>
+              <input id="form_email" name="form[email]" size="30" type="text" />
+              <br/>
+              <label class="gap">Vehicle:</label>
+              <br/>
+              <select id="form_vehicle" name="form[vehicle]">
+                <option value="CHEVROLET CRUZE 1.6 L">CHEVROLET CRUZE 1.6 L</option>
+                <option value="CHEVROLET CRUZE 1.6 LS">CHEVROLET CRUZE 1.6 LS</option>
+                <option value="CHEVROLET CRUZE 1.8 LS">CHEVROLET CRUZE 1.8 LS</option>
+                <option value="CHEVROLET CRUZE 1.8 LT A/T">CHEVROLET CRUZE 1.8 LT A/T</option>
+              </select>
+              <br/>
+              <label>Branch:</label>
+              <br/>
+              <select id="form_branch" name="form[branch]">
+                <option value="">Please select ...</option>
+                <option value="Tygervalley">Tygervalley</option>
+                <option value="Cape Town">Cape Town</option>
+                <option value="N1 City">N1 City</option>
+                <option value="Isuzu Truck Centre">Isuzu Truck Centre</option>
+                <option value="Premium Brands">Premium Brands</option>
+              </select>
+              <br/>
+              <label>Comments:</label>
+              <br/>
+              <textarea cols="27" id="form_comments" name="form[comments]" rows="2"></textarea>
+              <br/>
+              <input type="image" class="button" src="/images/btn-submit.gif" value="Submit" id="Submit" name="Submit" />
+              <span id='book_test_drive_spinner' style='display:none;'><img alt="Spinner" src="/images/spinner.gif" /></span> 
+            </div>
+          </form>
+        </div>
+        <script type="text/javascript">
+//<![CDATA[
+
+ $('#book_test_drive_form').ajaxForm({
+	dataType: 'script',
+	beforeSubmit: function(xhr){
+		$('#book_test_drive_spinner').show();
+		$('#book_test_drive_form_errors').hide();
+		$('#book_test_drive_form_notice').hide();
+	},
+	success: function(data){
+		$('#book_test_drive_spinner').hide();
+		eval(data);
+	}
+});
+//]]>
+</script>
+        <script type="text/javascript">
+	//<![CDATA[
+
+	 $('#callback_form').ajaxForm({
+		dataType: 'script',
+		beforeSubmit: function(xhr){
+			$('#callback_spinner').show();
+			$('#callback_form_errors').hide();
+			$('#callback_form_notice').hide();
+		},
+		success: function(data){
+			$('#callback_spinner').hide();
+			eval(data);
+		}
+	});
+	//]]>
+	</script>
+      </div>
+
+
+<% end -%>
+	
