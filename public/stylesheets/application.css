@@ -164,3 +164,5 @@ margin: 0 0 10px 15px;
 }
 /* home page columns */
 #middlecol {margin: 15px 0 0;}
+
+#leftcol p.twitter { width: 255px; margin: 0; float: none; clear: both; text-align: right;}
