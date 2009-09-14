@@ -5,7 +5,7 @@
 	</div>
 	<div style="overflow: hidden; position: relative;" id="fW_Content">
 		<% Special.slideshow.each do |special| %>
-			<%= link_to(image_tag(special.image.public_filename(:slideshow), :alt => special.title), special_url(special), :title => special.title) %>
+			<%= link_to(image_tag(special.image.public_filename(:slideshow), :alt => special.title), special_url(special), :title => special.title) if special.image %>
 		<% end %>
 	</div>
 </div><!-- end featureWrapper //-->
