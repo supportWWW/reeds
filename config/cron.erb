@@ -1,3 +1,3 @@
 00 * * * * cd <%= current_path %>; RAILS_ENV=production /usr/bin/rake -f <%= current_path %>/Rakefile chores:hourly >> <%= deploy_to %>/shared/log/cron/hourly.txt
-01 0 * * * cd <%= current_path %>; RAILS_ENV=production /usr/bin/rake -f <%= current_path %>/Rakefile chores:daily >> <%= deploy_to %>/shared/log/cron/daily.txt
+01 8 * * * cd <%= current_path %>; RAILS_ENV=production /usr/bin/rake -f <%= current_path %>/Rakefile chores:daily >> <%= deploy_to %>/shared/log/cron/daily.txt
 02 0 * * 1 cd <%= current_path %>; RAILS_ENV=production /usr/bin/rake -f <%= current_path %>/Rakefile chores:weekly >> <%= deploy_to %>/shared/log/cron/weekly.txt
