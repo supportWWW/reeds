@@ -2,78 +2,123 @@
 
 	<div class="form">
 	
-    <%= error_messages_for :form %>
-
   <script>
     <!--
-        function updateModels() {
-           new Ajax.Request( '/contact/load_models', { method : 'get', parameters: { make_id: $F( 'make_id' ) } }  ) 
-           Element.show( 'models_spinner' )
-        }
-        
-        function updateModelVariants() {
-           new Ajax.Request( '/contact/load_model_variants', { method : 'get', parameters: { model_id: $F( 'model_id' ) } }  ) 
-           Element.show( 'model_variants_spinner' )
-        }
+				$(document).ready(function(){
+					$('#sell_your_car_form_make_id').change(function(e){
+						$("#sell_models_spinner").show();
+						$.ajax({
+							type: "GET",
+							url: "/contact/load_models",
+							data: { make_id: this.value },
+							success: function(data, textStatus){
+								$("#sell_models_spinner").hide();
+								eval(data);
+							},
+							error: function (XMLHttpRequest, textStatus, errorThrown) {
+								$("#sell_models_spinner").hide();
+								eval(XMLHttpRequest.responseText);
+							}
+						});
+						return false;
+					});
 
+
+					$('#sell_your_car_form_model_id').change(function(e){
+						$("#sell_model_variants_spinner").show();
+						$.ajax({
+							type: "GET",
+							url: "/contact/load_model_variants",
+							data: { model_id: this.value },
+							success: function(data, textStatus){
+								$("#sell_model_variants_spinner").hide();
+								eval(data);
+							},
+							error: function (XMLHttpRequest, textStatus, errorThrown) {
+								$("#sell_model_variants_spinner").hide();
+								eval(XMLHttpRequest.responseText);
+							}
+						});
+						return false;
+					});
+				});
+				
 -->
   </script>
 
-  <p>
-    <b>Your name:</b><br/>
-    <%= f.text_field :your_name %>
-  </p>
+		<% unless @form.errors.empty? %>
+			<div class="error">
+				<%= error_messages_for :form %>
+			</div>
+		<% end %>
+		<br/>
 
-  <p>
-    <b>Your email:</b><br/>
-    <%= f.text_field :your_email %>
-  </p>
+		<table  style="border: 0px;" class="sellcar">
+			<tr>
+				<td style="border: 0px;">
+			    Make<br/>
+			    <%= select_tag :sell_your_car_form_make_id, sell_makes_options(params[:sell_your_car_form_make_id]) %><br/>
 
-  <p>
-    <b>Your contact phone number:</b><br/>
-    <%= f.text_field :your_contact_phone_number %>
-  </p>
+			    Model<br/> 
+			    <%= select_tag :sell_your_car_form_model_id, sell_model_ranges_options(params[:sell_your_car_form_make_id], params[:sell_your_car_form_model_id]) %> <%= spinner 'sell_models_spinner' %><br/>
 
-  <p>
-    <b>Make</b><br/>
-    <%= select_tag :make_id, makes_options, :onchange => 'updateModels();' %>
-  </p>
+			    Year<br/> 
+			    <%= f.select :model_variant_id, [ ['Select a model first...', ''] ] %> <%= spinner 'sell_model_variants_spinner' %><br/>
 
-  <p>
-    <b>Model</b><br/> 
-    <%= select_tag :model_id, '<option>Select a make first...</option>', :onchange => 'updateModelVariants()' %> <%= spinner 'models_spinner' %>
-  </p>
+				  <span class="info">If your car is not included in these listings, please add it's information on the description field, including make, model and year.</span><br/>
+					If your car is not listed<br/> 
+			    <%= f.text_area :vehicle_details, :rows => 3, :cols => 30, :value => "enter make and model and year here" %><br/>
 
-  <p>
-    <b>Year</b><br/> 
-    <%= f.select :model_variant_id, [ ['Select a model first...', ''] ] %> <%= spinner 'model_variants_spinner' %>
-  </p>
+				</td>
+				<td style="border: 0px;">
+					What do you owe on your vehicle:<br/>
+			    R<%= f.text_field :owe %><br/>
 
-  <p>If your car is not included in these listings, please add it's information on the description field, including make, model and year.</p>
+					EXPECTED PRICE:<br/>
+			    R<%= f.text_field :expected_price %><br/>
 
-  <p>
-    <b>Has full service history? </b> 
-     <%= f.check_box :has_full_service_history %>
-  </p>
+					Condition<br/>
+					<%= f.select :condition, [["Excellent", "Excellent"], ["Good", "Good"], ["Fair", "Fair"], ["Poor", "Poor"]] %><br/>
 
-  <p>
-    <b>Are you interested in buying a new or pre-owned vehicle? </b>
-    <%= f.check_box :interested_in_buying  %>
-  </p>
+			<%# 
+			    Has full service history?  
+			     <--%= f.check_box :has_full_service_history %--><br/>
 
-  <p>
-    <b>Color</b><br/>
-    <%= f.text_field :color %>
-  </p>
+			    Are you interested in buying a new or pre-owned vehicle? 
+			    <--%= f.check_box :interested_in_buying  %--><br/>
+			%>
 
-  <p>
-      <b>Vehicle details (Accessories and description information):</b><br/>
-    <%= f.text_area :vehicle_details %>
-  </p>
+			    Color<br/>
+			    <%= f.text_field :color %><br/>
 
-  <p>
-    <input type="image" class="button" src="/images/btn-submit.gif" value="Submit" id="Submit" name="Submit" /><%= spinner("enquiry_spinner") %>
-  </p>
+			    Metallic<br/>
+					<%= f.select :metallic, [["Yes", 1], ["No", 0]] %><br/>
+
+			    Mileage<br/>
+			    <%= f.text_field :mileage %><br/>
+				</td>
+			</tr>
+			<tr>
+				<td style="border: 0px;">
+			    Your first name:<br/>
+			    <%= f.text_field :your_first_name %><br/>
+
+			    Your last name:<br/>
+			    <%= f.text_field :your_last_name %><br/>
+
+			    Your email:<br/>
+			    <%= f.text_field :your_email %><br/>
+
+			    Your contact phone number:<br/>
+			    <%= f.text_field :your_contact_phone_number %><br/>
+
+			    <input type="image" class="button" src="/images/btn-submit.gif" value="Submit" id="Submit" name="Submit" /><%= spinner("enquiry_spinner") %>
+
+				</td>
+			</tr>
+		</table>
+
+
 
 	</div>
 <% end  %>

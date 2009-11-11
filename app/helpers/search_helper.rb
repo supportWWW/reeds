@@ -1,17 +1,17 @@
 module SearchHelper
-  def makes_for_select(type="classified")
-    makes = type == "classified" ? Make.find_in_stock.collect { |m| [m.name, m.id] } : Make.new_vehicles.collect { |m| [m.name, m.id] }
+  def makes_for_select(type2="classified")
+    makes = type2 == "classified" ? Make.find_in_stock.collect { |m| [m.name, m.id] } : Make.new_vehicles.collect { |m| [m.name, m.id] }
     makes.insert(0, [ 'Any make', '' ])
   end
   
-  def makes_options(type="classified", selected=nil)
+  def makes_options(type2="classified", selected=nil)
     selected = nil if selected && selected.to_i == 0
     unless selected.nil?
       if selected.class != Make
         selected = Make.find(selected.to_i)
       end
     end
-    options_for_select(makes_for_select(type), selected.nil? ? nil : [selected.name, selected.id])
+    options_for_select(makes_for_select(type2), selected.nil? ? nil : [selected.name, selected.id])
   end
 
   def models_for_select(make=nil)

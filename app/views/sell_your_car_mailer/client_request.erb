@@ -6,13 +6,25 @@ A client is interested in selling it's car at Reeds, here are the details:
 Make: <%=h @form.model_variant.model.make.name %>
 Model: <%=h @form.model_variant.model.name  %>
 Year: <%=h @form.model_variant.year %>
+<% else %>
+Vehicle details: <%=h @form.vehicle_details %>
 <% end  -%>
-Name: <%=h @form.your_name %>
+Owed: R<%=h @form.owe %>
+Expected: R<%=h @form.expected_price %>
+Condition: <%=h @form.condition %>
+Car color: <%=h @form.color %>
+Metallic: <%=h @form.metallic %>
+Mileage: <%=h @form.mileage %>
+<%# 
+Interested in buying a new or pre-owned car: <--%=h boolean_label @form.interested_in_buying %-->
+Has full service history: <--%=h boolean_label @form.has_full_service_history %-->
+%>
+
+Contact Details:
+First Name: <%=h @form.your_first_name %>
+Last Name: <%=h @form.your_last_name %>
 Email: <%=h @form.your_email %>
 Contact phone: <%=h @form.your_contact_phone_number %>
-Car color: <%=h @form.color %>
-Vehicle details: <%=h @form.vehicle_details %>
-Interested in buying a new or pre-owned car: <%=h boolean_label @form.interested_in_buying %>
-Has full service history: <%=h boolean_label @form.has_full_service_history %>
+
 
 The Reeds Team

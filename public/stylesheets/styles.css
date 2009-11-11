@@ -634,6 +634,8 @@ border-bottom: 1px solid #afbbc7;
 vertical-align: top;
 }
 td * {	padding: 6px 11px;}
+.sellcar td * { padding: 0px; }
+
 tr.alt td {background: #eff4f6;}
 tr.over td, tr:hover td {background: #d9e7f4;}
 table a, table img { padding: 0; margin: 0; color: #207ab4; }
