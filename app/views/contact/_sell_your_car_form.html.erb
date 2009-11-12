@@ -53,9 +53,6 @@
 		<% end %>
 		<br/>
 
-		<table  style="border: 0px;" class="sellcar">
-			<tr>
-				<td style="border: 0px;">
 			    Make<br/>
 			    <%= select_tag :sell_your_car_form_make_id, sell_makes_options(params[:sell_your_car_form_make_id]) %><br/>
 
@@ -69,8 +66,6 @@
 					If your car is not listed<br/> 
 			    <%= f.text_area :vehicle_details, :rows => 3, :cols => 30, :value => "enter make and model and year here" %><br/>
 
-				</td>
-				<td style="border: 0px;">
 					What do you owe on your vehicle:<br/>
 			    R<%= f.text_field :owe %><br/>
 
@@ -96,10 +91,8 @@
 
 			    Mileage<br/>
 			    <%= f.text_field :mileage %><br/>
-				</td>
-			</tr>
-			<tr>
-				<td style="border: 0px;">
+
+					<br/><br/>
 			    Your first name:<br/>
 			    <%= f.text_field :your_first_name %><br/>
 
@@ -113,11 +106,6 @@
 			    <%= f.text_field :your_contact_phone_number %><br/>
 
 			    <input type="image" class="button" src="/images/btn-submit.gif" value="Submit" id="Submit" name="Submit" /><%= spinner("enquiry_spinner") %>
-
-				</td>
-			</tr>
-		</table>
-
 
 
 	</div>
