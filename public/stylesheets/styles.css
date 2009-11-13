@@ -634,7 +634,6 @@ border-bottom: 1px solid #afbbc7;
 vertical-align: top;
 }
 td * {	padding: 6px 11px;}
-.sellcar td * { padding: 0px; }
 
 tr.alt td {background: #eff4f6;}
 tr.over td, tr:hover td {background: #d9e7f4;}
@@ -642,6 +641,16 @@ table a, table img { padding: 0; margin: 0; color: #207ab4; }
 #fourthirty table {width: 93%;}
 #fourthirty th { padding: 5px 7px; }
 #fourthirty td { padding: 3px 7px;}
+
+.layout td * { padding: 0px; }
+.layout tr.over td, .layout tr:hover td {background: none;}
+.layout td {
+font: normal 0.9em/0.9em "Arial", Helvetica, san-serif; 
+line-height: 1.2em;
+font-weight: 100;
+border: 0px;
+}
+
 
 /* new car table styles  */
 #newcars {margin: 0 0 0 15px;}

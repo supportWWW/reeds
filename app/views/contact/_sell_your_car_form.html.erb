@@ -53,6 +53,9 @@
 		<% end %>
 		<br/>
 
+		<table class="layout">
+			<tr>
+				<td>
 			    Make<br/>
 			    <%= select_tag :sell_your_car_form_make_id, sell_makes_options(params[:sell_your_car_form_make_id]) %><br/>
 
@@ -62,37 +65,43 @@
 			    Year<br/> 
 			    <%= f.select :model_variant_id, [ ['Select a model first...', ''] ] %> <%= spinner 'sell_model_variants_spinner' %><br/>
 
-				  <span class="info">If your car is not included in these listings, please add it's information on the description field, including make, model and year.</span><br/>
 					If your car is not listed<br/> 
 			    <%= f.text_area :vehicle_details, :rows => 3, :cols => 30, :value => "enter make and model and year here" %><br/>
+				</td>
+				<td>
+						What do you owe on your vehicle:<br/>
+				    R<%= f.text_field :owe, :size => 10 %><br/>
 
-					What do you owe on your vehicle:<br/>
-			    R<%= f.text_field :owe %><br/>
+						Expected price<br/>
+				    R<%= f.text_field :expected_price, :size => 10 %><br/>
 
-					EXPECTED PRICE:<br/>
-			    R<%= f.text_field :expected_price %><br/>
+						Condition<br/>
+						<%= f.select :condition, [["Excellent", "Excellent"], ["Good", "Good"], ["Fair", "Fair"], ["Poor", "Poor"]] %><br/>
 
-					Condition<br/>
-					<%= f.select :condition, [["Excellent", "Excellent"], ["Good", "Good"], ["Fair", "Fair"], ["Poor", "Poor"]] %><br/>
+				<%# 
+				    Has full service history?  
+				     <--%= f.check_box :has_full_service_history %--><br/>
 
-			<%# 
-			    Has full service history?  
-			     <--%= f.check_box :has_full_service_history %--><br/>
+				    Are you interested in buying a new or pre-owned vehicle? 
+				    <--%= f.check_box :interested_in_buying  %--><br/>
+				%>
 
-			    Are you interested in buying a new or pre-owned vehicle? 
-			    <--%= f.check_box :interested_in_buying  %--><br/>
-			%>
-
+			
+				</td>
+				<td>
 			    Color<br/>
-			    <%= f.text_field :color %><br/>
+			    <%= f.text_field :color, :size => 10 %><br/>
 
 			    Metallic<br/>
 					<%= f.select :metallic, [["Yes", 1], ["No", 0]] %><br/>
 
 			    Mileage<br/>
-			    <%= f.text_field :mileage %><br/>
-
-					<br/><br/>
+			    <%= f.text_field :mileage, :size => 10 %><br/>
+				</td>
+			</tr>
+			<tr>
+				<td style="border-top:1px solid lightgrey;">
+					<strong>Contact details</strong><br/><br/>
 			    Your first name:<br/>
 			    <%= f.text_field :your_first_name %><br/>
 
@@ -106,6 +115,11 @@
 			    <%= f.text_field :your_contact_phone_number %><br/>
 
 			    <input type="image" class="button" src="/images/btn-submit.gif" value="Submit" id="Submit" name="Submit" /><%= spinner("enquiry_spinner") %>
+					
+				</td>
+			</tr>
+		</table>
+
 
 
 	</div>
