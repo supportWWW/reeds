@@ -10,7 +10,7 @@
 	<tbody>
 	<% results.each do |result| %>
 		<tr>
-			<td><%=h result.model_range.humanize %></td>
+			<td><%=h result.model_range.humanize if result.model_range %></td>
 			<td><%=h result.name %></td>
 			<td><%=h result.price.format %></td>
 			<td><%= link_to "View", new_vehicle_path(result.new_vehicle.permalink) %></td>
