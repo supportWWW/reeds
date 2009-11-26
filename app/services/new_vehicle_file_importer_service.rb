@@ -19,7 +19,7 @@ class NewVehicleFileImporterService
           added << new_vehicle_variant
         end
       rescue
-        error << line
+        error << new_vehicle_variant
       end
     end
     

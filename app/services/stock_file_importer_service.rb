@@ -30,7 +30,7 @@ class StockFileImporterService
           added << classified
         end
       rescue
-        error << line
+        error << classified
       end
     end
     
