@@ -16,6 +16,8 @@ class Classified < ActiveRecord::Base
   
   named_scope :available, lambda { { :conditions => ["removed_at is NULL AND (expires_on IS NULL OR expires_on > ?)", Date.today], :include => [:make, :model] } }
 
+  delegate :mead_mcgrouther_code, :to => :model_variant
+  
   def self.with_photos
     classifieds = []
     Classified.available.each do |classified|
@@ -32,7 +34,7 @@ class Classified < ActiveRecord::Base
     end
     classifieds
   end
-  
+
   def cyberstock?
     kind_of?(Cyberstock)
   end

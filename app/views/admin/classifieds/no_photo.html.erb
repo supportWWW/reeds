@@ -8,6 +8,7 @@
 		<table>
 		  <tr>
 		    <th>Stock code</th>
+		    <th>Mead code</th>
 		    <th>Model</th>
 		    <th>Year</th>
 		    <th>Price</th>
@@ -20,6 +21,7 @@
 		<% for classified in classifieds %>
 		  <tr>
 		    <td><%=h classified.stock_code %></td>
+		    <td><%=h classified.mead_mcgrouther_code %></td>
 		    <td><%=h classified.humanize %></td>
 		    <td><%=h classified.year %></td>
 		    <td><%=h classified.price.format %></td>

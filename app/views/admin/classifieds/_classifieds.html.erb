@@ -1,6 +1,7 @@
 <table>
   <tr>
     <th>Stock code</th>
+    <th>Mead code</th>
     <th>Model</th>
     <th>Price</th>
     <th>Colour</th>
@@ -12,6 +13,7 @@
 <% for classified in classifieds %>
   <tr>
     <td><%=h classified.stock_code %></td>
+    <td><%=h classified.mead_mcgrouther_code %></td>
     <td><%=h classified.humanize %></td>
     <td><%=h classified.price.format %></td>
     <td><%=h classified.colour %></td>
