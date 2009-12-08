@@ -41,7 +41,7 @@ class ContactController < ApplicationController
   
   def load_model_variants
     unless params[:model_id].blank?
-      @model_variants = ModelVariant.find_all_by_model_id( params[:model_id] ).collect { |m| [ m.year, m.year ] }.uniq
+      @model_variants = ModelVariant.find_all_by_model_id( params[:model_id] ).collect { |m| [ m.year, m.id ] }.uniq
     end
   end
 
