@@ -49,4 +49,23 @@ module ApplicationHelper
     concat('</div>', block.binding)
   end
 
+  # from Dan Webb's MinusMOR plugin
+  # enhanced with ability to detect partials with template format, i.e.: _post.html.erb
+  def js_partial(name, options={})
+    old_format = self.template_format
+    self.template_format = :html
+    js render({ :partial => name }.merge(options))
+  ensure
+    self.template_format = old_format
+  end  
+
+  # from Dan Webb's MinusMOR plugin
+  def js(data)
+    if data.respond_to? :to_json
+      data.to_json
+    else
+      data.inspect.to_json
+    end
+  end
+
 end
