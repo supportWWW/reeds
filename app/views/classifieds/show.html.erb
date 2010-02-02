@@ -66,6 +66,16 @@
 		</p>
 	</div><!-- end fourthirty -->
 
+	<script>
+	  $(document).ready(function() {
+			$.ajax({
+			  type: "POST",
+			  url: "<%= stats_path %>",
+				data: "parent_type=Classified&parent_id=<%= @classified.id %>"
+			});
+		});
+	</script>
+
 <% end -%>
 
 <% content_for(:actions) do %>
@@ -88,6 +98,7 @@
 				eval(data);
 			}
 		});
+
 		//]]>
 		</script>
 	<% end %>

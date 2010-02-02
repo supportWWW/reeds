@@ -13,6 +13,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :classifieds, :collection => { :carfind => :get }
   map.resources :pages
   map.resources :specials, :member => { :enquire => :post }
+  map.resources :stats
 
   #map.connect "/new_vehicles/:id", :controller => "new_vehicles", :action => "show" # Need this override 'cos of the name new_vehicles
   map.resources :new_vehicles
