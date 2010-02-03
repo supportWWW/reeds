@@ -1,0 +1,37 @@
+<h2>Classified</h2>
+
+<p>
+  <b>Stock no:</b>
+  <%=h @classified.stock_code %>
+</p>
+
+<p>
+  <b>Model:</b>
+  <%=h @classified.humanize %>
+</p>
+
+<p>
+  <b>Features:</b>
+  <%=h @classified.features %>
+</p>
+
+<p>
+  <b>Branch:</b>
+  <%=h @classified.branch.name if @classified.branch %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%=h @classified.price.format %>
+</p>
+
+<p>
+  <b>Mileage:</b>
+  <%=h @classified.mileage %>
+</p>
+
+<h3>Views</h3>
+
+<p> <%= stats_graph(@stats)  %>  </p>
+
+<%= link_to 'Back', admin_classifieds_path %>

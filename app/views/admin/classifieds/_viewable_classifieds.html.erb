@@ -1,0 +1,22 @@
+<table>
+  <tr>
+    <th>Stock code</th>
+    <th>Model</th>
+    <th>Price</th>
+    <th>Colour</th>
+    <th>Mileage</th>
+    <th>Days in stock</th>
+  </tr>
+
+<% for classified in classifieds %>
+  <tr>
+    <td><%=h classified.stock_code %></td>
+    <td><%=h classified.humanize %></td>
+    <td><%=h classified.price.format %></td>
+    <td><%=h classified.colour %></td>
+    <td><%=h classified.mileage %></td>
+    <td><%=h classified.days_in_stock %></td>
+    <td><%= link_to 'Show', admin_classified_path(classified) %> | <%= link_to 'Destroy', admin_classified_path(classified), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>

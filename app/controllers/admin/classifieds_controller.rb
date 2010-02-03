@@ -1,6 +1,29 @@
 class Admin::ClassifiedsController < Admin::ApplicationController
 
   after_filter :expire_cache, :only => [:update, :destroy]
+  helper "admin/stats"
+  # GET /classifieds/cyberstock
+  # GET /classifieds/cyberstock.xml
+  def index
+    @classifieds = Classified.available
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @classifieds }
+    end
+  end
+
+  # GET /classifieds/1
+  def show
+    @classified = Classified.find(params[:id])
+    stats = Stat.find(:all, :select => "date, count(id) as total", :conditions => ["parent_type = :parent_type AND parent_id = :parent_id AND date BETWEEN :start and :end", { :parent_type => "Classified", :parent_id => @classified.id, :start => (Time.zone.now.to_date - 16.days), :end => Time.zone.now.to_date }], :group => [:date])
+    last_few_days = {}
+    16.downto(0) do |days_ago|
+      last_few_days.merge!({ days_ago => 0 })
+    end
+    stats = stats.inject(last_few_days) { |memo, stat| memo.merge!({ (Time.zone.now.to_date - stat.date).to_i => stat.total.to_i }) }
+    @stats = stats.sort.map { |stat| stat[1] }
+  end
 
   # GET /classifieds/cyberstock
   # GET /classifieds/cyberstock.xml
