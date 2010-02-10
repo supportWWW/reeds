@@ -23,6 +23,7 @@ class Admin::ClassifiedsController < Admin::ApplicationController
     end
     stats = stats.inject(last_few_days) { |memo, stat| memo.merge!({ (Time.zone.now.to_date - stat.date).to_i => stat.total.to_i }) }
     @stats = stats.sort.map { |stat| stat[1] }
+    @total_stats = Stat.count(:conditions => ["parent_type = :parent_type AND parent_id = :parent_id", { :parent_type => "Classified", :parent_id => @classified.id }])
   end
 
   # GET /classifieds/cyberstock
