@@ -2,7 +2,7 @@ class StatsController < ApplicationController
   # POST /stats
   # POST /stats.xml
   def create
-    if params[:parent_type].constantize.find(params[:parent_id])
+    if params[:parent_type] && params[:parent_type].constantize.find(params[:parent_id])
       @stat = Stat.new
       @stat.parent_type = params[:parent_type]
       @stat.parent_id = params[:parent_id]
