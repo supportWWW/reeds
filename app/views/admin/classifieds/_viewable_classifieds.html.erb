@@ -6,6 +6,7 @@
     <th>Colour</th>
     <th>Mileage</th>
     <th>Days in stock</th>
+    <th>Views</th>
   </tr>
 
 <% for classified in classifieds %>
@@ -16,6 +17,7 @@
     <td><%=h classified.colour %></td>
     <td><%=h classified.mileage %></td>
     <td><%=h classified.days_in_stock %></td>
+    <td><%=h classified.stats_count %></td>
     <td><%= link_to 'Show', admin_classified_path(classified) %> | <%= link_to 'Destroy', admin_classified_path(classified), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>

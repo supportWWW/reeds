@@ -11,6 +11,8 @@ class Classified < ActiveRecord::Base
 
   belongs_to :branch
 
+  has_many :stats, :as => :parent, :dependent => :destroy
+  
   before_validation :set_make_and_model
   has_permalink [:humanize, :stock_code] # needs to be after before_validation :set_make_and_model
   
@@ -109,6 +111,10 @@ class Classified < ActiveRecord::Base
       end
     end
     imgs
+  end
+  
+  def stats_count
+    stats.count
   end
   
 private
