@@ -7,6 +7,7 @@ class UsedVehicleEnquiryForm < ActiveRecord::BaseWithoutTable
   column :insurance, :string
   column :vehicle, :string
   column :branch_id, :integer
+  column :classified_id, :integer
   
   validates_presence_of :first, :last, :vehicle, :phone
 end

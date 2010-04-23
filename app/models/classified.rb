@@ -15,11 +15,11 @@ class Classified < ActiveRecord::Base
   
   before_validation :set_make_and_model
   has_permalink [:humanize, :stock_code] # needs to be after before_validation :set_make_and_model
-  
-  named_scope :available, lambda { { :conditions => ["removed_at is NULL AND (expires_on IS NULL OR expires_on > ?)", Date.today], :include => [:make, :model], :order => "makes.name, models.name, classifieds.price_in_cents" } }
+  @order_var = ""
+  named_scope :available, lambda { { :conditions => ["removed_at is NULL AND (expires_on IS NULL OR expires_on > ?)", Date.today], :include => [:make, :model], :order =>  @order_var << "makes.name, models.name, classifieds.price_in_cents" } }
 
   delegate :mead_mcgrouther_code, :to => :model_variant
-  
+
   def self.with_photos
     classifieds = []
     Classified.available.each do |classified|
@@ -115,6 +115,30 @@ class Classified < ActiveRecord::Base
   
   def stats_count
     stats.count
+  end
+
+
+  def form_count
+    @form_submit = FormSubmit.find(:all, :conditions => [" product_id = ?", id])
+    if @form_submit.empty?
+      @form_submit = 0
+    else
+      @form_submit.size
+    end
+  end
+
+  def conversions
+    fc = form_count
+    sc = stats_count
+    if fc > 0 and sc  > 0
+      @conversions =  sprintf("%.2f", (( Float(fc) / Float(sc)) * 100))
+    else
+      @conversions =  0
+    end
+  end
+
+  def self.set_order_var(order_by_string)
+    @order_var = order_by_string
   end
   
 private

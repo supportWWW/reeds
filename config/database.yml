@@ -19,14 +19,16 @@ development:
   encoding: utf8
   database: reeds_development
   username: root
-  password:
+  password: WWWsysadmin
+  host: localhost
 
 development_cached:
   adapter: mysql
   encoding: utf8
   database: reeds_development
   username: root
-  password:
+  password: WWWsysadmin
+  host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100202052000) do
+ActiveRecord::Schema.define(:version => 20100421140348) do
 
   create_table "accessories", :force => true do |t|
     t.string   "name"
@@ -103,6 +103,13 @@ ActiveRecord::Schema.define(:version => 20100202052000) do
   create_table "events", :force => true do |t|
     t.string   "name"
     t.date     "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "form_submits", :force => true do |t|
+    t.string   "form_name",  :limit => 32, :null => false
+    t.integer  "product_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -5,7 +5,62 @@ class Admin::ClassifiedsController < Admin::ApplicationController
   # GET /classifieds/cyberstock
   # GET /classifieds/cyberstock.xml
   def index
+
+    #the following sort order items are sorted by the model via SQL
+    unless params[:id].nil?
+      case true
+        when params[:id] == "model"
+          Classified.set_order_var( " makes.name , models.name , ")
+        when params[:id] == "stock_code"
+          Classified.set_order_var( params[:id] << " ,")
+        when params[:id] == "price_in_cents"
+          Classified.set_order_var( params[:id] << " ,")
+        when params[:id] == "colour"
+          Classified.set_order_var( params[:id] << " ,")
+        when params[:id] == "days_in_stock"
+          Classified.set_order_var( params[:id] << " ,")
+      end
+    end
+
     @classifieds = Classified.available
+
+    #the following params[:id] values cause the array to be sorted as the values
+    # to be sorted are added to the array programmatically
+    unless params[:id].nil?
+        case true
+          when params[:id] == "views" 
+            @classifieds.sort! {|a, b|  a.stats_count <=> b.stats_count}
+          when params[:id] == "forms_sent"
+            @classifieds.sort! {|a, b|  a.form_count <=> b.form_count}
+          when params[:id] == "conversions"
+            @classifieds.sort! {|a, b|  a.conversions.to_f <=> b.conversions.to_f}
+      end
+    end
+
+    #@classifieds.reverse!
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @classifieds }
+    end
+  end
+
+  def sort_by
+    #Classified.set_order_var(" classifieds.price_in_cents ,")
+    #defaults makes.name, models.name, classifieds.price_in_cents
+    #Classified.set_order_var(" classifieds.colour ,")
+    #Classified.set_order_var(" classifieds.mileage ,")
+    #Classified.set_order_var(" classifieds.days_in_stock ,")
+
+    @classifieds = Classified.available
+
+    #if param[:whateva] == "views"
+      @classifieds.sort! {|a, b|  a.stats_count <=> b.stats_count}
+    #end
+
+    #if order needs to be reversed ?
+      @classifieds.reverse!
+    #end
 
     respond_to do |format|
       format.html # index.html.erb

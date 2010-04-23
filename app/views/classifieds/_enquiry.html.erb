@@ -5,7 +5,7 @@
 		<div id="enquiry_form_notice" class="notice" style="display: none;"></div>
 	  <div id="enquiry_form_errors" class="error" style="display: none;"></div>
 
-		<% form_for :form, ef = UsedVehicleEnquiryForm.new(:branch_id => classified.branch_id, :vehicle => "#{classified.year} #{classified.humanize} (Ref ##{classified.stock_code})"), :url => used_vehicle_enquiry_path, :html => { :method => :post, :id => "enquiry_form" } do |f| -%>
+		<% form_for :form, ef = UsedVehicleEnquiryForm.new(:branch_id => classified.branch_id, :vehicle => "#{classified.year} #{classified.humanize} (Ref ##{classified.stock_code })" , :classified_id => classified.id), :url => used_vehicle_enquiry_path, :html => { :method => :post, :id => "enquiry_form" } do |f| -%>
 
 			<p>
 			
@@ -23,6 +23,7 @@
 				<%= f.text_area :comments, :rows => 2 %><br/>
 				<%= f.hidden_field :vehicle %>
 				<%= f.hidden_field :branch_id %>
+                <%= f.hidden_field :classified_id %>
 				<input type="image" class="button" src="/images/btn-submit.gif" value="Submit" id="Submit" name="Submit" /><%= spinner("enquiry_spinner") %>
 			
 			</p>

@@ -1,12 +1,14 @@
 <table>
   <tr>
-    <th>Stock code</th>
-    <th>Model</th>
-    <th>Price</th>
-    <th>Colour</th>
-    <th>Mileage</th>
-    <th>Days in stock</th>
-    <th>Views</th>
+    <th><%= link_to 'Stock Codes', :action => 'index', :id => "stock_code" %></th>
+    <th><%= link_to 'Model', :action => 'index', :id => "model" %></th>
+    <th><%= link_to 'Price', :action => 'index', :id => "price_in_cents" %></th>
+    <th><%= link_to 'Colour', :action => 'index', :id => "colour" %></th>
+    <th><%= link_to 'Mileage', :action => 'index', :id => "mileage" %></th>
+    <th><%= link_to 'Days In Stock', :action => 'index', :id => "days_in_stock" %></th>
+    <th><%= link_to 'Views', :action => 'index', :id => "views" %></th>
+    <th><%= link_to 'Forms Sent', :action => 'index', :id => "forms_sent" %></th>
+    <th><%= link_to 'Conversion %', :action => 'index', :id => "conversions" %></th>
   </tr>
 
 <% for classified in classifieds %>
@@ -18,6 +20,8 @@
     <td><%=h classified.mileage %></td>
     <td><%=h classified.days_in_stock %></td>
     <td><%=h classified.stats_count %></td>
+    <td><%=h classified.form_count%></td>
+    <td><%=h classified.conversions %></td>
     <td><%= link_to 'Show', admin_classified_path(classified) %> | <%= link_to 'Destroy', admin_classified_path(classified), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>

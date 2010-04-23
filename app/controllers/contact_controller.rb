@@ -47,9 +47,16 @@ class ContactController < ApplicationController
 
   def used_vehicle_enquiry
     @form = UsedVehicleEnquiryForm.new( params[:form] )
-    if request.post? and @form.valid?
+    #insert record into form_submit for FormSubmit table for stats
+    @form_submit = FormSubmit.new
+    @form_submit.form_name = "used_vehicle_enquiry"
+    @form_submit.product_id = @form.classified_id
+    @form_submit.created_at = Time.now
+    @form_submit.save
+    
+      if request.post? and @form.valid?
       flash[:public_notice] = 'We received your enquiry and will get in contact shortly'
-      VehicleEnquiryMailer.deliver_used @form, get_referrals
+      #VehicleEnquiryMailer.deliver_used @form, get_referrals
       @success = true
     elsif request.post?
       @success = false

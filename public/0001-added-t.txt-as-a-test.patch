@@ -1,0 +1,15 @@
+From 7b6ae635e497528b9a38586aa107c8150ff928fb Mon Sep 17 00:00:00 2001
+From: Francois Campbell <francois@devbox.(none)>
+Date: Fri, 16 Apr 2010 15:57:15 +0200
+Subject: [PATCH] added t.txt as a test
+
+---
+ 0 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 public/t.txt
+
+diff --git a/public/t.txt b/public/t.txt
+new file mode 100644
+index 0000000..e69de29
+-- 
+1.7.0
+
