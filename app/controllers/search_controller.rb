@@ -67,13 +67,13 @@ class SearchController < ApplicationController
                                           :page => @page, :per_page => @per_page,
                                           :conditions => [conditions.join(" AND "), *criteria],
                                           :include => [:make, :model],
-                                          :order => "makes.name, models.name, classifieds.price_in_cents")
+                                          :order => " makes.name, models.name, classifieds.price_in_cents ")
     else
       @results = NewVehicleVariant.paginate( :all,
                                           :page => @page, :per_page => @per_page,
                                           :conditions => [conditions.join(" AND "), *criteria],
                                           :include => [:new_vehicle, :make, :model_range],
-                                          :order => "makes.name, new_vehicle_variants.name, new_vehicle_variants.price_in_cents")
+                                          :order => " makes.name, new_vehicle_variants.name, new_vehicle_variants.price_in_cents ")
     end
 
     respond_to do |format|
