@@ -29,7 +29,7 @@ class HugeSms
     x = Builder::XmlMarkup.new(:indent => 2)
     x.instruct! :xml, :version=>"1.0"
     x.XML {
-      x.SENDBATCH(:user => username, :password => password, :application => @@application_id, :reply => "EMAIL:joergd@pobox.com") {
+      x.SENDBATCH(:user => username, :password => password, :application => @@application_id, :reply => "EMAIL:support@whitewallweb.com") {
         x.SMSLIST {
           x.SMS_SEND(message, :to => number, :uid => UUID.timestamp_create.to_s)
         }
