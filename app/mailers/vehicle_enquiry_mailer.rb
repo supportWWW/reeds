@@ -21,7 +21,8 @@ class VehicleEnquiryMailer < ActionMailer::Base
 private
 
   def get_used_vehicle_recipients(frm)
-    arr = ['joergd@pobox.com']
+    #arr = ['joergd@pobox.com']
+    arr = ['support@whitewallweb.com']
     branch = Branch.find_by_id(frm.branch_id)
     if branch
       branch.salespeople.web_leads.each do |salesperson|
