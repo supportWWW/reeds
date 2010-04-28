@@ -18,7 +18,7 @@ describe StockList do
   end
 
   it "should send an email" do
-    Mailbuild.stub!(:subscribers).and_return([{ :name => "Joerg", :email => "joergd@pobox.com" }])
+    Mailbuild.stub!(:subscribers).and_return([{ :name => "Support White Wall Web", :email => "support@whitewallweb.com" }])
     StockList.send.should
   end
   
