@@ -13,7 +13,7 @@ describe Cyberstock do
     @cyberstock.stub!(:colour).and_return("red")
 
     @cyberstock.branch = Branch.new
-    @cyberstock.branch.stub!(:salespeople_emails).and_return(["joergd@pobox.com"])
+    @cyberstock.branch.stub!(:salespeople_emails).and_return(["support@whitewallweb.com"])
   end
 
   it "should be Cyberstock" do
