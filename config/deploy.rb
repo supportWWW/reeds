@@ -25,9 +25,9 @@ set :deploy_to, "/u/apps/reeds" # I like this location
 set :use_sudo, true
 
 default_run_options[:pty] = true
-set :repository,  "git@github.com:joergd/reeds.git"
+set :repository,  "git@github.com:supportWWW/reeds.git"
 set :scm, "git"
-set :scm_passphrase, "00r33d5" #This is your ssh key password
+set :scm_passphrase, "w@11supp0rt" #This is your ssh key password
 set :branch, "master"
 set :deploy_via, :remote_cache
 set :git_enable_submodules, 1
