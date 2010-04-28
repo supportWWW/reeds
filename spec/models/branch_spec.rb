@@ -14,10 +14,10 @@ describe Branch do
   end
 
   it "Should return some emails" do
-    salesperson_97 = @branch.salespeople.build(:email => "joergd@pobox.com", :job_title => "Salesperson")
-    salesperson_98 = @branch.salespeople.build(:email => "karen@pobox.com", :job_title => "Salesperson")
-    salesperson_99 = @branch.salespeople.build(:email => "manager@pobox.com", :job_title => "Parts Manager")
+    salesperson_97 = @branch.salespeople.build(:email => "support@whitewallweb.com", :job_title => "Salesperson")
+    salesperson_98 = @branch.salespeople.build(:email => "francois@cpt.whitewallweb.com", :job_title => "Salesperson")
+    salesperson_99 = @branch.salespeople.build(:email => "nic@cpt.whitewallweb.com", :job_title => "Parts Manager")
     
-    @branch.salespeople_emails.should == ["joergd@pobox.com", "karen@pobox.com"]
+    @branch.salespeople_emails.should == ["support@whitewallweb.com", "francois@cpt.whitewallweb.com"]
   end
 end
