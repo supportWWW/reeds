@@ -80,7 +80,7 @@ set mail-format { from: monit@reeds.co.za, subject: [REEDS] $EVENT $SERVICE }
 ## events by using a filter as in the second example below. 
 #
 
-set alert joergd@pobox.com                       # receive all alerts
+set alert support@whitewallweb.com                       # receive all alerts
 
 
 # set alert root@localhost only on { timeout }  # receive just service-
