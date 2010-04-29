@@ -56,7 +56,7 @@ class ContactController < ApplicationController
     
       if request.post? and @form.valid?
       flash[:public_notice] = 'We received your enquiry and will get in contact shortly'
-      #VehicleEnquiryMailer.deliver_used @form, get_referrals
+      VehicleEnquiryMailer.deliver_used @form, get_referrals
       @success = true
     elsif request.post?
       @success = false
