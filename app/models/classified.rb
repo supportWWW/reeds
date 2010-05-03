@@ -17,7 +17,7 @@ class Classified < ActiveRecord::Base
   has_permalink [:humanize, :stock_code] # needs to be after before_validation :set_make_and_model
   @order_var = ""
   named_scope :available, lambda { { :conditions => ["removed_at is NULL AND (expires_on IS NULL OR expires_on > ?)", Date.today], :include => [:make, :model], :order =>  " makes.name, models.name, classifieds.price_in_cents " } }
-
+  named_scope :available_sorted , lambda { { :conditions => ["removed_at is NULL AND (expires_on IS NULL OR expires_on > ?)", Date.today], :include => [:make, :model], :order => @order_var } }
   delegate :mead_mcgrouther_code, :to => :model_variant
 
   def self.with_photos

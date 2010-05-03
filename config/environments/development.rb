@@ -17,6 +17,9 @@ config.action_controller.perform_caching             = false
 config.action_mailer.raise_delivery_errors = true
 config.action_mailer.delivery_method = :test
 
+config.log_level = :warn
+
+
 #config.action_mailer.smtp_settings = {
 #  :address => "chilco.textdrive.com" ,
 #  :port => 25,

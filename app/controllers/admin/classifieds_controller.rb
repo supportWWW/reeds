@@ -6,23 +6,35 @@ class Admin::ClassifiedsController < Admin::ApplicationController
   # GET /classifieds/cyberstock.xml
   def index
 
-    #the following sort order items are sorted by the model via SQL
+    #the following sort order items are sorted by the model
     unless params[:id].nil?
       case true
         when params[:id] == "model"
-          Classified.set_order_var( " makes.name , models.name , ")
+          Classified.set_order_var( " makes.name , models.name ASC ")
+          @classifieds = Classified.available_sorted
         when params[:id] == "stock_code"
-          Classified.set_order_var( params[:id] << " ,")
+          Classified.set_order_var( params[:id] << " ASC")
+          @classifieds = Classified.available_sorted
         when params[:id] == "price_in_cents"
-          Classified.set_order_var( params[:id] << " ,")
+          Classified.set_order_var( params[:id] << " DESC")
+          @classifieds = Classified.available_sorted
         when params[:id] == "colour"
-          Classified.set_order_var( params[:id] << " ,")
+          Classified.set_order_var( params[:id]  << " ASC")
+          @classifieds = Classified.available_sorted
         when params[:id] == "days_in_stock"
-          Classified.set_order_var( params[:id] << " ,")
+          Classified.set_order_var( params[:id] << " DESC " )
+          @classifieds = Classified.available_sorted
+        when params[:id] == "mileage"
+          Classified.set_order_var( params[:id] << " DESC " )
+          @classifieds = Classified.available_sorted
+        when params[:id] == "views" ||  params[:id] == "forms_sent" || params[:id] == "conversions"
+        @classifieds = Classified.available
       end
+    else
+      Classified.set_order_var("")
+      @classifieds = Classified.available
     end
 
-    @classifieds = Classified.available
 
     #the following params[:id] values cause the array to be sorted as the values
     # to be sorted are added to the array programmatically
@@ -30,10 +42,13 @@ class Admin::ClassifiedsController < Admin::ApplicationController
         case true
           when params[:id] == "views" 
             @classifieds.sort! {|a, b|  a.stats_count <=> b.stats_count}
+            @classifieds.reverse!
           when params[:id] == "forms_sent"
             @classifieds.sort! {|a, b|  a.form_count <=> b.form_count}
+            @classifieds.reverse!
           when params[:id] == "conversions"
             @classifieds.sort! {|a, b|  a.conversions.to_f <=> b.conversions.to_f}
+            @classifieds.reverse!
       end
     end
 
