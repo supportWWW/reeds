@@ -35,7 +35,7 @@ set :git_enable_submodules, 1
 set :server_name, "reeds.webhop.net"
 #set :server_alias, "gnm7rcaa.joyent.us"
 
-#set :mongrel_config, "/etc/mongrel_cluster/mongrel_cluster.yml" 
+#set :mongrel_config, "/etc/mongrel_cluster/mongrel_cluster.yml"
 
 set :symlinked_public_dirs, %w(uploaded_images uploaded_files vehicles)
 
@@ -155,39 +155,39 @@ task :restart_monit do
 end
 
 
-namespace :cron do 
-  task :start, :roles => :web, :only => {:cron => true} do 
-    cron_tab = "#{shared_path}/cron.tab" 
-    run "mkdir -p #{shared_path}/log/cron" 
-    require 'erb' 
-    template = File.read("config/cron.erb") 
-    file = ERB.new(template).result(binding) 
-    put file, cron_tab, :mode => 0644 
-    # merge with the current crontab 
-    # fails with an empty crontab, which is acceptable 
-    run "crontab -l >> #{cron_tab}" rescue nil 
-    # install the new crontab 
-    run "crontab #{cron_tab}" 
-  end 
+namespace :cron do
+  task :start, :roles => :web, :only => {:cron => true} do
+    cron_tab = "#{shared_path}/cron.tab"
+    run "mkdir -p #{shared_path}/log/cron"
+    require 'erb'
+    template = File.read("config/cron.erb")
+    file = ERB.new(template).result(binding)
+    put file, cron_tab, :mode => 0644
+    # merge with the current crontab
+    # fails with an empty crontab, which is acceptable
+    run "crontab -l >> #{cron_tab}" rescue nil
+    # install the new crontab
+    run "crontab #{cron_tab}"
+  end
 
-  task :stop, :roles => :web, :only => {:cron => true} do 
-    cron_tmp = "#{shared_path}/cron.old" 
-    cron_tab = "#{shared_path}/cron.tab" 
-    begin 
-      # dump the current cron entries 
-      run "crontab -l > #{cron_tmp}" 
-      # remove any lines that contain the application name 
-      run "awk '{if ($0 !~ /#{application}/) print $0}' " + 
-      "#{cron_tmp} > #{cron_tab}" 
-      # replace the cron entries 
-      run "crontab #{cron_tab}" 
-    rescue 
-      # fails with an empty crontab, which is acceptable 
-    end 
-    # clean up 
-    run "rm -rf #{cron_tmp}" 
-  end 
+  task :stop, :roles => :web, :only => {:cron => true} do
+    cron_tmp = "#{shared_path}/cron.old"
+    cron_tab = "#{shared_path}/cron.tab"
+    begin
+      # dump the current cron entries
+      run "crontab -l > #{cron_tmp}"
+      # remove any lines that contain the application name
+      run "awk '{if ($0 !~ /#{application}/) print $0}' " +
+      "#{cron_tmp} > #{cron_tab}"
+      # replace the cron entries
+      run "crontab #{cron_tab}"
+    rescue
+      # fails with an empty crontab, which is acceptable
+    end
+    # clean up
+    run "rm -rf #{cron_tmp}"
+  end
 end
 
-before "deploy:stop", "cron:stop" 
-after "deploy:start", "cron:start" 
+before "deploy:stop", "cron:stop"
+after "deploy:start", "cron:start"
