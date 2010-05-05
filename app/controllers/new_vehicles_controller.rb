@@ -17,9 +17,12 @@ class NewVehiclesController < ApplicationController
   # GET /new_vehicles/1.xml
   def show
     @new_vehicle = NewVehicle.find_by_permalink(params[:id])
-
     if @new_vehicle.nil?
-      render :file => "#{RAILS_ROOT}/public/404.html", :status => 404 
+      if @new_vehicle.description != ""
+        @new_vehicle.description = @new_vehicle.permalink
+      end
+      render :file => "#{RAILS_ROOT}/public/404.html", :status => 404
+
       return
     end
     

@@ -33,15 +33,19 @@ class ContactController < ApplicationController
   end
   
   def load_models
-    unless params[:make_id].blank?
+    if params[:make_id]
       @models = Model.find_all_by_make_id( params[:make_id] ).collect { |m| [ m.name, m.id ] }
       @models.insert( 0, [ 'Select a model...', '' ] )
+    else
+      redirect_to :controller => "contact"
     end
   end
   
   def load_model_variants
-    unless params[:model_id].blank?
+    if params[:model_id]
       @model_variants = ModelVariant.find_all_by_model_id( params[:model_id] ).collect { |m| [ m.year, m.id ] }.uniq
+    else
+      redirect_to :controller => "contact"
     end
   end
 

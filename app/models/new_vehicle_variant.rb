@@ -17,7 +17,11 @@ class NewVehicleVariant < ActiveRecord::Base
   
   
   def humanize
-    "#{model_range.humanize} #{name}"
+    if model_range
+      "#{model_range.humanize} #{name}"
+    else
+      "#{new_vehicle.humanize} #{name}"
+    end
   end
 
 private
