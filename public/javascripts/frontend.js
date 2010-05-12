@@ -21,6 +21,6 @@ function verify_email(field_name1 , field_name2 , message_area_name , form_name)
 
 function clear_warning(field_name , message_area_name){
     $('#'+field_name).attr('class', '' );
-    ('#'+message_area_name).html("&nbsp;");
+    $('#'+message_area_name).html("&nbsp;");
 }
 
