@@ -89,6 +89,7 @@ rails\:update\:scripts=Add new scripts to the application script/ directory
 rails_env=
 reeds\:cyberstock\:send_expire=Send soon-to-expire cyberstock
 reeds\:stocklist\:send=Send stocklists
+reeds\:stocklist_weekly\:send=Send weekly stocklists
 routes=Print out all defined routes in match order, with names.
 secret=Generate a crytographically secure secret key. This is typically used to generate a secret for cookie sessions.
 spec=Run all specs in spec directory (excluding plugin specs)

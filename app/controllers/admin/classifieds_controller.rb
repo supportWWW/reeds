@@ -51,7 +51,6 @@ class Admin::ClassifiedsController < Admin::ApplicationController
             @classifieds.reverse!
       end
     end
-
     #@classifieds.reverse!
 
     respond_to do |format|

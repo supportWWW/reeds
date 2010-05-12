@@ -15,7 +15,7 @@ namespace :chores do
   
   task :weekly => :environment do
     chore("Weekly") do
-      # Your Code Here
+      Rake::Task['reeds:stocklist_weekly:send'].invoke
     end
   end
   

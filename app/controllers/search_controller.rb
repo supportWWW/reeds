@@ -74,6 +74,7 @@ class SearchController < ApplicationController
                                           :conditions => [conditions.join(" AND "), *criteria],
                                           :include => [:new_vehicle, :make, :model_range],
                                           :order => " makes.name, new_vehicle_variants.name, new_vehicle_variants.price_in_cents ")
+      #raise @results.inspect
     end
 
     respond_to do |format|

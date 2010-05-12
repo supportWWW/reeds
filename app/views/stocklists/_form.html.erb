@@ -1,3 +1,72 @@
+<table style="border:none;padding:0;margin:0 0 0 10px;">
+  <tr >
+      <td style="width:10px;padding:10px 0 0 0;border:none;"><%= radio_button_tag( :synch, :stock_list_form,
+            true, :onchange => '$(\'#weekly_stock_list_form\').hide();
+            $(\'#stock_list_form\').show();',:text =>" Daily" )
+          %>
+      </td>
+      <td width="180px" style="border:none;padding:0;">
+        <label>Daily Stock List:</label>
+      </td>
+  </tr>
+  <tr>
+      <td  style="width:10px;padding:10px 0 0 0;border:none;">
+        <%= radio_button_tag( :synch, :weekly_stock_list_form,
+          false, :onchange => '$(\'#stock_list_form\').hide();
+        $(\'#weekly_stock_list_form\').show();' ,:text =>" Weekly")
+        %>
+      </td>
+      <td style="border:none;padding:0;">
+        <label>Weekly Stock List:</label>
+      </td>
+  </tr>
+</table>
+<div id="stock_list_form" >
+  <h1>&nbsp;&nbsp;Daily Stock List</h1>
+  <span style="clear:both;line-height:40px;">&nbsp;</span>
+  <span id="daily_msg">&nbsp</span>
+  <form action="http://reedsgnu.createsend.com/t/r/s/kjyhui/" method="post" id="subForm1" >
+    <div class="form">
+    <br />
+    <label for="name">Name:</label>
+    <br />
+    <input type="text" name="cm-name" id="name" size="35"/>
+    <br />
+    <label for="kjyhui-kjyhui" >Email <span class="required">*</span>:</label>
+    <br />
+    <input type="text" name="cm-kjyhui-kjyhui" id="kjyhui-kjyhui" size="35" onfocus="clear_warning(this.id ,'daily_msg');"/>
+    <br />
+    <label for="kjyhui-kjyhui">Verify Email <span class="required">*</span>:</label>
+    <br />
+    <input type="text" name="cm-kjyhui-kjyhui-1" id="kjyhui-kjyhui-1" size="35" onfocus="clear_warning(this.id ,'daily_msg');" />
+    <br />
+    <label for="Phone">Phone:</label><br /><input type="text" name="cm-f-tjjrky" id="Phone" size="35"/><br />
+    <label >Required Field <span class="required">*</span></label>
+    <br />
+    <input type="button" value="Subscribe" id="daily_submit" onclick="verify_email('kjyhui-kjyhui' , 'kjyhui-kjyhui-1' , 'daily_msg' , 'subForm1');"/>
+    </div>
+  </form>
+</div>
+<div id="weekly_stock_list_form" class="dontshow">
+  <h1 style="width:200px;">&nbsp;&nbsp;Weekly Stock List</h1>
+  <span style="clear:both;line-height:40px;">&nbsp;</span>
+  <span id="weekly_msg">&nbsp</span>
+  <form action="http://reedsgnu.createsend.com/t/r/s/krhiik/" method="post" id="subForm2" >
+    <div class="form">
+    <br/>
+    <label for="name">Name:</label><br /><input type="text" name="cm-name" id="name" size="35"/><br />
+    <label for="krhiik-krhiik">Email <span class="required">*</span>:</label><br /><input type="text" name="cm-krhiik-krhiik" id="krhiik-krhiik" size="35" onfocus="clear_warning(this.id ,'weekly_msg');"/><br />
+    <label for="kjyhui-kjyhui">Verify Email <span class="required">*</span>:</label><br /><input type="text" name="cm-krhiik-krhiik-1" id="krhiik-krhiik-1" size="35" onfocus="clear_warning(this.id ,'weekly_msg');"/><br />
+    <label for="phone">Phone:</label><br /><input type="text" name="cm-f-tytyky" id="phone" size="35"/><br />
+    <label >Required Field <span class="required">*</span></label>
+    <br />
+    <input type="button" value="Subscribe" id="daily_submit" onclick="verify_email('krhiik-krhiik' , 'krhiik-krhiik-1' , 'weekly_msg' , 'subForm2');"/>
+    </div>
+  </form>
+</div>
+
+
+<!--
 <form action="http://theselovelydays.createsend.com/t/1/s/ohhlk/" method="post">
 	<div class="form">
 		Name:<br /><input type="text" name="mb-name" id="mb-name" size="35"/>
@@ -9,4 +78,4 @@
 		Phone:<br /><input type="text" name="mb.f-trny" id="Phone" size="35" /><br />
 		<br /><input type="submit" value="Subscribe" />
 	</div>
-</form>
+</form> -->

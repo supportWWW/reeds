@@ -46,7 +46,17 @@ background: url(/images/divider.gif) left center no-repeat;
 #fW_Controls a:hover { color: #cd001f; }
 
 
+.dontshow{
+    display:none;
+}
 
+.required{
+    color: #cd001f;
+}
+
+.focus_elements{
+    border: 1px solid #cd001f; background: #f9eaed;
+}
 
 /* Main Style Sheet for jQuery UI date picker */
 #ui-datepicker-div, .ui-datepicker-inline {
@@ -881,3 +891,4 @@ font: normal 1.2em/1.3em "Arial", Helvetica, san-serif;
 margin: 0 15px 4px;
 list-style-type: disc;
 }
+

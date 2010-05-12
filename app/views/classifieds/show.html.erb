@@ -51,7 +51,24 @@
 
 		<div id="callus">
 			<h3>Call us now about this car!</h3>
-			<p>If you are excited to get your pre-owned car right now, don't hesitate and contact <strong>Suzanne</strong> now on <strong>021 443 5130</strong> and quote the vehicle    reference number <span><%=h @classified.stock_code %></span>. </p>
+			<p>
+              If you are excited to get your pre-owned car right now, don't hesitate and contact <strong>Suzanne</strong> now on
+              <% case @classified.stock_code[0..0] 
+                    when "1"  # Tygervalley
+                       %><strong>021 910 7677</strong><%
+                    when "3"  # Cape Town
+                       %><strong>021 443 5100</strong><%
+                    when "4"  # N1
+                       %><strong>021 596 2762</strong><%
+                    else
+                       %><strong>021 443 5130</strong><%
+                    end
+              %>
+              and quote the vehicle reference number
+              <span>
+                <%=h @classified.stock_code %>
+              </span>.
+            </p>
 		</div><!-- end callus -->
 
 		<h3 class="calc_heading">Calculator</h3>
