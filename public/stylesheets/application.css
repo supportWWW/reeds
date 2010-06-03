@@ -162,6 +162,12 @@ border: 1px solid #afbbc7;
 padding: 2px;
 margin: 0 0 10px 15px;
 }
+img.brdr1{
+    border: 1px solid #afbbc7;
+    padding: 2px;
+    margin: 0 0 10px 15px;
+    background-color:#afbbc7;
+}
 /* home page columns */
 #middlecol {margin: 15px 0 0;}
 

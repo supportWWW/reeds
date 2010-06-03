@@ -6,4 +6,6 @@ class CustomController < ApplicationController
   def cruze
   end
 
+  def spark
+  end
 end
