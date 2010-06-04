@@ -7,6 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.root :controller => 'main', :action => 'index'
 
+  map.cruze "specials/the-new-chevrolet-spark", :controller => "custom", :action => "spark"
   map.resources :referrals, :member => { :visit => :get }
   map.resources :news_articles
   map.resources :branches
@@ -30,7 +31,6 @@ ActionController::Routing::Routes.draw do |map|
   map.book_service "service_and_parts/book", :controller => "service_and_parts", :action => "book"
 
   map.cruze "cruze", :controller => "custom", :action => "cruze"
-  map.cruze "spark", :controller => "custom", :action => "spark"
 
   map.resources :events, :member => { :image => :get }
 
