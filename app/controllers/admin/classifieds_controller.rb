@@ -172,6 +172,16 @@ class Admin::ClassifiedsController < Admin::ApplicationController
     end
   end
 
+  def ajax_form_submit
+    @classified_id = params[:classified_id]
+    @form_submit = FormSubmit.new
+    @form_submit.form_name = "used_vehicle_enquiry"
+    @form_submit.product_id = @classified_id
+    @form_submit.created_at = Time.now
+    @form_submit.save
+  end
+
+
 private
 
   def expire_cache

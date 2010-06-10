@@ -8,11 +8,12 @@
     <th><%= link_to 'Days In Stock', :action => 'index', :id => "days_in_stock" %></th>
     <th><%= link_to 'Views', :action => 'index', :id => "views" %></th>
     <th><%= link_to 'Forms Sent', :action => 'index', :id => "forms_sent" %></th>
-    <th><%= link_to 'Conversion %', :action => 'index', :id => "conversions" %></th>
+    <th><%= link_to 'Conve s-rsion %', :action => 'index', :id => "conversions" %></th>
+    <th>Add Classified contact</th>
   </tr>
 
 <% for classified in classifieds %>
-  <tr>
+  <tr id="classified_<%=h classified.id.to_s%>" >
     <td><%=h classified.stock_code %></td>
     <td><%=h classified.humanize %></td>
     <td><%=h classified.price.format %></td>
@@ -22,6 +23,17 @@
     <td><%=h classified.stats_count %></td>
     <td><%=h classified.form_count%></td>
     <td><%=h classified.conversions %></td>
+    <td>
+    <p id="add_form_submit_<%=h classified.id %>" style="width:">
+      <% form_remote_tag(:url => {:action => 'ajax_form_submit'},
+            :update => {:success => "add_form_submitted_" << classified.id.to_s , :error => "An error occured while updating this record"}  , :position => :top,
+            :html => {:id => 'classified_id'}) do %>
+      <%= hidden_field_tag  "classified_id", classified.id   %>
+      <%= submit_tag '+' %>
+      <% end %>
+    </p>
+    <div id="add_form_submitted_<%=h classified.id.to_s%>"></div>
+  </td>
     <td><%= link_to 'Show', admin_classified_path(classified) %> | <%= link_to 'Destroy', admin_classified_path(classified), :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
