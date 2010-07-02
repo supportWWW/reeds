@@ -172,3 +172,5 @@ img.brdr1{
 #middlecol {margin: 15px 0 0;}
 
 #leftcol p.twitter { width: 255px; margin: 0; float: none; clear: both; text-align: right;}
+.social{margin-right:10px;float:right;text-align:left;line-height:22px;min-height:22px;}
+.search_button{padding-left:10px;float:left;line-height:22px;min-height:22px;}

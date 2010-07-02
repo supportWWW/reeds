@@ -15,9 +15,17 @@
 		<% end %>
 	</div>
 	<div id="ruler"></div>
-	<p>
-		<input class="button" src="/images/btn-search.gif" value="Search" id="Search" name="Search" type="image">
-	</p>
+	<div>
+        <span class="search_button">
+          <input class="button" src="/images/btn-search.gif" value="Search" id="Search" name="Search" type="image">
+        </span>
+        <span class="social">
+          <%= link_to(image_tag("social_twitter_tn.png", :alt => "Twitter"), "http://twitter.com/ReedsMotorGroup", :title => "Follow us on Twitter", :popup => true) %>
+          <%= link_to(image_tag("social_facebook_tn.png", :alt => "Facebook"), "http://www.facebook.com/group.php?gid=69786709240", :title => "Follow us on Facebook", :popup => true) %>
+        </span>
+	</div>
+    
+
 <% end -%>
 
 <div id="hidden_used_vehicle_search_form_content" style="display:none;">

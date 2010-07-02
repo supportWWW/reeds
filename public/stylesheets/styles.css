@@ -695,7 +695,7 @@ p#pages a:hover {text-decoration: underline; }
 /* search box */
 #search {
 width: 299px;
-height: 303px;
+min-height: 303px;
 float: right;
 background: #dde9f3;
 border-bottom: 2px solid #b6cfe3;

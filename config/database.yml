@@ -37,7 +37,7 @@ test:
   adapter: mysql
   encoding: utf8
   database: reeds_test
-  username: root
+  username: root1
   password:
 
 production:
