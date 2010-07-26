@@ -94,6 +94,26 @@ class Admin::ClassifiedsController < Admin::ApplicationController
     @stats = stats.sort.map { |stat| stat[1] }
   end
 
+  def archive
+    @classified = Classified.find(params[:id])
+    @classified.removed_at = "2010-07-19 12:17:05"
+    respond_to do |format|
+      if @classified.update_attributes(params[:classified])
+        flash[:notice] = 'Classified listing was successfully archived.'
+        format.html { redirect_to(admin_classifieds_path) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @classified.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  def get_archived
+    @classified = Classified.find(:all , :conditions => [" removed_at != null "])
+    raise @classified.inspect
+  end
+
   # GET /classifieds/cyberstock
   # GET /classifieds/cyberstock.xml
   def cyberstock
@@ -180,6 +200,7 @@ class Admin::ClassifiedsController < Admin::ApplicationController
     @form_submit.created_at = Time.now
     @form_submit.save
   end
+
 
 
 private

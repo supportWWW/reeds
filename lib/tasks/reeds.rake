@@ -23,5 +23,13 @@ namespace :reeds do
       Cyberstock.expiry_check
     end
   end
-  
+
+  namespace :test do
+    desc "Test task"
+    task :test_send do
+      load 'config/environment.rb'
+      StockList.stock
+    end
+  end
+
 end

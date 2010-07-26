@@ -117,7 +117,6 @@ class Classified < ActiveRecord::Base
     stats.count
   end
 
-
   def form_count
     @form_submit = FormSubmit.find(:all, :conditions => [" product_id = ?", id])
     if @form_submit.empty?
@@ -140,7 +139,7 @@ class Classified < ActiveRecord::Base
   def self.set_order_var(order_by_string)
     @order_var = order_by_string
   end
-  
+
 private
 
   # denormalization for search

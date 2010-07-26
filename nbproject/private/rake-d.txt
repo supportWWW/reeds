@@ -1,5 +1,6 @@
 chores\:daily=
 chores\:hourly=
+chores\:test=
 chores\:weekly=
 db\:abort_if_pending_migrations=Raises an error if there are pending migrations
 db\:charset=Retrieves the charset for the current environment's database
@@ -90,6 +91,7 @@ rails_env=
 reeds\:cyberstock\:send_expire=Send soon-to-expire cyberstock
 reeds\:stocklist\:send=Send stocklists
 reeds\:stocklist_weekly\:send=Send weekly stocklists
+reeds\:test\:test_send=Test task
 routes=Print out all defined routes in match order, with names.
 secret=Generate a crytographically secure secret key. This is typically used to generate a secret for cookie sessions.
 spec=Run all specs in spec directory (excluding plugin specs)

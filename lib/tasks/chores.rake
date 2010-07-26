@@ -24,4 +24,14 @@ namespace :chores do
     yield
     puts "#{name} Task Finished: #{Time.now}"
   end
+
+  task :test => :environment do
+    chore("test") do
+      puts "start"
+      Rake::Task['reeds:test:test_send'].invoke
+      puts "end"
+    end
+  end
+
+
 end

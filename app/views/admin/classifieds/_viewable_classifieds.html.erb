@@ -34,7 +34,7 @@
     </p>
     <div id="add_form_submitted_<%=h classified.id.to_s%>"></div>
   </td>
-    <td><%= link_to 'Show', admin_classified_path(classified) %> | <%= link_to 'Destroy', admin_classified_path(classified), :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Show', admin_classified_path(classified) %> | <%= link_to 'Destroy', admin_classified_path(classified), :confirm => 'Are you sure?', :method => :delete %> | <%= link_to 'Archive', :action => 'get_archived' , :id => classified.id , :confirm => 'Are you sure?' %></td>
   </tr>
 <% end %>
 </table>

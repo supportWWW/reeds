@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100421140348) do
+ActiveRecord::Schema.define(:version => 20100719115221) do
 
   create_table "accessories", :force => true do |t|
     t.string   "name"
@@ -86,6 +86,7 @@ ActiveRecord::Schema.define(:version => 20100421140348) do
     t.string   "type"
     t.string   "physical_stock"
     t.integer  "branch_id"
+    t.string   "status"
   end
 
   add_index "classifieds", ["model_variant_id"], :name => "index_classifieds_on_model_variant_id"
