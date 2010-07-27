@@ -14,9 +14,10 @@ or email her at suzanned@reeds.co.za
 	<td><%= classified.humanize %></td>
 	<td width="35"><%= classified.year %></td>
 	<td width="80"><%= classified.mileage %>km</td>
-	<td width="35">#<%= classified.colour %></td>
-	<td width="42">#<%= classified.stock_code %></td>
+	<td width="35"><%= classified.colour %></td>
+	<td width="42"><%= classified.stock_code %></td>
 	<td><strong><%= classified.price.format %></strong></td>
+    <td><a href="http://www.reeds.co.za/classifieds/<%= classified.permalink %>">Click To View</a></td>
 </tr>
 <% end -%>
 </table>
