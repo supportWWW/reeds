@@ -49,23 +49,5 @@ class StockList
   
   def self.stock
     Classified.available.find(:all, :order => "makes.common_name, models.common_name, price_in_cents") # .each do |classified|
-    #list = []
-#    @list =  Classified.available.find(:all, :order => "makes.common_name, models.common_name, price_in_cents") # .each do |classified|
-#    puts @list.to_yaml
-    #  list << classified # "#{classified.humanize} #{classified.year} (#{classified.mileage}km): #{classified.price.format}"
-    #end
-    #return list
-#    @list_final = []
-#    @list.each do |row|
-#      if !row[:permalink].nil?
-##        @url = "http://www.reeds.co.za/classifieds/" << row[:permalink]
-##        row[:url] = @url
-#        @list_final = row
-#        puts @list_final.inspect
-#      else
-#        puts "no permalink"
-#      end
-#      raise @list_final.inspect
-#    end
   end
 end
