@@ -18,6 +18,14 @@ class VehicleEnquiryMailer < ActionMailer::Base
     body       :form => frm, :referrals => referrals
   end
 
+  def autoresponder(recipient, subject,  sent_at = Time.now)
+    subject       subject
+    recipients    [recipient]
+    from          'i-am-robot-dont-respond@reeds.co.za'
+    sent_on       sent_at
+    content_type  "text/html"
+  end
+
 private
 
   def get_used_vehicle_recipients(frm)
