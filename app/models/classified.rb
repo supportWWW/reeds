@@ -1,18 +1,18 @@
 class Classified < ActiveRecord::Base
-  
+
   validates_presence_of :price_in_cents, :model_variant_id, :stock_code
   money :price
-  
+
 
   belongs_to :model_variant
-  
+
   belongs_to :model # denormalized for search
   belongs_to :make # denormalized for search
 
   belongs_to :branch
 
   has_many :stats, :as => :parent, :dependent => :destroy
-  
+
   before_validation :set_make_and_model
   has_permalink [:humanize, :stock_code] # needs to be after before_validation :set_make_and_model
   @order_var = ""
@@ -44,7 +44,7 @@ class Classified < ActiveRecord::Base
   def used_vehicle?
     kind_of?(UsedVehicle)
   end
-  
+
   def humanize
     if make && model
       "#{make.common_name} #{model.common_name}"
@@ -52,11 +52,11 @@ class Classified < ActiveRecord::Base
       ""
     end
   end
-  
+
   def removed?
     !removed_at.nil?
   end
-  
+
   def has_images?
     !images.empty?
   end
@@ -64,7 +64,7 @@ class Classified < ActiveRecord::Base
   def has_all_images?
     images.size == 3
   end
-  
+
   # Default image
   def img_url
     filename = "#{reg_num}_1.jpg"
@@ -80,7 +80,7 @@ class Classified < ActiveRecord::Base
     end
     @full_image_url
   end
-  
+
   def images
     return @imgs unless @imgs.nil?
     @imgs = []
@@ -101,7 +101,7 @@ class Classified < ActiveRecord::Base
     end
     imgs
   end
-  
+
   def missing_images
     imgs = []
     %w(1 2 3).each do |suffix|
@@ -112,7 +112,7 @@ class Classified < ActiveRecord::Base
     end
     imgs
   end
-  
+
   def stats_count
     stats.count
   end
