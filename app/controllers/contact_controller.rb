@@ -57,14 +57,20 @@ class ContactController < ApplicationController
     @form_submit.product_id = @form.classified_id
     @form_submit.created_at = Time.now
     @form_submit.save
-    
-      if request.post? and @form.valid?
+
+	  recipient = params[:form][:email]
+	  subject = "We thank you for your enquiry"
+    VehicleEnquiryMailer.deliver_autoresponder(recipient, subject)
+
+    if request.post? and @form.valid?
       flash[:public_notice] = 'We received your enquiry and will get in contact shortly'
       VehicleEnquiryMailer.deliver_used @form, get_referrals
       @success = true
     elsif request.post?
       @success = false
     end
+
+
     respond_to do |format|
       format.js
     end
