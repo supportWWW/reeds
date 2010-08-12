@@ -22,11 +22,11 @@ config.action_view.cache_template_loading            = true
 config.action_mailer.raise_delivery_errors = false
 config.action_mailer.delivery_method = :smtp
 
-config.action_mailer.smtp_settings = { 
-  :address => "localhost", 
-  :port => 25, 
-  :domain => "reeds.webhop.net"
-#  :authentication => :login, 
-#  :user_name => "dave", 
-#  :password => "secret" 
-} 
+#config.action_mailer.smtp_settings = {
+#  :address => "localhost",
+#  :port => 25,
+#  :domain => "reeds.webhop.net"
+##  :authentication => :login,
+##  :user_name => "dave",
+##  :password => "secret"
+#} 

@@ -81,7 +81,6 @@ Rails::Initializer.run do |config|
   # config.active_record.observers = :cacher, :garbage_collector
 end
 
-
 # Needed for ImageScience
 if RAILS_ENV == "production" 
   ENV['INLINEDIR'] = RAILS_ROOT + "/tmp" 
