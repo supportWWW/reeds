@@ -10,6 +10,8 @@ class Page < ActiveRecord::Base
   validates_uniqueness_of :title_permalink, :message => 'This title has already been taken', :if => :has_title?
   
   rendered_column :text
+  has_many :menu_items, :dependent => :destroy
+
   
   def to_param
     title_permalink
