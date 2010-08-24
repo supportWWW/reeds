@@ -7,10 +7,12 @@ module ApplicationHelper
   end
 
   def url_for_menu( menu_item )
-    if menu_item.path.blank?
+    if !(menu_item.path.blank?)
+      menu_item.path
+    elsif menu_item.page
       page_path(menu_item.page)
     else
-      menu_item.path
+      ''
     end
   end
   
