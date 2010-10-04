@@ -50,4 +50,9 @@ class StockList
   def self.stock
     Classified.available.find(:all, :order => "makes.common_name, models.common_name, price_in_cents") # .each do |classified|
   end
+
+  def self.test
+     stocklist = stock
+      StockListMailer.deliver_list("Francois Campbell", "francois@cpt.whitewallweb.com", stocklist)
+  end
 end
