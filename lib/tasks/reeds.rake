@@ -28,7 +28,7 @@ namespace :reeds do
     desc "Test task"
     task :test_send do
       load 'config/environment.rb'
-      StockList.stock
+      StockList.test
     end
   end
 
