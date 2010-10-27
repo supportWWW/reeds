@@ -50,29 +50,38 @@ class ContactController < ApplicationController
   end
 
   def used_vehicle_enquiry
-    @form = UsedVehicleEnquiryForm.new( params[:form] )
-    #insert record into form_submit for FormSubmit table for stats
-    @form_submit = FormSubmit.new
-    @form_submit.form_name = "used_vehicle_enquiry"
-    @form_submit.product_id = @form.classified_id
-    @form_submit.created_at = Time.now
-    @form_submit.save
-
-	  recipient = params[:form][:email]
-	  subject = "We thank you for your enquiry"
-    VehicleEnquiryMailer.deliver_autoresponder(recipient, subject)
-
-    if request.post? and @form.valid?
-      flash[:public_notice] = 'We received your enquiry and will get in contact shortly'
-      VehicleEnquiryMailer.deliver_used @form, get_referrals
-      @success = true
-    elsif request.post?
-      @success = false
-    end
+    if !params[:form].nil?
+      if(!params[:form][:email].nil?)
+        flash[:public_notice] = 'Please provide a valid email address.'
+        @success = false
+      else
+        @form = UsedVehicleEnquiryForm.new( params[:form] )
+        #insert record into form_submit for FormSubmit table for stats
+        @form_submit = FormSubmit.new
+        @form_submit.form_name = "used_vehicle_enquiry"
+        @form_submit.product_id = @form.classified_id
+        @form_submit.created_at = Time.now
+        @form_submit.save
 
 
-    respond_to do |format|
-      format.js
+        recipient = params[:form][:email]
+        subject = "We thank you for your enquiry"
+        VehicleEnquiryMailer.deliver_autoresponder(recipient, subject)
+
+        if request.post? and @form.valid?
+          flash[:public_notice] = 'We received your enquiry and will get in contact shortly'
+          VehicleEnquiryMailer.deliver_used @form, get_referrals
+          @success = true
+        elsif request.post?
+          @success = false
+        end
+
+      end
+      respond_to do |format|
+        format.js
+      end
+    else
+      redirect_to :controller => "classifieds"
     end
   end
 
