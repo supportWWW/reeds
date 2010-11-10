@@ -33,11 +33,19 @@ class ContactController < ApplicationController
   end
   
   def load_models
-    if params[:make_id]
-      @models = Model.find_all_by_make_id( params[:make_id] ).collect { |m| [ m.name, m.id ] }
-      @models.insert( 0, [ 'Select a model...', '' ] )
-    else
-      redirect_to :controller => "contact"
+    respond_to do |format|
+      format.js do
+        if params[:make_id]
+          @models = Model.find_all_by_make_id( params[:make_id] ).collect { |m| [ m.name, m.id ] }
+          @models.insert( 0, [ 'Select a model...', '' ] )
+        else
+          redirect_to :controller => "contact"
+        end
+      end
+
+      format.html do
+        redirect_to sell_your_car_path
+      end
     end
   end
   
