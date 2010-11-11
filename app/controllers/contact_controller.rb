@@ -7,6 +7,8 @@ class ContactController < ApplicationController
   end
   
   def sell_your_car
+    if(request[:format].nil?)
+     
     @form = SellMyCarForm.new( params[:sell_your_car_form] )
     @make = params[:sell_your_car_form_make_id] ? Make.find(params[:sell_your_car_form_make_id]) : nil
     if request.post? and @form.valid?
@@ -15,6 +17,10 @@ class ContactController < ApplicationController
       redirect_to :action => 'sell_your_car'
     elsif request.post?
       flash.now[:error]= 'You must fill the required fields'
+    end
+    
+    elsif
+    redirect_to sell_your_car_path
     end
   end
   
