@@ -1,6 +1,7 @@
 class ServiceAndPartsController < ApplicationController
   
   def book
+     if(request[:format].nil?)
     @form = ServiceBookingForm.new( params[:form] )
     @success = false
     if request.post? and @form.valid?
@@ -12,6 +13,9 @@ class ServiceAndPartsController < ApplicationController
         format.html
       end
     end
+     elsif
+     redirect_to book_service_path
+     end
     
   end
   
