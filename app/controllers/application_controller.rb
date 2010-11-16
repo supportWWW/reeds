@@ -28,7 +28,10 @@ class ApplicationController < ActionController::Base
   def use_jquery
     @use_jquery = true
   end
-  
+  rescue_from ActionController::InvalidAuthenticityToken do
+   reset_session
+   redirect_to(login_path)
+end
   def public_path
     if request.port == 80
       "http://#{request.domain}"
