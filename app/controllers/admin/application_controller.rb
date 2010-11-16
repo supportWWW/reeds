@@ -34,6 +34,11 @@ class Admin::ApplicationController < ActionController::Base
       "http://#{request.domain}:#{request.port.to_s}"
     end
   end
+
+  rescue_from ActionController::InvalidAuthenticityToken do
+   reset_session
+   redirect_to(admin_login_path)
+end
   
   def load_page
     @page ||= params[:page] || '1'
