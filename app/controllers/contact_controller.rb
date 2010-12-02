@@ -65,7 +65,7 @@ class ContactController < ApplicationController
 
   def used_vehicle_enquiry
     if !params[:form].nil?
-      if(!params[:form][:email].nil?)
+      if(params[:form][:email].nil?)
         flash[:public_notice] = 'Please provide a valid email address.'
         @success = false
       else
