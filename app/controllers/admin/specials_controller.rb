@@ -19,10 +19,15 @@ class Admin::SpecialsController < Admin::ApplicationController
   # GET /specials/1.xml
   def show
     @special = Special.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @special }
+    #    raise @special.inspect
+    if @special.nil?
+      flash[:notice] = 'The special you requested no longer exists.'
+      redirect_to :action => 'index'
+    else
+      respond_to do |format|
+        format.html # show.html.erb
+        format.xml  { render :xml => @special }
+      end
     end
   end
 
@@ -80,15 +85,19 @@ class Admin::SpecialsController < Admin::ApplicationController
   # DELETE /specials/1.xml
   def destroy
     @special = Special.find(params[:id])
-    @special.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(admin_specials_url) }
-      format.xml  { head :ok }
+    if @special.nil?
+      flash[:notice] = 'The special does not exist so it cannot be deleted.'
+      redirect_to :action => 'index'
+    else
+      @special.destroy
+      respond_to do |format|
+        format.html { redirect_to(admin_specials_url) }
+        format.xml  { head :ok }
+      end
     end
   end
 
-private
+  private
 
   def expire_cache
     expire_home
