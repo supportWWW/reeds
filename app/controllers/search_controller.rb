@@ -69,6 +69,12 @@ class SearchController < ApplicationController
                                           :include => [:make, :model],
                                           :order => " makes.name, models.name, classifieds.price_in_cents ")
     else
+#      raise @page.inspect
+      if @page .instance_of?(String)
+        if @page.length > 2
+          @page = "1"
+        end
+      end
       @results = NewVehicleVariant.paginate( :all,
                                           :page => @page, :per_page => @per_page,
                                           :conditions => [conditions.join(" AND "), *criteria],
