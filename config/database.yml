@@ -17,7 +17,7 @@
 development:
   adapter: mysql
   encoding: utf8
-  database: reeds_development
+  database: reeds_10052011
   username: root
   password: WWWsysadmin
   host: localhost

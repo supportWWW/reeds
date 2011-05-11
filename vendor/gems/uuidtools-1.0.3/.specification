@@ -1,6 +1,10 @@
 --- !ruby/object:Gem::Specification 
 name: uuidtools
 version: !ruby/object:Gem::Version 
+  segments: 
+  - 1
+  - 0
+  - 3
   version: 1.0.3
 platform: ruby
 authors: 
@@ -33,28 +37,35 @@ files:
 - test/parse_test.rb
 has_rdoc: true
 homepage: http://sporkmonger.com/projects/uuidtools
+licenses: []
+
 post_install_message: 
 rdoc_options: 
 - --main
 - README
 require_paths: 
+- bin
 - lib
 required_ruby_version: !ruby/object:Gem::Requirement 
   requirements: 
   - - ">="
     - !ruby/object:Gem::Version 
+      segments: 
+      - 0
       version: "0"
   version: 
 required_rubygems_version: !ruby/object:Gem::Requirement 
   requirements: 
   - - ">="
     - !ruby/object:Gem::Version 
+      segments: 
+      - 0
       version: "0"
   version: 
 requirements: []
 
 rubyforge_project: uuidtools
-rubygems_version: 1.3.1
+rubygems_version: 1.3.6
 signing_key: 
 specification_version: 2
 summary: Generation of UUIDs.

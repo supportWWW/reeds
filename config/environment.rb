@@ -26,7 +26,7 @@ Rails::Initializer.run do |config|
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "aws-s3", :lib => "aws/s3"
 
-  config.gem 'will_paginate', :version => '2.2.2'
+  config.gem 'will_paginate', :version => '2.3.15'
   config.gem 'RedCloth', :version => '3.0.4', :lib => 'redcloth'
   config.gem 'gchartrb', :version => '0.8', :lib => 'google_chart'
   config.gem 'fastercsv', :version => '1.2.3'
